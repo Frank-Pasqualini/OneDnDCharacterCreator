@@ -1074,7 +1074,7 @@ class InfernalTiefling(Tiefling):
 
 
 CONTENT = {
-    "backgrounds": {
+    "Backgrounds": {
         "Custom": backgrounds.Background,
         "Artisan": Artisan,
         "Charlatan": Charlatan,

@@ -45,7 +45,7 @@ if __name__ == "__main__":
     parser.add_argument('characters', type=str, nargs='+',
                         help='A list of character python files to generate sheets for.')
     parser.add_argument('--sources', type=str, nargs='+', help='A list of source python files to load content from.',
-                        default=["SRD", "ODND1", "ODND2"])
+                        default=["srd", "odnd1", "odnd2"])
 
     args = parser.parse_args()
     main(args.characters, args.sources)
