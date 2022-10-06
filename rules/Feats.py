@@ -14,7 +14,6 @@ class Feat:
     _abilities: Abilities.Abilities
     _bonuses: Bonuses.Bonuses
     _spells: list[Spells.Spell]
-    _languages: list[Languages]
 
     def __init__(self,
                  name: str,
@@ -24,8 +23,7 @@ class Feat:
                  repeatable: str = "No",
                  abilities: Abilities.Abilities = Abilities.Abilities(),
                  bonuses: Bonuses.Bonuses = Bonuses.Bonuses(),
-                 spells: list[Spells.Spell] = None,
-                 languages: list[Languages] = None):
+                 spells: list[Spells.Spell] = None):
         if level not in [None, 1, 4, 20]:
             raise Exception("Invalid Feat level")
 
@@ -37,7 +35,9 @@ class Feat:
         self._abilities = abilities
         self._bonuses = bonuses
         self._spells = spells
-        self._languages = languages
+
+    def get_abilities(self) -> Abilities.Abilities:
+        return self._abilities
 
     def get_level(self) -> int:
         return self._level

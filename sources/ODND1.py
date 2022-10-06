@@ -20,8 +20,9 @@ class Artisan(Backgrounds.Background):
                          },
                              artisans_tools={
                                  tool1: ProficiencyLevels.PROFICIENT,
-                             }),
-                         language=Languages.GNOMISH,
+                             },
+                             languages=[Languages.GNOMISH],
+                         ),
                          feat=Crafter(tool2, tool3, tool4),
                          description="You began mopping floors and scrubbing counters in an artisan’s workshop for a "
                                      "few coppers per day as soon as you were strong enough to carry a bucket. When "
@@ -45,8 +46,9 @@ class Charlatan(Backgrounds.Background):
                          },
                              tools={
                                  Tools.FORGERY_KIT: ProficiencyLevels.PROFICIENT,
-                             }),
-                         language=Languages.INFERNAL,
+                             },
+                             languages=[Languages.INFERNAL],
+                         ),
                          feat=Skilled(skill1, skill2, skill3),
                          description="Soon after you were old enough to order an ale, you already had a favorite "
                                      "stool in every tavern within ten miles of where you were born. As you traveled "
@@ -67,8 +69,9 @@ class Criminal(Backgrounds.Background):
                          },
                              tools={
                                  Tools.THIEVES_TOOLS: ProficiencyLevels.PROFICIENT,
-                             }),
-                         language=Languages.THIEVES_CANT,
+                             },
+                             languages=[Languages.THIEVES_CANT],
+                         ),
                          feat=Alert(),
                          description="You learned to earn your coin in dark alleyways, cutting purses or burgling "
                                      "shops. Perhaps you were part of a small gang of like-minded wrongdoers, "
@@ -91,8 +94,9 @@ class Cultist(Backgrounds.Background):
                          },
                              tools={
                                  Tools.DISGUISE_KIT: ProficiencyLevels.PROFICIENT,
-                             }),
-                         language=Languages.ABYSSAL,
+                             },
+                             languages=[Languages.ABYSSAL],
+                         ),
                          feat=MagicInitiate(SpellLists.ARCANE, cantrip1, cantrip2, spell, ability),
                          description="You scarcely recall what drove you into the service of the otherworldly "
                                      "being. Those memories were blotted out long ago by recurrent dreams of midnight "
@@ -120,8 +124,9 @@ class Entertainer(Backgrounds.Background):
                          },
                              musical_instruments={
                                  instrument1: ProficiencyLevels.PROFICIENT,
-                             }),
-                         language=Languages.ELVISH,
+                             },
+                             languages=[Languages.ELVISH],
+                         ),
                          feat=Musician(instrument2, instrument3, instrument4),
                          description="You spent much of your youth following roving fairs and carnivals, performing "
                                      "odd jobs for musicians and acrobats in exchange for lessons. You may have "
@@ -141,8 +146,9 @@ class Farmer(Backgrounds.Background):
                          },
                              artisans_tools={
                                  ArtisansTools.CARPENTERS_TOOLS: ProficiencyLevels.PROFICIENT,
-                             }),
-                         language=Languages.HALFLING,
+                             },
+                             languages=[Languages.HALFLING],
+                         ),
                          feat=Tough(),
                          description="You grew up close to the land. Years tending animals and cultivating the earth "
                                      "rewarded you with patience and good health. You have a keen appreciation for "
@@ -162,8 +168,9 @@ class Gladiator(Backgrounds.Background):
                          },
                              artisans_tools={
                                  ArtisansTools.SMITHS_TOOLS: ProficiencyLevels.PROFICIENT,
-                             }),
-                         language=Languages.ORC,
+                             },
+                             languages=[Languages.ORC],
+                         ),
                          feat=SavageAttacker(),
                          description="Your first few appearances in the gladiatorial pits led you to appreciate every "
                                      "one of the scars you carry from your instructors ands parring partners. Each "
@@ -186,8 +193,9 @@ class Guard(Backgrounds.Background):
                          },
                              gaming_sets={
                                  gaming_set: ProficiencyLevels.PROFICIENT,
-                             }),
-                         language=Languages.DWARVISH,
+                             },
+                             languages=[Languages.DWARVISH],
+                         ),
                          feat=Alert(),
                          description="Your feet begin to ache when you remember the countless hours you spent at your "
                                      "post in the tower. You were trained to keep one eye outside the wall, "
@@ -543,7 +551,7 @@ class Dragonborn(Races.Race):
                                  name="Draconic Language",
                                  description="You instinctively know the language of dragons. You can therefore speak, "
                                              "read, and write Draconic.",
-                                 languages=[Languages.DRACONIC]
+                                 bonuses=Bonuses.Bonuses(languages=[Languages.DRACONIC]),
                              )
                          ],
                          life_span=80)
@@ -1067,6 +1075,7 @@ CONTENT = {
         "Farmer": Farmer,
         "Gladiator": Gladiator,
         "Guard": Guard,
+        # # TODO
         # "Guide": Guide,
         # "Hermit": Hermit,
         # "Laborer": Laborer,

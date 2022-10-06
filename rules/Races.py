@@ -33,6 +33,15 @@ class Race:
         self._life_span = life_span
         self._features = features
 
+    def get_features(self) -> list[Feats.Feat]:
+        return self._features
+
+    def get_name(self) -> str:
+        return self._name
+
+    def get_speed(self) -> int:
+        return self._speed
+
     def __str__(self) -> str:
         """Print the Race as it would be seen in a race description."""
 

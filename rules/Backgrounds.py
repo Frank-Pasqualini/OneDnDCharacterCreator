@@ -9,7 +9,6 @@ class Background:
     _name: str
     _abilities: Abilities.Abilities
     _bonuses: Bonuses.Bonuses
-    _language: Languages
     _feat: Feats.Feat
     _equipment: any  # TODO
     _description: str
@@ -22,7 +21,6 @@ class Background:
                  name: str,
                  abilities: Abilities.Abilities,
                  bonuses: Bonuses.Bonuses,
-                 language: Languages,
                  feat: Feats.Feat,
                  equipment: any,
                  description: str = "",
@@ -42,8 +40,8 @@ class Background:
                 bonuses.get_initiative() != ProficiencyLevels.NONE or bonuses.get_hp_bonus():
             raise Exception("A Background must contain exactly 2 skills and one tool")
 
-        if language == Languages.COMMON:
-            raise Exception("A Background must contain a language other than Common")
+        if len(bonuses.get_languages()) != 1 or bonuses.get_languages()[0] == Languages.COMMON:
+            raise Exception("A Background must contain 1 language other than Common")
 
         if feat.get_level() != 1:
             raise Exception("Only a first level Feat can be part of a Background")
@@ -51,7 +49,6 @@ class Background:
         self._name = validate_string(name)
         self._abilities = abilities
         self._bonuses = bonuses
-        self._language = language
         self._feat = feat
         self._equipment = equipment
         self._description = description
@@ -59,6 +56,30 @@ class Background:
         self._ideals = ideals
         self._bonds = bonds
         self._flaws = flaws
+
+    def get_abilities(self) -> Abilities.Abilities:
+        return self._abilities
+
+    def get_bonds(self) -> str:
+        return self._bonds
+
+    def get_bonuses(self) -> Bonuses.Bonuses:
+        return self._bonuses
+
+    def get_feat(self) -> Feats.Feat:
+        return self._feat
+
+    def get_flaws(self) -> str:
+        return self._flaws
+
+    def get_ideals(self) -> str:
+        return self._ideals
+
+    def get_name(self) -> str:
+        return self._name
+
+    def get_personality_traits(self) -> str:
+        return self._personality_traits
 
     def __str__(self) -> str:
         """Print the Background as it would be seen in a background description."""
@@ -81,13 +102,9 @@ class Background:
         skills = [str(skill.value) for skill in self._bonuses.get_skills().keys()]
         output += f"Skill Proficiencies: {', '.join(skills)}\n"
 
-        tools = [str(tool.value) for tool in self._bonuses.get_artisans_tools().keys()] + \
-                [str(tool.value) for tool in self._bonuses.get_gaming_sets().keys()] + \
-                [str(tool.value) for tool in self._bonuses.get_musical_instruments().keys()] + \
-                [str(tool.value) for tool in self._bonuses.get_tools().keys()]
-        output += f"Tool Proficiencies: {tools[0]}\n"
+        output += f"Tool Proficiencies: {self._bonuses.get_all_tools()[0]}\n"
 
-        output += f"Language: {self._language.value}\n"
+        output += f"Language: {self._bonuses.get_languages()[0].value}\n"
 
         output += f"Feat: {self._feat.get_name()}\n"
 

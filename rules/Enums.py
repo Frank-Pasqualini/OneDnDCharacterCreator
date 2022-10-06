@@ -92,6 +92,9 @@ class ProficiencyLevels(Enum):
     def __lt__(self, other: ProficiencyLevels) -> bool:
         return self.value < other.value
 
+    def __mul__(self, other) -> int:
+        return self.value * other
+
 
 class Skills(Enum):
     ACROBATICS = "Acrobatics"

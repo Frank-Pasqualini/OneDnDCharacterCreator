@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import math
+
 
 class Abilities:
     """The set of 6 standard ability scores."""
@@ -44,6 +46,24 @@ class Abilities:
 
     def get_charisma(self) -> int:
         return self._charisma
+
+    def get_strength_mod(self) -> int:
+        return math.floor((self._strength - 10) / 2)
+
+    def get_dexterity_mod(self) -> int:
+        return math.floor((self._dexterity - 10) / 2)
+
+    def get_constitution_mod(self) -> int:
+        return math.floor((self._constitution - 10) / 2)
+
+    def get_intelligence_mod(self) -> int:
+        return math.floor((self._intelligence - 10) / 2)
+
+    def get_wisdom_mod(self) -> int:
+        return math.floor((self._wisdom - 10) / 2)
+
+    def get_charisma_mod(self) -> int:
+        return math.floor((self._charisma - 10) / 2)
 
     def __add__(self, other: Abilities) -> Abilities:
         return Abilities(strength=self._strength + other.get_strength(),
