@@ -1,8 +1,8 @@
-from rules import Spells
-from rules.Enums import SpellLists, SpellSchools
+from rules import spells
+from rules.enums import SpellLists, SpellSchools
 
 
-class AnimalMessenger(Spells.Spell):
+class AnimalMessenger(spells.Spell):
     def __init__(self):
         super().__init__(name="Animal Messenger",
                          spell_lists=[SpellLists.PRIMAL],
@@ -33,7 +33,7 @@ class AnimalMessenger(Spells.Spell):
                                           "2nd.")
 
 
-class Light(Spells.Spell):
+class Light(spells.Spell):
     def __init__(self):
         super().__init__(name="Light",
                          spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],

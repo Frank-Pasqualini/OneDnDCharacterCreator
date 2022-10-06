@@ -1,6 +1,5 @@
-from rules import Abilities, Bonuses, Spells
-from rules.Enums import Languages
-from rules.CommonFunctions import ordinal, validate_string
+from rules import abilities, bonuses, spells
+from rules.common import ordinal, validate_string
 
 
 class Feat:
@@ -11,9 +10,9 @@ class Feat:
     _level: int | None
     _prerequisite: str
     _repeatable: str
-    _abilities: Abilities.Abilities
-    _bonuses: Bonuses.Bonuses
-    _spells: list[Spells.Spell]
+    _abilities: abilities.Abilities
+    _bonuses: bonuses.Bonuses
+    _spells: list[spells.Spell]
 
     def __init__(self,
                  name: str,
@@ -21,9 +20,9 @@ class Feat:
                  level: int = None,
                  prerequisite: str = "None",
                  repeatable: str = "No",
-                 abilities: Abilities.Abilities = Abilities.Abilities(),
-                 bonuses: Bonuses.Bonuses = Bonuses.Bonuses(),
-                 spells: list[Spells.Spell] = None):
+                 feat_abilities: abilities.Abilities = abilities.Abilities(),
+                 feat_bonuses: bonuses.Bonuses = bonuses.Bonuses(),
+                 feat_spells: list[spells.Spell] = None):
         if level not in [None, 1, 4, 20]:
             raise Exception("Invalid Feat level")
 
@@ -32,11 +31,11 @@ class Feat:
         self._level = level
         self._prerequisite = validate_string(prerequisite)
         self._repeatable = validate_string(repeatable)
-        self._abilities = abilities
-        self._bonuses = bonuses
-        self._spells = spells
+        self._abilities = feat_abilities
+        self._bonuses = feat_bonuses
+        self._spells = feat_spells
 
-    def get_abilities(self) -> Abilities.Abilities:
+    def get_abilities(self) -> abilities.Abilities:
         return self._abilities
 
     def get_level(self) -> int:

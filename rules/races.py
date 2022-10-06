@@ -1,6 +1,6 @@
-from rules import Feats
-from rules.CommonFunctions import validate_string
-from rules.Enums import CreatureTypes, Sizes
+from rules import feats
+from rules.common import validate_string
+from rules.enums import CreatureTypes, Sizes
 
 
 class Race:
@@ -11,11 +11,11 @@ class Race:
     _size: Sizes
     _speed: int
     _life_span: int
-    _features: list[Feats]
+    _features: list[feats]
 
     def __init__(self,
                  name: str,
-                 features: list[Feats],
+                 features: list[feats],
                  creature_type: CreatureTypes = CreatureTypes.HUMANOID,
                  size: Sizes = Sizes.MEDIUM,
                  speed: int = 30,
@@ -33,7 +33,7 @@ class Race:
         self._life_span = life_span
         self._features = features
 
-    def get_features(self) -> list[Feats.Feat]:
+    def get_features(self) -> list[feats.Feat]:
         return self._features
 
     def get_name(self) -> str:

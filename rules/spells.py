@@ -1,5 +1,5 @@
-from rules.CommonFunctions import ordinal, validate_string
-from rules.Enums import SpellLists, SpellSchools
+from rules.common import ordinal, validate_string
+from rules.enums import SpellLists, SpellSchools
 
 
 class Spell:
@@ -46,7 +46,8 @@ class Spell:
                 validate_string(component)
 
         if (material_components_list is not None) != material_components:
-            raise Exception("If and only if a spell has material components they should be listed")
+            raise Exception(
+                "If and only if a spell has material components they should be listed")
 
         self._name = validate_string(name)
         self._spell_lists = spell_lists
@@ -89,7 +90,8 @@ class Spell:
         component_types = ['V' if self._verbal_components else None,
                            'S' if self._somatic_components else None,
                            'M' if self._material_components else None]
-        component_types = [component_type for component_type in component_types if component_type is not None]
+        component_types = [
+            component_type for component_type in component_types if component_type is not None]
         output += f"Component: {', '.join(component_types)}"
         output += f"{' (' + self._material_components_list + ')' if self._material_components else ''}\n"
 

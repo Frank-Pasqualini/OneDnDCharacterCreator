@@ -13,8 +13,3 @@ class CharacterClass:
             output = str(self.subclass) + " " + output
 
         return output
-
-
-class Expert(CharacterClass):
-    def __init__(self, name: str):
-        super().__init__(name)

@@ -1,15 +1,15 @@
-from rules import Abilities, Character
-from rules.Enums import Alignments, Languages, Skills
+from rules import abilities, character
+from rules.enums import Alignments, Languages, Skills
 
 
-def create(content) -> Character.Character:
-    return Character.Character(
+def create(content) -> character.Character:
+    return character.Character(
         name="Example Character",
         character_class=content['Classes']['Rogue'](),
         race=content['Races']['Human'](skill=Skills.INVESTIGATION,
                                        versatile=content['Feats']['Lucky']()),
         background=content['Backgrounds']['Criminal'](),
-        abilities=Abilities.Abilities(
+        starting_abilities=abilities.Abilities(
             strength=8,
             dexterity=15,
             constitution=12,

@@ -1,14 +1,14 @@
-from rules import CharacterClasses, Spells
-from rules.Enums import SpellLists, SpellSchools
+from rules import classes, spells
+from rules.enums import SpellLists, SpellSchools
 
 
-class Rogue(CharacterClasses.CharacterClass):
+class Rogue(classes.CharacterClass):
     # TODO
     def __init__(self):
-        super(Rogue, self).__init__(name="Rogue")
+        super().__init__(name="Rogue")
 
 
-class Barkskin(Spells.Spell):
+class Barkskin(spells.Spell):
     def __init__(self):
         super().__init__(name="Barkskin",
                          spell_lists=[SpellLists.PRIMAL],
@@ -31,7 +31,7 @@ class Barkskin(Spells.Spell):
                                           "2nd.")
 
 
-class Guidance(Spells.Spell):
+class Guidance(spells.Spell):
     def __init__(self):
         super().__init__(name="Guidance",
                          spell_lists=[SpellLists.DIVINE, SpellLists.PRIMAL],

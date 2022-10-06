@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import logging
 
-from rules.Enums import AbilityNames, ArtisansTools, GamingSets, Languages, ProficiencyLevels, MusicalInstruments, \
+from rules.enums import AbilityNames, ArtisansTools, GamingSets, Languages, ProficiencyLevels, MusicalInstruments, \
     Skills, Tools
 
 
@@ -24,7 +24,8 @@ class Bonuses:
                  skills: dict[Skills, ProficiencyLevels] = None,
                  artisans_tools: dict[ArtisansTools, ProficiencyLevels] = None,
                  gaming_sets: dict[GamingSets, ProficiencyLevels] = None,
-                 musical_instruments: dict[MusicalInstruments, ProficiencyLevels] = None,
+                 musical_instruments: dict[MusicalInstruments,
+                                           ProficiencyLevels] = None,
                  tools: dict[Tools, ProficiencyLevels] = None,
                  languages: list[Languages] = None,
                  initiative: ProficiencyLevels = ProficiencyLevels.NONE,
@@ -59,10 +60,14 @@ class Bonuses:
         return self._tools
 
     def get_all_tools(self) -> list[str]:
-        tools = ["*" + str(tool.value) if self._artisans_tools[tool] == ProficiencyLevels.EXPERT else str(tool.value) for tool in self._artisans_tools.keys()] + \
-                ["*" + str(tool.value) if self._gaming_sets[tool] == ProficiencyLevels.EXPERT else str(tool.value) for tool in self._gaming_sets.keys()] + \
-                ["*" + str(tool.value) if self._musical_instruments[tool] == ProficiencyLevels.EXPERT else str(tool.value) for tool in self._musical_instruments.keys()] + \
-                ["*" + str(tool.value) if self._tools[tool] == ProficiencyLevels.EXPERT else str(tool.value) for tool in self._tools.keys()]
+        tools = ["*" + str(tool.value) if self._artisans_tools[tool] == ProficiencyLevels.EXPERT else
+                 str(tool.value) for tool in self._artisans_tools.keys()] + \
+                ["*" + str(tool.value) if self._gaming_sets[tool] == ProficiencyLevels.EXPERT else
+                 str(tool.value) for tool in self._gaming_sets.keys()] + \
+                ["*" + str(tool.value) if self._musical_instruments[tool] == ProficiencyLevels.EXPERT
+                 else str(tool.value) for tool in self._musical_instruments.keys()] + \
+                ["*" + str(tool.value) if self._tools[tool] ==
+                 ProficiencyLevels.EXPERT else str(tool.value) for tool in self._tools.keys()]
         return tools
 
     def get_languages(self) -> list[Languages]:
@@ -94,8 +99,8 @@ class Bonuses:
                                      other.get_saving_throws().get(key, 0))
             if self._saving_throws.get(key, 0) == other.get_saving_throws().get(key, 0) and \
                     self._saving_throws.get(key, 0) != 0:
-                logging.warning(f"You have two or more instances of proficiency level {self._saving_throws[key].name}"
-                                f"for saving throw {key.value}. Consider changing one")
+                logging.warning("You have two or more instances of proficiency level %s for saving throw %s. Consider "
+                                "changing one.", self._saving_throws[key].name, key.value)
 
         skills = {}
         for key in list(self._skills.keys()) + list(other.get_skills().keys()):
@@ -103,8 +108,8 @@ class Bonuses:
                               other.get_skills().get(key, 0))
             if self._skills.get(key, 0) == other.get_skills().get(key, 0) and \
                     self._skills.get(key, 0) != 0:
-                logging.warning(f"You have two or more instances of proficiency level {self._skills[key].name}"
-                                f"for {key.value}. Consider changing one")
+                logging.warning("You have two or more instances of proficiency level %s for skill %s. Consider "
+                                "changing one.", self._skills[key].name, key.value)
 
         artisans_tools = {}
         for key in list(self._artisans_tools.keys()) + list(other.get_artisans_tools().keys()):
@@ -112,8 +117,8 @@ class Bonuses:
                                       other.get_artisans_tools().get(key, 0))
             if self._artisans_tools.get(key, 0) == other.get_artisans_tools().get(key, 0) and \
                     self._artisans_tools.get(key, 0) != 0:
-                logging.warning(f"You have two or more instances of proficiency level {self._artisans_tools[key].name}"
-                                f"for {key.value}. Consider changing one")
+                logging.warning("You have two or more instances of proficiency level %s for tool %s. Consider "
+                                "changing one.", self._artisans_tools[key].name, key.value)
 
         gaming_sets = {}
         for key in list(self._gaming_sets.keys()) + list(other.get_gaming_sets().keys()):
@@ -121,8 +126,8 @@ class Bonuses:
                                    other.get_gaming_sets().get(key, 0))
             if self._gaming_sets.get(key, 0) == other.get_gaming_sets().get(key, 0) and \
                     self._gaming_sets.get(key, 0) != 0:
-                logging.warning(f"You have two or more instances of proficiency level {self._gaming_sets[key].name}"
-                                f"for {key.value}. Consider changing one")
+                logging.warning("You have two or more instances of proficiency level%s for tool %s. Consider changing "
+                                "one.", self._gaming_sets[key].name, key.value)
 
         musical_instruments = {}
         for key in list(self._musical_instruments.keys()) + list(other.get_musical_instruments().keys()):
@@ -130,8 +135,8 @@ class Bonuses:
                                            other.get_musical_instruments().get(key, 0))
             if self._musical_instruments.get(key, 0) == other.get_musical_instruments().get(key, 0) and \
                     self._musical_instruments.get(key, 0) != 0:
-                logging.warning(f"You have two or more instances of proficiency level"
-                                f"{self._musical_instruments[key].name} for {key.value}. Consider changing one")
+                logging.warning("You have two or more instances of proficiency level %s for tool %s. Consider "
+                                "changing one.", self._musical_instruments[key].name, key.value)
 
         tools = {}
         for key in list(self._tools.keys()) + list(other.get_tools().keys()):
@@ -139,17 +144,18 @@ class Bonuses:
                              other.get_tools().get(key, 0))
             if self._tools.get(key, 0) == other.get_tools().get(key, 0) and \
                     self._tools.get(key, 0) != 0:
-                logging.warning(f"You have two or more instances of proficiency level {self._tools[key].name}"
-                                f"for {key.value}. Consider changing one")
+                logging.warning("You have two or more instances of proficiency level %s for tool %s. Consider "
+                                "changing one.", self._tools[key].name, key.value)
 
         languages = list(set(self._languages) | set(other.get_languages()))
         if len(list(set(self._languages) & set(other.get_languages()))) != 0:
-            logging.warning("Two or more bonuses give you the same languages. Consider changing one.")
+            logging.warning(
+                "Two or more bonuses give you the same languages. Consider changing one.")
 
         initiative = max(self._initiative, other.get_initiative())
         if self._initiative == other.get_initiative():
-            logging.warning(f"You have two or more instances of proficiency level {self._initiative.name}"
-                            f"for initiative. Consider changing one")
+            logging.warning("You have two or more instances of proficiency level %s for initiative. Consider changing "
+                            "one.", self._initiative.name)
 
         hp_bonus = self._hp_bonus + other.get_hp_bonus()
 

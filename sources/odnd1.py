@@ -1,26 +1,27 @@
-from rules import Abilities, Backgrounds, Bonuses, Feats, Races, Spells
-from rules.Enums import AbilityNames, ArtisansTools, DamageTypes, GamingSets, Languages, MusicalInstruments, \
+from rules import abilities, backgrounds, bonuses, feats, races, spells
+from rules.enums import AbilityNames, ArtisansTools, DamageTypes, GamingSets, Languages, MusicalInstruments, \
     ProficiencyLevels, Sizes, Skills, SpellLists, Tools
 
 
-class Artisan(Backgrounds.Background):
+class Artisan(backgrounds.Background):
     def __init__(self,
                  tool1: ArtisansTools,
                  tool2: ArtisansTools,
                  tool3: ArtisansTools,
                  tool4: ArtisansTools):
-        if tool1 == tool2 or tool1 == tool3 or tool1 == tool4:
+        if tool1 in [tool2, tool3, tool4]:
             raise Exception("All tools should be unique")
 
         super().__init__(name="Artisan",
-                         abilities=Abilities.Abilities(intelligence=2, charisma=1),
-                         bonuses=Bonuses.Bonuses(skills={
+                         background_abilities=abilities.Abilities(
+                             intelligence=2, charisma=1),
+                         background_bonuses=bonuses.Bonuses(skills={
                              Skills.INVESTIGATION: ProficiencyLevels.PROFICIENT,
                              Skills.PERSUASION: ProficiencyLevels.PROFICIENT,
                          },
                              artisans_tools={
                                  tool1: ProficiencyLevels.PROFICIENT,
-                             },
+                         },
                              languages=[Languages.GNOMISH],
                          ),
                          feat=Crafter(tool2, tool3, tool4),
@@ -29,24 +30,24 @@ class Artisan(Backgrounds.Background):
                                      "you were finally old enough to apprentice, you learned to create basic crafts "
                                      "of your own, as well as how to sweet-talk the occasional demanding customer. As "
                                      "part of your studies,you picked up Gnomish, the tongue from which so many of "
-                                     "the artisan’s terms of art are derived.",
-                         equipment=None)
+                                     "the artisan’s terms of art are derived.")
 
 
-class Charlatan(Backgrounds.Background):
+class Charlatan(backgrounds.Background):
     def __init__(self,
                  skill1: Skills,
                  skill2: Skills,
                  skill3: Skills):
         super().__init__(name="Charlatan",
-                         abilities=Abilities.Abilities(charisma=2, dexterity=1),
-                         bonuses=Bonuses.Bonuses(skills={
+                         background_abilities=abilities.Abilities(
+                             charisma=2, dexterity=1),
+                         background_bonuses=bonuses.Bonuses(skills={
                              Skills.DECEPTION: ProficiencyLevels.PROFICIENT,
                              Skills.SLEIGHT_OF_HAND: ProficiencyLevels.PROFICIENT,
                          },
                              tools={
                                  Tools.FORGERY_KIT: ProficiencyLevels.PROFICIENT,
-                             },
+                         },
                              languages=[Languages.INFERNAL],
                          ),
                          feat=Skilled(skill1, skill2, skill3),
@@ -55,76 +56,77 @@ class Charlatan(Backgrounds.Background):
                                      "the circuit from public house to watering hole, you learned to prey on the "
                                      "unfortunates who were in the market for a comforting lie or two—perhaps a sham "
                                      "potion or a forged “treasure map.” You are fluent in Infernal,the ancient "
-                                     "language of deception.",
-                         equipment=None)
+                                     "language of deception.")
 
 
-class Criminal(Backgrounds.Background):
+class Criminal(backgrounds.Background):
     def __init__(self):
         super().__init__(name="Criminal",
-                         abilities=Abilities.Abilities(dexterity=2, intelligence=1),
-                         bonuses=Bonuses.Bonuses(skills={
+                         background_abilities=abilities.Abilities(
+                             dexterity=2, intelligence=1),
+                         background_bonuses=bonuses.Bonuses(skills={
                              Skills.SLEIGHT_OF_HAND: ProficiencyLevels.PROFICIENT,
                              Skills.STEALTH: ProficiencyLevels.PROFICIENT,
                          },
                              tools={
                                  Tools.THIEVES_TOOLS: ProficiencyLevels.PROFICIENT,
-                             },
+                         },
                              languages=[Languages.THIEVES_CANT],
                          ),
                          feat=Alert(),
                          description="You learned to earn your coin in dark alleyways, cutting purses or burgling "
                                      "shops. Perhaps you were part of a small gang of like-minded wrongdoers, "
                                      "who looked out for each other. Or maybe you were a lone wolf, fending for "
-                                     "yourself against the local thieves’ guild and older, more fearsome lawbreakers.",
-                         equipment=None)
+                                     "yourself against the local thieves’ guild and older, more fearsome lawbreakers.")
 
 
-class Cultist(Backgrounds.Background):
+class Cultist(backgrounds.Background):
     def __init__(self,
-                 cantrip1: Spells.Spell,
-                 cantrip2: Spells.Spell,
-                 spell: Spells.Spell,
+                 cantrip1: spells.Spell,
+                 cantrip2: spells.Spell,
+                 spell: spells.Spell,
                  ability: AbilityNames):
         super().__init__(name="Cultist",
-                         abilities=Abilities.Abilities(intelligence=2, charisma=1),
-                         bonuses=Bonuses.Bonuses(skills={
+                         background_abilities=abilities.Abilities(
+                             intelligence=2, charisma=1),
+                         background_bonuses=bonuses.Bonuses(skills={
                              Skills.ARCANA: ProficiencyLevels.PROFICIENT,
                              Skills.RELIGION: ProficiencyLevels.PROFICIENT,
                          },
                              tools={
                                  Tools.DISGUISE_KIT: ProficiencyLevels.PROFICIENT,
-                             },
+                         },
                              languages=[Languages.ABYSSAL],
                          ),
-                         feat=MagicInitiate(SpellLists.ARCANE, cantrip1, cantrip2, spell, ability),
+                         feat=MagicInitiate(
+                             SpellLists.ARCANE, cantrip1, cantrip2, spell, ability),
                          description="You scarcely recall what drove you into the service of the otherworldly "
                                      "being. Those memories were blotted out long ago by recurrent dreams of midnight "
                                      "gatherings round the obsidian pillar in the glade. By the light of each waning "
                                      "moon, the hierophants instructed you in the being’s creed and the rudiments of "
                                      "the arcane arts. When you came of age, you were ordered to blend in among the "
-                                     "nonbelievers and await whatever mission the Great One has in store for you.",
-                         equipment=None)
+                                     "nonbelievers and await whatever mission the Great One has in store for you.")
 
 
-class Entertainer(Backgrounds.Background):
+class Entertainer(backgrounds.Background):
     def __init__(self,
                  instrument1: MusicalInstruments,
                  instrument2: MusicalInstruments,
                  instrument3: MusicalInstruments,
                  instrument4: MusicalInstruments):
-        if instrument1 == instrument2 or instrument1 == instrument3 or instrument1 == instrument4:
+        if instrument1 in [instrument2,  instrument3, instrument4]:
             raise Exception("All tools should be unique")
 
         super().__init__(name="Entertainer",
-                         abilities=Abilities.Abilities(charisma=2, dexterity=1),
-                         bonuses=Bonuses.Bonuses(skills={
+                         background_abilities=abilities.Abilities(
+                             charisma=2, dexterity=1),
+                         background_bonuses=bonuses.Bonuses(skills={
                              Skills.ACROBATICS: ProficiencyLevels.PROFICIENT,
                              Skills.PERFORMANCE: ProficiencyLevels.PROFICIENT,
                          },
                              musical_instruments={
                                  instrument1: ProficiencyLevels.PROFICIENT,
-                             },
+                         },
                              languages=[Languages.ELVISH],
                          ),
                          feat=Musician(instrument2, instrument3, instrument4),
@@ -132,21 +134,21 @@ class Entertainer(Backgrounds.Background):
                                      "odd jobs for musicians and acrobats in exchange for lessons. You may have "
                                      "learned how to walk a tightrope, how to double pick a lute, or how to recite "
                                      "Elvish poetry with the impeccable trills of an elf poet. To this day, "
-                                     "you thrive on applause and long for the stage.",
-                         equipment=None)
+                                     "you thrive on applause and long for the stage.")
 
 
-class Farmer(Backgrounds.Background):
+class Farmer(backgrounds.Background):
     def __init__(self):
         super().__init__(name="Farmer",
-                         abilities=Abilities.Abilities(constitution=2, wisdom=1),
-                         bonuses=Bonuses.Bonuses(skills={
+                         background_abilities=abilities.Abilities(
+                             constitution=2, wisdom=1),
+                         background_bonuses=bonuses.Bonuses(skills={
                              Skills.ANIMAL_HANDLING: ProficiencyLevels.PROFICIENT,
                              Skills.NATURE: ProficiencyLevels.PROFICIENT,
                          },
                              artisans_tools={
                                  ArtisansTools.CARPENTERS_TOOLS: ProficiencyLevels.PROFICIENT,
-                             },
+                         },
                              languages=[Languages.HALFLING],
                          ),
                          feat=Tough(),
@@ -154,21 +156,21 @@ class Farmer(Backgrounds.Background):
                                      "rewarded you with patience and good health. You have a keen appreciation for "
                                      "nature’s bounty alongside a healthy respect for nature’s wrath. Like many "
                                      "farmers, you made frequent use of the agricultural almanacs produced by the "
-                                     "greatest halfling farmers.",
-                         equipment=None)
+                                     "greatest halfling farmers.")
 
 
-class Gladiator(Backgrounds.Background):
+class Gladiator(backgrounds.Background):
     def __init__(self):
         super().__init__(name="Gladiator",
-                         abilities=Abilities.Abilities(strength=2, charisma=1),
-                         bonuses=Bonuses.Bonuses(skills={
+                         background_abilities=abilities.Abilities(
+                             strength=2, charisma=1),
+                         background_bonuses=bonuses.Bonuses(skills={
                              Skills.ATHLETICS: ProficiencyLevels.PROFICIENT,
                              Skills.PERFORMANCE: ProficiencyLevels.PROFICIENT,
                          },
                              artisans_tools={
                                  ArtisansTools.SMITHS_TOOLS: ProficiencyLevels.PROFICIENT,
-                             },
+                         },
                              languages=[Languages.ORC],
                          ),
                          feat=SavageAttacker(),
@@ -178,22 +180,22 @@ class Gladiator(Backgrounds.Background):
                                      "with the crowds your brawls entertained. Your time in the pits left you with a "
                                      "strong hand and a strong heart. You’ll forever share a remarkable bond with the "
                                      "other pit fighters in your stable—humans, dragonborn, dwarves, "
-                                     "and orcs—hardened warriors all.",
-                         equipment=None)
+                                     "and orcs—hardened warriors all.")
 
 
-class Guard(Backgrounds.Background):
+class Guard(backgrounds.Background):
     def __init__(self,
                  gaming_set: GamingSets):
         super().__init__(name="Guard",
-                         abilities=Abilities.Abilities(strength=2, wisdom=1),
-                         bonuses=Bonuses.Bonuses(skills={
+                         background_abilities=abilities.Abilities(
+                             strength=2, wisdom=1),
+                         background_bonuses=bonuses.Bonuses(skills={
                              Skills.ATHLETICS: ProficiencyLevels.PROFICIENT,
                              Skills.PERCEPTION: ProficiencyLevels.PROFICIENT,
                          },
                              gaming_sets={
                                  gaming_set: ProficiencyLevels.PROFICIENT,
-                             },
+                         },
                              languages=[Languages.DWARVISH],
                          ),
                          feat=Alert(),
@@ -202,11 +204,10 @@ class Guard(Backgrounds.Background):
                                      "watching for marauders sweeping from the nearby forest, and your other eye "
                                      "inside the wall, searching for cutpurses and troublemakers. At the end of each "
                                      "shift, you bunked in the mayor’s barracks alongside your fellow sentries and "
-                                     "the dwarven smiths who kept your armor snug and your weapons sharp.",
-                         equipment=None)
+                                     "the dwarven smiths who kept your armor snug and your weapons sharp.")
 
 
-class Alert(Feats.Feat):
+class Alert(feats.Feat):
     def __init__(self):
         super().__init__(name="Alert",
                          level=1,
@@ -216,10 +217,10 @@ class Alert(Feats.Feat):
                                      "Initiative Swap. Immediately after you roll Initiative, you can swap your "
                                      "Initiative with the Initiative of one willing ally in the same combat. You "
                                      "can’t make this swap if you or the ally is Incapacitated.",
-                         bonuses=Bonuses.Bonuses(initiative=ProficiencyLevels.PROFICIENT))
+                         feat_bonuses=bonuses.Bonuses(initiative=ProficiencyLevels.PROFICIENT))
 
 
-class Crafter(Feats.Feat):
+class Crafter(feats.Feat):
     def __init__(self, tool1: ArtisansTools, tool2: ArtisansTools, tool3: ArtisansTools):
         if tool1 == tool2 or tool1 == tool3 or tool2 == tool3:
             raise Exception("All 3 tools should be unique")
@@ -234,14 +235,14 @@ class Crafter(Feats.Feat):
                                      "on it.\n"
                                      "Faster Crafting. When you craft an item using a tool with which you have Tool "
                                      "Proficiency, the required crafting time is reduced by 20 percent.",
-                         bonuses=Bonuses.Bonuses(artisans_tools={
+                         feat_bonuses=bonuses.Bonuses(artisans_tools={
                              tool1: ProficiencyLevels.PROFICIENT,
                              tool2: ProficiencyLevels.PROFICIENT,
                              tool3: ProficiencyLevels.PROFICIENT,
                          }))
 
 
-class Healer(Feats.Feat):
+class Healer(feats.Feat):
     def __init__(self):
         super().__init__(name="Healer",
                          level=1,
@@ -256,7 +257,7 @@ class Healer(Feats.Feat):
                                      "reroll the die if it rolls a 1, and you must use the new roll.")
 
 
-class Lucky(Feats.Feat):
+class Lucky(feats.Feat):
     def __init__(self):
         super().__init__(name="Lucky",
                          level=1,
@@ -271,12 +272,12 @@ class Lucky(Feats.Feat):
                                      "you can spend 1 Luck Point to impose Disadvantage on that roll.")
 
 
-class MagicInitiate(Feats.Feat):
+class MagicInitiate(feats.Feat):
     def __init__(self,
                  spell_list: SpellLists,
-                 cantrip1: Spells.Spell,
-                 cantrip2: Spells.Spell,
-                 spell: Spells.Spell,
+                 cantrip1: spells.Spell,
+                 cantrip2: spells.Spell,
+                 spell: spells.Spell,
                  ability: AbilityNames):
 
         if cantrip1.get_level() != 0 or cantrip2.get_level() != 0 or spell.get_level() != 1:
@@ -287,7 +288,8 @@ class MagicInitiate(Feats.Feat):
             raise Exception("All spells must be in the proper Spell List")
 
         if ability not in [AbilityNames.INTELLIGENCE, AbilityNames.WISDOM, AbilityNames.CHARISMA]:
-            raise Exception("Spellcasting ability must be one of the mental abilities.")
+            raise Exception(
+                "Spellcasting ability must be one of the mental abilities.")
 
         super().__init__(name="Magic Initiate",
                          level=1,
@@ -302,10 +304,10 @@ class MagicInitiate(Feats.Feat):
                                      "Whenever you gain a new level, you can replace one of the Spells you chose for "
                                      "this Feat with a different Spell of the same level from the chosen Spell list.",
                          repeatable="Yes, but you must choose a different Spell List each time",
-                         spells=[cantrip1, cantrip2, spell])
+                         feat_spells=[cantrip1, cantrip2, spell])
 
 
-class Musician(Feats.Feat):
+class Musician(feats.Feat):
     def __init__(self, instrument1: MusicalInstruments, instrument2: MusicalInstruments,
                  instrument3: MusicalInstruments):
         if instrument1 == instrument2 or instrument1 == instrument3 or instrument2 == instrument3:
@@ -320,14 +322,14 @@ class Musician(Feats.Feat):
                                      "on a Musical Instrument with which you have Tool Proficiency and give "
                                      "Inspiration to allies who hear the song. The number of allies you can affect in "
                                      "this way equals your Proficiency Bonus.",
-                         bonuses=Bonuses.Bonuses(musical_instruments={
+                         feat_bonuses=bonuses.Bonuses(musical_instruments={
                              instrument1: ProficiencyLevels.PROFICIENT,
                              instrument2: ProficiencyLevels.PROFICIENT,
                              instrument3: ProficiencyLevels.PROFICIENT,
                          }))
 
 
-class SavageAttacker(Feats.Feat):
+class SavageAttacker(feats.Feat):
     def __init__(self):
         super().__init__(name="Savage Attacker",
                          level=1,
@@ -337,7 +339,7 @@ class SavageAttacker(Feats.Feat):
                                      "target. You can use this benefit only once per turn.")
 
 
-class Skilled(Feats.Feat):
+class Skilled(feats.Feat):
     def __init__(self, skill1: Skills, skill2: Skills, skill3: Skills):
         if skill1 == skill2 or skill1 == skill3 or skill2 == skill3:
             raise Exception("All 3 tools should be unique")
@@ -347,14 +349,14 @@ class Skilled(Feats.Feat):
                          description=f"You have exceptionally broad learning. You gain Proficiency in {skill1.value}, "
                                      f"{skill2.value}, and {skill3.value}.",
                          repeatable="Yes",
-                         bonuses=Bonuses.Bonuses(skills={
+                         feat_bonuses=bonuses.Bonuses(skills={
                              skill1: ProficiencyLevels.PROFICIENT,
                              skill2: ProficiencyLevels.PROFICIENT,
                              skill3: ProficiencyLevels.PROFICIENT,
                          }))
 
 
-class TavernBrawler(Feats.Feat):
+class TavernBrawler(feats.Feat):
     def __init__(self):
         super().__init__(name="Tavern Brawler",
                          level=1,
@@ -372,22 +374,22 @@ class TavernBrawler(Feats.Feat):
                                      "furniture.")
 
 
-class Tough(Feats.Feat):
+class Tough(feats.Feat):
     def __init__(self):
         super().__init__(name="Tough",
                          level=1,
                          description="Your Hit Point Maximum increases by an amount equal to twice your character "
                                      "level when you gain this Feat. Whenever you gain a level thereafter, "
                                      "your Hit Point Maximum increases by an additional 2 Hit Points.",
-                         bonuses=Bonuses.Bonuses(hp_bonus=True))
+                         feat_bonuses=bonuses.Bonuses(hp_bonus=True))
 
 
-class Human(Races.Race):
+class Human(races.Race):
     def __init__(self,
                  skill: Skills,
-                 versatile: Feats.Feat,
+                 versatile: feats.Feat,
                  size: Sizes = Sizes.MEDIUM):
-        if size != Sizes.SMALL and size != Sizes.MEDIUM:
+        if size not in [Sizes.SMALL, Sizes.MEDIUM]:
             raise Exception("Invalid Size")
 
         if versatile.get_level() != 1:
@@ -395,11 +397,11 @@ class Human(Races.Race):
 
         super().__init__(name="Human",
                          features=[
-                             Feats.Feat(name="Resourceful",
+                             feats.Feat(name="Resourceful",
                                         description="You gain inspiration whenever you finish a Long Rest."),
-                             Feats.Feat(name="Skillful",
+                             feats.Feat(name="Skillful",
                                         description=f"You gain proficiency in {skill.value}",
-                                        bonuses=Bonuses.Bonuses(skills={
+                                        feat_bonuses=bonuses.Bonuses(skills={
                                             skill: ProficiencyLevels.PROFICIENT
                                         })),
                              versatile,
@@ -408,21 +410,22 @@ class Human(Races.Race):
                          life_span=80)
 
 
-class Ardling(Races.Race):
+class Ardling(races.Race):
     def __init__(self,
                  name: str,
                  size: Sizes,
-                 celestial_legacy: Feats.Feat,
+                 celestial_legacy: feats.Feat,
                  ability: AbilityNames):
-        if size != Sizes.SMALL and size != Sizes.MEDIUM:
+        if size not in [Sizes.SMALL, Sizes.MEDIUM]:
             raise Exception("Invalid Size")
 
         if ability not in [AbilityNames.INTELLIGENCE, AbilityNames.WISDOM, AbilityNames.CHARISMA]:
-            raise Exception("Spellcasting ability must be one of the mental abilities.")
+            raise Exception(
+                "Spellcasting ability must be one of the mental abilities.")
 
         super().__init__(name=name,
                          features=[
-                             Feats.Feat(
+                             feats.Feat(
                                  name="Angelic Flight",
                                  description="As a Bonus Action, you sprout spectral wings for a moment and fly up to "
                                              "a number of feet equal to your Speed. If you are in the air at the end "
@@ -432,7 +435,7 @@ class Ardling(Races.Race):
                                              "Long Rest."
                              ),
                              celestial_legacy,
-                             Feats.Feat(
+                             feats.Feat(
                                  name="Damage Resistance",
                                  description="You have Resistance to Radiant Damage."
                              )
@@ -448,7 +451,7 @@ class ExaltedArdling(Ardling):
                  size: Sizes = Sizes.MEDIUM):
         super().__init__(name="Exalted Ardling",
                          size=size,
-                         celestial_legacy=Feats.Feat(
+                         celestial_legacy=feats.Feat(
                              name="Celestial Legacy",
                              description="You are the recipient of a celestial legacy that grants you magical "
                                          "abilities. Your Exalted legacy is associated with Chaotic Good planes. You "
@@ -460,9 +463,9 @@ class ExaltedArdling(Ardling):
                                          "any Spell Slots you have of the appropriate level.\n"
                                          f"{ability.value} is your spellcasting ability for the Spells you cast with "
                                          "this trait.",
-                             spells=[content["Spells"]["Thaumaturgy"],
-                                     content["Spells"]["Divine Favor"],
-                                     content["Spells"]["Lesser Restoration"]]
+                             feat_spells=[content["Spells"]["Thaumaturgy"],
+                                          content["Spells"]["Divine Favor"],
+                                          content["Spells"]["Lesser Restoration"]]
                          ),
                          ability=ability)
 
@@ -474,7 +477,7 @@ class HeavenlyArdling(Ardling):
                  size: Sizes = Sizes.MEDIUM):
         super().__init__(name="Heavenly Ardling",
                          size=size,
-                         celestial_legacy=Feats.Feat(
+                         celestial_legacy=feats.Feat(
                              name="Celestial Legacy",
                              description="You are the recipient of a celestial legacy that grants you magical "
                                          "abilities. Your Heavenly legacy is associated with Lawful Good planes. You "
@@ -486,9 +489,9 @@ class HeavenlyArdling(Ardling):
                                          "any Spell Slots you have of the appropriate level.\n"
                                          f"{ability.value} is your spellcasting ability for the Spells you cast with "
                                          "this trait.",
-                             spells=[content["Spells"]["Light"],
-                                     content["Spells"]["Cure Wounds"],
-                                     content["Spells"]["Zone of Truth"]]
+                             feat_spells=[content["Spells"]["Light"],
+                                          content["Spells"]["Cure Wounds"],
+                                          content["Spells"]["Zone of Truth"]]
                          ),
                          ability=ability)
 
@@ -500,7 +503,7 @@ class IdyllicArdling(Ardling):
                  size: Sizes = Sizes.MEDIUM):
         super().__init__(name="Idyllic Ardling",
                          size=size,
-                         celestial_legacy=Feats.Feat(
+                         celestial_legacy=feats.Feat(
                              name="Celestial Legacy",
                              description="You are the recipient of a celestial legacy that grants you magical "
                                          "abilities. Your Idyllic legacy is associated with Neutral Good planes. You "
@@ -512,22 +515,22 @@ class IdyllicArdling(Ardling):
                                          "any Spell Slots you have of the appropriate level.\n"
                                          f"{ability.value} is your spellcasting ability for the Spells you cast with "
                                          "this trait.",
-                             spells=[content["Spells"]["Guidance"],
-                                     content["Spells"]["Healing Word"],
-                                     content["Spells"]["Animal Messenger"]]
+                             feat_spells=[content["Spells"]["Guidance"],
+                                          content["Spells"]["Healing Word"],
+                                          content["Spells"]["Animal Messenger"]]
                          ),
                          ability=ability)
 
 
-class Dragonborn(Races.Race):
+class Dragonborn(races.Race):
     def __init__(self,
                  name: str,
-                 ancestry: Feats.Feat,
+                 ancestry: feats.Feat,
                  damage_type: DamageTypes):
         super().__init__(name=name,
                          features=[
                              ancestry,
-                             Feats.Feat(
+                             feats.Feat(
                                  name="Breath Weapon",
                                  description="As an Action, you exhale destructive energy in a 15-foot cone. Each "
                                              "creature in that area must make a Dexterity saving throw against a DC "
@@ -539,19 +542,20 @@ class Dragonborn(Races.Race):
                                              "Proficiency Bonus,and you regain all expended uses when you finish a "
                                              "Long Rest."
                              ),
-                             Feats.Feat(
+                             feats.Feat(
                                  name="Damage Resistance",
                                  description=f"You have Resistance to {damage_type.value} damage."
                              ),
-                             Feats.Feat(
+                             feats.Feat(
                                  name="Darkvision",
                                  description="You have Darkvision with a range of 60 feet."
                              ),
-                             Feats.Feat(
+                             feats.Feat(
                                  name="Draconic Language",
                                  description="You instinctively know the language of dragons. You can therefore speak, "
                                              "read, and write Draconic.",
-                                 bonuses=Bonuses.Bonuses(languages=[Languages.DRACONIC]),
+                                 feat_bonuses=bonuses.Bonuses(
+                                     languages=[Languages.DRACONIC]),
                              )
                          ],
                          life_span=80)
@@ -560,7 +564,7 @@ class Dragonborn(Races.Race):
 class BlackDragonborn(Dragonborn):
     def __init__(self):
         super().__init__(name="Black Dragonborn",
-                         ancestry=Feats.Feat(
+                         ancestry=feats.Feat(
                              name="Draconic Ancestry",
                              description="Your lineage stems from a Black Dragon progenitor."
                          ),
@@ -570,7 +574,7 @@ class BlackDragonborn(Dragonborn):
 class BlueDragonborn(Dragonborn):
     def __init__(self):
         super().__init__(name="Blue Dragonborn",
-                         ancestry=Feats.Feat(
+                         ancestry=feats.Feat(
                              name="Draconic Ancestry",
                              description="Your lineage stems from a Blue Dragon progenitor."
                          ),
@@ -580,7 +584,7 @@ class BlueDragonborn(Dragonborn):
 class BrassDragonborn(Dragonborn):
     def __init__(self):
         super().__init__(name="Brass Dragonborn",
-                         ancestry=Feats.Feat(
+                         ancestry=feats.Feat(
                              name="Draconic Ancestry",
                              description="Your lineage stems from a Brass Dragon progenitor."
                          ),
@@ -590,7 +594,7 @@ class BrassDragonborn(Dragonborn):
 class BronzeDragonborn(Dragonborn):
     def __init__(self):
         super().__init__(name="Bronze Dragonborn",
-                         ancestry=Feats.Feat(
+                         ancestry=feats.Feat(
                              name="Draconic Ancestry",
                              description="Your lineage stems from a Bronze Dragon progenitor."
                          ),
@@ -600,7 +604,7 @@ class BronzeDragonborn(Dragonborn):
 class CopperDragonborn(Dragonborn):
     def __init__(self):
         super().__init__(name="Copper Dragonborn",
-                         ancestry=Feats.Feat(
+                         ancestry=feats.Feat(
                              name="Draconic Ancestry",
                              description="Your lineage stems from a Copper Dragon progenitor."
                          ),
@@ -610,7 +614,7 @@ class CopperDragonborn(Dragonborn):
 class GoldDragonborn(Dragonborn):
     def __init__(self):
         super().__init__(name="Gold Dragonborn",
-                         ancestry=Feats.Feat(
+                         ancestry=feats.Feat(
                              name="Draconic Ancestry",
                              description="Your lineage stems from a Gold Dragon progenitor."
                          ),
@@ -620,7 +624,7 @@ class GoldDragonborn(Dragonborn):
 class GreenDragonborn(Dragonborn):
     def __init__(self):
         super().__init__(name="Green Dragonborn",
-                         ancestry=Feats.Feat(
+                         ancestry=feats.Feat(
                              name="Draconic Ancestry",
                              description="Your lineage stems from a Green Dragon progenitor."
                          ),
@@ -630,7 +634,7 @@ class GreenDragonborn(Dragonborn):
 class RedDragonborn(Dragonborn):
     def __init__(self):
         super().__init__(name="Red Dragonborn",
-                         ancestry=Feats.Feat(
+                         ancestry=feats.Feat(
                              name="Draconic Ancestry",
                              description="Your lineage stems from a Red Dragon progenitor."
                          ),
@@ -640,7 +644,7 @@ class RedDragonborn(Dragonborn):
 class SilverDragonborn(Dragonborn):
     def __init__(self):
         super().__init__(name="Silver Dragonborn",
-                         ancestry=Feats.Feat(
+                         ancestry=feats.Feat(
                              name="Draconic Ancestry",
                              description="Your lineage stems from a Silver Dragon progenitor."
                          ),
@@ -650,14 +654,14 @@ class SilverDragonborn(Dragonborn):
 class WhiteDragonborn(Dragonborn):
     def __init__(self):
         super().__init__(name="White Dragonborn",
-                         ancestry=Feats.Feat(
+                         ancestry=feats.Feat(
                              name="Draconic Ancestry",
                              description="Your lineage stems from a White Dragon progenitor."
                          ),
                          damage_type=DamageTypes.COLD)
 
 
-class Dwarf(Races.Race):
+class Dwarf(races.Race):
     def __init__(self, tool1: ArtisansTools, tool2: ArtisansTools):
         valid_tools = [ArtisansTools.JEWELERS_TOOLS, ArtisansTools.MASONS_TOOLS,
                        ArtisansTools.SMITHS_TOOLS, ArtisansTools.TINKERS_TOOLS]
@@ -666,28 +670,28 @@ class Dwarf(Races.Race):
 
         super().__init__(name="Dwarf",
                          features=[
-                             Feats.Feat(
+                             feats.Feat(
                                  name="Darkvision",
                                  description="You have Darkvision with a range of 60 feet."
                              ),
-                             Feats.Feat(
+                             feats.Feat(
                                  name="Dwarven Resilience",
                                  description="You have Resistance to Poison Damage. You also have Advantage on saving "
                                              "throws you make to avoid or end the Poisoned Condition on yourself."
                              ),
-                             Feats.Feat(
+                             feats.Feat(
                                  name="Dwarven Toughness",
                                  description="Your Hit Point Maximum increases by 1, and it increases by 1 again "
                                              "whenever you gain a level.",
-                                 bonuses=Bonuses.Bonuses(hp_bonus=1)
+                                 feat_bonuses=bonuses.Bonuses(hp_bonus=1)
                              ),
-                             Feats.Feat(
+                             feats.Feat(
                                  name="Forge Wise",
                                  description="Your divine creator gave you an uncanny affinity for working with stone "
                                              f"or metal. You gain Tool Proficiency with {tool1.value} and "
                                              f"{tool2.value}."
                              ),
-                             Feats.Feat(
+                             feats.Feat(
                                  name="Stonecunning",
                                  description="As a Bonus Action, you gain Tremorsense with a range of 60 feet for 10 "
                                              "minutes. You must be on a stone surface or touching such a surface to "
@@ -700,34 +704,36 @@ class Dwarf(Races.Race):
                          life_span=350)
 
 
-class Elf(Races.Race):
+class Elf(races.Race):
     def __init__(self,
                  name: str,
-                 lineage: Feats.Feat,
+                 lineage: feats.Feat,
                  ability: AbilityNames,
-                 darkvision: Feats.Feat = Feats.Feat(
+                 darkvision: feats.Feat = feats.Feat(
                      name="Darkvision",
                      description="You have Darkvision with a range of 60 feet."
                  ),
                  speed: int = 30):
         if ability not in [AbilityNames.INTELLIGENCE, AbilityNames.WISDOM, AbilityNames.CHARISMA]:
-            raise Exception("Spellcasting ability must be one of the mental abilities.")
+            raise Exception(
+                "Spellcasting ability must be one of the mental abilities.")
 
         super().__init__(name=name,
                          features=[
                              darkvision,
                              lineage,
-                             Feats.Feat(
+                             feats.Feat(
                                  name="Fey Ancestry",
                                  description="You have Advantage on saving throws you make to avoid or end the "
                                              "Charmed Condition on yourself."
                              ),
-                             Feats.Feat(
+                             feats.Feat(
                                  name="Keen Senses",
                                  description="You have Proficiency in the Perception Skill.",
-                                 bonuses=Bonuses.Bonuses(skills={Skills.PERCEPTION: ProficiencyLevels.PROFICIENT})
+                                 feat_bonuses=bonuses.Bonuses(
+                                     skills={Skills.PERCEPTION: ProficiencyLevels.PROFICIENT})
                              ),
-                             Feats.Feat(
+                             feats.Feat(
                                  name="Trance",
                                  description="You don’t need to sleep,and magic can’t put you to sleep.You can finish "
                                              "a Long Rest in 4 hours if you spend those hours in a trancelike "
@@ -743,7 +749,7 @@ class Drow(Elf):
                  content,
                  ability: AbilityNames):
         super().__init__(name="Drow",
-                         lineage=Feats.Feat(
+                         lineage=feats.Feat(
                              name="Elven Lineage",
                              description="You are part of an elven lineage that grants you supernatural abilities. "
                                          "Your Drow lineage is of the Underdark. You know the Dancing Lights cantrip.\n"
@@ -754,12 +760,12 @@ class Drow(Elf):
                                          "you have of the appropriate level.\n"
                                          f"{ability.value} is your spellcasting ability for the Spells you cast with "
                                          "this trait.",
-                             spells=[content["Spells"]["Dancing Lights"],
-                                     content["Spells"]["Faerie Fire"],
-                                     content["Spells"]["Darkness"]]
+                             feat_spells=[content["Spells"]["Dancing Lights"],
+                                          content["Spells"]["Faerie Fire"],
+                                          content["Spells"]["Darkness"]]
                          ),
                          ability=ability,
-                         darkvision=Feats.Feat(
+                         darkvision=feats.Feat(
                              name="Darkvision",
                              description="You have Darkvision with a range of 120 feet."
                          ))
@@ -770,7 +776,7 @@ class HighElf(Elf):
                  content,
                  ability: AbilityNames):
         super().__init__(name="High Elf",
-                         lineage=Feats.Feat(
+                         lineage=feats.Feat(
                              name="Elven Lineage",
                              description="You are part of an elven lineage that grants you supernatural abilities. "
                                          "Your High Elf lineage is of fey crossings and other magical locations. "
@@ -784,9 +790,9 @@ class HighElf(Elf):
                                          "you have of the appropriate level.\n"
                                          f"{ability.value} is your spellcasting ability for the Spells you cast with "
                                          "this trait.",
-                             spells=[content["Spells"]["Prestidigitation"],
-                                     content["Spells"]["Detect Magic"],
-                                     content["Spells"]["Misty Step"]]
+                             feat_spells=[content["Spells"]["Prestidigitation"],
+                                          content["Spells"]["Detect Magic"],
+                                          content["Spells"]["Misty Step"]]
                          ),
                          ability=ability)
 
@@ -796,7 +802,7 @@ class WoodElf(Elf):
                  content,
                  ability: AbilityNames):
         super().__init__(name="Wood Elf",
-                         lineage=Feats.Feat(
+                         lineage=feats.Feat(
                              name="Elven Lineage",
                              description="You are part of an elven lineage that grants you supernatural abilities. "
                                          "Your Wood Elf lineage is of primeval forests. Your Speed increases to 35 "
@@ -808,28 +814,29 @@ class WoodElf(Elf):
                                          "Spell Slots you have of the appropriate level.\n "
                                          f"{ability.value} is your spellcasting ability for the Spells you cast with "
                                          "this trait.",
-                             spells=[content["Spells"]["Druidcraft"],
-                                     content["Spells"]["Longstrider"],
-                                     content["Spells"]["Pass Without Trace"]]
+                             feat_spells=[content["Spells"]["Druidcraft"],
+                                          content["Spells"]["Longstrider"],
+                                          content["Spells"]["Pass Without Trace"]]
                          ),
                          ability=ability)
 
 
-class Gnome(Races.Race):
+class Gnome(races.Race):
     def __init__(self,
                  name: str,
-                 lineage: Feats.Feat,
+                 lineage: feats.Feat,
                  ability: AbilityNames):
         if ability not in [AbilityNames.INTELLIGENCE, AbilityNames.WISDOM, AbilityNames.CHARISMA]:
-            raise Exception("Spellcasting ability must be one of the mental abilities.")
+            raise Exception(
+                "Spellcasting ability must be one of the mental abilities.")
 
         super().__init__(name=name,
                          features=[
-                             Feats.Feat(
+                             feats.Feat(
                                  name="Darkvision",
                                  description="You have Darkvision with a range of 60 feet."
                              ),
-                             Feats.Feat(
+                             feats.Feat(
                                  name="Gnomish Cunning",
                                  description="You have Advantage on Intelligence, Wisdom, and Charisma saving throws."
                              ),
@@ -844,7 +851,7 @@ class ForestGnome(Gnome):
                  content,
                  ability: AbilityNames):
         super().__init__(name="Forest Gnome",
-                         lineage=Feats.Feat(
+                         lineage=feats.Feat(
                              name="Gnomish Lineage",
                              description="You are part of a gnomish lineage that grants you supernatural abilities. "
                                          "Your Forest lineage is of magic-filled forests. You know the Minor Illusion "
@@ -853,8 +860,8 @@ class ForestGnome(Gnome):
                                          "cast it with the trait a number of times equal to your Proficiency Bonus, "
                                          "and you regain all expended uses when you finish a Long Rest. You can also "
                                          "use any Spell Slots you have to cast the Spell.",
-                             spells=[content["Spells"]["Minor Illusion"],
-                                     content["Spells"]["Speak with Animals"]]
+                             feat_spells=[content["Spells"]["Minor Illusion"],
+                                          content["Spells"]["Speak with Animals"]]
                          ),
                          ability=ability)
 
@@ -864,7 +871,7 @@ class RockGnome(Gnome):
                  content,
                  ability: AbilityNames):
         super().__init__(name="Rock Gnome",
-                         lineage=Feats.Feat(
+                         lineage=feats.Feat(
                              name="Gnomish Lineage",
                              description="You are part of a gnomish lineage that grants you supernatural abilities. "
                                          "Your Rock lineage is of primeval mountains. You know the Mending and "
@@ -885,62 +892,63 @@ class RockGnome(Gnome):
                                          "dismantles itself 8 hours after its creation. You can also touch one of "
                                          "your devices and dismantle it as an Action. After a device is dismantled, "
                                          "the 10 GP of materials used to create it can be reclaimed.",
-                             spells=[content["Spells"]["Mending"],
-                                     content["Spells"]["Prestidigitation"]]
+                             feat_spells=[content["Spells"]["Mending"],
+                                          content["Spells"]["Prestidigitation"]]
                          ),
                          ability=ability)
 
 
-class Halfling(Races.Race):
+class Halfling(races.Race):
     def __init__(self):
         super().__init__(name="Halfling",
                          features=[
-                             Feats.Feat(
+                             feats.Feat(
                                  name="Brave",
                                  description="You have Advantage on saving throws you make to avoid or end the "
                                              "Frightened Condition on yourself."
                              ),
-                             Feats.Feat(
+                             feats.Feat(
                                  name="Halfling Nimbleness",
                                  description="You can move through the space of any creature that is of a Size larger "
                                              "than yours, but you can’t stop there."
                              ),
-                             Feats.Feat(
+                             feats.Feat(
                                  name="Luck",
                                  description="When your oll a 1 on the d20 of a d20 Test, you can reroll the die, "
                                              "and you must use the new roll."
                              ),
-                             Feats.Feat(
+                             feats.Feat(
                                  name="Naturally Stealthy",
                                  description="You have Proficiency in the Stealth Skill.",
-                                 bonuses=Bonuses.Bonuses(skills={Skills.STEALTH: ProficiencyLevels.PROFICIENT})
+                                 feat_bonuses=bonuses.Bonuses(
+                                     skills={Skills.STEALTH: ProficiencyLevels.PROFICIENT})
                              )
                          ],
                          size=Sizes.SMALL,
                          life_span=150)
 
 
-class Orc(Races.Race):
+class Orc(races.Race):
     def __init__(self):
         super().__init__(name="Orc",
                          features=[
-                             Feats.Feat(
+                             feats.Feat(
                                  name="Adrenaline Rush",
                                  description="You can take the Dash Action as a Bonus Action. When you do so,you gain "
                                              "a number of Temporary Hit Points equal to your Proficiency Bonus.\n"
                                              "You can use this trait a number of times equal to your Proficiency "
                                              "Bonus, and you regain all expended uses when you finish a Long Rest."
                              ),
-                             Feats.Feat(
+                             feats.Feat(
                                  name="Darkvision",
                                  description="You have Darkvision with a range of 60 feet."
                              ),
-                             Feats.Feat(
+                             feats.Feat(
                                  name="Powerful Build",
                                  description="You count as one Size larger when determining your carrying capacity "
                                              "and the weight you can push, drag, or lift."
                              ),
-                             Feats.Feat(
+                             feats.Feat(
                                  name="Relentless Endurance",
                                  description="When you are reduced to 0 Hit Points but not killed outright, you can "
                                              "drop to 1 Hit Point instead. Once you use this trait,you can’t do so "
@@ -950,31 +958,32 @@ class Orc(Races.Race):
                          life_span=80)
 
 
-class Tiefling(Races.Race):
+class Tiefling(races.Race):
     def __init__(self,
                  content,
                  name: str,
                  size: Sizes,
-                 fiendish_legacy: Feats.Feat,
+                 fiendish_legacy: feats.Feat,
                  ability: AbilityNames):
-        if size != Sizes.SMALL and size != Sizes.MEDIUM:
+        if size not in [Sizes.SMALL, Sizes.MEDIUM]:
             raise Exception("Invalid Size")
 
         if ability not in [AbilityNames.INTELLIGENCE, AbilityNames.WISDOM, AbilityNames.CHARISMA]:
-            raise Exception("Spellcasting ability must be one of the mental abilities.")
+            raise Exception(
+                "Spellcasting ability must be one of the mental abilities.")
 
         super().__init__(name=name,
                          features=[
-                             Feats.Feat(
+                             feats.Feat(
                                  name="Darkvision",
                                  description="You have Darkvision with a range of 60 feet."
                              ),
                              fiendish_legacy,
-                             Feats.Feat(
+                             feats.Feat(
                                  name="Otherworldly Presence",
                                  description="You know the Thaumaturgy cantrip. When you cast it with this trait,"
                                              f"the Spell uses {ability.value}.",
-                                 spells=[content["Spells"]["Thaumaturgy"]]
+                                 feat_spells=[content["Spells"]["Thaumaturgy"]]
                              )
                          ],
                          size=size)
@@ -988,7 +997,7 @@ class AbyssalTiefling(Tiefling):
         super().__init__(content=content,
                          name="Abyssal Tiefling",
                          size=size,
-                         fiendish_legacy=Feats.Feat(
+                         fiendish_legacy=feats.Feat(
                              name="Fiendish Legacy",
                              description="You are the recipient of a fiendish legacy that grants you supernatural  "
                                          "abilities. Your Abyssal legacy is associated with Chaotic Evil planes. You "
@@ -1001,9 +1010,9 @@ class AbyssalTiefling(Tiefling):
                                          "any Spell Slots you have of the appropriate level.\n"
                                          f"{ability.value} is your spellcasting ability for the Spells you cast with "
                                          "this trait.",
-                             spells=[content["Spells"]["Poison Spray"],
-                                     content["Spells"]["Ray of Sickness"],
-                                     content["Spells"]["Hold Person"]]
+                             feat_spells=[content["Spells"]["Poison Spray"],
+                                          content["Spells"]["Ray of Sickness"],
+                                          content["Spells"]["Hold Person"]]
                          ),
                          ability=ability)
 
@@ -1016,7 +1025,7 @@ class ChthonicTiefling(Tiefling):
         super().__init__(content=content,
                          name="Chthonic Tiefling",
                          size=size,
-                         fiendish_legacy=Feats.Feat(
+                         fiendish_legacy=feats.Feat(
                              name="Fiendish Legacy",
                              description="You are the recipient of a fiendish legacy that grants you supernatural  "
                                          "abilities. Your Chthonic legacy is associated with Neutral Evil planes. You "
@@ -1029,9 +1038,9 @@ class ChthonicTiefling(Tiefling):
                                          "any Spell Slots you have of the appropriate level.\n"
                                          f"{ability.value} is your spellcasting ability for the Spells you cast with "
                                          "this trait.",
-                             spells=[content["Spells"]["Chill Touch"],
-                                     content["Spells"]["False Life"],
-                                     content["Spells"]["Ray of Enfeeblement"]]
+                             feat_spells=[content["Spells"]["Chill Touch"],
+                                          content["Spells"]["False Life"],
+                                          content["Spells"]["Ray of Enfeeblement"]]
                          ),
                          ability=ability)
 
@@ -1044,7 +1053,7 @@ class InfernalTiefling(Tiefling):
         super().__init__(content=content,
                          name="Infernal Tiefling",
                          size=size,
-                         fiendish_legacy=Feats.Feat(
+                         fiendish_legacy=feats.Feat(
                              name="Fiendish Legacy",
                              description="You are the recipient of a fiendish legacy that grants you supernatural  "
                                          "abilities. Your Infernal legacy is associated with Lawful Evil planes. You "
@@ -1057,16 +1066,16 @@ class InfernalTiefling(Tiefling):
                                          "any Spell Slots you have of the appropriate level.\n"
                                          f"{ability.value} is your spellcasting ability for the Spells you cast with "
                                          "this trait.",
-                             spells=[content["Spells"]["Fire Bolt"],
-                                     content["Spells"]["Hellish Rebuke"],
-                                     content["Spells"]["Darkness"]]
+                             feat_spells=[content["Spells"]["Fire Bolt"],
+                                          content["Spells"]["Hellish Rebuke"],
+                                          content["Spells"]["Darkness"]]
                          ),
                          ability=ability)
 
 
 CONTENT = {
-    "Backgrounds": {
-        "Custom": Backgrounds.Background,
+    "backgrounds": {
+        "Custom": backgrounds.Background,
         "Artisan": Artisan,
         "Charlatan": Charlatan,
         "Criminal": Criminal,

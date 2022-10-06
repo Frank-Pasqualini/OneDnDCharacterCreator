@@ -3,18 +3,18 @@ import math
 from PyPDF2 import PdfReader, PdfWriter
 from PyPDF2.generic import NameObject
 
-from rules import Abilities, Backgrounds, Bonuses, CharacterClasses, Feats, Races
-from rules.Enums import AbilityNames, Alignments, Languages, Skills
+from rules import abilities, backgrounds, bonuses, classes, feats, races
+from rules.enums import AbilityNames, Alignments, Languages, Skills
 
 
 class Character:
     _name: str
     _player_name: str
     _alignment: Alignments
-    _classes: list[CharacterClasses.CharacterClass]
-    _race: Races.Race
-    _background: Backgrounds.Background
-    _abilities: Abilities.Abilities
+    _classes: list[classes.CharacterClass]
+    _race: races.Race
+    _background: backgrounds.Background
+    _abilities: abilities.Abilities
     _language: Languages
     _xp: int
     _milestone: bool
@@ -22,10 +22,10 @@ class Character:
 
     def __init__(self,
                  name: str,
-                 character_class: CharacterClasses.CharacterClass,
-                 race: Races.Race,
-                 background: Backgrounds.Background,
-                 abilities: Abilities.Abilities,
+                 character_class: classes.CharacterClass,
+                 race: races.Race,
+                 background: backgrounds.Background,
+                 starting_abilities: abilities.Abilities,
                  alignment: Alignments,
                  language: Languages,
                  player_name: str = "",
@@ -37,7 +37,7 @@ class Character:
         self._classes = [character_class]
         self._race = race
         self._background = background
-        self._abilities = abilities
+        self._abilities = starting_abilities
         self._language = language
 
         self._xp = 0
@@ -45,26 +45,26 @@ class Character:
 
         self._inventory = {}
 
-    def get_abilities(self) -> Abilities.Abilities:
+    def get_abilities(self) -> abilities.Abilities:
         return sum([feature.get_abilities() for feature in self.get_features()],
                    self._abilities + self._background.get_abilities())
 
     def get_armor_class(self) -> int:
         return 10
 
-    def get_bonuses(self) -> Bonuses.Bonuses:
+    def get_bonuses(self) -> bonuses.Bonuses:
         return self._background.get_bonuses()
 
     def get_character_level(self) -> int:
-        return sum([character_class.level for character_class in self._classes])
+        return sum(character_class.level for character_class in self._classes)
 
     def get_class_levels(self) -> str:
         return ", ".join([str(character_class) for character_class in self._classes])
 
-    def get_features(self) -> list[Feats.Feat]:
+    def get_features(self) -> list[feats.Feat]:
         return self._race.get_features() + \
-               [self._background.get_feat()] + \
-               [feature for features in [character_class.features for character_class in self._classes]
+            [self._background.get_feat()] + \
+            [feature for features in [character_class.features for character_class in self._classes]
                 for feature in features]
 
     def get_max_hit_dice(self) -> str:
@@ -88,20 +88,20 @@ class Character:
 
         writer.add_page(reader.pages[0])
 
-        abilities = self.get_abilities()
-        features = self.get_features()
-        bonuses = self.get_bonuses()
+        compiled_abilities = self.get_abilities()
+        compiled_features = self.get_features()
+        compiled_bonuses = self.get_bonuses()
         prof_bonus = self.get_proficiency_bonus()
 
-        str_mod = abilities.get_strength_mod()
-        dex_mod = abilities.get_dexterity_mod()
-        con_mod = abilities.get_constitution_mod()
-        int_mod = abilities.get_intelligence_mod()
-        wis_mod = abilities.get_wisdom_mod()
-        chr_mod = abilities.get_charisma_mod()
+        str_mod = compiled_abilities.get_strength_mod()
+        dex_mod = compiled_abilities.get_dexterity_mod()
+        con_mod = compiled_abilities.get_constitution_mod()
+        int_mod = compiled_abilities.get_intelligence_mod()
+        wis_mod = compiled_abilities.get_wisdom_mod()
+        chr_mod = compiled_abilities.get_charisma_mod()
 
-        skills = bonuses.get_skills()
-        s_throws = bonuses.get_saving_throws()
+        skills = compiled_bonuses.get_skills()
+        s_throws = compiled_bonuses.get_saving_throws()
 
         writer.update_page_form_field_values(
             writer.pages[0], {
@@ -114,19 +114,19 @@ class Character:
                 "AttacksSpellcasting": "",
                 "Background": self._background.get_name(),
                 "Bonds": str(self._background.get_bonds()),
-                "CHA": abilities.get_charisma(),
+                "CHA": compiled_abilities.get_charisma(),
                 "CHamod": f"{chr_mod:+g}",
                 "CharacterName": self._name,
                 "ClassLevel": self.get_class_levels(),
-                "CON": abilities.get_constitution(),
+                "CON": compiled_abilities.get_constitution(),
                 "CONmod": f"{con_mod:+g}",
                 "CP": "",
                 "Deception ": f"{chr_mod + (skills.get(Skills.DECEPTION, 0) * prof_bonus):+g}",
-                "DEX": abilities.get_dexterity(),
+                "DEX": compiled_abilities.get_dexterity(),
                 "DEXmod ": f"{dex_mod:+g}",
                 "EP": "",
                 "Equipment": "TODO",
-                "Features and Traits": "\n\n".join(feature.summary() for feature in features),
+                "Features and Traits": "\n\n".join(feature.summary() for feature in compiled_features),
                 "Flaws": str(self._background.get_flaws()),
                 "GP": "",
                 "HD": "",
@@ -136,10 +136,10 @@ class Character:
                 "HPMax": self.get_max_hp(),
                 "HPTemp": "",
                 "Ideals": str(self._background.get_ideals()),
-                "Initiative": f"{dex_mod + (bonuses.get_initiative() * prof_bonus):+g}",
+                "Initiative": f"{dex_mod + (compiled_bonuses.get_initiative() * prof_bonus):+g}",
                 "Insight": f"{wis_mod + (skills.get(Skills.INSIGHT, 0) * prof_bonus):+g}",
                 "Inspiration": "",
-                "INT": abilities.get_intelligence(),
+                "INT": compiled_abilities.get_intelligence(),
                 "INTmod": f"{int_mod:+g}",
                 "Intimidation": f"{chr_mod + (skills.get(Skills.INTIMIDATION, 0) * prof_bonus):+g}",
                 "Investigation ": f"{int_mod + (skills.get(Skills.INVESTIGATION, 0) * prof_bonus):+g}",
@@ -153,7 +153,7 @@ class Character:
                 "PlayerName": self._player_name,
                 "PP": "",
                 "ProfBonus": f"{prof_bonus:+g}",
-                "ProficienciesLang": bonuses.summary(),
+                "ProficienciesLang": compiled_bonuses.summary(),
                 "Race ": str(self._race.get_name()),
                 "Religion": f"{int_mod + (skills.get(Skills.RELIGION, 0) * prof_bonus):+g}",
                 "SleightofHand": f"{dex_mod + (skills.get(Skills.SLEIGHT_OF_HAND, 0) * prof_bonus):+g}",
@@ -166,7 +166,7 @@ class Character:
                 "ST Wisdom": f"{wis_mod + (s_throws.get(AbilityNames.WISDOM, 0) * prof_bonus):+g}",
                 "ST Charisma": f"{chr_mod + (s_throws.get(AbilityNames.CHARISMA, 0) * prof_bonus):+g}",
                 "Stealth ": f"{dex_mod + (skills.get(Skills.STEALTH, 0) * prof_bonus):+g}",
-                "STR": abilities.get_strength(),
+                "STR": compiled_abilities.get_strength(),
                 "STRmod": f"{str_mod:+g}",
                 "Survival": f"{wis_mod + (skills.get(Skills.SURVIVAL, 0) * prof_bonus):+g}",
                 "Wpn Name": "TODO",
@@ -178,7 +178,7 @@ class Character:
                 "Wpn2 Damage ": "TODO",
                 "Wpn3 AtkBonus  ": "TODO",
                 "Wpn3 Damage ": "TODO",
-                "WIS": abilities.get_wisdom(),
+                "WIS": compiled_abilities.get_wisdom(),
                 "WISmod": f"{wis_mod:+g}",
                 "XP": self._xp if not self._milestone else "N/A"
             }
@@ -219,11 +219,11 @@ class Character:
 
         for j in range(0, len(writer.pages[0]['/Annots'])):
             writer_annot = writer.pages[0]['/Annots'][j].getObject()
-            for checkbox in checkboxes:
+            for checkbox, value in checkboxes.items():
                 if writer_annot.get('/T') == checkbox:
                     writer_annot.update({
-                        NameObject("/V"): NameObject(checkboxes[checkbox]),
-                        NameObject("/AS"): NameObject(checkboxes[checkbox])
+                        NameObject("/V"): NameObject(value),
+                        NameObject("/AS"): NameObject(value)
                     })
 
         writer.add_page(reader.pages[1])

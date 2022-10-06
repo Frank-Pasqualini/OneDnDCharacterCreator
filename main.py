@@ -18,14 +18,15 @@ def load_all_content_files(directory: str, packages: list[str]):
 
     for package in packages:
         importer = package_importers[package]
-        full_package_name = '%s.%s' % (directory, package)
+        full_package_name = f"{directory}.{package})"
         if full_package_name not in sys.modules:
             module = importer.find_module(package).load_module(package)
             yield module
 
 
 def main(characters, sources):
-    logging.info(f"Generating sheets for characters {characters} using sources {sources}")
+    logging.info(
+        "Generating sheets for characters %s using sources %s", characters, sources)
 
     content = {}
     for source in load_all_content_files("sources", sources):
@@ -33,7 +34,8 @@ def main(characters, sources):
 
     for character in load_all_content_files("characters", characters):
         finished_character = character.create(content)
-        finished_character.write_character_sheet(f"output/{finished_character.get_name()}.pdf")
+        finished_character.write_character_sheet(
+            f"output/{finished_character.get_name()}.pdf")
 
 
 if __name__ == "__main__":
