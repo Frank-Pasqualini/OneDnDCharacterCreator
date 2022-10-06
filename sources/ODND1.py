@@ -1,6 +1,22 @@
-from rules import Backgrounds, Feats, Bonuses, Races, Spells
+from rules import Abilities, Backgrounds, Bonuses, Feats, Races, Spells
 from rules.Enums import AbilityNames, ArtisansTools, DamageTypes, Languages, MusicalInstruments, ProficiencyLevels, \
-    Sizes, Skills, SpellLists
+    Sizes, Skills, SpellLists, Tools
+
+
+class Criminal(Backgrounds.Background):
+    def __init__(self):
+        super().__init__(name="Criminal",
+                         abilities=Abilities.Abilities(dexterity=2, intelligence=1),
+                         bonuses=Bonuses.Bonuses(skills={
+                             Skills.SLEIGHT_OF_HAND: ProficiencyLevels.PROFICIENT,
+                             Skills.STEALTH: ProficiencyLevels.PROFICIENT,
+                         },
+                             tools={
+                                 Tools.THIEVES_TOOLS: ProficiencyLevels.PROFICIENT,
+                             }),
+                         language=Languages.THIEVES_CANT,
+                         feat=Alert(),
+                         equipment=None)
 
 
 class Alert(Feats.Feat):
@@ -867,7 +883,7 @@ CONTENT = {
         # TODO
         # "Artisan": Artisan,
         # "Charlatan": Charlatan,
-        # "Criminal": Criminal,
+        "Criminal": Criminal,
         # "Cultist": Cultist,
         # "Entertainer": Entertainer,
         # "Farmer": Farmer,

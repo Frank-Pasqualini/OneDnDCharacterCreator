@@ -1,5 +1,11 @@
-from rules import Spells
+from rules import CharacterClasses, Spells
 from rules.Enums import SpellLists, SpellSchools
+
+
+class Rogue(CharacterClasses.CharacterClass):
+    # TODO
+    def __init__(self):
+        super(Rogue, self).__init__(name="Rogue")
 
 
 class Barkskin(Spells.Spell):
@@ -45,6 +51,9 @@ class Guidance(Spells.Spell):
 
 CONTENT = {
     #  TODO
+    "Classes": {
+        "Rogue": Rogue,
+    },
     "Spells": {
         "Barkskin": Barkskin,
         "Guidance": Guidance,
