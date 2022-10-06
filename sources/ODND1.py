@@ -1,6 +1,60 @@
 from rules import Abilities, Backgrounds, Bonuses, Feats, Races, Spells
-from rules.Enums import AbilityNames, ArtisansTools, DamageTypes, Languages, MusicalInstruments, ProficiencyLevels, \
-    Sizes, Skills, SpellLists, Tools
+from rules.Enums import AbilityNames, ArtisansTools, DamageTypes, GamingSets, Languages, MusicalInstruments, \
+    ProficiencyLevels, Sizes, Skills, SpellLists, Tools
+
+
+class Artisan(Backgrounds.Background):
+    def __init__(self,
+                 tool1: ArtisansTools,
+                 tool2: ArtisansTools,
+                 tool3: ArtisansTools,
+                 tool4: ArtisansTools):
+        if tool1 == tool2 or tool1 == tool3 or tool1 == tool4:
+            raise Exception("All tools should be unique")
+
+        super().__init__(name="Artisan",
+                         abilities=Abilities.Abilities(intelligence=2, charisma=1),
+                         bonuses=Bonuses.Bonuses(skills={
+                             Skills.INVESTIGATION: ProficiencyLevels.PROFICIENT,
+                             Skills.PERSUASION: ProficiencyLevels.PROFICIENT,
+                         },
+                             artisans_tools={
+                                 tool1: ProficiencyLevels.PROFICIENT,
+                             }),
+                         language=Languages.GNOMISH,
+                         feat=Crafter(tool2, tool3, tool4),
+                         description="You began mopping floors and scrubbing counters in an artisan’s workshop for a "
+                                     "few coppers per day as soon as you were strong enough to carry a bucket. When "
+                                     "you were finally old enough to apprentice, you learned to create basic crafts "
+                                     "of your own, as well as how to sweet-talk the occasional demanding customer. As "
+                                     "part of your studies,you picked up Gnomish, the tongue from which so many of "
+                                     "the artisan’s terms of art are derived.",
+                         equipment=None)
+
+
+class Charlatan(Backgrounds.Background):
+    def __init__(self,
+                 skill1: Skills,
+                 skill2: Skills,
+                 skill3: Skills):
+        super().__init__(name="Charlatan",
+                         abilities=Abilities.Abilities(charisma=2, dexterity=1),
+                         bonuses=Bonuses.Bonuses(skills={
+                             Skills.DECEPTION: ProficiencyLevels.PROFICIENT,
+                             Skills.SLEIGHT_OF_HAND: ProficiencyLevels.PROFICIENT,
+                         },
+                             tools={
+                                 Tools.FORGERY_KIT: ProficiencyLevels.PROFICIENT,
+                             }),
+                         language=Languages.INFERNAL,
+                         feat=Skilled(skill1, skill2, skill3),
+                         description="Soon after you were old enough to order an ale, you already had a favorite "
+                                     "stool in every tavern within ten miles of where you were born. As you traveled "
+                                     "the circuit from public house to watering hole, you learned to prey on the "
+                                     "unfortunates who were in the market for a comforting lie or two—perhaps a sham "
+                                     "potion or a forged “treasure map.” You are fluent in Infernal,the ancient "
+                                     "language of deception.",
+                         equipment=None)
 
 
 class Criminal(Backgrounds.Background):
@@ -16,6 +70,131 @@ class Criminal(Backgrounds.Background):
                              }),
                          language=Languages.THIEVES_CANT,
                          feat=Alert(),
+                         description="You learned to earn your coin in dark alleyways, cutting purses or burgling "
+                                     "shops. Perhaps you were part of a small gang of like-minded wrongdoers, "
+                                     "who looked out for each other. Or maybe you were a lone wolf, fending for "
+                                     "yourself against the local thieves’ guild and older, more fearsome lawbreakers.",
+                         equipment=None)
+
+
+class Cultist(Backgrounds.Background):
+    def __init__(self,
+                 cantrip1: Spells.Spell,
+                 cantrip2: Spells.Spell,
+                 spell: Spells.Spell,
+                 ability: AbilityNames):
+        super().__init__(name="Cultist",
+                         abilities=Abilities.Abilities(intelligence=2, charisma=1),
+                         bonuses=Bonuses.Bonuses(skills={
+                             Skills.ARCANA: ProficiencyLevels.PROFICIENT,
+                             Skills.RELIGION: ProficiencyLevels.PROFICIENT,
+                         },
+                             tools={
+                                 Tools.DISGUISE_KIT: ProficiencyLevels.PROFICIENT,
+                             }),
+                         language=Languages.ABYSSAL,
+                         feat=MagicInitiate(SpellLists.ARCANE, cantrip1, cantrip2, spell, ability),
+                         description="You scarcely recall what drove you into the service of the otherworldly "
+                                     "being. Those memories were blotted out long ago by recurrent dreams of midnight "
+                                     "gatherings round the obsidian pillar in the glade. By the light of each waning "
+                                     "moon, the hierophants instructed you in the being’s creed and the rudiments of "
+                                     "the arcane arts. When you came of age, you were ordered to blend in among the "
+                                     "nonbelievers and await whatever mission the Great One has in store for you.",
+                         equipment=None)
+
+
+class Entertainer(Backgrounds.Background):
+    def __init__(self,
+                 instrument1: MusicalInstruments,
+                 instrument2: MusicalInstruments,
+                 instrument3: MusicalInstruments,
+                 instrument4: MusicalInstruments):
+        if instrument1 == instrument2 or instrument1 == instrument3 or instrument1 == instrument4:
+            raise Exception("All tools should be unique")
+
+        super().__init__(name="Entertainer",
+                         abilities=Abilities.Abilities(charisma=2, dexterity=1),
+                         bonuses=Bonuses.Bonuses(skills={
+                             Skills.ACROBATICS: ProficiencyLevels.PROFICIENT,
+                             Skills.PERFORMANCE: ProficiencyLevels.PROFICIENT,
+                         },
+                             musical_instruments={
+                                 instrument1: ProficiencyLevels.PROFICIENT,
+                             }),
+                         language=Languages.ELVISH,
+                         feat=Musician(instrument2, instrument3, instrument4),
+                         description="You spent much of your youth following roving fairs and carnivals, performing "
+                                     "odd jobs for musicians and acrobats in exchange for lessons. You may have "
+                                     "learned how to walk a tightrope, how to double pick a lute, or how to recite "
+                                     "Elvish poetry with the impeccable trills of an elf poet. To this day, "
+                                     "you thrive on applause and long for the stage.",
+                         equipment=None)
+
+
+class Farmer(Backgrounds.Background):
+    def __init__(self):
+        super().__init__(name="Farmer",
+                         abilities=Abilities.Abilities(constitution=2, wisdom=1),
+                         bonuses=Bonuses.Bonuses(skills={
+                             Skills.ANIMAL_HANDLING: ProficiencyLevels.PROFICIENT,
+                             Skills.NATURE: ProficiencyLevels.PROFICIENT,
+                         },
+                             artisans_tools={
+                                 ArtisansTools.CARPENTERS_TOOLS: ProficiencyLevels.PROFICIENT,
+                             }),
+                         language=Languages.HALFLING,
+                         feat=Tough(),
+                         description="You grew up close to the land. Years tending animals and cultivating the earth "
+                                     "rewarded you with patience and good health. You have a keen appreciation for "
+                                     "nature’s bounty alongside a healthy respect for nature’s wrath. Like many "
+                                     "farmers, you made frequent use of the agricultural almanacs produced by the "
+                                     "greatest halfling farmers.",
+                         equipment=None)
+
+
+class Gladiator(Backgrounds.Background):
+    def __init__(self):
+        super().__init__(name="Gladiator",
+                         abilities=Abilities.Abilities(strength=2, charisma=1),
+                         bonuses=Bonuses.Bonuses(skills={
+                             Skills.ATHLETICS: ProficiencyLevels.PROFICIENT,
+                             Skills.PERFORMANCE: ProficiencyLevels.PROFICIENT,
+                         },
+                             artisans_tools={
+                                 ArtisansTools.SMITHS_TOOLS: ProficiencyLevels.PROFICIENT,
+                             }),
+                         language=Languages.ORC,
+                         feat=SavageAttacker(),
+                         description="Your first few appearances in the gladiatorial pits led you to appreciate every "
+                                     "one of the scars you carry from your instructors ands parring partners. Each "
+                                     "scar was a lesson that taught you how to best your opponents and curry favor "
+                                     "with the crowds your brawls entertained. Your time in the pits left you with a "
+                                     "strong hand and a strong heart. You’ll forever share a remarkable bond with the "
+                                     "other pit fighters in your stable—humans, dragonborn, dwarves, "
+                                     "and orcs—hardened warriors all.",
+                         equipment=None)
+
+
+class Guard(Backgrounds.Background):
+    def __init__(self,
+                 gaming_set: GamingSets):
+        super().__init__(name="Guard",
+                         abilities=Abilities.Abilities(strength=2, wisdom=1),
+                         bonuses=Bonuses.Bonuses(skills={
+                             Skills.ATHLETICS: ProficiencyLevels.PROFICIENT,
+                             Skills.PERCEPTION: ProficiencyLevels.PROFICIENT,
+                         },
+                             gaming_sets={
+                                 gaming_set: ProficiencyLevels.PROFICIENT,
+                             }),
+                         language=Languages.DWARVISH,
+                         feat=Alert(),
+                         description="Your feet begin to ache when you remember the countless hours you spent at your "
+                                     "post in the tower. You were trained to keep one eye outside the wall, "
+                                     "watching for marauders sweeping from the nearby forest, and your other eye "
+                                     "inside the wall, searching for cutpurses and troublemakers. At the end of each "
+                                     "shift, you bunked in the mayor’s barracks alongside your fellow sentries and "
+                                     "the dwarven smiths who kept your armor snug and your weapons sharp.",
                          equipment=None)
 
 
@@ -880,15 +1059,14 @@ class InfernalTiefling(Tiefling):
 CONTENT = {
     "Backgrounds": {
         "Custom": Backgrounds.Background,
-        # TODO
-        # "Artisan": Artisan,
-        # "Charlatan": Charlatan,
+        "Artisan": Artisan,
+        "Charlatan": Charlatan,
         "Criminal": Criminal,
-        # "Cultist": Cultist,
-        # "Entertainer": Entertainer,
-        # "Farmer": Farmer,
-        # "Gladiator": Gladiator,
-        # "Guard": Guard,
+        "Cultist": Cultist,
+        "Entertainer": Entertainer,
+        "Farmer": Farmer,
+        "Gladiator": Gladiator,
+        "Guard": Guard,
         # "Guide": Guide,
         # "Hermit": Hermit,
         # "Laborer": Laborer,
