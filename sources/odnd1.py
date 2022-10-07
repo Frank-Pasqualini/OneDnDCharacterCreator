@@ -207,6 +207,243 @@ class Guard(backgrounds.Background):
                                      "the dwarven smiths who kept your armor snug and your weapons sharp.")
 
 
+class Guide(backgrounds.Background):
+    def __init__(self,
+                 cantrip1: spells.Spell,
+                 cantrip2: spells.Spell,
+                 spell: spells.Spell,
+                 ability: AbilityNames
+                 ):
+        super().__init__(name="Guide",
+                         background_abilities=abilities.Abilities(
+                             wisdom=2, dexterity=1),
+                         background_bonuses=bonuses.Bonuses(skills={
+                             Skills.STEALTH: ProficiencyLevels.PROFICIENT,
+                             Skills.SURVIVAL: ProficiencyLevels.PROFICIENT,
+                         },
+                             artisans_tools={
+                                 ArtisansTools.CARTOGRAPHERS_TOOLS: ProficiencyLevels.PROFICIENT,
+                         },
+                             languages=[Languages.GIANT],
+                         ),
+                         feat=MagicInitiate(spell_list=SpellLists.PRIMAL,
+                                            cantrip1=cantrip1,
+                                            cantrip2=cantrip2,
+                                            spell=spell,
+                                            ability=ability),
+                         description="You came of age in the outdoors, far from settled lands. Your home? Any where "
+                                     "you chose to unfurl your bedroll. There are wonders on the frontier—strange "
+                                     "monsters, pristine forests and streams, overgrown ruins of great halls once "
+                                     "trod by giants—and you learned to fend for yourself as you explored them. From "
+                                     "time to time, you traveled with a pair of friendly druids who were kind enough "
+                                     "to instruct you in the fundamentals of channeling the magic of the wild.")
+
+
+class Hermit(backgrounds.Background):
+    def __init__(self,
+                 cantrip1: spells.Spell,
+                 cantrip2: spells.Spell,
+                 spell: spells.Spell,
+                 ability: AbilityNames
+                 ):
+        super().__init__(name="Hermit",
+                         background_abilities=abilities.Abilities(
+                             wisdom=2, constitution=1),
+                         background_bonuses=bonuses.Bonuses(skills={
+                             Skills.MEDICINE: ProficiencyLevels.PROFICIENT,
+                             Skills.RELIGION: ProficiencyLevels.PROFICIENT,
+                         },
+                             tools={
+                                 Tools.HERBALISM_KIT: ProficiencyLevels.PROFICIENT,
+                         },
+                             languages=[Languages.SYLVAN],
+                         ),
+                         feat=MagicInitiate(spell_list=SpellLists.PRIMAL,
+                                            cantrip1=cantrip1,
+                                            cantrip2=cantrip2,
+                                            spell=spell,
+                                            ability=ability),
+                         description="You spent your early years secluded in a hut or monastery located well beyond "
+                                     "the outskirts of the nearest settlement. In those days, your only companions "
+                                     "were the creatures of the forest, who would occasionally visit to bring news of "
+                                     "the outside world and supplies. The quiet and solitude you found in your time "
+                                     "outside society allowed you to spend many hours pondering the mysteries of "
+                                     "creation, attuning your mind to the magical energy flowing through the natural "
+                                     "world.")
+
+
+class Laborer(backgrounds.Background):
+    def __init__(self):
+        super().__init__(name="Laborer",
+                         background_abilities=abilities.Abilities(
+                             constitution=2, strength=1),
+                         background_bonuses=bonuses.Bonuses(skills={
+                             Skills.ATHLETICS: ProficiencyLevels.PROFICIENT,
+                             Skills.SURVIVAL: ProficiencyLevels.PROFICIENT,
+                         },
+                             artisans_tools={
+                                 ArtisansTools.MASONS_TOOLS: ProficiencyLevels.PROFICIENT,
+                         },
+                             languages=[Languages.DWARVISH],
+                         ),
+                         feat=Tough(),
+                         description="Your apprenticeship consumed the better part of your youth. First, you learned "
+                                     "to cut and polish a stone. After several years of polishing stones, you learned "
+                                     "how to cement those stones into a wall. After several years building walls, "
+                                     "you learned to join your walls to form a structure. The structures you built "
+                                     "were exceptionally durable. The masons who taught you were taught by even older "
+                                     "masons who were taught by dwarf artisans of old.")
+
+
+class Noble(backgrounds.Background):
+    def __init__(self,
+                 gaming_set: GamingSets,
+                 skill1: Skills,
+                 skill2: Skills,
+                 skill3: Skills):
+        super().__init__(name="Noble",
+                         background_abilities=abilities.Abilities(
+                             charisma=2, intelligence=1),
+                         background_bonuses=bonuses.Bonuses(skills={
+                             Skills.HISTORY: ProficiencyLevels.PROFICIENT,
+                             Skills.PERSUASION: ProficiencyLevels.PROFICIENT,
+                         },
+                             gaming_sets={
+                                 gaming_set: ProficiencyLevels.PROFICIENT,
+                         },
+                             languages=[Languages.DRACONIC],
+                         ),
+                         feat=Skilled(skill1, skill2, skill3),
+                         description="You were raised in a castle as a creature of wealth, power, and privilege—none "
+                                     "of it earned. Your family are minor aristocrats who saw to it that you received "
+                                     "a first-class education, some of which you appreciated and some of which you "
+                                     "resented. (Was it truly necessary to read all those ancient histories in their "
+                                     "original Draconic?) Your time in the castle, especially the many hours you "
+                                     "spent observing your family at court, also taught you a great deal about "
+                                     "leadership.")
+
+
+class Pilgrim(backgrounds.Background):
+    def __init__(self, instrument: MusicalInstruments):
+        super().__init__(name="Pilgrim",
+                         background_abilities=abilities.Abilities(
+                             wisdom=2, constitution=1),
+                         background_bonuses=bonuses.Bonuses(skills={
+                             Skills.RELIGION: ProficiencyLevels.PROFICIENT,
+                             Skills.SURVIVAL: ProficiencyLevels.PROFICIENT,
+                         },
+                             musical_instruments={
+                                 instrument: ProficiencyLevels.PROFICIENT,
+                         },
+                             languages=[Languages.HALFLING],
+                         ),
+                         feat=Healer(),
+                         description="You and a group of like-minded believers—mostly humans and halflings—once "
+                                     "endeavored to walk a thousand miles of road to reach a faraway shrine. Priests "
+                                     "counseled at the outset that, long after your journey was complete, you’d come "
+                                     "to realize that you found the key to your salvation not at your destination, "
+                                     "but somewhere along the road that led there.")
+
+
+class Sage(backgrounds.Background):
+    def __init__(self,
+                 cantrip1: spells.Spell,
+                 cantrip2: spells.Spell,
+                 spell: spells.Spell,
+                 ability: AbilityNames
+                 ):
+        super().__init__(name="Sage",
+                         background_abilities=abilities.Abilities(
+                             intelligence=2, wisdom=1),
+                         background_bonuses=bonuses.Bonuses(skills={
+                             Skills.ARCANA: ProficiencyLevels.PROFICIENT,
+                             Skills.HISTORY: ProficiencyLevels.PROFICIENT,
+                         },
+                             artisans_tools={
+                                 ArtisansTools.CALLIGRAPHERS_SUPPLIES: ProficiencyLevels.PROFICIENT,
+                         },
+                             languages=[Languages.ELVISH],
+                         ),
+                         feat=MagicInitiate(spell_list=SpellLists.ARCANE,
+                                            cantrip1=cantrip1,
+                                            cantrip2=cantrip2,
+                                            spell=spell,
+                                            ability=ability),
+                         description="You spent your formative years traveling between manors and monasteries, "
+                                     "performing various odd jobs and services in exchange for access to their "
+                                     "libraries. You wiled away many a long evening with your nose buried in books "
+                                     "and scrolls, learning the lore of the multiverse—even the rudiments of "
+                                     "magic—and your mind only yearns for more.")
+
+
+class Sailor(backgrounds.Background):
+    def __init__(self):
+        super().__init__(name="Sailor",
+                         background_abilities=abilities.Abilities(
+                             dexterity=2, wisdom=1),
+                         background_bonuses=bonuses.Bonuses(skills={
+                             Skills.ACROBATICS: ProficiencyLevels.PROFICIENT,
+                             Skills.PERCEPTION: ProficiencyLevels.PROFICIENT,
+                         },
+                             tools={
+                                 Tools.NAVIGATORS_TOOLS: ProficiencyLevels.PROFICIENT,
+                         },
+                             languages=[Languages.PRIMORDIAL],
+                         ),
+                         feat=TavernBrawler(),
+                         description="Thus far, you’ve spent most of your days living the life of a seafarer, "
+                                     "wind at your back and decks swaying beneath your feet, as you sailed toward "
+                                     "your next adventure. You’ve perched on barstools in more ports of call than you "
+                                     "can remember, faced down mighty storms, and swapped stories with the folk who "
+                                     "live beneath the waves.")
+
+
+class Soldier(backgrounds.Background):
+    def __init__(self,
+                 gaming_set: GamingSets):
+        super().__init__(name="Soldier",
+                         background_abilities=abilities.Abilities(
+                             strength=2, constitution=1),
+                         background_bonuses=bonuses.Bonuses(skills={
+                             Skills.ATHLETICS: ProficiencyLevels.PROFICIENT,
+                             Skills.INTIMIDATION: ProficiencyLevels.PROFICIENT,
+                         },
+                             gaming_sets={
+                                 gaming_set: ProficiencyLevels.PROFICIENT,
+                         },
+                             languages=[Languages.GOBLIN],
+                         ),
+                         feat=SavageAttacker(),
+                         description="You began training for war at such an early age that you carry only a precious "
+                                     "few memories of what life was like before you took up arms. Battle is in your "
+                                     "blood. Sometimes you catch yourself reflexively performing the basic fighting "
+                                     "exercises you learned as a youth. Eventually, you put that training to use on "
+                                     "the battlefield, protecting the realm by waging war and studying the strategies "
+                                     "of goblinoid generals.")
+
+
+class Urchin(backgrounds.Background):
+    def __init__(self):
+        super().__init__(name="Urchin",
+                         background_abilities=abilities.Abilities(
+                             dexterity=2, wisdom=1),
+                         background_bonuses=bonuses.Bonuses(skills={
+                             Skills.INSIGHT: ProficiencyLevels.PROFICIENT,
+                             Skills.STEALTH: ProficiencyLevels.PROFICIENT,
+                         },
+                             tools={
+                                 Tools.THIEVES_TOOLS: ProficiencyLevels.PROFICIENT,
+                         },
+                             languages=[Languages.COMMON_SIGN_LANGUAGE],
+                         ),
+                         feat=Lucky(),
+                         description="You grew up on the streets, surrounded by similarly ill-fated castoffs, "
+                                     "a few of them friends and a few of them rivals. You slept where you could and "
+                                     "did odd jobs for food. At times, when the hunger became unbearable, "
+                                     "your esorted to theft. Still, you never lost your pride and never abandoned "
+                                     "hope. Fate is not yet finished with you.")
+
+
 class Alert(feats.Feat):
     def __init__(self):
         super().__init__(name="Alert",
@@ -1084,16 +1321,15 @@ CONTENT = {
         "Farmer": Farmer,
         "Gladiator": Gladiator,
         "Guard": Guard,
-        # # TODO
-        # "Guide": Guide,
-        # "Hermit": Hermit,
-        # "Laborer": Laborer,
-        # "Noble": Noble,
-        # "Pilgrim": Pilgrim,
-        # "Sage": Sage,
-        # "Sailor": Sailor,
-        # "Soldier": Soldier,
-        # "Urchin": Urchin,
+        "Guide": Guide,
+        "Hermit": Hermit,
+        "Laborer": Laborer,
+        "Noble": Noble,
+        "Pilgrim": Pilgrim,
+        "Sage": Sage,
+        "Sailor": Sailor,
+        "Soldier": Soldier,
+        "Urchin": Urchin,
     },
     "Feats": {
         "Alert": Alert,

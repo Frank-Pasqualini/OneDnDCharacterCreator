@@ -117,7 +117,7 @@ class Character:
                 "Animal": f"{wis_mod + (skills.get(Skills.ANIMAL_HANDLING, 0) * prof_bonus):+g}",
                 "Arcana": f"{int_mod + (skills.get(Skills.ARCANA, 0) * prof_bonus):+g}",
                 "Athletics": f"{str_mod + (skills.get(Skills.ATHLETICS, 0) * prof_bonus):+g}",
-                "AttacksSpellcasting": "",
+                "AttacksSpellcasting": "TODO",
                 "Background": self._background.get_name(),
                 "Bonds": str(self._background.get_bonds()),
                 "CHA": compiled_abilities.get_charisma(),
@@ -236,7 +236,7 @@ class Character:
         writer.add_page(reader.pages[1])
 
         writer.update_page_form_field_values(
-            writer.pages[0], {
+            writer.pages[1], {
                 "CharacterName 2": self._name,
             }
         )

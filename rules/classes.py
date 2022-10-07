@@ -1,4 +1,3 @@
-# TODO IN NEED OF CLEANUP AND COMPLETION
 class CharacterClass:
     def __init__(self, name: str):
         self.name = name
@@ -13,3 +12,8 @@ class CharacterClass:
             output = str(self.subclass) + " " + output
 
         return output
+
+
+class Rogue(CharacterClass):
+    def __init__(self, name: str):
+        super().__init__(name=name)
