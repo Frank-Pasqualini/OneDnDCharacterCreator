@@ -3,7 +3,7 @@ import math
 from PyPDF2 import PdfReader, PdfWriter
 from PyPDF2.generic import NameObject
 
-from rules import abilities, backgrounds, bonuses, classes, feats, races
+from rules import abilities, armors, backgrounds, bonuses, classes, feats, races
 from rules.enums import AbilityNames, Alignments, Languages, Skills
 
 
@@ -18,7 +18,8 @@ class Character:
     _language: Languages
     _xp: int
     _milestone: bool
-    _inventory: any
+    _armor: armors.Armor | None
+    _shield: armors.Shield | None
 
     def __init__(self,
                  name: str,
@@ -29,7 +30,9 @@ class Character:
                  alignment: Alignments,
                  language: Languages,
                  player_name: str = "",
-                 milestone: bool = True):
+                 milestone: bool = True,
+                 armor: armors.Armor = None,
+                 shield: armors.Shield = None):
         self._name = name
         self._player_name = player_name
         self._alignment = alignment
@@ -43,14 +46,17 @@ class Character:
         self._xp = 0
         self._milestone = milestone
 
-        self._inventory = {}
+        self._armor = armor
+        self._shield = shield
 
     def get_abilities(self) -> abilities.Abilities:
         return sum([feature.get_abilities() for feature in self.get_features()],
                    self._abilities + self._background.get_abilities())
 
     def get_armor_class(self) -> int:
-        return 10
+        dex_mod = self.get_abilities().get_dexterity_mod()
+        return (dex_mod + 10 if self._armor is None else self._armor.get_armor_class(dex_mod)) + \
+               (0 if self._shield is None else self._shield.get_armor_bonus())
 
     def get_bonuses(self) -> bonuses.Bonuses:
         return self._background.get_bonuses()
@@ -217,6 +223,7 @@ class Character:
             "Check Box 17": "/No",
         }
 
+        # noinspection PyTypeChecker
         for j in range(0, len(writer.pages[0]['/Annots'])):
             writer_annot = writer.pages[0]['/Annots'][j].getObject()
             for checkbox, value in checkboxes.items():

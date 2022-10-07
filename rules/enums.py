@@ -23,6 +23,13 @@ class Alignments(Enum):
     CHAOTIC_EVIL = "Chaotic Evil"
 
 
+class ArmorTraining(Enum):
+    LIGHT = "Light Armor"
+    MEDIUM = "Medium Armor"
+    HEAVY = "Heavy Armor"
+    SHIELD = "Shield"
+
+
 class ArtisansTools(Enum):
     ALCHEMISTS_SUPPLIES = "Alchemist's Supplies"
     BREWERS_SUPPLIES = "Brewer's Supplies"
