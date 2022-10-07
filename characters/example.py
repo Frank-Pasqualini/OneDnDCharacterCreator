@@ -5,7 +5,7 @@ from rules.enums import Alignments, Languages, Skills
 def create(content) -> character.Character:
     return character.Character(
         name="Example Character",
-        character_class=content['Classes']['Rogue'](),
+        character_class=content['Classes']['Thief Rogue'](),
         race=content['Races']['Human'](skill=Skills.INVESTIGATION,
                                        versatile=content['Feats']['Lucky']()),
         background=content['Backgrounds']['Criminal'](),

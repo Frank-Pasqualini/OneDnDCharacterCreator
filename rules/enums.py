@@ -1,4 +1,6 @@
 from __future__ import annotations
+
+import math
 from enum import Enum
 
 
@@ -50,6 +52,13 @@ class ArtisansTools(Enum):
     WOODCARVERS_TOOLS = "Woodcarver's Tools"
 
 
+class ClassGroups(Enum):
+    EXPERT = "Expert"
+    MAGE = "Mage"
+    PRIEST = "Priest"
+    WARRIOR = "Warrior"
+
+
 class CreatureTypes(Enum):
     ABERRATION = "Aberration"
     BEAST = "Beast"
@@ -96,11 +105,14 @@ class ProficiencyLevels(Enum):
     PROFICIENT = 1
     EXPERT = 2
 
-    def __lt__(self, other: ProficiencyLevels) -> bool:
-        return self.value < other.value
+    def __lt__(self, other) -> bool:
+        return self.value < other
+
+    def __gt__(self, other) -> bool:
+        return self.value > other
 
     def __mul__(self, other) -> int:
-        return self.value * other
+        return math.floor(self.value * other)
 
 
 class Skills(Enum):

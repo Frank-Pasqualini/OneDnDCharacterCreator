@@ -59,10 +59,16 @@ class Character:
                (0 if self._shield is None else self._shield.get_armor_bonus())
 
     def get_bonuses(self) -> bonuses.Bonuses:
-        return self._background.get_bonuses()
+        class_bonuses = bonuses.Bonuses()
+        class_bonuses_list = [character_class.get_bonuses()
+                              for character_class in self._classes]
+        for item in class_bonuses_list:
+            class_bonuses += item
+
+        return self._background.get_bonuses() + class_bonuses
 
     def get_character_level(self) -> int:
-        return sum(character_class.level for character_class in self._classes)
+        return sum(character_class.get_level() for character_class in self._classes)
 
     def get_class_levels(self) -> str:
         return ", ".join([str(character_class) for character_class in self._classes])
@@ -70,14 +76,18 @@ class Character:
     def get_features(self) -> list[feats.Feat]:
         return self._race.get_features() + \
             [self._background.get_feat()] + \
-            [feature for features in [character_class.features for character_class in self._classes]
-                for feature in features]
+            []
+        # [feature for features in [character_class.features for character_class in self._classes]
+        #     for feature in features]
 
     def get_max_hit_dice(self) -> str:
-        return "1d8"  # TODO
+        return "+".join([f"{character_class.get_level()}d{character_class.get_hit_die()}" for
+                         character_class in self._classes])
 
     def get_max_hp(self) -> int:
-        return 8  # TODO
+        return sum(sum(character_class.get_rolled_hit_dice()) for character_class in self._classes) + \
+            (self.get_character_level() *
+                (self.get_abilities().get_constitution_mod() + self.get_bonuses().get_hp_bonus()))
 
     def get_name(self) -> str:
         return self._name

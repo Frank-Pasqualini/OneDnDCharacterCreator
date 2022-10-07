@@ -153,7 +153,7 @@ class Bonuses:
                 "Two or more bonuses give you the same languages. Consider changing one.")
 
         initiative = max(self._initiative, other.get_initiative())
-        if self._initiative == other.get_initiative():
+        if self._initiative == other.get_initiative() and self._initiative != ProficiencyLevels.NONE:
             logging.warning("You have two or more instances of proficiency level %s for initiative. Consider changing "
                             "one.", self._initiative.name)
 

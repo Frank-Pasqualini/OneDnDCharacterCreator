@@ -154,6 +154,7 @@ disable=missing-module-docstring,
         too-many-branches,
         too-many-locals,
         too-many-lines,
+        too-many-boolean-expressions,
         too-few-public-methods,
         fixme
 

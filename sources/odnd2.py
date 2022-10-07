@@ -1,11 +1,19 @@
 from rules import classes, spells
-from rules.enums import SpellLists, SpellSchools
+from rules.enums import Skills, SpellLists, SpellSchools
 
 
-class Rogue(classes.CharacterClass):
-    # TODO
-    def __init__(self):
-        super().__init__(name="Rogue")
+class ThiefRogue(classes.Rogue):
+    def __init__(self,
+                 skill1: Skills,
+                 skill2: Skills,
+                 skill3: Skills,
+                 skill4: Skills
+                 ):
+        super().__init__(name="Thief Rogue",
+                         skill1=skill1,
+                         skill2=skill2,
+                         skill3=skill3,
+                         skill4=skill4)
 
 
 class Barkskin(spells.Spell):
@@ -52,8 +60,9 @@ class Guidance(spells.Spell):
 CONTENT = {
     #  TODO
     "Classes": {
-        "Rogue": Rogue,
+        "Thief Rogue": ThiefRogue,
     },
+    # TODO
     "Spells": {
         "Barkskin": Barkskin,
         "Guidance": Guidance,
