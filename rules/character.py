@@ -1,5 +1,6 @@
 import math
 
+import PyPDF2
 from PyPDF2 import PdfReader, PdfWriter
 from PyPDF2.generic import NameObject
 
@@ -20,6 +21,15 @@ class Character:
     _milestone: bool
     _armor: armors.Armor | None
     _shield: armors.Shield | None
+    _appearance_image: str | None
+    _age: str
+    _height: str
+    _weight: str
+    _eyes: str
+    _skin: str
+    _hair: str
+    _faction: str
+    _faction_image: str | None
 
     def __init__(self,
                  name: str,
@@ -32,7 +42,16 @@ class Character:
                  player_name: str = "",
                  milestone: bool = True,
                  armor: armors.Armor = None,
-                 shield: armors.Shield = None):
+                 shield: armors.Shield = None,
+                 appearance_image: str = None,
+                 age: str = "",
+                 height: str = "",
+                 weight: str = "",
+                 eyes: str = "",
+                 skin: str = "",
+                 hair: str = "",
+                 faction: str = "",
+                 faction_image: str = None):
         self._name = name
         self._player_name = player_name
         self._alignment = alignment
@@ -48,6 +67,16 @@ class Character:
 
         self._armor = armor
         self._shield = shield
+
+        self._appearance_image = appearance_image
+        self._age = age
+        self._height = height
+        self._weight = weight
+        self._eyes = eyes
+        self._skin = skin
+        self._hair = hair
+        self._faction = faction
+        self._faction_image = faction_image
 
     def get_abilities(self) -> abilities.Abilities:
         return sum([feature.get_abilities() for feature in self.get_features()],
@@ -142,7 +171,7 @@ class Character:
                 "DEXmod ": f"{dex_mod:+g}",
                 "EP": "",
                 "Equipment": "TODO",
-                "Features and Traits": "\n\n".join(feature.summary() for feature in compiled_features),
+                "Features and Traits": "\n\n".join(feature.summary() for feature in compiled_features) + "\n\nTODO",
                 "Flaws": str(self._background.get_flaws()),
                 "GP": "",
                 "HD": "",
@@ -247,8 +276,43 @@ class Character:
 
         writer.update_page_form_field_values(
             writer.pages[1], {
+                "Age": self._age,
+                "Allies": "TODO",
+                "Backstory": self._background.get_description(),
                 "CharacterName 2": self._name,
+                "Eyes": self._eyes,
+                "FactionName": self._faction,
+                "Feat+Traits": "TODO",
+                "Hair": self._hair,
+                "Height": self._height,
+                "Skin": self._skin,
+                "Treasure": "TODO",
+                "Weight": self._weight,
             }
         )
 
+        appearance_file = None
+        if self._appearance_image is not None:
+            # pylint: disable-next=consider-using-with
+            appearance_file = open(self._appearance_image, "rb")
+            image = PyPDF2.PdfFileReader(appearance_file)
+            # pylint: disable-next=no-member
+            writer.pages[1].mergeScaledTranslatedPage(
+                image.getPage(0), scale=0.235, tx=47, ty=480)
+
+        faction_file = None
+        if self._faction_image is not None:
+            # pylint: disable-next=consider-using-with
+            faction_file = open(self._faction_image, "rb")
+            image = PyPDF2.PdfFileReader(faction_file)
+            # pylint: disable-next=no-member
+            writer.pages[1].mergeScaledTranslatedPage(
+                image.getPage(0), scale=0.137, tx=435, ty=530)
+
         writer.write(filepath)
+
+        if appearance_file is not None:
+            appearance_file.close()
+
+        if faction_file is not None:
+            faction_file.close()

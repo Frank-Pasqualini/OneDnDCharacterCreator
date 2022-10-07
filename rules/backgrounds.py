@@ -68,6 +68,9 @@ class Background:
     def get_bonuses(self) -> bonuses.Bonuses:
         return self._bonuses
 
+    def get_description(self) -> str:
+        return self._description
+
     def get_feat(self) -> feats.Feat:
         return self._feat
 
