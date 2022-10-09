@@ -6,4 +6,4 @@ TODO
 
 ## Reporting a Vulnerability
 
-To report a vilnerability create a "Bug" issue.
+To report a vulnerability create a "Bug" issue.
