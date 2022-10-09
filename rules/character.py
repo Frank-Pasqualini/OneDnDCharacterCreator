@@ -97,16 +97,16 @@ class Character:
         self._faction = faction
         self._faction_image = faction_image
 
-    def get_abilities(self) -> abilities.Abilities:
-        return sum([feature.get_abilities() for feature in self.get_features()],
+    def _get_abilities(self) -> abilities.Abilities:
+        return sum([feature.get_abilities() for feature in self._get_features()],
                    self._abilities + self._background.get_abilities())
 
-    def get_armor_class(self) -> int:
-        dex_mod = self.get_abilities().get_dexterity_mod()
-        return (dex_mod + 10 if self._armor is None else self._armor.get_armor_class(dex_mod)) + \
-               (0 if self._shield is None else self._shield.get_armor_class())
+    def _get_armor_class(self) -> int:
+        dex_mod = self._get_abilities().get_dexterity_mod()
+        return (dex_mod + 10 if self._armor is None else self._armor.get_armor_class(dex_mod)) + (
+            0 if self._shield is None else self._shield.get_armor_class())
 
-    def get_bonuses(self) -> bonuses.Bonuses:
+    def _get_bonuses(self) -> bonuses.Bonuses:
         class_bonuses = bonuses.Bonuses()
         class_bonuses_list = [character_class.get_bonuses()
                               for character_class in self._classes]
@@ -115,47 +115,51 @@ class Character:
 
         return self._background.get_bonuses() + class_bonuses
 
-    def get_character_level(self) -> int:
+    def _get_character_level(self) -> int:
         return sum(character_class.get_level() for character_class in self._classes)
 
-    def get_class_levels(self) -> str:
+    def _get_class_levels(self) -> str:
         return ", ".join([str(character_class) for character_class in self._classes])
 
-    def get_features(self) -> list[feats.Feat]:
-        return self._race.get_features() + \
-            [self._background.get_feat()] + \
-            []
+    def _get_features(self) -> list[feats.Feat]:
+        return self._race.get_features() + [self._background.get_feat()] + []
         # [feature for features in [character_class.features for character_class in self._classes]
         #     for feature in features]
 
-    def get_max_hit_dice(self) -> str:
+    def _get_max_hit_dice(self) -> str:
         return "+".join([f"{character_class.get_level()}d{character_class.get_hit_die()}" for
                          character_class in self._classes])
 
-    def get_max_hp(self) -> int:
-        return sum(sum(character_class.get_rolled_hit_dice()) for character_class in self._classes) + \
-            (self.get_character_level() *
-                (self.get_abilities().get_constitution_mod() + self.get_bonuses().get_hp_bonus()))
+    def _get_max_hp(self) -> int:
+        return sum(sum(character_class.get_rolled_hit_dice()) for character_class in self._classes) + (
+            self._get_character_level() *
+            (self._get_abilities().get_constitution_mod() + self._get_bonuses().get_hp_bonus()))
+
+    def _get_proficiency_bonus(self) -> int:
+        return math.ceil(self._get_character_level() / 4) + 1
+
+    def _get_speed(self) -> int:
+        return self._race.get_speed()
 
     def get_name(self) -> str:
         return self._name
 
-    def get_proficiency_bonus(self) -> int:
-        return math.ceil(self.get_character_level() / 4) + 1
+    def write_character_sheet(self, filepath: str):
+        """
+        Writes out a 5e character sheet from this character
+        :param filepath: The pdf file to write to
+        :type filepath: str
+        """
 
-    def get_speed(self) -> int:
-        return self._race.get_speed()
-
-    def write_character_sheet(self, filepath):
         reader = PdfReader("5E_CharacterSheet_Fillable.pdf")
         writer = PdfWriter()
 
         writer.add_page(reader.pages[0])
 
-        compiled_abilities = self.get_abilities()
-        compiled_features = self.get_features()
-        compiled_bonuses = self.get_bonuses()
-        prof_bonus = self.get_proficiency_bonus()
+        compiled_abilities = self._get_abilities()
+        compiled_features = self._get_features()
+        compiled_bonuses = self._get_bonuses()
+        prof_bonus = self._get_proficiency_bonus()
 
         str_mod = compiled_abilities.get_strength_mod()
         dex_mod = compiled_abilities.get_dexterity_mod()
@@ -169,7 +173,7 @@ class Character:
 
         writer.update_page_form_field_values(
             writer.pages[0], {
-                "AC": self.get_armor_class(),
+                "AC": self._get_armor_class(),
                 "Acrobatics": f"{dex_mod + (skills.get(Skills.ACROBATICS, 0) * prof_bonus):+g}",
                 "Alignment": self._alignment.value,
                 "Animal": f"{wis_mod + (skills.get(Skills.ANIMAL_HANDLING, 0) * prof_bonus):+g}",
@@ -181,7 +185,7 @@ class Character:
                 "CHA": compiled_abilities.get_charisma(),
                 "CHamod": f"{chr_mod:+g}",
                 "CharacterName": self._name,
-                "ClassLevel": self.get_class_levels(),
+                "ClassLevel": self._get_class_levels(),
                 "CON": compiled_abilities.get_constitution(),
                 "CONmod": f"{con_mod:+g}",
                 "CP": "",
@@ -194,10 +198,10 @@ class Character:
                 "Flaws": str(self._background.get_flaws()),
                 "GP": "",
                 "HD": "",
-                "HDTotal": self.get_max_hit_dice(),
+                "HDTotal": self._get_max_hit_dice(),
                 "History ": f"{int_mod + (skills.get(Skills.HISTORY, 0) * prof_bonus):+g}",
                 "HPCurrent": "",
-                "HPMax": self.get_max_hp(),
+                "HPMax": self._get_max_hp(),
                 "HPTemp": "",
                 "Ideals": str(self._background.get_ideals()),
                 "Initiative": f"{dex_mod + (compiled_bonuses.get_initiative() * prof_bonus):+g}",
@@ -222,7 +226,7 @@ class Character:
                 "Religion": f"{int_mod + (skills.get(Skills.RELIGION, 0) * prof_bonus):+g}",
                 "SleightofHand": f"{dex_mod + (skills.get(Skills.SLEIGHT_OF_HAND, 0) * prof_bonus):+g}",
                 "SP": "",
-                "Speed": str(self.get_speed()) + " ft.",
+                "Speed": str(self._get_speed()) + " ft.",
                 "ST Strength": f"{str_mod + (s_throws.get(AbilityNames.STRENGTH, 0) * prof_bonus):+g}",
                 "ST Dexterity": f"{dex_mod + (s_throws.get(AbilityNames.DEXTERITY, 0) * prof_bonus):+g}",
                 "ST Constitution": f"{con_mod + (s_throws.get(AbilityNames.CONSTITUTION, 0) * prof_bonus):+g}",

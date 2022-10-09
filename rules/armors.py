@@ -30,6 +30,14 @@ class Armor:
         self._strength_requirement = strength_requirement
 
     def get_armor_class(self, dex_mod: int = 0) -> int:
+        """
+        Returns an AC number based on the type of armor and the character's dex mod
+        :param dex_mod: The character's dexterity modifier
+        :type dex_mod: int
+        :return: The AC
+        :rtype: int
+        """
+
         if self._training_needed == ArmorTraining.LIGHT:
             return self._armor_class + dex_mod
         if self._training_needed == ArmorTraining.MEDIUM:

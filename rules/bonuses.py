@@ -58,11 +58,21 @@ class Bonuses:
         return self._hp_bonus
 
     def tools_summary(self) -> list[str]:
+        """
+        Gets a summary of all the tool proficiencies
+        :return: A list of tools and their proficiency levels
+        :rtype: list[str]
+        """
         tools = ["*" + str(tool.value) if self._tools[tool] == ProficiencyLevels.EXPERT else
                  str(tool.value) for tool in self._tools.keys()]
         return tools
 
     def summary(self) -> str:
+        """
+        Gets a summary of all bonuses
+        :return: A summary of all bonuses
+        :rtype: str
+        """
         output = "Armor Training: TODO\n\n"
 
         output += "Weapons: TODO\n\n"
