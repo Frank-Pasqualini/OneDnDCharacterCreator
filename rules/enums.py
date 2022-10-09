@@ -47,6 +47,26 @@ class ArmorTraining(Enum):
     HEAVY = "Heavy Armor"
     SHIELD = "Shield"
 
+    def __lt__(self, other) -> bool:
+        order = {
+            ArmorTraining.LIGHT: 0,
+            ArmorTraining.MEDIUM: 1,
+            ArmorTraining.HEAVY: 2,
+            ArmorTraining.SHIELD: 3
+        }
+
+        return order[self] < other
+
+    def __gt__(self, other) -> bool:
+        order = {
+            ArmorTraining.LIGHT: 0,
+            ArmorTraining.MEDIUM: 1,
+            ArmorTraining.HEAVY: 2,
+            ArmorTraining.SHIELD: 3
+        }
+
+        return order[self] > other
+
 
 class ArtisansTools(Enum):
     """
@@ -70,6 +90,12 @@ class ArtisansTools(Enum):
     TINKERS_TOOLS = "Tinker's Tools"
     WEAVERS_TOOLS = "Weaver's Tools"
     WOODCARVERS_TOOLS = "Woodcarver's Tools"
+
+    def __lt__(self, other) -> bool:
+        return self.value < other
+
+    def __gt__(self, other) -> bool:
+        return self.value > other
 
 
 class ClassGroups(Enum):
@@ -133,6 +159,12 @@ class GamingSets(Enum):
     DRAGONCHESS_SET = "Dragonchess Set"
     PLAYING_CARD_SET = "Playing Card Set"
     THREE_DRAGON_ANTE_SET = "Three-Dragon Ante Set"
+
+    def __lt__(self, other) -> bool:
+        return self.value < other
+
+    def __gt__(self, other) -> bool:
+        return self.value > other
 
 
 class ProficiencyLevels(Enum):
@@ -208,6 +240,12 @@ class Languages(Enum):
     THIEVES_CANT = "Thieves' Cant"
     UNDERCOMMON = "Undercommon"
 
+    def __lt__(self, other) -> bool:
+        return self.value < other
+
+    def __gt__(self, other) -> bool:
+        return self.value > other
+
 
 class MusicalInstruments(Enum):
     """
@@ -224,6 +262,12 @@ class MusicalInstruments(Enum):
     PAN_FLUTE = "Pan Flute"
     SHAWM = "Shawm"
     VIOL = "Viol"
+
+    def __lt__(self, other) -> bool:
+        return self.value < other
+
+    def __gt__(self, other) -> bool:
+        return self.value > other
 
 
 class Sizes(Enum):
@@ -275,3 +319,37 @@ class Tools(Enum):
     NAVIGATORS_TOOLS = "Navigator's Tools"
     POISONERS_KIT = "Poisoner's Kit"
     THIEVES_TOOLS = "Thieves' Tools"
+
+    def __lt__(self, other) -> bool:
+        return self.value < other
+
+    def __gt__(self, other) -> bool:
+        return self.value > other
+
+
+class WeaponTypes(Enum):
+    """
+    The types of weapons.
+    """
+
+    SIMPLE = "Simple Weapons"
+    MARTIAL = "Martial Weapons"
+    MARTIAL_FINESSE = "Martial Weapons that have the Finesse Property"
+
+    def __lt__(self, other) -> bool:
+        order = {
+            WeaponTypes.SIMPLE: 0,
+            WeaponTypes.MARTIAL: 1,
+            WeaponTypes.MARTIAL_FINESSE: 2
+        }
+
+        return order[self] < other
+
+    def __gt__(self, other) -> bool:
+        order = {
+            WeaponTypes.SIMPLE: 0,
+            WeaponTypes.MARTIAL: 1,
+            WeaponTypes.MARTIAL_FINESSE: 2
+        }
+
+        return order[self] > other

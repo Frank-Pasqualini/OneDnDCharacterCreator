@@ -8,6 +8,15 @@ from rules.enums import AbilityNames, ArtisansTools, DamageTypes, GamingSets, La
 from rules.enums import ProficiencyLevels, Sizes, Skills, SpellLists, Tools
 
 
+class CustomBackground(backgrounds.Background):
+    """
+    A custom Background
+    """
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+
 class Acolyte(backgrounds.Background):
     """
     Acolyte example Background
@@ -1657,7 +1666,7 @@ class InfernalTiefling(Tiefling):
 
 CONTENT = {
     "Backgrounds": {
-        "Custom": backgrounds.Background,
+        "Custom": CustomBackground,
         "Acolyte": Acolyte,
         "Artisan": Artisan,
         "Charlatan": Charlatan,

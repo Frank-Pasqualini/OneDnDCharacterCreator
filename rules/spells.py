@@ -2,11 +2,13 @@
 A spell that a character can cast.
 """
 
+from abc import ABC
+
 from rules.common import ordinal, validate_string
 from rules.enums import SpellLists, SpellSchools
 
 
-class Spell:
+class Spell(ABC):
     """
     A spell that a character can cast.
     """

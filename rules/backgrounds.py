@@ -2,12 +2,14 @@
 A Background for a character.
 """
 
+from abc import ABC
+
 from rules import abilities, feats, bonuses
 from rules.common import validate_string
 from rules.enums import AbilityNames, Languages, ProficiencyLevels
 
 
-class Background:
+class Background(ABC):
     """
     A Background for a character.
     """
@@ -76,7 +78,7 @@ class Background:
         return self._bonds
 
     def get_bonuses(self) -> bonuses.Bonuses:
-        return self._bonuses
+        return self._bonuses + self._feat.get_bonuses()
 
     def get_description(self) -> str:
         return self._description

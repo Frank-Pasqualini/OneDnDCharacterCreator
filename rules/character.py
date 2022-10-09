@@ -113,7 +113,8 @@ class Character:
         for item in class_bonuses_list:
             class_bonuses += item
 
-        return self._background.get_bonuses() + class_bonuses
+        return self._background.get_bonuses() + class_bonuses + bonuses.Bonuses(languages=[self._language,
+                                                                                           Languages.COMMON])
 
     def _get_character_level(self) -> int:
         return sum(character_class.get_level() for character_class in self._classes)
@@ -122,9 +123,9 @@ class Character:
         return ", ".join([str(character_class) for character_class in self._classes])
 
     def _get_features(self) -> list[feats.Feat]:
-        return self._race.get_features() + [self._background.get_feat()] + []
-        # [feature for features in [character_class.features for character_class in self._classes]
-        #     for feature in features]
+        return self._race.get_features() + [self._background.get_feat()] + [
+            feature for features in [character_class.get_features() for character_class in self._classes]
+            for feature in features]
 
     def _get_max_hit_dice(self) -> str:
         return "+".join([f"{character_class.get_level()}d{character_class.get_hit_die()}" for
@@ -143,6 +144,9 @@ class Character:
 
     def get_name(self) -> str:
         return self._name
+
+    def level_up(self, character_class: int, **kwargs):
+        self._classes[character_class].level_up(**kwargs)
 
     def write_character_sheet(self, filepath: str):
         """
@@ -194,7 +198,7 @@ class Character:
                 "DEXmod ": f"{dex_mod:+g}",
                 "EP": "",
                 "Equipment": "TODO",
-                "Features and Traits": "\n\n".join(feature.summary() for feature in compiled_features) + "\n\nTODO",
+                "Features and Traits": "\n\n".join(feature.summary() for feature in compiled_features),
                 "Flaws": str(self._background.get_flaws()),
                 "GP": "",
                 "HD": "",

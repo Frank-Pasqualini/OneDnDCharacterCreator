@@ -2,11 +2,13 @@
 A feature that defines special rules for a character.
 """
 
+from abc import ABC
+
 from rules import abilities, bonuses, spells
 from rules.common import ordinal, validate_string
 
 
-class Feat:
+class Feat(ABC):
     """
     A feature that defines special rules for a character.
     """
@@ -43,6 +45,9 @@ class Feat:
 
     def get_abilities(self) -> abilities.Abilities:
         return self._abilities
+
+    def get_bonuses(self) -> bonuses.Bonuses:
+        return self._bonuses
 
     def get_level(self) -> int:
         return self._level

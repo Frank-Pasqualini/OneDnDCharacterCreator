@@ -2,9 +2,9 @@
 Content from the Dungeons and Dragons OneD&D Expert Classes Unearthed Arcana.
 https://media.dndbeyond.com/compendium-images/one-dnd/expert-classes/kpx0MvyfBGHe0XKk/UA2022-Expert-Classes.pdf
 """
-
-from rules import classes, spells
-from rules.enums import Skills, SpellLists, SpellSchools
+import abilities
+from rules import classes, feats, spells
+from rules.enums import AbilityNames, SpellLists, SpellSchools
 
 
 class ThiefRogue(classes.Rogue):
@@ -13,17 +13,98 @@ class ThiefRogue(classes.Rogue):
     UA p. 15
     """
 
-    def __init__(self,
-                 skill1: Skills,
-                 skill2: Skills,
-                 skill3: Skills,
-                 skill4: Skills
-                 ):
-        super().__init__(name="Thief Rogue",
-                         skill1=skill1,
-                         skill2=skill2,
-                         skill3=skill3,
-                         skill4=skill4)
+    def __init__(self, **kwargs):
+        super().__init__(name="Thief Rogue", **kwargs)
+
+    def _level_up_3(self):
+        self._features.append(feats.Feat(name="Fast Hands",
+                                         description="You have additional options for the Bonus Action of your "
+                                                     "Cunning Action, with which you can do the following:\n"
+                                                     "Search. Take the Search Action.\n"
+                                                     "Sleight of Hand. Make a Dexterity Check (Sleight of Hand) to "
+                                                     "pick a lock or disarm a trap with Thieves’ Tools or to pick a "
+                                                     "pocket."))
+        self._features.append(feats.Feat(name="Second-Story Work",
+                                         description="You have trained to reach especially hard-to-reach places, "
+                                                     "granting you these benefits:\n "
+                                                     "Climb Speed. You gain a Climb Speed equal to your Speed.\n"
+                                                     "Jump Distance. When you take the Jump Action, you can make a "
+                                                     "Dexterity Check, instead of a Strength Check."))
+
+    def _level_up_6(self):
+        self._features.append(feats.Feat(name="Supreme Sneak",
+                                         description="You have Advantage on every Dexterity Check (Stealth) you make, "
+                                                     "provided you aren’t wearing Medium or Heavy Armor."))
+
+    def _level_up_10(self, feat: feats.Feat):
+        if feat.get_level() > 10:
+            raise Exception("Invalid feat level. Must be 10 or lower")
+
+        self._features.append(feat)
+        self._features.append(feats.Feat(name="Use Magic Device",
+                                         description="In your treasure hunting,you have learned how to maximize use "
+                                                     "of magic items, granting you the following benefits:\n "
+                                                     "Attunement. You can attune to up to four magic items at once.\n"
+                                                     "Charges. Whenever you use a magic item property that expends "
+                                                     "charges, roll a d6. On a roll of 6, you use the property "
+                                                     "without expending the charges.\n "
+                                                     "Scrolls. You can use any Spell Scroll that bears a cantrip or a "
+                                                     "1st-level Spell. You can also try to use any Spell Scroll that "
+                                                     "contains a higher-level Spell, but you must first succeed on an "
+                                                     "Intelligence Check (Arcana) with a DC equal to 10 + the Spell’s "
+                                                     "level. On a successful check, you cast the Spell from the "
+                                                     "scroll, and you use Intelligence as your Spellcasting Ability "
+                                                     "for this casting. On a failed check, the scroll disintegrates."))
+
+    def _level_up_14(self):
+        self._features.append(feats.Feat(name="Thief's Reflexes",
+                                         description="You can now take a second Bonus Action on your turn, provided "
+                                                     "it is the Bonus Action from Cunning Action. You can use this "
+                                                     "feature on a number of turns equal to your Proficiency Bonus,"
+                                                     "and you regain all expended uses when you finish a Long Rest."))
+
+
+class AbilityScoreImprovement(feats.Feat):
+    """
+    Ability Score Improvement Feat
+    UA p. 16
+    """
+
+    def __init__(self, ability1: AbilityNames, ability2: AbilityNames):
+        if ability1 == ability2:
+            super().__init__(name="Ability Score Improvement",
+                             description=f"You increase {ability1.value} by 2.",
+                             level=4,
+                             repeatable="Yes",
+                             feat_abilities=abilities.Abilities(
+                                 strength=(2 if ability1 ==
+                                           AbilityNames.STRENGTH else 0),
+                                 dexterity=(2 if ability1 ==
+                                            AbilityNames.DEXTERITY else 0),
+                                 constitution=(
+                                     2 if ability1 == AbilityNames.CONSTITUTION else 0),
+                                 intelligence=(
+                                     2 if ability1 == AbilityNames.INTELLIGENCE else 0),
+                                 wisdom=(2 if ability1 ==
+                                         AbilityNames.WISDOM else 0),
+                                 charisma=(2 if ability1 == AbilityNames.CHARISMA else 0)))
+        else:
+            super().__init__(name="Ability Score Improvement",
+                             description=f"You increase {ability1.value} and {ability2.value} by 1.",
+                             level=4,
+                             repeatable="Yes",
+                             feat_abilities=abilities.Abilities(
+                                 strength=(1 if AbilityNames.STRENGTH in [
+                                     ability1, ability2] else 0),
+                                 dexterity=(1 if AbilityNames.DEXTERITY in [
+                                     ability1, ability2] else 0),
+                                 constitution=(1 if AbilityNames.CONSTITUTION in [
+                                     ability1, ability2] else 0),
+                                 intelligence=(1 if AbilityNames.INTELLIGENCE in [
+                                     ability1, ability2] else 0),
+                                 wisdom=(1 if AbilityNames.WISDOM in [
+                                     ability1, ability2] else 0),
+                                 charisma=(1 if AbilityNames.CHARISMA in [ability1, ability2] else 0)))
 
 
 class Barkskin(spells.Spell):
@@ -86,7 +167,7 @@ CONTENT = {
     },
     # TODO the feats
     "Feats": {
-        # "Ability Score Improvement": AbilityScoreImprovement,
+        "Ability Score Improvement": AbilityScoreImprovement,
         # "Actor": Actor,
         # "Athlete": Athlete,
         # "Charger": Charger,

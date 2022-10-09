@@ -2,12 +2,14 @@
 A race for a character.
 """
 
+from abc import ABC
+
 from rules import feats
 from rules.common import validate_string
 from rules.enums import CreatureTypes, Sizes
 
 
-class Race:
+class Race(ABC):
     """
     A race for a character.
     """

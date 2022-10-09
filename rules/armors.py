@@ -2,11 +2,13 @@
 An armor item that modifies AC.
 """
 
+from abc import ABC
+
 from rules.common import validate_string
 from rules.enums import ArmorTraining
 
 
-class Armor:
+class Armor(ABC):
     """
     An armor item that modifies AC.
     """
