@@ -148,11 +148,9 @@ confidence=HIGH,
 # --disable=W".
 disable=too-many-arguments,
         too-many-instance-attributes,
-        too-many-branches,
         too-many-locals,
         too-many-lines,
-        too-many-boolean-expressions,
-        too-few-public-methods
+        fixme
 
 # Enable the message, report, category or checker with the given id(s). You can
 # either give multiple identifier separated by comma (,) or put this option
@@ -340,7 +338,7 @@ max-args=5
 max-attributes=7
 
 # Maximum number of boolean expressions in an if statement (see R0916).
-max-bool-expr=5
+max-bool-expr=6
 
 # Maximum number of branch for function / method body.
 max-branches=12
@@ -361,7 +359,7 @@ max-returns=6
 max-statements=50
 
 # Minimum number of public methods for a class (see R0903).
-min-public-methods=2
+min-public-methods=1
 
 
 [EXCEPTIONS]
@@ -452,7 +450,8 @@ logging-modules=logging
 
 # List of qualified names (i.e., library.method) which require a timeout
 # parameter e.g. 'requests.api.get,requests.api.post'
-timeout-methods=requests.api.delete,requests.api.get,requests.api.head,requests.api.options,requests.api.patch,requests.api.post,requests.api.put,requests.api.request
+timeout-methods=requests.api.delete,requests.api.get,requests.api.head,requests.api.options,requests.api.patch,
+                requests.api.post,requests.api.put,requests.api.request
 
 
 [MISCELLANEOUS]

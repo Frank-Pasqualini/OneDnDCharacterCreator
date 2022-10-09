@@ -70,12 +70,14 @@ class Rogue(CharacterClass):
         allowable_skills = [Skills.ACROBATICS, Skills.ATHLETICS, Skills.DECEPTION, Skills.INSIGHT, Skills.INTIMIDATION,
                             Skills.INVESTIGATION, Skills.PERCEPTION, Skills.PERSUASION, Skills.SLEIGHT_OF_HAND,
                             Skills.STEALTH]
-        if skill1 not in allowable_skills or skill2 not in allowable_skills or \
-                skill3 not in allowable_skills or skill4 not in allowable_skills or \
-                skill1 == skill2 or skill1 == skill3 or skill1 == skill4 or skill2 == skill3 or skill2 == skill4 or \
-                skill3 == skill4:
+        if (skill1 not in allowable_skills) or (skill2 not in allowable_skills) or (skill3 not in allowable_skills) or (
+                skill4 not in allowable_skills):
             raise Exception(
-                "All 4 skills must be in the approved skill list and none may be duplicates.")
+                "All 4 skills must be in the approved skill list")
+
+        if (skill1 == skill2) or (skill1 == skill3) or (skill1 == skill4) or (skill2 == skill3) or (
+                skill2 == skill4) or (skill3 == skill4):
+            raise Exception("All 4 skills must be unique")
 
         super().__init__(name=name,
                          class_group=ClassGroups.EXPERT,
