@@ -1,10 +1,16 @@
+"""
+A race for a character.
+"""
+
 from rules import feats
 from rules.common import validate_string
 from rules.enums import CreatureTypes, Sizes
 
 
 class Race:
-    """A Race for a character."""
+    """
+    A race for a character.
+    """
 
     _name: str
     _creature_type: CreatureTypes
@@ -43,8 +49,6 @@ class Race:
         return self._speed
 
     def __str__(self) -> str:
-        """Print the Race as it would be seen in a race description."""
-
         output = f"{self._name} Traits\n"
 
         output += f"Creature Type: {self._creature_type.value}\n"
@@ -55,8 +59,8 @@ class Race:
 
         output += f"Lifespan: {self._life_span} years on average\n"
 
-        output += f"As a{'n' if self._name[0].upper() in ['A', 'E', 'I', 'O', 'I'] else ''} {self._name}, you have"\
-                  "these special traits."
+        output += f"As a{'n' if self._name[0].upper() in ['A', 'E', 'I', 'O', 'I'] else ''} {self._name}, you have"
+        output += "these special traits."
 
         for feat in self._features:
             output += f"\n{feat.summary()}"

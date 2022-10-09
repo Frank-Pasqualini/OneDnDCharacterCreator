@@ -1,9 +1,19 @@
+"""
+A specialization a character can have.
+"""
+
+# TODO a lot of this file.
+
 from rules import bonuses, feats
 from rules.common import validate_string
 from rules.enums import AbilityNames, ClassGroups, ProficiencyLevels, Skills, Tools
 
 
 class CharacterClass:
+    """
+    A specialization a character can have.
+    """
+
     _name: str
     _class_group: ClassGroups
     _primary_ability: AbilityNames
@@ -47,6 +57,10 @@ class CharacterClass:
 
 
 class Rogue(CharacterClass):
+    """
+    The Rogue class.
+    """
+
     def __init__(self,
                  name: str,
                  skill1: Skills,

@@ -1,3 +1,7 @@
+"""
+A list of enums for common options.
+"""
+
 from __future__ import annotations
 
 import math
@@ -5,6 +9,10 @@ from enum import Enum
 
 
 class AbilityNames(Enum):
+    """
+    The 6 standard ability scores.
+    """
+
     STRENGTH = "Strength"
     DEXTERITY = "Dexterity"
     CONSTITUTION = "Constitution"
@@ -14,6 +22,10 @@ class AbilityNames(Enum):
 
 
 class Alignments(Enum):
+    """
+    The 9 standard alignments.
+    """
+
     LAWFUL_GOOD = "Lawful Good"
     LAWFUL_NEUTRAL = "Lawful Neutral"
     LAWFUL_EVIL = "Lawful Evil"
@@ -26,6 +38,10 @@ class Alignments(Enum):
 
 
 class ArmorTraining(Enum):
+    """
+    The 4 types of armor.
+    """
+
     LIGHT = "Light Armor"
     MEDIUM = "Medium Armor"
     HEAVY = "Heavy Armor"
@@ -33,6 +49,10 @@ class ArmorTraining(Enum):
 
 
 class ArtisansTools(Enum):
+    """
+    The tools of the 'Artisan's Tools' type.
+    """
+
     ALCHEMISTS_SUPPLIES = "Alchemist's Supplies"
     BREWERS_SUPPLIES = "Brewer's Supplies"
     CALLIGRAPHERS_SUPPLIES = "Calligrapher's Supplies"
@@ -53,6 +73,10 @@ class ArtisansTools(Enum):
 
 
 class ClassGroups(Enum):
+    """
+    The 4 types of character class.
+    """
+
     EXPERT = "Expert"
     MAGE = "Mage"
     PRIEST = "Priest"
@@ -60,6 +84,10 @@ class ClassGroups(Enum):
 
 
 class CreatureTypes(Enum):
+    """
+    The special types a character or creature can be.
+    """
+
     ABERRATION = "Aberration"
     BEAST = "Beast"
     CELESTIAL = "Celestial"
@@ -77,6 +105,10 @@ class CreatureTypes(Enum):
 
 
 class DamageTypes(Enum):
+    """
+    The types of damage a character can deal or take.
+    """
+
     ACID = "Acid"
     BLUDGEONING = "Bludgeoning"
     COLD = "Cold"
@@ -93,6 +125,10 @@ class DamageTypes(Enum):
 
 
 class GamingSets(Enum):
+    """
+    The tools of the 'Gaming Sets' type.
+    """
+
     DICE_SET = "Dice Set"
     DRAGONCHESS_SET = "Dragonchess Set"
     PLAYING_CARD_SET = "Playing Card Set"
@@ -100,6 +136,9 @@ class GamingSets(Enum):
 
 
 class ProficiencyLevels(Enum):
+    """
+    The different levels a character can be proficient in a skill, tool, or weapon.
+    """
     NONE = 0
     HALF = 0.5
     PROFICIENT = 1
@@ -116,6 +155,10 @@ class ProficiencyLevels(Enum):
 
 
 class Skills(Enum):
+    """
+    The skills a character can be proficient in.
+    """
+
     ACROBATICS = "Acrobatics"
     ANIMAL_HANDLING = "Animal Handling"
     ARCANA = "Arcana"
@@ -137,6 +180,10 @@ class Skills(Enum):
 
 
 class Languages(Enum):
+    """
+    The languages a character can know.
+    """
+
     COMMON = "Common"
     COMMON_SIGN_LANGUAGE = "Common Sign Language"
     DWARVISH = "Dwarvish"
@@ -163,6 +210,10 @@ class Languages(Enum):
 
 
 class MusicalInstruments(Enum):
+    """
+    The tools of the 'Musical Instrument' type.
+    """
+
     BAGPIPES = "Bagpipes"
     DRUM = "Drum"
     DULCIMER = "Dulcimer"
@@ -176,6 +227,10 @@ class MusicalInstruments(Enum):
 
 
 class Sizes(Enum):
+    """
+    The sizes of characters or creatures.
+    """
+
     TINY = "Tiny"
     SMALL = "Small"
     MEDIUM = "Medium"
@@ -185,12 +240,20 @@ class Sizes(Enum):
 
 
 class SpellLists(Enum):
+    """
+    The types of magic a character can know.
+    """
+
     ARCANE = "Arcane"
     DIVINE = "Divine"
     PRIMAL = "Primal"
 
 
 class SpellSchools(Enum):
+    """
+    The schools of magic that describe what effect the spell creates.
+    """
+
     ABJURATION = "Abjuration"
     CONJURATION = "Conjuration"
     DIVINATION = "Divination"
@@ -202,6 +265,10 @@ class SpellSchools(Enum):
 
 
 class Tools(Enum):
+    """
+    The tools of the no specific tool type.
+    """
+
     DISGUISE_KIT = "Disguise Kit"
     FORGERY_KIT = "Forgery Kit"
     HERBALISM_KIT = "Herbalism Kit"

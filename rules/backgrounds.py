@@ -1,10 +1,16 @@
+"""
+A Background for a character.
+"""
+
 from rules import abilities, feats, bonuses
 from rules.common import validate_string
 from rules.enums import AbilityNames, Languages, ProficiencyLevels
 
 
 class Background:
-    """A Background for a character."""
+    """
+    A Background for a character.
+    """
 
     _name: str
     _abilities: abilities.Abilities
@@ -33,13 +39,17 @@ class Background:
             raise Exception(
                 "A Background must give either 3 +1s or a +1 and a +2")
 
-        if len(background_bonuses.get_saving_throws()) != 0 or \
-                len(background_bonuses.get_skills()) != 2 or \
-                (len(background_bonuses.get_artisans_tools()) + len(background_bonuses.get_gaming_sets()) +
-                 len(background_bonuses.get_musical_instruments()) + len(background_bonuses.get_tools())) != 1 or \
-                background_bonuses.get_initiative() != ProficiencyLevels.NONE or background_bonuses.get_hp_bonus():
-            raise Exception(
-                "A Background must contain exactly 2 skills and one tool")
+        if len(background_bonuses.get_saving_throws()) != 0:
+            raise Exception("A Background cannot have saving throws")
+
+        if len(background_bonuses.get_skills()) != 2:
+            raise Exception("A Background must contain exactly 2 skills")
+
+        if len(background_bonuses.get_tools()) != 1:
+            raise Exception("A Background must contain exactly 1 tool")
+
+        if background_bonuses.get_initiative() != ProficiencyLevels.NONE or background_bonuses.get_hp_bonus():
+            raise Exception("A Background must not have extra bonuses")
 
         if len(background_bonuses.get_languages()) != 1 or background_bonuses.get_languages()[0] == Languages.COMMON:
             raise Exception(
@@ -87,8 +97,6 @@ class Background:
         return self._personality_traits
 
     def __str__(self) -> str:
-        """Print the Background as it would be seen in a background description."""
-
         output = f"{self._name}\n"
 
         abilities_dict = {
@@ -109,7 +117,7 @@ class Background:
                   for skill in self._bonuses.get_skills().keys()]
         output += f"Skill Proficiencies: {', '.join(skills)}\n"
 
-        output += f"Tool Proficiencies: {self._bonuses.get_all_tools()[0]}\n"
+        output += f"Tool Proficiencies: {self._bonuses.tools_summary()[0]}\n"
 
         output += f"Language: {self._bonuses.get_languages()[0].value}\n"
 

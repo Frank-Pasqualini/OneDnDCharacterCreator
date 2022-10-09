@@ -1,10 +1,16 @@
+"""
+The set of 6 standard ability scores.
+"""
+
 from __future__ import annotations
 
 import math
 
 
 class Abilities:
-    """The set of 6 standard ability scores."""
+    """
+    The set of 6 standard ability scores.
+    """
 
     _strength: int
     _dexterity: int
@@ -20,8 +26,6 @@ class Abilities:
                  intelligence: int = 0,
                  wisdom: int = 0,
                  charisma: int = 0):
-        """Init a set of abilities."""
-
         self._strength = strength
         self._dexterity = dexterity
         self._constitution = constitution

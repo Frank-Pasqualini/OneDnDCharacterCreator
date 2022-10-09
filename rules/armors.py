@@ -1,8 +1,16 @@
+"""
+An armor item that modifies AC.
+"""
+
 from rules.common import validate_string
 from rules.enums import ArmorTraining
 
 
 class Armor:
+    """
+    An armor item that modifies AC.
+    """
+
     _name: str
     _training_needed: ArmorTraining
     _armor_class: int
@@ -21,22 +29,10 @@ class Armor:
         self._stealth_disadvantage = stealth_disadvantage
         self._strength_requirement = strength_requirement
 
-    def get_armor_class(self, dex_mod: int) -> int:
+    def get_armor_class(self, dex_mod: int = 0) -> int:
         if self._training_needed == ArmorTraining.LIGHT:
             return self._armor_class + dex_mod
         if self._training_needed == ArmorTraining.MEDIUM:
             return self._armor_class + min(2, dex_mod)
 
         return self._armor_class
-
-
-class Shield(Armor):
-    def __init__(self,
-                 name: str,
-                 armor_class: int):
-        super().__init__(name=name,
-                         training_needed=ArmorTraining.SHIELD,
-                         armor_class=armor_class)
-
-    def get_armor_bonus(self):
-        return self.get_armor_class(0)

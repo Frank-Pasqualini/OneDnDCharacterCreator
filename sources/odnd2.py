@@ -1,8 +1,18 @@
+"""
+Content from the Dungeons and Dragons OneD&D Expert Classes Unearthed Arcana.
+https://media.dndbeyond.com/compendium-images/one-dnd/expert-classes/kpx0MvyfBGHe0XKk/UA2022-Expert-Classes.pdf
+"""
+
 from rules import classes, spells
 from rules.enums import Skills, SpellLists, SpellSchools
 
 
 class ThiefRogue(classes.Rogue):
+    """
+    Thief subclass for Rogue
+    UA p. 15
+    """
+
     def __init__(self,
                  skill1: Skills,
                  skill2: Skills,
@@ -17,6 +27,11 @@ class ThiefRogue(classes.Rogue):
 
 
 class Barkskin(spells.Spell):
+    """
+    Barkskin Spell
+    UA p. 31
+    """
+
     def __init__(self):
         super().__init__(name="Barkskin",
                          spell_lists=[SpellLists.PRIMAL],
@@ -40,6 +55,11 @@ class Barkskin(spells.Spell):
 
 
 class Guidance(spells.Spell):
+    """
+    Guidance Spell
+    UA p. 32-33
+    """
+
     def __init__(self):
         super().__init__(name="Guidance",
                          spell_lists=[SpellLists.DIVINE, SpellLists.PRIMAL],
@@ -58,11 +78,65 @@ class Guidance(spells.Spell):
 
 
 CONTENT = {
-    #  TODO
+    #  TODO The rest of the subclasses
     "Classes": {
+        # "Hunter Ranger": HunterRanger,
+        # "Lore Bard": LoreBard,
         "Thief Rogue": ThiefRogue,
     },
-    # TODO
+    # TODO the feats
+    "Feats": {
+        # "Ability Score Improvement": AbilityScoreImprovement,
+        # "Actor": Actor,
+        # "Athlete": Athlete,
+        # "Charger": Charger,
+        # "Crossbow Expert": CrossbowExpert,
+        # "Defensive Duelist": DefensiveDuelist,
+        # "Dual Wielder": DualWielder,
+        # "Durable": Durable,
+        # "Elemental Adept": ElementalAdept,
+        # "Epic Boon of Combat Prowess": EpicBoonCombatProwess,
+        # "Epic Boon of Dimensional Travel": EpicBoonDimensionalTravel,
+        # "Epic Boon of Energy Resistance": EpicBoonEnergyResistance,
+        # "Epic Boon of Fortitude": EpicBoonFortitude,
+        # "Epic Boon of Irresistible Offense": EpicBoonIrresistibleOffense,
+        # "Epic Boon of Luck": EpicBoonLuck,
+        # "Epic Boon of the Night Spirit": EpicBoonNightSpirit,
+        # "Epic Boon of Peerless Aim": EpicBoonPeerlessAim,
+        # "Epic Boon of Recovery": EpicBoonRecovery,
+        # "Epic Boon of Skill Proficiency": EpicBoonSkillProficiency,
+        # "Epic Boon of Speed": EpicBoonSpeed,
+        # "Epic Boon of Undetectability": EpicBoonUndetectability,
+        # "Epic Boon of the Unfettered": EpicBoonUnfettered,
+        # "Fighting Style: Archery": FightingStyleArchery,
+        # "Fighting Style: Defense": FightingStyleDefense,
+        # "Fighting Style: Dueling": FightingStyleDueling,
+        # "Fighting Style: Great Weapon Fighting": FightingStyleGreatWeapon,
+        # "Fighting Style: Protection": FightingStyleProtection,
+        # "Fighting Style: Two-Weapon Fighting": FightingStyleTwoWeapon,
+        # "Grappler": Grappler,
+        # "Great Weapon Master": GreatWeaponMaster,
+        # "Heavily Armored": HeavilyArmored,
+        # "Heavy Armor Master": HeavyArmorMaster,
+        # "Inspiring Leader": InspiringLeader,
+        # "Keen Mind": KeenMind,
+        # "Lightly Armored": LightlyArmored,
+        # "Mage Slayer": MageSlayer,
+        # "Medium Armor Master": MediumArmorMaster,
+        # "Mounted Combatant": MountedCombatant,
+        # "Observant": Observant,
+        # "Polearm Master": PolearmMaster,
+        # "Resilient": Resilient,
+        # "Ritual Caster": RitualCaster,
+        # "Sentinel": Sentinel,
+        # "Sharpshooter": Sharpshooter,
+        # "Shield Master": ShieldMaster,
+        # "Skulker": Skulker,
+        # "Speedster": Speedster,
+        # "Spell Sniper": SpellSniper,
+        # "War Caster": WarCaster,
+        # "Weapon Training": WeaponTraining,
+    },
     "Spells": {
         "Barkskin": Barkskin,
         "Guidance": Guidance,

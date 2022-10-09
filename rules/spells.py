@@ -1,9 +1,15 @@
+"""
+A spell that a character can cast.
+"""
+
 from rules.common import ordinal, validate_string
 from rules.enums import SpellLists, SpellSchools
 
 
 class Spell:
-    """A spell that can be cast by a character or enemy."""
+    """
+    A spell that a character can cast.
+    """
 
     _name: str
     _spell_lists: list[SpellLists]
@@ -75,8 +81,6 @@ class Spell:
         return self._name
 
     def __str__(self) -> str:
-        """Print the Spell as it would be seen in a spell description."""
-
         output = f"{self._name}\n"
 
         output += f"{ordinal(self._level)}-Level {self._school.value} Spell"
@@ -87,9 +91,9 @@ class Spell:
 
         output += f"Range: {self._spell_range}\n"
 
-        component_types = ['V' if self._verbal_components else None,
-                           'S' if self._somatic_components else None,
-                           'M' if self._material_components else None]
+        component_types = ["V" if self._verbal_components else None,
+                           "S" if self._somatic_components else None,
+                           "M" if self._material_components else None]
         component_types = [
             component_type for component_type in component_types if component_type is not None]
         output += f"Component: {', '.join(component_types)}"

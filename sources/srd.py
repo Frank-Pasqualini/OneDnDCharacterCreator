@@ -1,131 +1,181 @@
+"""
+Content from the Dungeons and Dragons System Reference Document v5.1.
+https://media.wizards.com/2016/downloads/DND/SRD-OGL_V5.1.pdf
+"""
+
 from rules import spells, armors
 from rules.enums import ArmorTraining, SpellLists, SpellSchools
 
 
 class Padded(armors.Armor):
-    def __init__(self,
-                 name: str = "Padded",
-                 magic_bonus: int = 0):
-        super().__init__(name=name,
+    """
+    Padded Armor
+    SRD p. 63
+    """
+
+    def __init__(self):
+        super().__init__(name="Padded",
                          training_needed=ArmorTraining.LIGHT,
-                         armor_class=11+magic_bonus,
+                         armor_class=11,
                          stealth_disadvantage=True)
 
 
 class Leather(armors.Armor):
-    def __init__(self,
-                 name: str = "Leather",
-                 magic_bonus: int = 0):
-        super().__init__(name=name,
+    """
+    Leather Armor
+    SRD p. 64
+    """
+
+    def __init__(self):
+        super().__init__(name="Leather",
                          training_needed=ArmorTraining.LIGHT,
-                         armor_class=11+magic_bonus)
+                         armor_class=11)
 
 
 class StuddedLeather(armors.Armor):
-    def __init__(self,
-                 name: str = "Studded Leather",
-                 magic_bonus: int = 0):
-        super().__init__(name=name,
+    """
+    Studded Leather Armor
+    SRD p. 64
+    """
+
+    def __init__(self):
+        super().__init__(name="Studded Leather",
                          training_needed=ArmorTraining.LIGHT,
-                         armor_class=12+magic_bonus)
+                         armor_class=12)
 
 
 class Hide(armors.Armor):
-    def __init__(self,
-                 name: str = "Hide",
-                 magic_bonus: int = 0):
-        super().__init__(name=name,
+    """
+    Hide Armor
+    SRD p. 64
+    """
+
+    def __init__(self):
+        super().__init__(name="Hide",
                          training_needed=ArmorTraining.MEDIUM,
-                         armor_class=12+magic_bonus)
+                         armor_class=12)
 
 
 class ChainShirt(armors.Armor):
-    def __init__(self,
-                 name: str = "Chain Shirt",
-                 magic_bonus: int = 0):
-        super().__init__(name=name,
+    """
+    Chain Shirt Armor
+    SRD p. 64
+    """
+
+    def __init__(self):
+        super().__init__(name="Chain Shirt",
                          training_needed=ArmorTraining.MEDIUM,
-                         armor_class=13+magic_bonus)
+                         armor_class=13)
 
 
 class ScaleMail(armors.Armor):
-    def __init__(self,
-                 name: str = "Scale Mail",
-                 magic_bonus: int = 0):
-        super().__init__(name=name,
+    """
+    Scale Mail Armor
+    SRD p. 64
+    """
+
+    def __init__(self):
+        super().__init__(name="Scale Mail",
                          training_needed=ArmorTraining.MEDIUM,
-                         armor_class=14+magic_bonus,
+                         armor_class=14,
                          stealth_disadvantage=True)
 
 
 class Breastplate(armors.Armor):
-    def __init__(self,
-                 name: str = "Breastplate",
-                 magic_bonus: int = 0):
-        super().__init__(name=name,
+    """
+    Breastplate Armor
+    SRD p. 64
+    """
+
+    def __init__(self):
+        super().__init__(name="Breastplate",
                          training_needed=ArmorTraining.MEDIUM,
-                         armor_class=14+magic_bonus)
+                         armor_class=14)
 
 
 class HalfPlate(armors.Armor):
-    def __init__(self,
-                 name: str = "Half Plate",
-                 magic_bonus: int = 0):
-        super().__init__(name=name,
+    """
+    Half Plate Armor
+    SRD p. 64
+    """
+
+    def __init__(self):
+        super().__init__(name="Half Plate",
                          training_needed=ArmorTraining.MEDIUM,
-                         armor_class=15+magic_bonus,
+                         armor_class=15,
                          stealth_disadvantage=True)
 
 
 class RingMail(armors.Armor):
-    def __init__(self,
-                 name: str = "Ring Mail",
-                 magic_bonus: int = 0):
-        super().__init__(name=name,
+    """
+    Ring Mail Armor
+    SRD p. 64
+    """
+
+    def __init__(self):
+        super().__init__(name="Ring Mail",
                          training_needed=ArmorTraining.HEAVY,
-                         armor_class=14+magic_bonus,
+                         armor_class=14,
                          stealth_disadvantage=True)
 
 
 class ChainMail(armors.Armor):
-    def __init__(self,
-                 name: str = "Chain Mail",
-                 magic_bonus: int = 0):
-        super().__init__(name=name,
+    """
+    Chain Mail Armor
+    SRD p. 64
+    """
+
+    def __init__(self):
+        super().__init__(name="Chain Mail",
                          training_needed=ArmorTraining.HEAVY,
-                         armor_class=16+magic_bonus,
+                         armor_class=16,
                          stealth_disadvantage=True)
 
 
 class Splint(armors.Armor):
-    def __init__(self,
-                 name: str = "Splint",
-                 magic_bonus: int = 0):
-        super().__init__(name=name,
+    """
+    Splint Armor
+    SRD p. 64
+    """
+
+    def __init__(self):
+        super().__init__(name="Splint",
                          training_needed=ArmorTraining.HEAVY,
-                         armor_class=17+magic_bonus,
+                         armor_class=17,
                          stealth_disadvantage=True)
 
 
 class Plate(armors.Armor):
-    def __init__(self,
-                 name: str = "Plate",
-                 magic_bonus: int = 0):
-        super().__init__(name=name,
+    """
+    Plate Armor
+    SRD p. 64
+    """
+
+    def __init__(self):
+        super().__init__(name="Plate",
                          training_needed=ArmorTraining.HEAVY,
-                         armor_class=18+magic_bonus,
+                         armor_class=18,
                          stealth_disadvantage=True)
 
 
-class Shield(armors.Shield):
-    def __init__(self,
-                 name: str = "Shield",
-                 magic_bonus: int = 0):
-        super().__init__(name=name,
-                         armor_class=2+magic_bonus)
+class Shield(armors.Armor):
+    """
+    Shield
+    SRD p. 64
+    """
+
+    def __init__(self):
+        super().__init__(name="Shield",
+                         training_needed=ArmorTraining.SHIELD,
+                         armor_class=2)
 
 
 class AnimalMessenger(spells.Spell):
+    """
+    Animal Messenger Spell
+    SRD p. 115
+    """
+
     def __init__(self):
         super().__init__(name="Animal Messenger",
                          spell_lists=[SpellLists.PRIMAL],
@@ -157,6 +207,11 @@ class AnimalMessenger(spells.Spell):
 
 
 class Light(spells.Spell):
+    """
+    Light Spell
+    SRD p. 159
+    """
+
     def __init__(self):
         super().__init__(name="Light",
                          spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
@@ -193,7 +248,7 @@ CONTENT = {
         "Shield": Shield,
     },
     "Spells": {
-        # TODO
+        # TODO All spells from SRD
         "Animal Messenger": AnimalMessenger,
         # "Barkskin": Barkskin,
         # "Chill Touch": ChillTouch,
@@ -225,4 +280,5 @@ CONTENT = {
         # "Thaumaturgy": Thaumaturgy,
         # "Zone of Truth": ZoneOfTruth,
     },
+    # TODO Other things from SRD
 }

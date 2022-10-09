@@ -1,9 +1,15 @@
+"""
+A feature that defines special rules for a character.
+"""
+
 from rules import abilities, bonuses, spells
 from rules.common import ordinal, validate_string
 
 
 class Feat:
-    """A feature that defines special rules for a character."""
+    """
+    A feature that defines special rules for a character.
+    """
 
     _name: str
     _description: str
@@ -48,8 +54,6 @@ class Feat:
         return f"{self._name}. {self._description}"
 
     def __str__(self) -> str:
-        """Print the Feat as it would be seen in a feat description."""
-
         output = f"{self._name}\n"
 
         if self._level is not None:

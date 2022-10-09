@@ -1,9 +1,53 @@
+"""
+Content from the Dungeons and Dragons OneD&D Character Origins Unearthed Arcana.
+https://media.dndbeyond.com/compendium-images/one-dnd/character-origins/CSWCVV0M4B6vX6E1/UA2022-CharacterOrigins.pdf
+"""
+
 from rules import abilities, backgrounds, bonuses, feats, races, spells
-from rules.enums import AbilityNames, ArtisansTools, DamageTypes, GamingSets, Languages, MusicalInstruments, \
-    ProficiencyLevels, Sizes, Skills, SpellLists, Tools
+from rules.enums import AbilityNames, ArtisansTools, DamageTypes, GamingSets, Languages, MusicalInstruments
+from rules.enums import ProficiencyLevels, Sizes, Skills, SpellLists, Tools
+
+
+class Acolyte(backgrounds.Background):
+    """
+    Acolyte example Background
+    UA p. 11
+    """
+
+    def __init__(self,
+                 cantrip1: spells.Spell,
+                 cantrip2: spells.Spell,
+                 spell: spells.Spell,
+                 ability: AbilityNames):
+        super().__init__(name="Acolyte",
+                         background_abilities=abilities.Abilities(
+                             wisdom=2, intelligence=1),
+                         background_bonuses=bonuses.Bonuses(
+                             skills={
+                                 Skills.INSIGHT: ProficiencyLevels.PROFICIENT,
+                                 Skills.RELIGION: ProficiencyLevels.PROFICIENT,
+                             },
+                             tools={
+                                 ArtisansTools.CALLIGRAPHERS_SUPPLIES: ProficiencyLevels.PROFICIENT,
+                             },
+                             languages=[Languages.CELESTIAL],
+                         ),
+                         feat=MagicInitiate(
+                             SpellLists.DIVINE, cantrip1, cantrip2, spell, ability),
+                         description="You devoted yourself to service in a temple, either nestled in a town or "
+                                     "secluded in a sacred grove. There you performed hallowed rites in honor of a "
+                                     "god or pantheon. You served under a priest and studied religion. Thanks to your "
+                                     "priest’s instruction and your own devotion, you also learned how to channel a "
+                                     "modicum of divine power in service to your place of worship and the people "
+                                     "who prayed there.")
 
 
 class Artisan(backgrounds.Background):
+    """
+    Artisan example Background
+    UA p. 12
+    """
+
     def __init__(self,
                  tool1: ArtisansTools,
                  tool2: ArtisansTools,
@@ -15,13 +59,14 @@ class Artisan(backgrounds.Background):
         super().__init__(name="Artisan",
                          background_abilities=abilities.Abilities(
                              intelligence=2, charisma=1),
-                         background_bonuses=bonuses.Bonuses(skills={
-                             Skills.INVESTIGATION: ProficiencyLevels.PROFICIENT,
-                             Skills.PERSUASION: ProficiencyLevels.PROFICIENT,
-                         },
-                             artisans_tools={
+                         background_bonuses=bonuses.Bonuses(
+                             skills={
+                                 Skills.INVESTIGATION: ProficiencyLevels.PROFICIENT,
+                                 Skills.PERSUASION: ProficiencyLevels.PROFICIENT,
+                             },
+                             tools={
                                  tool1: ProficiencyLevels.PROFICIENT,
-                         },
+                             },
                              languages=[Languages.GNOMISH],
                          ),
                          feat=Crafter(tool2, tool3, tool4),
@@ -34,6 +79,11 @@ class Artisan(backgrounds.Background):
 
 
 class Charlatan(backgrounds.Background):
+    """
+    Charlatan example Background
+    UA p. 12
+    """
+
     def __init__(self,
                  skill1: Skills,
                  skill2: Skills,
@@ -41,13 +91,14 @@ class Charlatan(backgrounds.Background):
         super().__init__(name="Charlatan",
                          background_abilities=abilities.Abilities(
                              charisma=2, dexterity=1),
-                         background_bonuses=bonuses.Bonuses(skills={
-                             Skills.DECEPTION: ProficiencyLevels.PROFICIENT,
-                             Skills.SLEIGHT_OF_HAND: ProficiencyLevels.PROFICIENT,
-                         },
+                         background_bonuses=bonuses.Bonuses(
+                             skills={
+                                 Skills.DECEPTION: ProficiencyLevels.PROFICIENT,
+                                 Skills.SLEIGHT_OF_HAND: ProficiencyLevels.PROFICIENT,
+                             },
                              tools={
                                  Tools.FORGERY_KIT: ProficiencyLevels.PROFICIENT,
-                         },
+                             },
                              languages=[Languages.INFERNAL],
                          ),
                          feat=Skilled(skill1, skill2, skill3),
@@ -60,17 +111,23 @@ class Charlatan(backgrounds.Background):
 
 
 class Criminal(backgrounds.Background):
+    """
+    Criminal example Background
+    UA p. 12
+    """
+
     def __init__(self):
         super().__init__(name="Criminal",
                          background_abilities=abilities.Abilities(
                              dexterity=2, intelligence=1),
-                         background_bonuses=bonuses.Bonuses(skills={
-                             Skills.SLEIGHT_OF_HAND: ProficiencyLevels.PROFICIENT,
-                             Skills.STEALTH: ProficiencyLevels.PROFICIENT,
-                         },
+                         background_bonuses=bonuses.Bonuses(
+                             skills={
+                                 Skills.SLEIGHT_OF_HAND: ProficiencyLevels.PROFICIENT,
+                                 Skills.STEALTH: ProficiencyLevels.PROFICIENT,
+                             },
                              tools={
                                  Tools.THIEVES_TOOLS: ProficiencyLevels.PROFICIENT,
-                         },
+                             },
                              languages=[Languages.THIEVES_CANT],
                          ),
                          feat=Alert(),
@@ -81,6 +138,11 @@ class Criminal(backgrounds.Background):
 
 
 class Cultist(backgrounds.Background):
+    """
+    Cultist example Background
+    UA p. 12
+    """
+
     def __init__(self,
                  cantrip1: spells.Spell,
                  cantrip2: spells.Spell,
@@ -89,13 +151,14 @@ class Cultist(backgrounds.Background):
         super().__init__(name="Cultist",
                          background_abilities=abilities.Abilities(
                              intelligence=2, charisma=1),
-                         background_bonuses=bonuses.Bonuses(skills={
-                             Skills.ARCANA: ProficiencyLevels.PROFICIENT,
-                             Skills.RELIGION: ProficiencyLevels.PROFICIENT,
-                         },
+                         background_bonuses=bonuses.Bonuses(
+                             skills={
+                                 Skills.ARCANA: ProficiencyLevels.PROFICIENT,
+                                 Skills.RELIGION: ProficiencyLevels.PROFICIENT,
+                             },
                              tools={
                                  Tools.DISGUISE_KIT: ProficiencyLevels.PROFICIENT,
-                         },
+                             },
                              languages=[Languages.ABYSSAL],
                          ),
                          feat=MagicInitiate(
@@ -109,24 +172,30 @@ class Cultist(backgrounds.Background):
 
 
 class Entertainer(backgrounds.Background):
+    """
+    Entertainer example Background
+    UA p. 12-13
+    """
+
     def __init__(self,
                  instrument1: MusicalInstruments,
                  instrument2: MusicalInstruments,
                  instrument3: MusicalInstruments,
                  instrument4: MusicalInstruments):
-        if instrument1 in [instrument2,  instrument3, instrument4]:
+        if instrument1 in [instrument2, instrument3, instrument4]:
             raise Exception("All tools should be unique")
 
         super().__init__(name="Entertainer",
                          background_abilities=abilities.Abilities(
                              charisma=2, dexterity=1),
-                         background_bonuses=bonuses.Bonuses(skills={
-                             Skills.ACROBATICS: ProficiencyLevels.PROFICIENT,
-                             Skills.PERFORMANCE: ProficiencyLevels.PROFICIENT,
-                         },
-                             musical_instruments={
+                         background_bonuses=bonuses.Bonuses(
+                             skills={
+                                 Skills.ACROBATICS: ProficiencyLevels.PROFICIENT,
+                                 Skills.PERFORMANCE: ProficiencyLevels.PROFICIENT,
+                             },
+                             tools={
                                  instrument1: ProficiencyLevels.PROFICIENT,
-                         },
+                             },
                              languages=[Languages.ELVISH],
                          ),
                          feat=Musician(instrument2, instrument3, instrument4),
@@ -138,17 +207,23 @@ class Entertainer(backgrounds.Background):
 
 
 class Farmer(backgrounds.Background):
+    """
+    Farmer example Background
+    UA p. 13
+    """
+
     def __init__(self):
         super().__init__(name="Farmer",
                          background_abilities=abilities.Abilities(
                              constitution=2, wisdom=1),
-                         background_bonuses=bonuses.Bonuses(skills={
-                             Skills.ANIMAL_HANDLING: ProficiencyLevels.PROFICIENT,
-                             Skills.NATURE: ProficiencyLevels.PROFICIENT,
-                         },
-                             artisans_tools={
+                         background_bonuses=bonuses.Bonuses(
+                             skills={
+                                 Skills.ANIMAL_HANDLING: ProficiencyLevels.PROFICIENT,
+                                 Skills.NATURE: ProficiencyLevels.PROFICIENT,
+                             },
+                             tools={
                                  ArtisansTools.CARPENTERS_TOOLS: ProficiencyLevels.PROFICIENT,
-                         },
+                             },
                              languages=[Languages.HALFLING],
                          ),
                          feat=Tough(),
@@ -160,17 +235,23 @@ class Farmer(backgrounds.Background):
 
 
 class Gladiator(backgrounds.Background):
+    """
+    Gladiator example Background
+    UA p. 13
+    """
+
     def __init__(self):
         super().__init__(name="Gladiator",
                          background_abilities=abilities.Abilities(
                              strength=2, charisma=1),
-                         background_bonuses=bonuses.Bonuses(skills={
-                             Skills.ATHLETICS: ProficiencyLevels.PROFICIENT,
-                             Skills.PERFORMANCE: ProficiencyLevels.PROFICIENT,
-                         },
-                             artisans_tools={
+                         background_bonuses=bonuses.Bonuses(
+                             skills={
+                                 Skills.ATHLETICS: ProficiencyLevels.PROFICIENT,
+                                 Skills.PERFORMANCE: ProficiencyLevels.PROFICIENT,
+                             },
+                             tools={
                                  ArtisansTools.SMITHS_TOOLS: ProficiencyLevels.PROFICIENT,
-                         },
+                             },
                              languages=[Languages.ORC],
                          ),
                          feat=SavageAttacker(),
@@ -184,18 +265,24 @@ class Gladiator(backgrounds.Background):
 
 
 class Guard(backgrounds.Background):
+    """
+    Guard example Background
+    UA p. 13
+    """
+
     def __init__(self,
                  gaming_set: GamingSets):
         super().__init__(name="Guard",
                          background_abilities=abilities.Abilities(
                              strength=2, wisdom=1),
-                         background_bonuses=bonuses.Bonuses(skills={
-                             Skills.ATHLETICS: ProficiencyLevels.PROFICIENT,
-                             Skills.PERCEPTION: ProficiencyLevels.PROFICIENT,
-                         },
-                             gaming_sets={
+                         background_bonuses=bonuses.Bonuses(
+                             skills={
+                                 Skills.ATHLETICS: ProficiencyLevels.PROFICIENT,
+                                 Skills.PERCEPTION: ProficiencyLevels.PROFICIENT,
+                             },
+                             tools={
                                  gaming_set: ProficiencyLevels.PROFICIENT,
-                         },
+                             },
                              languages=[Languages.DWARVISH],
                          ),
                          feat=Alert(),
@@ -208,6 +295,11 @@ class Guard(backgrounds.Background):
 
 
 class Guide(backgrounds.Background):
+    """
+    Guide example Background
+    UA p. 13-14
+    """
+
     def __init__(self,
                  cantrip1: spells.Spell,
                  cantrip2: spells.Spell,
@@ -217,13 +309,14 @@ class Guide(backgrounds.Background):
         super().__init__(name="Guide",
                          background_abilities=abilities.Abilities(
                              wisdom=2, dexterity=1),
-                         background_bonuses=bonuses.Bonuses(skills={
-                             Skills.STEALTH: ProficiencyLevels.PROFICIENT,
-                             Skills.SURVIVAL: ProficiencyLevels.PROFICIENT,
-                         },
-                             artisans_tools={
+                         background_bonuses=bonuses.Bonuses(
+                             skills={
+                                 Skills.STEALTH: ProficiencyLevels.PROFICIENT,
+                                 Skills.SURVIVAL: ProficiencyLevels.PROFICIENT,
+                             },
+                             tools={
                                  ArtisansTools.CARTOGRAPHERS_TOOLS: ProficiencyLevels.PROFICIENT,
-                         },
+                             },
                              languages=[Languages.GIANT],
                          ),
                          feat=MagicInitiate(spell_list=SpellLists.PRIMAL,
@@ -240,6 +333,11 @@ class Guide(backgrounds.Background):
 
 
 class Hermit(backgrounds.Background):
+    """
+    Hermit example Background
+    UA p. 14
+    """
+
     def __init__(self,
                  cantrip1: spells.Spell,
                  cantrip2: spells.Spell,
@@ -249,13 +347,14 @@ class Hermit(backgrounds.Background):
         super().__init__(name="Hermit",
                          background_abilities=abilities.Abilities(
                              wisdom=2, constitution=1),
-                         background_bonuses=bonuses.Bonuses(skills={
-                             Skills.MEDICINE: ProficiencyLevels.PROFICIENT,
-                             Skills.RELIGION: ProficiencyLevels.PROFICIENT,
-                         },
+                         background_bonuses=bonuses.Bonuses(
+                             skills={
+                                 Skills.MEDICINE: ProficiencyLevels.PROFICIENT,
+                                 Skills.RELIGION: ProficiencyLevels.PROFICIENT,
+                             },
                              tools={
                                  Tools.HERBALISM_KIT: ProficiencyLevels.PROFICIENT,
-                         },
+                             },
                              languages=[Languages.SYLVAN],
                          ),
                          feat=MagicInitiate(spell_list=SpellLists.PRIMAL,
@@ -273,17 +372,23 @@ class Hermit(backgrounds.Background):
 
 
 class Laborer(backgrounds.Background):
+    """
+    Laborer example Background
+    UA p. 14
+    """
+
     def __init__(self):
         super().__init__(name="Laborer",
                          background_abilities=abilities.Abilities(
                              constitution=2, strength=1),
-                         background_bonuses=bonuses.Bonuses(skills={
-                             Skills.ATHLETICS: ProficiencyLevels.PROFICIENT,
-                             Skills.SURVIVAL: ProficiencyLevels.PROFICIENT,
-                         },
-                             artisans_tools={
+                         background_bonuses=bonuses.Bonuses(
+                             skills={
+                                 Skills.ATHLETICS: ProficiencyLevels.PROFICIENT,
+                                 Skills.SURVIVAL: ProficiencyLevels.PROFICIENT,
+                             },
+                             tools={
                                  ArtisansTools.MASONS_TOOLS: ProficiencyLevels.PROFICIENT,
-                         },
+                             },
                              languages=[Languages.DWARVISH],
                          ),
                          feat=Tough(),
@@ -296,6 +401,11 @@ class Laborer(backgrounds.Background):
 
 
 class Noble(backgrounds.Background):
+    """
+    Noble example Background
+    UA p. 14
+    """
+
     def __init__(self,
                  gaming_set: GamingSets,
                  skill1: Skills,
@@ -304,13 +414,14 @@ class Noble(backgrounds.Background):
         super().__init__(name="Noble",
                          background_abilities=abilities.Abilities(
                              charisma=2, intelligence=1),
-                         background_bonuses=bonuses.Bonuses(skills={
-                             Skills.HISTORY: ProficiencyLevels.PROFICIENT,
-                             Skills.PERSUASION: ProficiencyLevels.PROFICIENT,
-                         },
-                             gaming_sets={
+                         background_bonuses=bonuses.Bonuses(
+                             skills={
+                                 Skills.HISTORY: ProficiencyLevels.PROFICIENT,
+                                 Skills.PERSUASION: ProficiencyLevels.PROFICIENT,
+                             },
+                             tools={
                                  gaming_set: ProficiencyLevels.PROFICIENT,
-                         },
+                             },
                              languages=[Languages.DRACONIC],
                          ),
                          feat=Skilled(skill1, skill2, skill3),
@@ -324,17 +435,23 @@ class Noble(backgrounds.Background):
 
 
 class Pilgrim(backgrounds.Background):
+    """
+    Pilgrim example Background
+    UA p. 14-15
+    """
+
     def __init__(self, instrument: MusicalInstruments):
         super().__init__(name="Pilgrim",
                          background_abilities=abilities.Abilities(
                              wisdom=2, constitution=1),
-                         background_bonuses=bonuses.Bonuses(skills={
-                             Skills.RELIGION: ProficiencyLevels.PROFICIENT,
-                             Skills.SURVIVAL: ProficiencyLevels.PROFICIENT,
-                         },
-                             musical_instruments={
+                         background_bonuses=bonuses.Bonuses(
+                             skills={
+                                 Skills.RELIGION: ProficiencyLevels.PROFICIENT,
+                                 Skills.SURVIVAL: ProficiencyLevels.PROFICIENT,
+                             },
+                             tools={
                                  instrument: ProficiencyLevels.PROFICIENT,
-                         },
+                             },
                              languages=[Languages.HALFLING],
                          ),
                          feat=Healer(),
@@ -346,6 +463,11 @@ class Pilgrim(backgrounds.Background):
 
 
 class Sage(backgrounds.Background):
+    """
+    Sage example Background
+    UA p. 15
+    """
+
     def __init__(self,
                  cantrip1: spells.Spell,
                  cantrip2: spells.Spell,
@@ -355,13 +477,14 @@ class Sage(backgrounds.Background):
         super().__init__(name="Sage",
                          background_abilities=abilities.Abilities(
                              intelligence=2, wisdom=1),
-                         background_bonuses=bonuses.Bonuses(skills={
-                             Skills.ARCANA: ProficiencyLevels.PROFICIENT,
-                             Skills.HISTORY: ProficiencyLevels.PROFICIENT,
-                         },
-                             artisans_tools={
+                         background_bonuses=bonuses.Bonuses(
+                             skills={
+                                 Skills.ARCANA: ProficiencyLevels.PROFICIENT,
+                                 Skills.HISTORY: ProficiencyLevels.PROFICIENT,
+                             },
+                             tools={
                                  ArtisansTools.CALLIGRAPHERS_SUPPLIES: ProficiencyLevels.PROFICIENT,
-                         },
+                             },
                              languages=[Languages.ELVISH],
                          ),
                          feat=MagicInitiate(spell_list=SpellLists.ARCANE,
@@ -377,17 +500,23 @@ class Sage(backgrounds.Background):
 
 
 class Sailor(backgrounds.Background):
+    """
+    Sailor example Background
+    UA p. 15
+    """
+
     def __init__(self):
         super().__init__(name="Sailor",
                          background_abilities=abilities.Abilities(
                              dexterity=2, wisdom=1),
-                         background_bonuses=bonuses.Bonuses(skills={
-                             Skills.ACROBATICS: ProficiencyLevels.PROFICIENT,
-                             Skills.PERCEPTION: ProficiencyLevels.PROFICIENT,
-                         },
+                         background_bonuses=bonuses.Bonuses(
+                             skills={
+                                 Skills.ACROBATICS: ProficiencyLevels.PROFICIENT,
+                                 Skills.PERCEPTION: ProficiencyLevels.PROFICIENT,
+                             },
                              tools={
                                  Tools.NAVIGATORS_TOOLS: ProficiencyLevels.PROFICIENT,
-                         },
+                             },
                              languages=[Languages.PRIMORDIAL],
                          ),
                          feat=TavernBrawler(),
@@ -399,18 +528,24 @@ class Sailor(backgrounds.Background):
 
 
 class Soldier(backgrounds.Background):
+    """
+    Soldier example Background
+    UA p. 15
+    """
+
     def __init__(self,
                  gaming_set: GamingSets):
         super().__init__(name="Soldier",
                          background_abilities=abilities.Abilities(
                              strength=2, constitution=1),
-                         background_bonuses=bonuses.Bonuses(skills={
-                             Skills.ATHLETICS: ProficiencyLevels.PROFICIENT,
-                             Skills.INTIMIDATION: ProficiencyLevels.PROFICIENT,
-                         },
-                             gaming_sets={
+                         background_bonuses=bonuses.Bonuses(
+                             skills={
+                                 Skills.ATHLETICS: ProficiencyLevels.PROFICIENT,
+                                 Skills.INTIMIDATION: ProficiencyLevels.PROFICIENT,
+                             },
+                             tools={
                                  gaming_set: ProficiencyLevels.PROFICIENT,
-                         },
+                             },
                              languages=[Languages.GOBLIN],
                          ),
                          feat=SavageAttacker(),
@@ -423,28 +558,39 @@ class Soldier(backgrounds.Background):
 
 
 class Urchin(backgrounds.Background):
+    """
+    Urchin example Background
+    UA p. 15
+    """
+
     def __init__(self):
         super().__init__(name="Urchin",
                          background_abilities=abilities.Abilities(
                              dexterity=2, wisdom=1),
-                         background_bonuses=bonuses.Bonuses(skills={
-                             Skills.INSIGHT: ProficiencyLevels.PROFICIENT,
-                             Skills.STEALTH: ProficiencyLevels.PROFICIENT,
-                         },
+                         background_bonuses=bonuses.Bonuses(
+                             skills={
+                                 Skills.INSIGHT: ProficiencyLevels.PROFICIENT,
+                                 Skills.STEALTH: ProficiencyLevels.PROFICIENT,
+                             },
                              tools={
                                  Tools.THIEVES_TOOLS: ProficiencyLevels.PROFICIENT,
-                         },
+                             },
                              languages=[Languages.COMMON_SIGN_LANGUAGE],
                          ),
                          feat=Lucky(),
                          description="You grew up on the streets, surrounded by similarly ill-fated castoffs, "
                                      "a few of them friends and a few of them rivals. You slept where you could and "
                                      "did odd jobs for food. At times, when the hunger became unbearable, "
-                                     "your esorted to theft. Still, you never lost your pride and never abandoned "
+                                     "you resorted to theft. Still, you never lost your pride and never abandoned "
                                      "hope. Fate is not yet finished with you.")
 
 
 class Alert(feats.Feat):
+    """
+    Alert Feat
+    UA p. 16
+    """
+
     def __init__(self):
         super().__init__(name="Alert",
                          level=1,
@@ -458,6 +604,11 @@ class Alert(feats.Feat):
 
 
 class Crafter(feats.Feat):
+    """
+    Crafter Feat
+    UA p. 16
+    """
+
     def __init__(self, tool1: ArtisansTools, tool2: ArtisansTools, tool3: ArtisansTools):
         if tool1 == tool2 or tool1 == tool3 or tool2 == tool3:
             raise Exception("All 3 tools should be unique")
@@ -472,7 +623,7 @@ class Crafter(feats.Feat):
                                      "on it.\n"
                                      "Faster Crafting. When you craft an item using a tool with which you have Tool "
                                      "Proficiency, the required crafting time is reduced by 20 percent.",
-                         feat_bonuses=bonuses.Bonuses(artisans_tools={
+                         feat_bonuses=bonuses.Bonuses(tools={
                              tool1: ProficiencyLevels.PROFICIENT,
                              tool2: ProficiencyLevels.PROFICIENT,
                              tool3: ProficiencyLevels.PROFICIENT,
@@ -480,6 +631,11 @@ class Crafter(feats.Feat):
 
 
 class Healer(feats.Feat):
+    """
+    Healer Feat
+    UA p. 16-17
+    """
+
     def __init__(self):
         super().__init__(name="Healer",
                          level=1,
@@ -495,6 +651,11 @@ class Healer(feats.Feat):
 
 
 class Lucky(feats.Feat):
+    """
+    Lucky Feat
+    UA p. 17
+    """
+
     def __init__(self):
         super().__init__(name="Lucky",
                          level=1,
@@ -510,6 +671,11 @@ class Lucky(feats.Feat):
 
 
 class MagicInitiate(feats.Feat):
+    """
+    Magic Initiate Feat
+    UA p. 17
+    """
+
     def __init__(self,
                  spell_list: SpellLists,
                  cantrip1: spells.Spell,
@@ -520,8 +686,10 @@ class MagicInitiate(feats.Feat):
         if cantrip1.get_level() != 0 or cantrip2.get_level() != 0 or spell.get_level() != 1:
             raise Exception("Invalid spell levels")
 
-        if spell_list not in cantrip1.get_spell_lists() or spell_list not in cantrip2.get_spell_lists() or \
-                spell_list not in spell.get_spell_lists():
+        if spell_list not in cantrip1.get_spell_lists() or spell_list not in cantrip2.get_spell_lists():
+            raise Exception("All cantrips must be in the proper Spell List")
+
+        if spell_list not in spell.get_spell_lists():
             raise Exception("All spells must be in the proper Spell List")
 
         if ability not in [AbilityNames.INTELLIGENCE, AbilityNames.WISDOM, AbilityNames.CHARISMA]:
@@ -545,6 +713,11 @@ class MagicInitiate(feats.Feat):
 
 
 class Musician(feats.Feat):
+    """
+    Musician Feat
+    UA p. 17
+    """
+
     def __init__(self, instrument1: MusicalInstruments, instrument2: MusicalInstruments,
                  instrument3: MusicalInstruments):
         if instrument1 == instrument2 or instrument1 == instrument3 or instrument2 == instrument3:
@@ -559,7 +732,7 @@ class Musician(feats.Feat):
                                      "on a Musical Instrument with which you have Tool Proficiency and give "
                                      "Inspiration to allies who hear the song. The number of allies you can affect in "
                                      "this way equals your Proficiency Bonus.",
-                         feat_bonuses=bonuses.Bonuses(musical_instruments={
+                         feat_bonuses=bonuses.Bonuses(tools={
                              instrument1: ProficiencyLevels.PROFICIENT,
                              instrument2: ProficiencyLevels.PROFICIENT,
                              instrument3: ProficiencyLevels.PROFICIENT,
@@ -567,6 +740,11 @@ class Musician(feats.Feat):
 
 
 class SavageAttacker(feats.Feat):
+    """
+    Savage Attacker Feat
+    UA p. 17
+    """
+
     def __init__(self):
         super().__init__(name="Savage Attacker",
                          level=1,
@@ -577,23 +755,34 @@ class SavageAttacker(feats.Feat):
 
 
 class Skilled(feats.Feat):
+    """
+    Skilled Feat
+    UA p. 17-18
+    """
+
     def __init__(self, skill1: Skills, skill2: Skills, skill3: Skills):
         if skill1 == skill2 or skill1 == skill3 or skill2 == skill3:
-            raise Exception("All 3 tools should be unique")
+            raise Exception("All 3 skills should be unique")
 
         super().__init__(name="Skilled",
                          level=1,
                          description=f"You have exceptionally broad learning. You gain Proficiency in {skill1.value}, "
                                      f"{skill2.value}, and {skill3.value}.",
                          repeatable="Yes",
-                         feat_bonuses=bonuses.Bonuses(skills={
-                             skill1: ProficiencyLevels.PROFICIENT,
-                             skill2: ProficiencyLevels.PROFICIENT,
-                             skill3: ProficiencyLevels.PROFICIENT,
-                         }))
+                         feat_bonuses=bonuses.Bonuses(
+                             skills={
+                                 skill1: ProficiencyLevels.PROFICIENT,
+                                 skill2: ProficiencyLevels.PROFICIENT,
+                                 skill3: ProficiencyLevels.PROFICIENT,
+                             }))
 
 
 class TavernBrawler(feats.Feat):
+    """
+    Tavern Brawler Feat
+    UA p. 18
+    """
+
     def __init__(self):
         super().__init__(name="Tavern Brawler",
                          level=1,
@@ -612,6 +801,11 @@ class TavernBrawler(feats.Feat):
 
 
 class Tough(feats.Feat):
+    """
+    Tough Feat
+    UA p. 18
+    """
+
     def __init__(self):
         super().__init__(name="Tough",
                          level=1,
@@ -622,6 +816,11 @@ class Tough(feats.Feat):
 
 
 class Human(races.Race):
+    """
+    Human Race
+    UA p. 2-3
+    """
+
     def __init__(self,
                  skill: Skills,
                  versatile: feats.Feat,
@@ -638,9 +837,10 @@ class Human(races.Race):
                                         description="You gain inspiration whenever you finish a Long Rest."),
                              feats.Feat(name="Skillful",
                                         description=f"You gain proficiency in {skill.value}",
-                                        feat_bonuses=bonuses.Bonuses(skills={
-                                            skill: ProficiencyLevels.PROFICIENT
-                                        })),
+                                        feat_bonuses=bonuses.Bonuses(
+                                            skills={
+                                                skill: ProficiencyLevels.PROFICIENT
+                                            })),
                              versatile,
                          ],
                          size=size,
@@ -648,6 +848,11 @@ class Human(races.Race):
 
 
 class Ardling(races.Race):
+    """
+    Ardling Race
+    UA p. 3-4
+    """
+
     def __init__(self,
                  name: str,
                  size: Sizes,
@@ -682,8 +887,13 @@ class Ardling(races.Race):
 
 
 class ExaltedArdling(Ardling):
+    """
+    Ardling Race
+    UA p. 3-4
+    """
+
     def __init__(self,
-                 content,
+                 content: dict[str, dict[str, any]],
                  ability: AbilityNames,
                  size: Sizes = Sizes.MEDIUM):
         super().__init__(name="Exalted Ardling",
@@ -708,8 +918,13 @@ class ExaltedArdling(Ardling):
 
 
 class HeavenlyArdling(Ardling):
+    """
+    Ardling Race
+    UA p. 3-4
+    """
+
     def __init__(self,
-                 content,
+                 content: dict[str, dict[str, any]],
                  ability: AbilityNames,
                  size: Sizes = Sizes.MEDIUM):
         super().__init__(name="Heavenly Ardling",
@@ -734,8 +949,13 @@ class HeavenlyArdling(Ardling):
 
 
 class IdyllicArdling(Ardling):
+    """
+    Ardling Race
+    UA p. 3-4
+    """
+
     def __init__(self,
-                 content,
+                 content: dict[str, dict[str, any]],
                  ability: AbilityNames,
                  size: Sizes = Sizes.MEDIUM):
         super().__init__(name="Idyllic Ardling",
@@ -760,6 +980,11 @@ class IdyllicArdling(Ardling):
 
 
 class Dragonborn(races.Race):
+    """
+    Dragonborn Race
+    UA p. 4-5
+    """
+
     def __init__(self,
                  name: str,
                  ancestry: feats.Feat,
@@ -799,6 +1024,11 @@ class Dragonborn(races.Race):
 
 
 class BlackDragonborn(Dragonborn):
+    """
+    Dragonborn Race
+    UA p. 4-5
+    """
+
     def __init__(self):
         super().__init__(name="Black Dragonborn",
                          ancestry=feats.Feat(
@@ -809,6 +1039,11 @@ class BlackDragonborn(Dragonborn):
 
 
 class BlueDragonborn(Dragonborn):
+    """
+    Dragonborn Race
+    UA p. 4-5
+    """
+
     def __init__(self):
         super().__init__(name="Blue Dragonborn",
                          ancestry=feats.Feat(
@@ -819,6 +1054,11 @@ class BlueDragonborn(Dragonborn):
 
 
 class BrassDragonborn(Dragonborn):
+    """
+    Dragonborn Race
+    UA p. 4-5
+    """
+
     def __init__(self):
         super().__init__(name="Brass Dragonborn",
                          ancestry=feats.Feat(
@@ -829,6 +1069,11 @@ class BrassDragonborn(Dragonborn):
 
 
 class BronzeDragonborn(Dragonborn):
+    """
+    Dragonborn Race
+    UA p. 4-5
+    """
+
     def __init__(self):
         super().__init__(name="Bronze Dragonborn",
                          ancestry=feats.Feat(
@@ -839,6 +1084,11 @@ class BronzeDragonborn(Dragonborn):
 
 
 class CopperDragonborn(Dragonborn):
+    """
+    Dragonborn Race
+    UA p. 4-5
+    """
+
     def __init__(self):
         super().__init__(name="Copper Dragonborn",
                          ancestry=feats.Feat(
@@ -849,6 +1099,11 @@ class CopperDragonborn(Dragonborn):
 
 
 class GoldDragonborn(Dragonborn):
+    """
+    Dragonborn Race
+    UA p. 4-5
+    """
+
     def __init__(self):
         super().__init__(name="Gold Dragonborn",
                          ancestry=feats.Feat(
@@ -859,6 +1114,11 @@ class GoldDragonborn(Dragonborn):
 
 
 class GreenDragonborn(Dragonborn):
+    """
+    Dragonborn Race
+    UA p. 4-5
+    """
+
     def __init__(self):
         super().__init__(name="Green Dragonborn",
                          ancestry=feats.Feat(
@@ -869,6 +1129,11 @@ class GreenDragonborn(Dragonborn):
 
 
 class RedDragonborn(Dragonborn):
+    """
+    Dragonborn Race
+    UA p. 4-5
+    """
+
     def __init__(self):
         super().__init__(name="Red Dragonborn",
                          ancestry=feats.Feat(
@@ -879,6 +1144,11 @@ class RedDragonborn(Dragonborn):
 
 
 class SilverDragonborn(Dragonborn):
+    """
+    Dragonborn Race
+    UA p. 4-5
+    """
+
     def __init__(self):
         super().__init__(name="Silver Dragonborn",
                          ancestry=feats.Feat(
@@ -889,6 +1159,11 @@ class SilverDragonborn(Dragonborn):
 
 
 class WhiteDragonborn(Dragonborn):
+    """
+    Dragonborn Race
+    UA p. 4-5
+    """
+
     def __init__(self):
         super().__init__(name="White Dragonborn",
                          ancestry=feats.Feat(
@@ -899,6 +1174,11 @@ class WhiteDragonborn(Dragonborn):
 
 
 class Dwarf(races.Race):
+    """
+    Dwarf Race
+    UA p. 5-6
+    """
+
     def __init__(self, tool1: ArtisansTools, tool2: ArtisansTools):
         valid_tools = [ArtisansTools.JEWELERS_TOOLS, ArtisansTools.MASONS_TOOLS,
                        ArtisansTools.SMITHS_TOOLS, ArtisansTools.TINKERS_TOOLS]
@@ -942,6 +1222,11 @@ class Dwarf(races.Race):
 
 
 class Elf(races.Race):
+    """
+    Elf Race
+    UA p. 6-7
+    """
+
     def __init__(self,
                  name: str,
                  lineage: feats.Feat,
@@ -982,8 +1267,13 @@ class Elf(races.Race):
 
 
 class Drow(Elf):
+    """
+    Elf Race
+    UA p. 6-7
+    """
+
     def __init__(self,
-                 content,
+                 content: dict[str, dict[str, any]],
                  ability: AbilityNames):
         super().__init__(name="Drow",
                          lineage=feats.Feat(
@@ -1009,8 +1299,13 @@ class Drow(Elf):
 
 
 class HighElf(Elf):
+    """
+    Elf Race
+    UA p. 6-7
+    """
+
     def __init__(self,
-                 content,
+                 content: dict[str, dict[str, any]],
                  ability: AbilityNames):
         super().__init__(name="High Elf",
                          lineage=feats.Feat(
@@ -1035,8 +1330,13 @@ class HighElf(Elf):
 
 
 class WoodElf(Elf):
+    """
+    Elf Race
+    UA p. 6-7
+    """
+
     def __init__(self,
-                 content,
+                 content: dict[str, dict[str, any]],
                  ability: AbilityNames):
         super().__init__(name="Wood Elf",
                          lineage=feats.Feat(
@@ -1059,6 +1359,11 @@ class WoodElf(Elf):
 
 
 class Gnome(races.Race):
+    """
+    Gnome Race
+    UA p. 7-8
+    """
+
     def __init__(self,
                  name: str,
                  lineage: feats.Feat,
@@ -1084,8 +1389,13 @@ class Gnome(races.Race):
 
 
 class ForestGnome(Gnome):
+    """
+    Gnome Race
+    UA p. 7-8
+    """
+
     def __init__(self,
-                 content,
+                 content: dict[str, dict[str, any]],
                  ability: AbilityNames):
         super().__init__(name="Forest Gnome",
                          lineage=feats.Feat(
@@ -1104,8 +1414,13 @@ class ForestGnome(Gnome):
 
 
 class RockGnome(Gnome):
+    """
+    Gnome Race
+    UA p. 7-8
+    """
+
     def __init__(self,
-                 content,
+                 content: dict[str, dict[str, any]],
                  ability: AbilityNames):
         super().__init__(name="Rock Gnome",
                          lineage=feats.Feat(
@@ -1136,6 +1451,11 @@ class RockGnome(Gnome):
 
 
 class Halfling(races.Race):
+    """
+    Halfling Race
+    UA p. 8-9
+    """
+
     def __init__(self):
         super().__init__(name="Halfling",
                          features=[
@@ -1166,6 +1486,11 @@ class Halfling(races.Race):
 
 
 class Orc(races.Race):
+    """
+    Orc Race
+    UA p. 9
+    """
+
     def __init__(self):
         super().__init__(name="Orc",
                          features=[
@@ -1196,8 +1521,13 @@ class Orc(races.Race):
 
 
 class Tiefling(races.Race):
+    """
+    Tiefling Race
+    UA p. 9-10
+    """
+
     def __init__(self,
-                 content,
+                 content: dict[str, dict[str, any]],
                  name: str,
                  size: Sizes,
                  fiendish_legacy: feats.Feat,
@@ -1227,8 +1557,13 @@ class Tiefling(races.Race):
 
 
 class AbyssalTiefling(Tiefling):
+    """
+    Tiefling Race
+    UA p. 9-10
+    """
+
     def __init__(self,
-                 content,
+                 content: dict[str, dict[str, any]],
                  ability: AbilityNames,
                  size: Sizes = Sizes.MEDIUM):
         super().__init__(content=content,
@@ -1255,8 +1590,13 @@ class AbyssalTiefling(Tiefling):
 
 
 class ChthonicTiefling(Tiefling):
+    """
+    Tiefling Race
+    UA p. 9-10
+    """
+
     def __init__(self,
-                 content,
+                 content: dict[str, dict[str, any]],
                  ability: AbilityNames,
                  size: Sizes = Sizes.MEDIUM):
         super().__init__(content=content,
@@ -1283,8 +1623,13 @@ class ChthonicTiefling(Tiefling):
 
 
 class InfernalTiefling(Tiefling):
+    """
+    Tiefling Race
+    UA p. 9-10
+    """
+
     def __init__(self,
-                 content,
+                 content: dict[str, dict[str, any]],
                  ability: AbilityNames,
                  size: Sizes = Sizes.MEDIUM):
         super().__init__(content=content,
@@ -1313,6 +1658,7 @@ class InfernalTiefling(Tiefling):
 CONTENT = {
     "Backgrounds": {
         "Custom": backgrounds.Background,
+        "Acolyte": Acolyte,
         "Artisan": Artisan,
         "Charlatan": Charlatan,
         "Criminal": Criminal,

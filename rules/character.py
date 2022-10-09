@@ -1,3 +1,9 @@
+"""
+All the information about a character.
+"""
+
+# TODO a lot of this file
+
 import math
 
 import PyPDF2
@@ -9,6 +15,10 @@ from rules.enums import AbilityNames, Alignments, Languages, Skills
 
 
 class Character:
+    """
+    All the information about a character.
+    """
+
     _name: str
     _player_name: str
     _alignment: Alignments
@@ -20,7 +30,7 @@ class Character:
     _xp: int
     _milestone: bool
     _armor: armors.Armor | None
-    _shield: armors.Shield | None
+    _shield: armors.Armor | None
     _appearance_image: str | None
     _age: str
     _height: str
@@ -36,13 +46,13 @@ class Character:
                  character_class: classes.CharacterClass,
                  race: races.Race,
                  background: backgrounds.Background,
-                 starting_abilities: abilities.Abilities,
+                 starting_abilities: dict[AbilityNames, int],
                  alignment: Alignments,
                  language: Languages,
                  player_name: str = "",
                  milestone: bool = True,
                  armor: armors.Armor = None,
-                 shield: armors.Shield = None,
+                 shield: armors.Armor = None,
                  appearance_image: str = None,
                  age: str = "",
                  height: str = "",
@@ -52,6 +62,8 @@ class Character:
                  hair: str = "",
                  faction: str = "",
                  faction_image: str = None):
+        # TODO add some validation
+
         self._name = name
         self._player_name = player_name
         self._alignment = alignment
@@ -59,7 +71,14 @@ class Character:
         self._classes = [character_class]
         self._race = race
         self._background = background
-        self._abilities = starting_abilities
+        self._abilities = abilities.Abilities(
+            strength=starting_abilities.get(AbilityNames.STRENGTH, 0),
+            dexterity=starting_abilities.get(AbilityNames.DEXTERITY, 0),
+            constitution=starting_abilities.get(AbilityNames.CONSTITUTION, 0),
+            intelligence=starting_abilities.get(AbilityNames.INTELLIGENCE, 0),
+            wisdom=starting_abilities.get(AbilityNames.WISDOM, 0),
+            charisma=starting_abilities.get(AbilityNames.CHARISMA, 0),
+        )
         self._language = language
 
         self._xp = 0
@@ -85,7 +104,7 @@ class Character:
     def get_armor_class(self) -> int:
         dex_mod = self.get_abilities().get_dexterity_mod()
         return (dex_mod + 10 if self._armor is None else self._armor.get_armor_class(dex_mod)) + \
-               (0 if self._shield is None else self._shield.get_armor_bonus())
+               (0 if self._shield is None else self._shield.get_armor_class())
 
     def get_bonuses(self) -> bonuses.Bonuses:
         class_bonuses = bonuses.Bonuses()
@@ -263,10 +282,10 @@ class Character:
         }
 
         # noinspection PyTypeChecker
-        for j in range(0, len(writer.pages[0]['/Annots'])):
-            writer_annot = writer.pages[0]['/Annots'][j].getObject()
+        for j in range(0, len(writer.pages[0]["/Annots"])):
+            writer_annot = writer.pages[0]["/Annots"][j].getObject()
             for checkbox, value in checkboxes.items():
-                if writer_annot.get('/T') == checkbox:
+                if writer_annot.get("/T") == checkbox:
                     writer_annot.update({
                         NameObject("/V"): NameObject(value),
                         NameObject("/AS"): NameObject(value)

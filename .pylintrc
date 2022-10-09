@@ -7,7 +7,7 @@ analyse-fallback-blocks=no
 
 # Load and enable all available extensions. Use --list-extensions to see a list
 # all available extensions.
-#enable-all-extensions=
+enable-all-extensions=yes
 
 # In error mode, messages with a category besides ERROR or FATAL are
 # suppressed, and no reports are done by default. Error mode is compatible with
@@ -32,7 +32,7 @@ extension-pkg-whitelist=
 # Return non-zero exit code if any of these messages/categories are detected,
 # even if score is above --fail-under value. Syntax same as enable. Messages
 # specified are enabled, while categories only check already-enabled messages.
-fail-on=
+fail-on=all
 
 # Specify a score threshold under which the program will exit with error.
 fail-under=10
@@ -63,12 +63,12 @@ ignored-modules=
 
 # Python code to execute, usually for sys.path manipulation such as
 # pygtk.require().
-#init-hook=
+init-hook="from pylint.config import find_pylintrc; import os, sys; sys.path.append(os.path.dirname(find_pylintrc()))"
 
 # Use multiple processes to speed up Pylint. Specifying 0 will auto-detect the
 # number of processors available to use, and will cap the count on Windows to
 # avoid hangs.
-jobs=1
+jobs=0
 
 # Control the amount of potential inferred values when inferring a single
 # object. This can help the performance when dealing with large functions or
@@ -146,17 +146,14 @@ confidence=HIGH,
 # --enable=similarities". If you want to run only the classes checker, but have
 # no Warning level messages displayed, use "--disable=all --enable=classes
 # --disable=W".
-disable=missing-module-docstring,
-        missing-class-docstring,
-        missing-function-docstring,
+disable=missing-function-docstring,
         too-many-arguments,
         too-many-instance-attributes,
         too-many-branches,
         too-many-locals,
         too-many-lines,
         too-many-boolean-expressions,
-        too-few-public-methods,
-        fixme
+        too-few-public-methods
 
 # Enable the message, report, category or checker with the given id(s). You can
 # either give multiple identifier separated by comma (,) or put this option
@@ -228,7 +225,7 @@ const-naming-style=UPPER_CASE
 
 # Minimum line length for functions/classes that require docstrings, shorter
 # ones are exempt.
-docstring-min-length=-1
+docstring-min-length=2
 
 # Naming style matching correct function names.
 function-naming-style=snake_case
@@ -251,7 +248,7 @@ good-names=i,
 good-names-rgxs=
 
 # Include a hint for the correct naming format with invalid-name.
-include-naming-hint=no
+include-naming-hint=yes
 
 # Naming style matching correct inline iteration names.
 inlinevar-naming-style=any
@@ -304,7 +301,7 @@ variable-naming-style=snake_case
 [CLASSES]
 
 # Warn about protected attribute access inside special methods
-check-protected-access-in-special-methods=no
+check-protected-access-in-special-methods=yes
 
 # List of method names used to declare (i.e. assign) instance attributes.
 defining-attr-methods=__init__,
@@ -528,7 +525,7 @@ spelling-store-unknown-words=no
 
 # This flag controls whether inconsistent-quotes generates a warning when the
 # character used as a quote delimiter is used inconsistently within a module.
-check-quote-consistency=no
+check-quote-consistency=yes
 
 # This flag controls whether the implicit-str-concat should generate a warning
 # on implicit string concatenation in sequences defined over several lines.
