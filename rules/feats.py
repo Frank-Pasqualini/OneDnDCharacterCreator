@@ -21,6 +21,7 @@ class Feat(ABC):
     _abilities: abilities.Abilities
     _bonuses: bonuses.Bonuses
     _spells: list[spells.Spell]
+    _visible: bool
 
     def __init__(self,
                  name: str,
@@ -30,7 +31,8 @@ class Feat(ABC):
                  repeatable: str = "No",
                  feat_abilities: abilities.Abilities = abilities.Abilities(),
                  feat_bonuses: bonuses.Bonuses = bonuses.Bonuses(),
-                 feat_spells: list[spells.Spell] = None):
+                 feat_spells: list[spells.Spell] = None,
+                 visible: bool = True):
         if level not in [None, 1, 4, 20]:
             raise Exception("Invalid Feat level")
 
@@ -42,6 +44,7 @@ class Feat(ABC):
         self._abilities = feat_abilities
         self._bonuses = feat_bonuses
         self._spells = feat_spells
+        self._visible = visible
 
     def get_abilities(self) -> abilities.Abilities:
         return self._abilities
@@ -55,8 +58,8 @@ class Feat(ABC):
     def get_name(self) -> str:
         return self._name
 
-    def summary(self) -> str:
-        return f"{self._name}. {self._description}"
+    def summary(self, visible_override: bool = False) -> str | None:
+        return f"{self._name}. {self._description}" if self._visible or visible_override else None
 
     def __str__(self) -> str:
         output = f"{self._name}\n"

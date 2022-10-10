@@ -10,9 +10,6 @@ from rules.enums import AbilityNames, ArmorTraining, ClassGroups, Languages, Pro
 from rules.enums import WeaponTypes
 
 
-# TODO a lot of this file.
-
-
 class CharacterClass(ABC):
     """
     A specialization a character can have.
@@ -34,6 +31,9 @@ class CharacterClass(ABC):
                  features: list[feats.Feat],
                  hit_die: int,
                  class_bonuses: bonuses.Bonuses):
+        if hit_die not in [6, 8, 10, 12]:
+            raise Exception("Invalid hit die")
+
         self._name = validate_string(name)
         self._class_group = class_group
         self._primary_ability = primary_ability
@@ -249,7 +249,8 @@ class Rogue(CharacterClass, ABC):
                              feats.Feat(name="Expertise",
                                         description=f"You gain expertise in {expertise1.value} and {expertise2.value}.",
                                         feat_bonuses=bonuses.Bonuses(skills={expertise1: ProficiencyLevels.EXPERT,
-                                                                             expertise2: ProficiencyLevels.EXPERT})),
+                                                                             expertise2: ProficiencyLevels.EXPERT}),
+                                        visible=False),
                              feats.Feat(name="Sneak Attack",
                                         description="You know how to turn a subtle attack into a deadly one. Once on "
                                                     "each of your turns when you take the Attack Action, you can deal "
@@ -267,7 +268,9 @@ class Rogue(CharacterClass, ABC):
                                         description="You picked up various languages in the communities where you "
                                                     "plied your roguish talents. You know Thieves’ Cant and "
                                                     f"{language.value}.",
-                                        feat_bonuses=bonuses.Bonuses(languages=[Languages.THIEVES_CANT, language]))
+                                        feat_bonuses=bonuses.Bonuses(
+                                            languages=[Languages.THIEVES_CANT, language]),
+                                        visible=False)
                          ],
                          hit_die=8,
                          class_bonuses=bonuses.Bonuses(
@@ -315,7 +318,8 @@ class Rogue(CharacterClass, ABC):
             name="Expertise",
             description=f"You gain expertise in {expertise1.value} and {expertise2.value}.",
             feat_bonuses=bonuses.Bonuses(skills={expertise1: ProficiencyLevels.EXPERT,
-                                                 expertise2: ProficiencyLevels.EXPERT})))
+                                                 expertise2: ProficiencyLevels.EXPERT}),
+            visible=False))
 
     def _level_up_8(self, feat: feats.Feat):
         if feat.get_level() > 8:
@@ -358,7 +362,8 @@ class Rogue(CharacterClass, ABC):
                                                      "gain Proficiency in Wisdom and Charisma Saving Throws.",
                                          feat_bonuses=bonuses.Bonuses(
                                              saving_throws={AbilityNames.WISDOM: ProficiencyLevels.PROFICIENT,
-                                                            AbilityNames.CHARISMA: ProficiencyLevels.PROFICIENT})))
+                                                            AbilityNames.CHARISMA: ProficiencyLevels.PROFICIENT}),
+                                         visible=False))
 
     def _level_up_16(self, feat: feats.Feat):
         if feat.get_level() > 16:

@@ -26,7 +26,7 @@ class ThiefRogue(classes.Rogue):
                                                      "pocket."))
         self._features.append(feats.Feat(name="Second-Story Work",
                                          description="You have trained to reach especially hard-to-reach places, "
-                                                     "granting you these benefits:\n "
+                                                     "granting you these benefits:\n"
                                                      "Climb Speed. You gain a Climb Speed equal to your Speed.\n"
                                                      "Jump Distance. When you take the Jump Action, you can make a "
                                                      "Dexterity Check, instead of a Strength Check."))
@@ -77,17 +77,14 @@ class AbilityScoreImprovement(feats.Feat):
                              level=4,
                              repeatable="Yes",
                              feat_abilities=abilities.Abilities(
-                                 strength=(2 if ability1 ==
-                                           AbilityNames.STRENGTH else 0),
-                                 dexterity=(2 if ability1 ==
-                                            AbilityNames.DEXTERITY else 0),
-                                 constitution=(
-                                     2 if ability1 == AbilityNames.CONSTITUTION else 0),
-                                 intelligence=(
-                                     2 if ability1 == AbilityNames.INTELLIGENCE else 0),
-                                 wisdom=(2 if ability1 ==
-                                         AbilityNames.WISDOM else 0),
-                                 charisma=(2 if ability1 == AbilityNames.CHARISMA else 0)))
+                                 strength=2 if ability1 == AbilityNames.STRENGTH else 0,
+                                 dexterity=2 if ability1 == AbilityNames.DEXTERITY else 0,
+                                 constitution=2 if ability1 == AbilityNames.CONSTITUTION else 0,
+                                 intelligence=2 if ability1 == AbilityNames.INTELLIGENCE else 0,
+                                 wisdom=2 if ability1 == AbilityNames.WISDOM else 0,
+                                 charisma=2 if ability1 == AbilityNames.CHARISMA else 0,
+                             ),
+                             visible=False)
         else:
             super().__init__(name="Ability Score Improvement",
                              description=f"You increase {ability1.value} and {ability2.value} by 1.",
@@ -104,7 +101,8 @@ class AbilityScoreImprovement(feats.Feat):
                                      ability1, ability2] else 0),
                                  wisdom=(1 if AbilityNames.WISDOM in [
                                      ability1, ability2] else 0),
-                                 charisma=(1 if AbilityNames.CHARISMA in [ability1, ability2] else 0)))
+                                 charisma=(1 if AbilityNames.CHARISMA in [ability1, ability2] else 0)),
+                             visible=False)
 
 
 class Barkskin(spells.Spell):

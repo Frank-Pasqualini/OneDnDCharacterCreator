@@ -46,3 +46,9 @@ class Armor(ABC):
             return self._armor_class + min(2, dex_mod)
 
         return self._armor_class
+
+    def get_name(self) -> str:
+        return self._name
+
+    def get_type(self) -> ArmorTraining:
+        return self._training_needed

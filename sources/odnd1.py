@@ -783,7 +783,8 @@ class Skilled(feats.Feat):
                                  skill1: ProficiencyLevels.PROFICIENT,
                                  skill2: ProficiencyLevels.PROFICIENT,
                                  skill3: ProficiencyLevels.PROFICIENT,
-                             }))
+                             }),
+                         visible=False)
 
 
 class TavernBrawler(feats.Feat):
@@ -849,7 +850,8 @@ class Human(races.Race):
                                         feat_bonuses=bonuses.Bonuses(
                                             skills={
                                                 skill: ProficiencyLevels.PROFICIENT
-                                            })),
+                                            }),
+                                        visible=False),
                              versatile,
                          ],
                          size=size,
@@ -1027,6 +1029,7 @@ class Dragonborn(races.Race):
                                              "read, and write Draconic.",
                                  feat_bonuses=bonuses.Bonuses(
                                      languages=[Languages.DRACONIC]),
+                                 visible=False,
                              )
                          ],
                          life_span=80)
@@ -1042,7 +1045,8 @@ class BlackDragonborn(Dragonborn):
         super().__init__(name="Black Dragonborn",
                          ancestry=feats.Feat(
                              name="Draconic Ancestry",
-                             description="Your lineage stems from a Black Dragon progenitor."
+                             description="Your lineage stems from a Black Dragon progenitor.",
+                             visible=False
                          ),
                          damage_type=DamageTypes.ACID)
 
@@ -1057,7 +1061,8 @@ class BlueDragonborn(Dragonborn):
         super().__init__(name="Blue Dragonborn",
                          ancestry=feats.Feat(
                              name="Draconic Ancestry",
-                             description="Your lineage stems from a Blue Dragon progenitor."
+                             description="Your lineage stems from a Blue Dragon progenitor.",
+                             visible=False
                          ),
                          damage_type=DamageTypes.LIGHTNING)
 
@@ -1072,7 +1077,8 @@ class BrassDragonborn(Dragonborn):
         super().__init__(name="Brass Dragonborn",
                          ancestry=feats.Feat(
                              name="Draconic Ancestry",
-                             description="Your lineage stems from a Brass Dragon progenitor."
+                             description="Your lineage stems from a Brass Dragon progenitor.",
+                             visible=False
                          ),
                          damage_type=DamageTypes.FIRE)
 
@@ -1087,7 +1093,8 @@ class BronzeDragonborn(Dragonborn):
         super().__init__(name="Bronze Dragonborn",
                          ancestry=feats.Feat(
                              name="Draconic Ancestry",
-                             description="Your lineage stems from a Bronze Dragon progenitor."
+                             description="Your lineage stems from a Bronze Dragon progenitor.",
+                             visible=False,
                          ),
                          damage_type=DamageTypes.LIGHTNING)
 
@@ -1102,7 +1109,8 @@ class CopperDragonborn(Dragonborn):
         super().__init__(name="Copper Dragonborn",
                          ancestry=feats.Feat(
                              name="Draconic Ancestry",
-                             description="Your lineage stems from a Copper Dragon progenitor."
+                             description="Your lineage stems from a Copper Dragon progenitor.",
+                             visible=False,
                          ),
                          damage_type=DamageTypes.ACID)
 
@@ -1117,7 +1125,8 @@ class GoldDragonborn(Dragonborn):
         super().__init__(name="Gold Dragonborn",
                          ancestry=feats.Feat(
                              name="Draconic Ancestry",
-                             description="Your lineage stems from a Gold Dragon progenitor."
+                             description="Your lineage stems from a Gold Dragon progenitor.",
+                             visible=False,
                          ),
                          damage_type=DamageTypes.FIRE)
 
@@ -1132,7 +1141,8 @@ class GreenDragonborn(Dragonborn):
         super().__init__(name="Green Dragonborn",
                          ancestry=feats.Feat(
                              name="Draconic Ancestry",
-                             description="Your lineage stems from a Green Dragon progenitor."
+                             description="Your lineage stems from a Green Dragon progenitor.",
+                             visible=False,
                          ),
                          damage_type=DamageTypes.POISON)
 
@@ -1147,7 +1157,8 @@ class RedDragonborn(Dragonborn):
         super().__init__(name="Red Dragonborn",
                          ancestry=feats.Feat(
                              name="Draconic Ancestry",
-                             description="Your lineage stems from a Red Dragon progenitor."
+                             description="Your lineage stems from a Red Dragon progenitor.",
+                             visible=False,
                          ),
                          damage_type=DamageTypes.FIRE)
 
@@ -1162,7 +1173,8 @@ class SilverDragonborn(Dragonborn):
         super().__init__(name="Silver Dragonborn",
                          ancestry=feats.Feat(
                              name="Draconic Ancestry",
-                             description="Your lineage stems from a Silver Dragon progenitor."
+                             description="Your lineage stems from a Silver Dragon progenitor.",
+                             visible=False,
                          ),
                          damage_type=DamageTypes.COLD)
 
@@ -1177,7 +1189,8 @@ class WhiteDragonborn(Dragonborn):
         super().__init__(name="White Dragonborn",
                          ancestry=feats.Feat(
                              name="Draconic Ancestry",
-                             description="Your lineage stems from a White Dragon progenitor."
+                             description="Your lineage stems from a White Dragon progenitor.",
+                             visible=False,
                          ),
                          damage_type=DamageTypes.COLD)
 
@@ -1215,7 +1228,8 @@ class Dwarf(races.Race):
                                  name="Forge Wise",
                                  description="Your divine creator gave you an uncanny affinity for working with stone "
                                              f"or metal. You gain Tool Proficiency with {tool1.value} and "
-                                             f"{tool2.value}."
+                                             f"{tool2.value}.",
+                                 visible=False,
                              ),
                              feats.Feat(
                                  name="Stonecunning",
@@ -1262,7 +1276,8 @@ class Elf(races.Race):
                                  name="Keen Senses",
                                  description="You have Proficiency in the Perception Skill.",
                                  feat_bonuses=bonuses.Bonuses(
-                                     skills={Skills.PERCEPTION: ProficiencyLevels.PROFICIENT})
+                                     skills={Skills.PERCEPTION: ProficiencyLevels.PROFICIENT}),
+                                 visible=False,
                              ),
                              feats.Feat(
                                  name="Trance",
@@ -1487,7 +1502,8 @@ class Halfling(races.Race):
                                  name="Naturally Stealthy",
                                  description="You have Proficiency in the Stealth Skill.",
                                  feat_bonuses=bonuses.Bonuses(
-                                     skills={Skills.STEALTH: ProficiencyLevels.PROFICIENT})
+                                     skills={Skills.STEALTH: ProficiencyLevels.PROFICIENT}),
+                                 visible=False,
                              )
                          ],
                          size=Sizes.SMALL,

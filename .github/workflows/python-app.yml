@@ -37,6 +37,9 @@ jobs:
       - name: Test with pytest
         run: |
           pytest
+      - name: Make output dir
+        run: |
+          mkdir output
       - name: Run with example
         run: |
           python3 main.py example

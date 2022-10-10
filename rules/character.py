@@ -2,16 +2,15 @@
 All the information about a character.
 """
 
-# TODO a lot of this file
-
 import math
 
 import PyPDF2
 from PyPDF2 import PdfReader, PdfWriter
 from PyPDF2.generic import NameObject
 
-from rules import abilities, armors, backgrounds, bonuses, classes, feats, races
-from rules.enums import AbilityNames, Alignments, Languages, Skills
+from rules import abilities, armors, backgrounds, bonuses, classes, feats, magicitem, races, weapons
+from rules.common import validate_string, mod
+from rules.enums import AbilityNames, Alignments, ArmorTraining, Languages, Skills
 
 
 class Character:
@@ -29,6 +28,8 @@ class Character:
     _language: Languages
     _xp: int
     _milestone: bool
+    _weapons: list[weapons.Weapon]
+    _magic_items: list[magicitem.MagicItem]
     _armor: armors.Armor | None
     _shield: armors.Armor | None
     _appearance_image: str | None
@@ -40,6 +41,7 @@ class Character:
     _hair: str
     _faction: str
     _faction_image: str | None
+    _allies: str
 
     def __init__(self,
                  name: str,
@@ -51,8 +53,6 @@ class Character:
                  language: Languages,
                  player_name: str = "",
                  milestone: bool = True,
-                 armor: armors.Armor = None,
-                 shield: armors.Armor = None,
                  appearance_image: str = None,
                  age: str = "",
                  height: str = "",
@@ -61,10 +61,11 @@ class Character:
                  skin: str = "",
                  hair: str = "",
                  faction: str = "",
-                 faction_image: str = None):
+                 faction_image: str = None,
+                 allies: str = ""):
         # TODO add some validation
 
-        self._name = name
+        self._name = validate_string(name)
         self._player_name = player_name
         self._alignment = alignment
 
@@ -84,10 +85,14 @@ class Character:
         self._xp = 0
         self._milestone = milestone
 
-        self._armor = armor
-        self._shield = shield
+        self._weapons = []
+        self._magic_items = []
+        self._armor = None
+        self._shield = None
 
         self._appearance_image = appearance_image
+        self._faction_image = faction_image
+
         self._age = age
         self._height = height
         self._weight = weight
@@ -95,7 +100,7 @@ class Character:
         self._skin = skin
         self._hair = hair
         self._faction = faction
-        self._faction_image = faction_image
+        self._allies = allies
 
     def _get_abilities(self) -> abilities.Abilities:
         return sum([feature.get_abilities() for feature in self._get_features()],
@@ -113,8 +118,8 @@ class Character:
         for item in class_bonuses_list:
             class_bonuses += item
 
-        return self._background.get_bonuses() + class_bonuses + bonuses.Bonuses(languages=[self._language,
-                                                                                           Languages.COMMON])
+        return self._background.get_bonuses() + self._race.get_bonuses() + class_bonuses + bonuses.Bonuses(
+            languages=[self._language, Languages.COMMON])
 
     def _get_character_level(self) -> int:
         return sum(character_class.get_level() for character_class in self._classes)
@@ -132,9 +137,9 @@ class Character:
                          character_class in self._classes])
 
     def _get_max_hp(self) -> int:
-        return sum(sum(character_class.get_rolled_hit_dice()) for character_class in self._classes) + (
-            self._get_character_level() *
-            (self._get_abilities().get_constitution_mod() + self._get_bonuses().get_hp_bonus()))
+        return sum(sum(character_class.get_rolled_hit_dice()) for character_class in self._classes
+                   ) + (self._get_character_level() * (self._get_abilities().get_constitution_mod() +
+                                                       self._get_bonuses().get_hp_bonus()))
 
     def _get_proficiency_bonus(self) -> int:
         return math.ceil(self._get_character_level() / 4) + 1
@@ -144,6 +149,22 @@ class Character:
 
     def get_name(self) -> str:
         return self._name
+
+    def set_armor(self, armor: armors.Armor | None):
+        if armor.get_type() == ArmorTraining.SHIELD:
+            raise Exception("That is not armor")
+        self._armor = armor
+
+    def set_shield(self, shield: armors.Armor | None):
+        if shield.get_type() != ArmorTraining.SHIELD:
+            raise Exception("That is not a shield")
+        self._armor = shield
+
+    def set_magic_items(self, magic_items: list[magicitem.MagicItem]):
+        self._magic_items = magic_items
+
+    def set_weapons(self, equipped_weapons: list[weapons.Weapon]):
+        self._weapons = equipped_weapons
 
     def level_up(self, character_class: int, **kwargs):
         self._classes[character_class].level_up(**kwargs)
@@ -178,80 +199,89 @@ class Character:
         writer.update_page_form_field_values(
             writer.pages[0], {
                 "AC": self._get_armor_class(),
-                "Acrobatics": f"{dex_mod + (skills.get(Skills.ACROBATICS, 0) * prof_bonus):+g}",
+                "Acrobatics": mod(dex_mod + (skills.get(Skills.ACROBATICS, 0) * prof_bonus)),
                 "Alignment": self._alignment.value,
-                "Animal": f"{wis_mod + (skills.get(Skills.ANIMAL_HANDLING, 0) * prof_bonus):+g}",
-                "Arcana": f"{int_mod + (skills.get(Skills.ARCANA, 0) * prof_bonus):+g}",
-                "Athletics": f"{str_mod + (skills.get(Skills.ATHLETICS, 0) * prof_bonus):+g}",
-                "AttacksSpellcasting": "TODO",
+                "Animal": mod(wis_mod + (skills.get(Skills.ANIMAL_HANDLING, 0) * prof_bonus)),
+                "Arcana": mod(int_mod + (skills.get(Skills.ARCANA, 0) * prof_bonus)),
+                "Athletics": mod(str_mod + (skills.get(Skills.ATHLETICS, 0) * prof_bonus)),
+                "AttacksSpellcasting": "\n\n".join(
+                    [f"{index + 1}:  {weapon.summary()}" for index, weapon in enumerate(self._weapons)]),
                 "Background": self._background.get_name(),
                 "Bonds": str(self._background.get_bonds()),
                 "CHA": compiled_abilities.get_charisma(),
-                "CHamod": f"{chr_mod:+g}",
+                "CHamod": mod(chr_mod),
                 "CharacterName": self._name,
                 "ClassLevel": self._get_class_levels(),
                 "CON": compiled_abilities.get_constitution(),
-                "CONmod": f"{con_mod:+g}",
+                "CONmod": mod(con_mod),
                 "CP": "",
-                "Deception ": f"{chr_mod + (skills.get(Skills.DECEPTION, 0) * prof_bonus):+g}",
+                "Deception ": mod(chr_mod + (skills.get(Skills.DECEPTION, 0) * prof_bonus)),
                 "DEX": compiled_abilities.get_dexterity(),
-                "DEXmod ": f"{dex_mod:+g}",
+                "DEXmod ": mod(dex_mod),
                 "EP": "",
-                "Equipment": "TODO",
-                "Features and Traits": "\n\n".join(feature.summary() for feature in compiled_features),
+                "Equipment": "\n".join([self._armor.get_name() if self._armor is not None else ""] + [
+                    self._shield.get_name() if self._shield is not None else ""]),
+                "Features and Traits": "\n\n".join(feature.summary() for feature in compiled_features
+                                                   if feature.summary() is not None),
                 "Flaws": str(self._background.get_flaws()),
                 "GP": "",
                 "HD": "",
                 "HDTotal": self._get_max_hit_dice(),
-                "History ": f"{int_mod + (skills.get(Skills.HISTORY, 0) * prof_bonus):+g}",
+                "History ": mod(int_mod + (skills.get(Skills.HISTORY, 0) * prof_bonus)),
                 "HPCurrent": "",
                 "HPMax": self._get_max_hp(),
                 "HPTemp": "",
                 "Ideals": str(self._background.get_ideals()),
-                "Initiative": f"{dex_mod + (compiled_bonuses.get_initiative() * prof_bonus):+g}",
-                "Insight": f"{wis_mod + (skills.get(Skills.INSIGHT, 0) * prof_bonus):+g}",
+                "Initiative": mod(dex_mod + (compiled_bonuses.get_initiative() * prof_bonus)),
+                "Insight": mod(wis_mod + (skills.get(Skills.INSIGHT, 0) * prof_bonus)),
                 "Inspiration": "",
                 "INT": compiled_abilities.get_intelligence(),
-                "INTmod": f"{int_mod:+g}",
-                "Intimidation": f"{chr_mod + (skills.get(Skills.INTIMIDATION, 0) * prof_bonus):+g}",
-                "Investigation ": f"{int_mod + (skills.get(Skills.INVESTIGATION, 0) * prof_bonus):+g}",
-                "Medicine": f"{wis_mod + (skills.get(Skills.MEDICINE, 0) * prof_bonus):+g}",
-                "Nature": f"{int_mod + (skills.get(Skills.NATURE, 0) * prof_bonus):+g}",
+                "INTmod": mod(int_mod),
+                "Intimidation": mod(chr_mod + (skills.get(Skills.INTIMIDATION, 0) * prof_bonus)),
+                "Investigation ": mod(int_mod + (skills.get(Skills.INVESTIGATION, 0) * prof_bonus)),
+                "Medicine": mod(wis_mod + (skills.get(Skills.MEDICINE, 0) * prof_bonus)),
+                "Nature": mod(int_mod + (skills.get(Skills.NATURE, 0) * prof_bonus)),
                 "Passive": wis_mod + (skills.get(Skills.PERCEPTION, 0) * prof_bonus) + 10,
                 "PersonalityTraits ": str(self._background.get_personality_traits()),
-                "Perception ": f"{wis_mod + (skills.get(Skills.PERCEPTION, 0) * prof_bonus):+g}",
-                "Performance": f"{chr_mod + (skills.get(Skills.PERFORMANCE, 0) * prof_bonus):+g}",
-                "Persuasion": f"{chr_mod + (skills.get(Skills.PERSUASION, 0) * prof_bonus):+g}",
+                "Perception ": mod(wis_mod + (skills.get(Skills.PERCEPTION, 0) * prof_bonus)),
+                "Performance": mod(chr_mod + (skills.get(Skills.PERFORMANCE, 0) * prof_bonus)),
+                "Persuasion": mod(chr_mod + (skills.get(Skills.PERSUASION, 0) * prof_bonus)),
                 "PlayerName": self._player_name,
                 "PP": "",
-                "ProfBonus": f"{prof_bonus:+g}",
+                "ProfBonus": mod(prof_bonus),
                 "ProficienciesLang": compiled_bonuses.summary(),
                 "Race ": str(self._race.get_name()),
-                "Religion": f"{int_mod + (skills.get(Skills.RELIGION, 0) * prof_bonus):+g}",
-                "SleightofHand": f"{dex_mod + (skills.get(Skills.SLEIGHT_OF_HAND, 0) * prof_bonus):+g}",
+                "Religion": mod(int_mod + (skills.get(Skills.RELIGION, 0) * prof_bonus)),
+                "SleightofHand": mod(dex_mod + (skills.get(Skills.SLEIGHT_OF_HAND, 0) * prof_bonus)),
                 "SP": "",
                 "Speed": str(self._get_speed()) + " ft.",
-                "ST Strength": f"{str_mod + (s_throws.get(AbilityNames.STRENGTH, 0) * prof_bonus):+g}",
-                "ST Dexterity": f"{dex_mod + (s_throws.get(AbilityNames.DEXTERITY, 0) * prof_bonus):+g}",
-                "ST Constitution": f"{con_mod + (s_throws.get(AbilityNames.CONSTITUTION, 0) * prof_bonus):+g}",
-                "ST Intelligence": f"{int_mod + (s_throws.get(AbilityNames.INTELLIGENCE, 0) * prof_bonus):+g}",
-                "ST Wisdom": f"{wis_mod + (s_throws.get(AbilityNames.WISDOM, 0) * prof_bonus):+g}",
-                "ST Charisma": f"{chr_mod + (s_throws.get(AbilityNames.CHARISMA, 0) * prof_bonus):+g}",
-                "Stealth ": f"{dex_mod + (skills.get(Skills.STEALTH, 0) * prof_bonus):+g}",
+                "ST Strength": mod(str_mod + (s_throws.get(AbilityNames.STRENGTH, 0) * prof_bonus)),
+                "ST Dexterity": mod(dex_mod + (s_throws.get(AbilityNames.DEXTERITY, 0) * prof_bonus)),
+                "ST Constitution": mod(con_mod + (s_throws.get(AbilityNames.CONSTITUTION, 0) * prof_bonus)),
+                "ST Intelligence": mod(int_mod + (s_throws.get(AbilityNames.INTELLIGENCE, 0) * prof_bonus)),
+                "ST Wisdom": mod(wis_mod + (s_throws.get(AbilityNames.WISDOM, 0) * prof_bonus)),
+                "ST Charisma": mod(chr_mod + (s_throws.get(AbilityNames.CHARISMA, 0) * prof_bonus)),
+                "Stealth ": mod(dex_mod + (skills.get(Skills.STEALTH, 0) * prof_bonus)),
                 "STR": compiled_abilities.get_strength(),
-                "STRmod": f"{str_mod:+g}",
-                "Survival": f"{wis_mod + (skills.get(Skills.SURVIVAL, 0) * prof_bonus):+g}",
-                "Wpn Name": "TODO",
-                "Wpn Name 2": "TODO",
-                "Wpn Name 3": "TODO",
-                "Wpn1 AtkBonus": "TODO",
-                "Wpn1 Damage": "TODO",
-                "Wpn2 AtkBonus ": "TODO",
-                "Wpn2 Damage ": "TODO",
-                "Wpn3 AtkBonus  ": "TODO",
-                "Wpn3 Damage ": "TODO",
+                "STRmod": mod(str_mod),
+                "Survival": mod(wis_mod + (skills.get(Skills.SURVIVAL, 0) * prof_bonus)),
+                "Wpn Name": "Weapon 1" if len(self._weapons) >= 1 else "",
+                "Wpn Name 2": "Weapon 2" if len(self._weapons) >= 2 else "",
+                "Wpn Name 3": "Weapon 3" if len(self._weapons) >= 3 else "",
+                "Wpn1 AtkBonus": mod(self._weapons[0].get_attack_bonus(
+                    str_mod, dex_mod, prof_bonus, compiled_bonuses.get_weapon_types())) if len(
+                    self._weapons) >= 1 else "",
+                "Wpn1 Damage": self._weapons[0].get_damage(str_mod, dex_mod) if len(self._weapons) >= 1 else "",
+                "Wpn2 AtkBonus ": mod(self._weapons[1].get_attack_bonus(
+                    str_mod, dex_mod, prof_bonus, compiled_bonuses.get_weapon_types())) if len(
+                    self._weapons) >= 2 else "",
+                "Wpn2 Damage ": self._weapons[1].get_damage(str_mod, dex_mod) if len(self._weapons) >= 2 else "",
+                "Wpn3 AtkBonus  ": mod(self._weapons[2].get_attack_bonus(
+                    str_mod, dex_mod, prof_bonus, compiled_bonuses.get_weapon_types())) if len(
+                    self._weapons) >= 3 else "",
+                "Wpn3 Damage ": self._weapons[2].get_damage(str_mod, dex_mod) if len(self._weapons) >= 3 else "",
                 "WIS": compiled_abilities.get_wisdom(),
-                "WISmod": f"{wis_mod:+g}",
+                "WISmod": mod(wis_mod),
                 "XP": self._xp if not self._milestone else "N/A"
             }
         )
@@ -304,16 +334,16 @@ class Character:
         writer.update_page_form_field_values(
             writer.pages[1], {
                 "Age": self._age,
-                "Allies": "TODO",
+                "Allies": self._allies,
                 "Backstory": self._background.get_description(),
                 "CharacterName 2": self._name,
                 "Eyes": self._eyes,
                 "FactionName": self._faction,
-                "Feat+Traits": "TODO",
+                "Feat+Traits": "",
                 "Hair": self._hair,
                 "Height": self._height,
                 "Skin": self._skin,
-                "Treasure": "TODO",
+                "Treasure": "\n\n".join(str(magic_item) for magic_item in self._magic_items),
                 "Weight": self._weight,
             }
         )

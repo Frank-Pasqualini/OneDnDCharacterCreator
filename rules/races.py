@@ -4,6 +4,7 @@ A race for a character.
 
 from abc import ABC
 
+import bonuses
 from rules import feats
 from rules.common import validate_string
 from rules.enums import CreatureTypes, Sizes
@@ -40,6 +41,20 @@ class Race(ABC):
         self._speed = speed
         self._life_span = life_span
         self._features = features
+
+    def get_bonuses(self) -> bonuses.Bonuses:
+        """
+        Gets all bonuses from feats
+        :return: All bonuses
+        :rtype: bonuses.Bonuses
+        """
+
+        race_bonuses = bonuses.Bonuses()
+        race_bonuses_list = [feat.get_bonuses() for feat in self._features]
+        for item in race_bonuses_list:
+            race_bonuses += item
+
+        return race_bonuses
 
     def get_features(self) -> list[feats.Feat]:
         return self._features
