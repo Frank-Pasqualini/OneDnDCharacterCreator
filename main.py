@@ -60,6 +60,8 @@ def main(characters: list[str], sources: list[str]):
             raise AttributeError(
                 f"{source} has not correctly implemented the CONTENT dictionary") from exc
 
+    os.makedirs("output", exist_ok=True)
+    
     for character in load_all_content_files("characters", characters):
         try:
             finished_character = character.create(content)
