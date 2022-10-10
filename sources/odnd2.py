@@ -2,8 +2,8 @@
 Content from the Dungeons and Dragons OneD&D Expert Classes Unearthed Arcana.
 https://media.dndbeyond.com/compendium-images/one-dnd/expert-classes/kpx0MvyfBGHe0XKk/UA2022-Expert-Classes.pdf
 """
-import abilities
-from rules import classes, feats, spells
+
+from rules import abilities, classes, feats, spells
 from rules.enums import AbilityNames, SpellLists, SpellSchools
 
 
