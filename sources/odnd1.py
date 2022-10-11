@@ -921,9 +921,9 @@ class ExaltedArdling(Ardling):
                                          "any Spell Slots you have of the appropriate level.\n"
                                          f"{ability.value} is your spellcasting ability for the Spells you cast with "
                                          "this trait.",
-                             feat_spells=[content["Spells"]["Thaumaturgy"],
-                                          content["Spells"]["Divine Favor"],
-                                          content["Spells"]["Lesser Restoration"]]
+                             feat_spells=[content["Spells"]["Thaumaturgy"](),
+                                          content["Spells"]["Divine Favor"](),
+                                          content["Spells"]["Lesser Restoration"]()]
                          ),
                          ability=ability)
 
@@ -952,9 +952,9 @@ class HeavenlyArdling(Ardling):
                                          "any Spell Slots you have of the appropriate level.\n"
                                          f"{ability.value} is your spellcasting ability for the Spells you cast with "
                                          "this trait.",
-                             feat_spells=[content["Spells"]["Light"],
-                                          content["Spells"]["Cure Wounds"],
-                                          content["Spells"]["Zone of Truth"]]
+                             feat_spells=[content["Spells"]["Light"](),
+                                          content["Spells"]["Cure Wounds"](),
+                                          content["Spells"]["Zone of Truth"]()]
                          ),
                          ability=ability)
 
@@ -983,9 +983,9 @@ class IdyllicArdling(Ardling):
                                          "any Spell Slots you have of the appropriate level.\n"
                                          f"{ability.value} is your spellcasting ability for the Spells you cast with "
                                          "this trait.",
-                             feat_spells=[content["Spells"]["Guidance"],
-                                          content["Spells"]["Healing Word"],
-                                          content["Spells"]["Animal Messenger"]]
+                             feat_spells=[content["Spells"]["Guidance"](),
+                                          content["Spells"]["Healing Word"](),
+                                          content["Spells"]["Animal Messenger"]()]
                          ),
                          ability=ability)
 
@@ -1311,9 +1311,9 @@ class Drow(Elf):
                                          "you have of the appropriate level.\n"
                                          f"{ability.value} is your spellcasting ability for the Spells you cast with "
                                          "this trait.",
-                             feat_spells=[content["Spells"]["Dancing Lights"],
-                                          content["Spells"]["Faerie Fire"],
-                                          content["Spells"]["Darkness"]]
+                             feat_spells=[content["Spells"]["Dancing Lights"](),
+                                          content["Spells"]["Faerie Fire"](),
+                                          content["Spells"]["Darkness"]()]
                          ),
                          ability=ability,
                          darkvision=feats.Feat(
@@ -1346,9 +1346,9 @@ class HighElf(Elf):
                                          "you have of the appropriate level.\n"
                                          f"{ability.value} is your spellcasting ability for the Spells you cast with "
                                          "this trait.",
-                             feat_spells=[content["Spells"]["Prestidigitation"],
-                                          content["Spells"]["Detect Magic"],
-                                          content["Spells"]["Misty Step"]]
+                             feat_spells=[content["Spells"]["Prestidigitation"](),
+                                          content["Spells"]["Detect Magic"](),
+                                          content["Spells"]["Misty Step"]()]
                          ),
                          ability=ability)
 
@@ -1375,9 +1375,9 @@ class WoodElf(Elf):
                                          "Spell Slots you have of the appropriate level.\n "
                                          f"{ability.value} is your spellcasting ability for the Spells you cast with "
                                          "this trait.",
-                             feat_spells=[content["Spells"]["Druidcraft"],
-                                          content["Spells"]["Longstrider"],
-                                          content["Spells"]["Pass Without Trace"]]
+                             feat_spells=[content["Spells"]["Druidcraft"](),
+                                          content["Spells"]["Longstrider"](),
+                                          content["Spells"]["Pass Without Trace"]()]
                          ),
                          ability=ability)
 
@@ -1431,8 +1431,8 @@ class ForestGnome(Gnome):
                                          "cast it with the trait a number of times equal to your Proficiency Bonus, "
                                          "and you regain all expended uses when you finish a Long Rest. You can also "
                                          "use any Spell Slots you have to cast the Spell.",
-                             feat_spells=[content["Spells"]["Minor Illusion"],
-                                          content["Spells"]["Speak with Animals"]]
+                             feat_spells=[content["Spells"]["Minor Illusion"](),
+                                          content["Spells"]["Speak with Animals"]()]
                          ),
                          ability=ability)
 
@@ -1468,8 +1468,8 @@ class RockGnome(Gnome):
                                          "dismantles itself 8 hours after its creation. You can also touch one of "
                                          "your devices and dismantle it as an Action. After a device is dismantled, "
                                          "the 10 GP of materials used to create it can be reclaimed.",
-                             feat_spells=[content["Spells"]["Mending"],
-                                          content["Spells"]["Prestidigitation"]]
+                             feat_spells=[content["Spells"]["Mending"](),
+                                          content["Spells"]["Prestidigitation"]()]
                          ),
                          ability=ability)
 
@@ -1573,9 +1573,10 @@ class Tiefling(races.Race):
                              fiendish_legacy,
                              feats.Feat(
                                  name="Otherworldly Presence",
-                                 description="You know the Thaumaturgy cantrip. When you cast it with this trait,"
+                                 description="You know the Thaumaturgy cantrip. When you cast it with this trait, "
                                              f"the Spell uses {ability.value}.",
-                                 feat_spells=[content["Spells"]["Thaumaturgy"]]
+                                 feat_spells=[
+                                     content["Spells"]["Thaumaturgy"]()]
                              )
                          ],
                          size=size)
@@ -1607,9 +1608,9 @@ class AbyssalTiefling(Tiefling):
                                          "any Spell Slots you have of the appropriate level.\n"
                                          f"{ability.value} is your spellcasting ability for the Spells you cast with "
                                          "this trait.",
-                             feat_spells=[content["Spells"]["Poison Spray"],
-                                          content["Spells"]["Ray of Sickness"],
-                                          content["Spells"]["Hold Person"]]
+                             feat_spells=[content["Spells"]["Poison Spray"](),
+                                          content["Spells"]["Ray of Sickness"](),
+                                          content["Spells"]["Hold Person"]()]
                          ),
                          ability=ability)
 
@@ -1640,9 +1641,9 @@ class ChthonicTiefling(Tiefling):
                                          "any Spell Slots you have of the appropriate level.\n"
                                          f"{ability.value} is your spellcasting ability for the Spells you cast with "
                                          "this trait.",
-                             feat_spells=[content["Spells"]["Chill Touch"],
-                                          content["Spells"]["False Life"],
-                                          content["Spells"]["Ray of Enfeeblement"]]
+                             feat_spells=[content["Spells"]["Chill Touch"](),
+                                          content["Spells"]["False Life"](),
+                                          content["Spells"]["Ray of Enfeeblement"]()]
                          ),
                          ability=ability)
 
@@ -1673,9 +1674,9 @@ class InfernalTiefling(Tiefling):
                                          "any Spell Slots you have of the appropriate level.\n"
                                          f"{ability.value} is your spellcasting ability for the Spells you cast with "
                                          "this trait.",
-                             feat_spells=[content["Spells"]["Fire Bolt"],
-                                          content["Spells"]["Hellish Rebuke"],
-                                          content["Spells"]["Darkness"]]
+                             feat_spells=[content["Spells"]["Fire Bolt"](),
+                                          content["Spells"]["Hellish Rebuke"](),
+                                          content["Spells"]["Darkness"]()]
                          ),
                          ability=ability)
 

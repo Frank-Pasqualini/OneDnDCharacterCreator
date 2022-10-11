@@ -109,3 +109,12 @@ class Spell(ABC):
             output += f"\nAt Higher Levels. {self._at_higher_levels}"
 
         return output
+
+    def __lt__(self, other) -> bool:
+        return self._name < other
+
+    def __gt__(self, other) -> bool:
+        return self._name > other
+
+    def __hash__(self) -> int:
+        return hash(self._name)

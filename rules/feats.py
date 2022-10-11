@@ -58,6 +58,9 @@ class Feat(ABC):
     def get_name(self) -> str:
         return self._name
 
+    def get_spells(self) -> list[spells.Spell]:
+        return self._spells if self._spells is not None else []
+
     def summary(self, visible_override: bool = False) -> str | None:
         return f"{self._name}. {self._description}" if self._visible or visible_override else None
 

@@ -206,6 +206,103 @@ class AnimalMessenger(spells.Spell):
                                           "2nd.")
 
 
+class ChillTouch(spells.Spell):
+    """
+    Chill Touch Spell
+    SRD p. 124
+    """
+
+    def __init__(self):
+        super().__init__(name="Chill Touch",
+                         spell_lists=[SpellLists.ARCANE],
+                         level=0,
+                         school=SpellSchools.NECROMANCY,
+                         spell_range="120 feet",
+                         verbal_components=True,
+                         somatic_components=True,
+                         duration="1 round",
+                         description="You create a ghostly, skeletal hand in the space of a creature within range. "
+                                     "Make a ranged spell attack against the creature to assail it with the chill of "
+                                     "the grave. On a hit, the target takes 1d8 necrotic damage, and it can't regain "
+                                     "hit points until the start of your next turn. Until then, the hand clings to "
+                                     "the target.\n"
+                                     "If you hit an undead target, it also has disadvantage on attack rolls against "
+                                     "you until the end of your next turn.\n"
+                                     "This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level "
+                                     "(3d8), and 17th level (4d8).")
+
+
+class DetectThoughts(spells.Spell):
+    """
+    False Life Spell
+    SRD p. 135
+    """
+
+    def __init__(self):
+        super().__init__(name="Detect Thoughts",
+                         spell_lists=[SpellLists.ARCANE],
+                         level=2,
+                         school=SpellSchools.DIVINATION,
+                         spell_range="Self",
+                         verbal_components=True,
+                         somatic_components=True,
+                         material_components=True,
+                         material_components_list="a copper piece",
+                         concentration=True,
+                         duration="1 minute",
+                         description="For the duration, you can read the thoughts of certain creatures. When you cast "
+                                     "the spell and as your action on each turn until the spell ends, you can focus "
+                                     "your mind on any one creature that you can see within 30 feet of you. If the "
+                                     "creature you choose has an Intelligence of 3 or lower or doesn't speak any "
+                                     "language, the creature is unaffected.\n"
+                                     "You initially learn the surface thoughts of the creature—what is most on its "
+                                     "mind in that moment. As an action, you can either shift your attention to "
+                                     "another creature's thoughts or attempt to probe deeper into the same creature's "
+                                     "mind. If you probe deeper, the target must make a Wisdom saving throw. If it "
+                                     "fails, you gain insight into its reasoning (if any), its emotional state, "
+                                     "and something that looms large in its mind (such as something it worries over, "
+                                     "loves, or hates). If it succeeds, the spell ends. Either way, the target knows "
+                                     "that you are probing into its mind, and unless you shift your attention to "
+                                     "another creature's thoughts, the creature can use its action on its turn to "
+                                     "make an Intelligence check contested by your Intelligence check; if it "
+                                     "succeeds, the spell ends.\n"
+                                     "Questions verbally directed at the target creature naturally shape the course "
+                                     "of its thoughts, so this spell is particularly effective as part of an "
+                                     "interrogation.\n"
+                                     "You can also use this spell to detect the presence of thinking creatures you "
+                                     "can't see. When you cast the spell or as your action during the duration, "
+                                     "you can search for thoughts within 30 feet of you. The spell can penetrate "
+                                     "barriers, but 2 feet of rock, 2 inches of any metal other than lead, "
+                                     "or a thin sheet of lead blocks you. You can't detect a creature with an "
+                                     "Intelligence of 3 or lower or one that doesn't speak any language.\n"
+                                     "Once you detect the presence of a creature in this way, you can read its "
+                                     "thoughts for the rest of the duration as described above, even if you can't see "
+                                     "it, but it must still be within range.")
+
+
+class FalseLife(spells.Spell):
+    """
+    False Life Spell
+    SRD p. 142
+    """
+
+    def __init__(self):
+        super().__init__(name="False Life",
+                         spell_lists=[SpellLists.ARCANE],
+                         level=1,
+                         school=SpellSchools.NECROMANCY,
+                         spell_range="Self",
+                         verbal_components=True,
+                         somatic_components=True,
+                         material_components=True,
+                         material_components_list="a small amount of alcohol or distilled spirits",
+                         duration="1 hour",
+                         description="Bolstering yourself with a necromantic facsimile of life, you gain 1d4 + 4 "
+                                     "temporary hit points for the duration.",
+                         at_higher_levels="When you cast this spell using a spell slot of 2nd level or higher, "
+                                          "you gain 5 additional temporary hit points for each slot level above 1st.")
+
+
 class Light(spells.Spell):
     """
     Light Spell
@@ -231,6 +328,59 @@ class Light(spells.Spell):
                                      "succeed on a Dexterity saving throw to avoid the spell.")
 
 
+class RayOfEnfeeblement(spells.Spell):
+    """
+    Ray of Enfeeblement Spell
+    SRD p. 174
+    """
+
+    def __init__(self):
+        super().__init__(name="Ray of Enfeeblement",
+                         spell_lists=[SpellLists.ARCANE],
+                         level=2,
+                         school=SpellSchools.NECROMANCY,
+                         spell_range="60 feet",
+                         verbal_components=True,
+                         somatic_components=True,
+                         concentration=True,
+                         duration="1 minute",
+                         description="A black beam of enervating energy springs from your finger toward a creature "
+                                     "within range. Make a ranged spell attack against the target. On a hit, "
+                                     "the target deals only half damage with weapon attacks that use Strength until "
+                                     "the spell ends.\n "
+                                     "At the end of each of the target's turns, it can make a Constitution saving "
+                                     "throw against the spell. On a success, the spell ends.")
+
+
+class Thaumaturgy(spells.Spell):
+    """
+    Thaumaturgy Spell
+    SRD p. 187
+    """
+
+    def __init__(self):
+        super().__init__(name="Thaumaturgy",
+                         spell_lists=[SpellLists.DIVINE],
+                         level=0,
+                         school=SpellSchools.TRANSMUTATION,
+                         spell_range="30 feet",
+                         verbal_components=True,
+                         duration="Up to 1 minute",
+                         description="You manifest a minor wonder, a sign of supernatural power, within range. You "
+                                     "create one of the following magical effects within range:\n"
+                                     "• Your voice booms up to three times as loud as normal for 1 minute\n"
+                                     "• You cause flames to flicker, brighten, dim, or change color for 1 minute.\n"
+                                     "• You cause harmless tremors in the ground for 1 minute.\n"
+                                     "• You create an instantaneous sound that originates from a point of your choice "
+                                     "within range, such as a rumble of thunder, the cry of a raven, or ominous "
+                                     "whispers.\n"
+                                     "• You instantaneously cause an unlocked door or window to fly open or slam "
+                                     "shut.\n "
+                                     "• You alter the appearance of your eyes for 1 minute.\n"
+                                     "If you cast this spell multiple times, you can have up to three of its 1-minute "
+                                     "effects active at a time, and you can dismiss such an effect as an action.")
+
+
 CONTENT = {
     "Armors": {
         "Padded": Padded,
@@ -251,15 +401,16 @@ CONTENT = {
         # TODO All spells from SRD
         "Animal Messenger": AnimalMessenger,
         # "Barkskin": Barkskin,
-        # "Chill Touch": ChillTouch,
+        "Chill Touch": ChillTouch,
         # "Cure Wounds": CureWounds,
         # "Dancing Lights": DancingLights,
         # "Darkness": Darkness,
         # "Detect Magic": DetectMagic,
+        "Detect Thoughts": DetectThoughts,
         # "Divine Favor": DivineFavor,
         # "Druidcraft": Druidcraft,
         # "Faerie Fire: FaerieFire,
-        # "False Life": FalseLife,
+        "False Life": FalseLife,
         # "Fire Bolt": FireBolt,
         # "Guidance": Guidance,
         # "Healing Word": HealingWord,
@@ -274,10 +425,10 @@ CONTENT = {
         # "Pass Without Trace": PassWithoutTrace,
         # "Poison Spray": PoisonSpray,
         # "Prestidigitation": Prestidigitation,
-        # "Ray of Enfeeblement": RayOfEnfeeblement,
+        "Ray of Enfeeblement": RayOfEnfeeblement,
         # "Ray of Sickness": RayOfSickness,
         # "Speak with Animals": SpeakWithAnimals,
-        # "Thaumaturgy": Thaumaturgy,
+        "Thaumaturgy": Thaumaturgy,
         # "Zone of Truth": ZoneOfTruth,
     },
     # TODO Other things from SRD
