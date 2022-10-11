@@ -4,8 +4,7 @@ A race for a character.
 
 from abc import ABC
 
-import bonuses
-from rules import feats
+from rules import bonuses, feats
 from rules.common import validate_string
 from rules.enums import CreatureTypes, Sizes
 
