@@ -3,8 +3,51 @@ Content from the Dungeons and Dragons OneD&D Expert Classes Unearthed Arcana.
 https://media.dndbeyond.com/compendium-images/one-dnd/expert-classes/kpx0MvyfBGHe0XKk/UA2022-Expert-Classes.pdf
 """
 
-from rules import abilities, classes, feats, spells
+from rules import abilities, bonuses, classes, feats, spells
 from rules.enums import AbilityNames, SpellLists, SpellSchools
+
+
+class HunterRanger(classes.Ranger):
+    """
+    Thief subclass for Rogue
+    UA p. 15
+    """
+
+    def __init__(self, **kwargs):
+        super().__init__(name="Hunter Ranger", **kwargs)
+
+    def _level_up_3(self):
+        self._features.append(feats.Feat(name="Hunter's Prey",
+                                         description="Your tenacity can wear down even the most resilient foes. When "
+                                                     "you hit a creature with a Weapon or an Unarmed Strike as part "
+                                                     "of the Attack Action on your turn, the Weapon or Unarmed Strike "
+                                                     "deals an extra 1d8 damage to the target if it’s missing any of "
+                                                     "its Hit Points. You can deal this extra damage only once per "
+                                                     "turn."))
+
+    def _level_up_6(self):
+        self._features.append(feats.Feat(name="Hunter's Lore",
+                                         description="You can call on the forces of nature to reveal certain "
+                                                     "strengths and weaknesses of your prey. While a creature is "
+                                                     "marked by your Hunter’s Mark,you know whether that creature has "
+                                                     "any Immunities,Resistances, and Vulnerabilities, and if the "
+                                                     "creature has any,you know what they are."))
+
+    def _level_up_10(self, content: dict[str, dict[str, any]]):
+        self._features.append(feats.Feat(name="Multiattack",
+                                         description="You now always have Conjure Barrage prepared, and it doesn't "
+                                                     "count against the number of Spells you can prepare.\n"
+                                                     "You can also cast the Spell with 1st- and 2nd-level Spell "
+                                                     "Slots. When you do so,the Spell’s damage is reduced by 1d8 for "
+                                                     "each slot level below 3rd.",
+                                         feat_spells=[content["Spells"]["Conjure Barrage"]]))
+
+    def _level_up_14(self):
+        self._features.append(feats.Feat(name="Superior Hunter's Defense",
+                                         description="When you are hit by an Attack Roll,you can use your Reaction to "
+                                                     "halve the attack’s damage against yourself,and you can redirect "
+                                                     "the other half of the damage to one creature (other than the "
+                                                     "attacker) that you can see within 5 feet of yourself."))
 
 
 class ThiefRogue(classes.Rogue):
@@ -43,11 +86,11 @@ class ThiefRogue(classes.Rogue):
         self._features.append(feat)
         self._features.append(feats.Feat(name="Use Magic Device",
                                          description="In your treasure hunting,you have learned how to maximize use "
-                                                     "of magic items, granting you the following benefits:\n "
+                                                     "of magic items, granting you the following benefits:\n"
                                                      "Attunement. You can attune to up to four magic items at once.\n"
                                                      "Charges. Whenever you use a magic item property that expends "
                                                      "charges, roll a d6. On a roll of 6, you use the property "
-                                                     "without expending the charges.\n "
+                                                     "without expending the charges.\n"
                                                      "Scrolls. You can use any Spell Scroll that bears a cantrip or a "
                                                      "1st-level Spell. You can also try to use any Spell Scroll that "
                                                      "contains a higher-level Spell, but you must first succeed on an "
@@ -62,6 +105,20 @@ class ThiefRogue(classes.Rogue):
                                                      "it is the Bonus Action from Cunning Action. You can use this "
                                                      "feature on a number of turns equal to your Proficiency Bonus,"
                                                      "and you regain all expended uses when you finish a Long Rest."))
+
+
+class FightingStyleArchery(feats.FightingStyle):
+    """
+    Fighting Style: Archery Feat
+    UA p. 19
+    """
+
+    def __init__(self):
+        super().__init__(name="Fighting Style: Archery",
+                         level=1,
+                         prerequisite="Warrior Group",
+                         description="You gain a +2 bonus to Attack Rolls you make with Ranged Weapons.",
+                         feat_bonuses=bonuses.Bonuses())  # TODO
 
 
 class AbilityScoreImprovement(feats.Feat):
@@ -157,14 +214,14 @@ class Guidance(spells.Spell):
 
 
 CONTENT = {
-    #  TODO The rest of the subclasses
     "Classes": {
-        # "Hunter Ranger": HunterRanger,
+        #  TODO The rest of the subclasses
+        "Hunter Ranger": HunterRanger,
         # "Lore Bard": LoreBard,
         "Thief Rogue": ThiefRogue,
     },
-    # TODO the feats
     "Feats": {
+        # TODO the feats
         "Ability Score Improvement": AbilityScoreImprovement,
         # "Actor": Actor,
         # "Athlete": Athlete,
@@ -187,7 +244,7 @@ CONTENT = {
         # "Epic Boon of Speed": EpicBoonSpeed,
         # "Epic Boon of Undetectability": EpicBoonUndetectability,
         # "Epic Boon of the Unfettered": EpicBoonUnfettered,
-        # "Fighting Style: Archery": FightingStyleArchery,
+        "Fighting Style: Archery": FightingStyleArchery,
         # "Fighting Style: Defense": FightingStyleDefense,
         # "Fighting Style: Dueling": FightingStyleDueling,
         # "Fighting Style: Great Weapon Fighting": FightingStyleGreatWeapon,

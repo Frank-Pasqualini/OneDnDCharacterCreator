@@ -9,7 +9,7 @@ from rules.common import validate_string
 
 class MagicItem(ABC):
     """
-    A magic item.
+    A magic item. TODO
     """
 
     _name: str

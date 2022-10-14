@@ -77,3 +77,29 @@ class Feat(ABC):
         output += f"{self._description}"
 
         return output
+
+
+class FightingStyle(Feat, ABC):
+    """
+    A specific Fighting Style type of feat.
+    """
+
+    def __init__(self,
+                 name: str,
+                 description: str,
+                 level: int = None,
+                 prerequisite: str = "None",
+                 repeatable: str = "No",
+                 feat_abilities: abilities.Abilities = abilities.Abilities(),
+                 feat_bonuses: bonuses.Bonuses = bonuses.Bonuses(),
+                 feat_spells: list[spells.Spell] = None,
+                 visible: bool = True):
+        super().__init__(name=name,
+                         description=description,
+                         level=level,
+                         prerequisite=prerequisite,
+                         repeatable=repeatable,
+                         feat_abilities=feat_abilities,
+                         feat_bonuses=feat_bonuses,
+                         feat_spells=feat_spells,
+                         visible=visible)

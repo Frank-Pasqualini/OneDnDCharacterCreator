@@ -1,29 +1,31 @@
 """
-A race for a character.
+A Race for a character.
 """
+
+from __future__ import annotations
 
 from abc import ABC
 
-from rules import bonuses, feats
+from rules import feats
 from rules.common import validate_string
 from rules.enums import CreatureTypes, Sizes
 
 
 class Race(ABC):
     """
-    A race for a character.
+    A Race for a character.
     """
 
     _name: str
+    _features: list[feats.Feat]
     _creature_type: CreatureTypes
     _size: Sizes
     _speed: int
     _life_span: int
-    _features: list[feats]
 
     def __init__(self,
                  name: str,
-                 features: list[feats],
+                 features: list[feats.Feat],
                  creature_type: CreatureTypes = CreatureTypes.HUMANOID,
                  size: Sizes = Sizes.MEDIUM,
                  speed: int = 30,
@@ -41,20 +43,6 @@ class Race(ABC):
         self._life_span = life_span
         self._features = features
 
-    def get_bonuses(self) -> bonuses.Bonuses:
-        """
-        Gets all bonuses from feats
-        :return: All bonuses
-        :rtype: bonuses.Bonuses
-        """
-
-        race_bonuses = bonuses.Bonuses()
-        race_bonuses_list = [feat.get_bonuses() for feat in self._features]
-        for item in race_bonuses_list:
-            race_bonuses += item
-
-        return race_bonuses
-
     def get_features(self) -> list[feats.Feat]:
         return self._features
 
@@ -63,6 +51,14 @@ class Race(ABC):
 
     def get_speed(self) -> int:
         return self._speed
+
+    def half_race(self, name: str, other_life_span: int) -> Race:
+        return Race(name=name,
+                    features=self._features,
+                    creature_type=self._creature_type,
+                    size=self._size,
+                    speed=self._speed,
+                    life_span=int((self._life_span + other_life_span) // 2))
 
     def __str__(self) -> str:
         output = f"{self._name} Traits\n"

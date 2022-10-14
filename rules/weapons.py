@@ -29,6 +29,7 @@ class Weapon(ABC):
     _versatile: str | None
     _attack_bonus: int
     _damage_bonus: int
+    _magical: bool
 
     def __init__(self,
                  name: str,
@@ -46,7 +47,8 @@ class Weapon(ABC):
                  two_handed: bool = False,
                  versatile: str = None,
                  attack_bonus: int = 0,
-                 damage_bonus: int = 0):
+                 damage_bonus: int = 0,
+                 magical: bool = False):
         if thrown and attack_range == (0, 0):
             raise Exception("A thrown weapon must have a range")
 
@@ -69,6 +71,7 @@ class Weapon(ABC):
         self._versatile = versatile
         self._attack_bonus = attack_bonus
         self._damage_bonus = damage_bonus
+        self._magical = magical
 
     def get_attack_bonus(self, str_mod: int, dex_mod: int, prof_mod: int, weapon_profs: list[WeaponTypes]) -> int:
         """
@@ -125,7 +128,7 @@ class Weapon(ABC):
         """
 
         output = f"{self._name}. {self._damage_dice}{mod(self._damage_bonus) if self._damage_bonus != 0 else ''}"
-        output += f" {self._damage_type.value}"
+        output += f" {'' if not self._magical else 'Magical '}{self._damage_type.value}"
         output += f"{' ' + mod(self._attack_bonus) + ' to hit' if self._attack_bonus != 0 else ''}"
 
         properties = []
@@ -167,5 +170,8 @@ class Weapon(ABC):
 
         if self._range != (0, 0) and not self._ammunition and not self._thrown:
             properties.append(f"(range {self._range[0]}/{self._range[1]})")
+
+        if len(properties) > 0:
+            output += ": " + ", ".join(properties)
 
         return output
