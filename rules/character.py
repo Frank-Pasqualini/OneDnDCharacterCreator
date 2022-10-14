@@ -429,7 +429,8 @@ class Character:
 
         prepared_spells = self._get_prepared_spells()
         known_spells = self._get_known_spells()
-        all_spells = prepared_spells + sorted(list(set(known_spells) - set(prepared_spells)))
+        all_spells = prepared_spells + sorted(
+            list(set(known_spells) - set(prepared_spells)))
         if len(all_spells) > 0:
             writer.add_page(reader.pages[2])
             cantrips = [spell
