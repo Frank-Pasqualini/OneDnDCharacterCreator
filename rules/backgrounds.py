@@ -78,7 +78,7 @@ class Background(ABC):
         return self._bonds
 
     def get_bonuses(self) -> bonuses.Bonuses:
-        return self._bonuses + self._feat.get_bonuses()
+        return self._bonuses
 
     def get_description(self) -> str:
         return self._description

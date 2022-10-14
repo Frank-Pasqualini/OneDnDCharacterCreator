@@ -5,7 +5,7 @@ import logging
 from abc import ABC, abstractmethod
 
 import spells
-from rules import abilities, bonuses, feats
+from rules import bonuses, feats
 from rules.common import validate_string
 from rules.enums import AbilityNames, ArmorTraining, ClassGroups, Languages, ProficiencyLevels, Skills, SpellLists
 from rules.enums import SpellSchools, Tools, WeaponTypes
@@ -129,35 +129,8 @@ class CharacterClass(ABC):
 
         self._features.append(feat)
 
-    def get_abilities(self) -> abilities.Abilities:
-        """
-        Sums the abilities of all features
-        :return: A summed up Abilities.
-        :rtype: abilities.Abilities
-        """
-
-        feat_abilities = abilities.Abilities()
-        feat_abilities_list = [feat.get_abilities() for feat in self._features]
-
-        for item in feat_abilities_list:
-            feat_abilities += item
-
-        return feat_abilities
-
     def get_bonuses(self) -> bonuses.Bonuses:
-        """
-        Sums the bonuses of all features
-        :return: A summed up Bonuses.
-        :rtype: bonuses.Bonuses
-        """
-
-        feat_bonuses = bonuses.Bonuses()
-        feat_bonuses_list = [feat.get_bonuses() for feat in self._features]
-
-        for item in feat_bonuses_list:
-            feat_bonuses += item
-
-        return self._bonuses + feat_bonuses
+        return self._bonuses
 
     def get_features(self) -> list[feats.Feat]:
         return self._features
@@ -173,6 +146,10 @@ class CharacterClass(ABC):
 
     def get_rolled_hit_dice(self) -> list[int]:
         return self._rolled_hit_dice
+
+    @abstractmethod
+    def get_spellcasting_level(self):
+        pass
 
     def level_up(self, hit_roll: int = -1, **kwargs):
         """
@@ -246,7 +223,8 @@ class Ranger(CharacterClass, ABC):
 
         super().__init__(name=name,
                          class_group=ClassGroups.EXPERT,
-                         primary_abilities=[AbilityNames.DEXTERITY, AbilityNames.WISDOM],
+                         primary_abilities=[
+                             AbilityNames.DEXTERITY, AbilityNames.WISDOM],
                          features=[
                              feats.Feat(name="Expertise",
                                         description=f"You gain expertise in {expertise1.value} and {expertise2.value}.",
@@ -262,17 +240,16 @@ class Ranger(CharacterClass, ABC):
                                                     "or until you are Incapacitated.",
                                         feat_spells=[content["Spells"]["Hunter's Mark"]()]),
                              feats.Feat(name="Spellcasting",
-                                        description="Spell Preparation. You can prepare two 0-level Spells and two "
-                                                    "1st-level Spells of your choice. Any Spell you prepare for this "
-                                                    "Class must be a Primal Spell, and it can be from any School of "
-                                                    "Magic except Evocation.\n"
+                                        description="Spell Preparation. Any Spell you prepare for this Class must be "
+                                                    "a Primal Spell, and it can be from any School of Magic except "
+                                                    "Evocation.\n"
                                                     "Whenever you finish a Long Rest, you can commune with nature and "
                                                     "replace any Spell you have prepared for this Class with another "
                                                     "Primal Spell of the same level that isn’t an Evocation.\n"
                                                     "Your spell slots determine the number of different Spells you "
                                                     "can prepare of each level.\n"
                                                     "Spellcasting Ability. Wisdom is your Spellcasting Ability for "
-                                                    "your Ranger Spells.\n "
+                                                    "your Ranger Spells.\n"
                                                     "Spellcasting Focus. You can use a Druidic Focus as a "
                                                     "Spellcasting Focus for the Spells you prepare for this Class.")
                          ],
@@ -287,8 +264,10 @@ class Ranger(CharacterClass, ABC):
                                  skill2: ProficiencyLevels.PROFICIENT,
                                  skill3: ProficiencyLevels.PROFICIENT,
                              },
-                             armor_training=[ArmorTraining.LIGHT, ArmorTraining.MEDIUM, ArmorTraining.SHIELD],
-                             weapon_types=[WeaponTypes.SIMPLE, WeaponTypes.MARTIAL]
+                             armor_training=[
+                                 ArmorTraining.LIGHT, ArmorTraining.MEDIUM, ArmorTraining.SHIELD],
+                             weapon_types=[WeaponTypes.SIMPLE,
+                                           WeaponTypes.MARTIAL]
                          ))
 
         self._known_spells = [spell() for spell in content["Spells"].values() if
@@ -296,7 +275,7 @@ class Ranger(CharacterClass, ABC):
                               SpellLists.PRIMAL in spell().get_spell_lists() and
                               spell().get_school() != SpellSchools.EVOCATION]
 
-    def _level_up_2(self, fighting_style: feats.Feat):
+    def _level_up_2(self, fighting_style: feats.FightingStyle):
         if fighting_style.get_level() > 2:
             raise Exception("Invalid fighting style level. Must be 2 or lower")
 
@@ -409,6 +388,9 @@ class Ranger(CharacterClass, ABC):
             raise Exception("Invalid feat level. Must be 20 or lower")
 
         self._features.append(feat)
+
+    def get_spellcasting_level(self):
+        return self._level / 2
 
 
 class Rogue(CharacterClass, ABC):
@@ -594,3 +576,6 @@ class Rogue(CharacterClass, ABC):
             raise Exception("Invalid feat level. Must be 20 or lower")
 
         self._features.append(feat)
+
+    def get_spellcasting_level(self):
+        return 0

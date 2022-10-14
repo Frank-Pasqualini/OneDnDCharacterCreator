@@ -116,7 +116,13 @@ class Character:
         for item in class_bonuses_list:
             class_bonuses += item
 
-        return self._background.get_bonuses() + self._race.get_bonuses() + class_bonuses + bonuses.Bonuses(
+        feat_bonuses = bonuses.Bonuses()
+        feat_bonuses_list = [feat.get_bonuses()
+                             for feat in self._get_features()]
+        for item in feat_bonuses_list:
+            feat_bonuses += item
+
+        return self._background.get_bonuses() + class_bonuses + feat_bonuses + bonuses.Bonuses(
             languages=[self._language, Languages.COMMON])
 
     def _get_character_level(self) -> int:
@@ -160,13 +166,40 @@ class Character:
         return self._race.get_speed()
 
     def _get_spell_slots(self) -> list[int]:
-        return [0, 0, 0, 0, 0, 0, 0, 0, 0]
+        spellcasting_level = math.floor(
+            sum(character_class.get_spellcasting_level() for character_class in self._classes))
+
+        slots = {
+            0: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            1: [2, 0, 0, 0, 0, 0, 0, 0, 0],
+            2: [3, 0, 0, 0, 0, 0, 0, 0, 0],
+            3: [4, 2, 0, 0, 0, 0, 0, 0, 0],
+            4: [4, 3, 0, 0, 0, 0, 0, 0, 0],
+            5: [4, 3, 2, 0, 0, 0, 0, 0, 0],
+            6: [4, 3, 3, 0, 0, 0, 0, 0, 0],
+            7: [4, 3, 3, 1, 0, 0, 0, 0, 0],
+            8: [4, 3, 3, 2, 0, 0, 0, 0, 0],
+            9: [4, 3, 3, 3, 1, 0, 0, 0, 0],
+            10: [4, 3, 3, 3, 2, 0, 0, 0, 0],
+            11: [4, 3, 3, 3, 2, 1, 0, 0, 0],
+            12: [4, 3, 3, 3, 2, 1, 0, 0, 0],
+            13: [4, 3, 3, 3, 2, 1, 1, 0, 0],
+            14: [4, 3, 3, 3, 2, 1, 1, 0, 0],
+            15: [4, 3, 3, 3, 2, 1, 1, 1, 0],
+            16: [4, 3, 3, 3, 2, 1, 1, 1, 0],
+            17: [4, 3, 3, 3, 2, 1, 1, 1, 1],
+            18: [4, 3, 3, 3, 3, 1, 1, 1, 1],
+            19: [4, 3, 3, 3, 3, 2, 1, 1, 1],
+            20: [4, 3, 3, 3, 3, 2, 2, 1, 1],
+        }
+
+        return slots[spellcasting_level]
 
     def _get_spellcasting_class(self) -> str:
-        return "Infernal Legacy"
+        return ""  # TODO
 
     def _get_spellcasting_ability(self) -> AbilityNames:
-        return AbilityNames.CHARISMA
+        return AbilityNames.CHARISMA  # TODO
 
     def _get_spellcasting_mod(self) -> int:
         ability_scores = self._get_abilities()
@@ -185,7 +218,7 @@ class Character:
     def set_shield(self, shield: armors.Armor | None):
         if shield.get_type() != ArmorTraining.SHIELD:
             raise Exception("That is not a shield")
-        self._armor = shield
+        self._shield = shield
 
     def set_magic_items(self, magic_items: list[magicitem.MagicItem]):
         self._magic_items = magic_items
@@ -396,7 +429,7 @@ class Character:
 
         prepared_spells = self._get_prepared_spells()
         known_spells = self._get_known_spells()
-        all_spells = sorted(list(set(prepared_spells) & set(known_spells)))
+        all_spells = prepared_spells + sorted(list(set(known_spells) - set(prepared_spells)))
         if len(all_spells) > 0:
             writer.add_page(reader.pages[2])
             cantrips = [spell
@@ -439,8 +472,8 @@ class Character:
                                         for spell in sublist[ii * rows:ii * rows + rows])
                         item_width = spells.calculate_spell_name_width(item)
                         space_width = 4.4453125
-                        processed[i] += str(item.get_name() if item is not None else "") + (
-                                " " * int((max_width - item_width) / space_width)) + " "
+                        processed[i] += str(item.get_name() if item is not None else ""
+                                            ) + (" " * int((max_width - item_width) / space_width)) + " "
 
                 return processed
 
@@ -465,15 +498,20 @@ class Character:
             prepared_ninth = len(
                 [spell for spell in prepared_spells if spell.get_level() == 9])
 
-            cantrip_names = process_spells(cantrips, 8, prepared_cantrips, True)
+            cantrip_names = process_spells(
+                cantrips, 8, prepared_cantrips, True)
             first_level_names = process_spells(first_level, 12, prepared_first)
-            second_level_names = process_spells(second_level, 13, prepared_second)
+            second_level_names = process_spells(
+                second_level, 13, prepared_second)
             third_level_names = process_spells(third_level, 13, prepared_third)
-            fourth_level_names = process_spells(fourth_level, 13, prepared_fourth)
+            fourth_level_names = process_spells(
+                fourth_level, 13, prepared_fourth)
             fifth_level_names = process_spells(fifth_level, 9, prepared_fifth)
             sixth_level_names = process_spells(sixth_level, 9, prepared_sixth)
-            seventh_level_names = process_spells(seventh_level, 9, prepared_seventh)
-            eighth_level_names = process_spells(eighth_level, 7, prepared_eighth)
+            seventh_level_names = process_spells(
+                seventh_level, 9, prepared_seventh)
+            eighth_level_names = process_spells(
+                eighth_level, 7, prepared_eighth)
             ninth_level_names = process_spells(ninth_level, 7, prepared_ninth)
 
             spell_slots = self._get_spell_slots()
@@ -710,7 +748,7 @@ class Character:
                             NameObject("/AS"): NameObject(value)
                         })
 
-            reader2 = PdfReader("BlankPage.pdf")
+            reader2 = PdfReader("BlankPage.pdf")  # TODO
             writer.add_page(reader2.pages[0])
 
             writer.update_page_form_field_values(

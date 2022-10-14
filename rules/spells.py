@@ -73,6 +73,9 @@ class Spell(ABC):
         self._description = validate_string(description)
         self._at_higher_levels = at_higher_levels
 
+    def get_school(self) -> SpellSchools:
+        return self._school
+
     def get_spell_lists(self) -> list[SpellLists]:
         return self._spell_lists
 
@@ -115,6 +118,9 @@ class Spell(ABC):
 
     def __gt__(self, other) -> bool:
         return str(self._name) > str(other)
+
+    def __eq__(self, other):
+        return self._name == other
 
     def __hash__(self) -> int:
         return hash(self._name)
