@@ -4,8 +4,7 @@ A specialization a character can have.
 import logging
 from abc import ABC, abstractmethod
 
-import spells
-from rules import bonuses, feats
+from rules import bonuses, feats, spells
 from rules.common import validate_string
 from rules.enums import AbilityNames, ArmorTraining, ClassGroups, Languages, ProficiencyLevels, Skills, SpellLists
 from rules.enums import SpellSchools, Tools, WeaponTypes
