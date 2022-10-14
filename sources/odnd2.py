@@ -7,6 +7,49 @@ from rules import abilities, classes, feats, spells
 from rules.enums import AbilityNames, SpellLists, SpellSchools
 
 
+class HunterRanger(classes.Ranger):
+    """
+    Thief subclass for Rogue
+    UA p. 15
+    """
+
+    def __init__(self, **kwargs):
+        super().__init__(name="Hunter Ranger", **kwargs)
+
+    def _level_up_3(self):
+        self._features.append(feats.Feat(name="Hunter's Prey",
+                                         description="Your tenacity can wear down even the most resilient foes. When "
+                                                     "you hit a creature with a Weapon or an Unarmed Strike as part "
+                                                     "of the Attack Action on your turn, the Weapon or Unarmed Strike "
+                                                     "deals an extra 1d8 damage to the target if it’s missing any of "
+                                                     "its Hit Points. You can deal this extra damage only once per "
+                                                     "turn."))
+
+    def _level_up_6(self):
+        self._features.append(feats.Feat(name="Hunter's Lore",
+                                         description="You can call on the forces of nature to reveal certain "
+                                                     "strengths and weaknesses of your prey. While a creature is "
+                                                     "marked by your Hunter’s Mark,you know whether that creature has "
+                                                     "any Immunities,Resistances, and Vulnerabilities, and if the "
+                                                     "creature has any,you know what they are."))
+
+    def _level_up_10(self, content: dict[str, dict[str, any]]):
+        self._features.append(feats.Feat(name="Multiattack",
+                                         description="You now always have Conjure Barrage prepared, and it doesn't "
+                                                     "count against the number of Spells you can prepare.\n"
+                                                     "You can also cast the Spell with 1st- and 2nd-level Spell "
+                                                     "Slots. When you do so,the Spell’s damage is reduced by 1d8 for "
+                                                     "each slot level below 3rd.",
+                                         feat_spells=[content["Spells"]["Conjure Barrage"]]))
+
+    def _level_up_14(self):
+        self._features.append(feats.Feat(name="Superior Hunter's Defense",
+                                         description="When you are hit by an Attack Roll,you can use your Reaction to "
+                                                     "halve the attack’s damage against yourself,and you can redirect "
+                                                     "the other half of the damage to one creature (other than the "
+                                                     "attacker) that you can see within 5 feet of yourself."))
+
+
 class ThiefRogue(classes.Rogue):
     """
     Thief subclass for Rogue

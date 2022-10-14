@@ -9,7 +9,7 @@ from PyPDF2 import PdfReader, PdfWriter
 from PyPDF2.generic import NameObject
 
 from rules import abilities, armors, backgrounds, bonuses, classes, feats, magicitem, races, spells, weapons
-from rules.common import validate_string, mod, calculate_string_width
+from rules.common import validate_string, mod
 from rules.enums import AbilityNames, Alignments, ArmorTraining, Languages, Skills
 
 
@@ -130,6 +130,13 @@ class Character:
             feature for features in [character_class.get_features() for character_class in self._classes]
             for feature in features]
 
+    def _get_known_spells(self) -> list[spells.Spell]:
+        spell_list = []
+        for character_class in self._classes:
+            spell_list += character_class.get_known_spells()
+
+        return sorted(spell_list)
+
     def _get_max_hit_dice(self) -> str:
         return "+".join([f"{character_class.get_level()}d{character_class.get_hit_die()}" for
                          character_class in self._classes])
@@ -139,18 +146,33 @@ class Character:
                    ) + (self._get_character_level() * (self._get_abilities().get_constitution_mod() +
                                                        self._get_bonuses().get_hp_bonus()))
 
+    def _get_prepared_spells(self) -> list[spells.Spell]:
+        spell_list = []
+        for feat in self._get_features():
+            spell_list += feat.get_spells()
+
+        return sorted(spell_list)
+
     def _get_proficiency_bonus(self) -> int:
         return math.ceil(self._get_character_level() / 4) + 1
 
     def _get_speed(self) -> int:
         return self._race.get_speed()
 
-    def _get_prepared_spells(self) -> list[spells.Spell]:
-        spell_list = []
-        for feat in self._get_features():
-            spell_list += feat.get_spells()
+    def _get_spell_slots(self) -> list[int]:
+        return [0, 0, 0, 0, 0, 0, 0, 0, 0]
 
-        return sorted(spell_list, reverse=True)
+    def _get_spellcasting_class(self) -> str:
+        return "Infernal Legacy"
+
+    def _get_spellcasting_ability(self) -> AbilityNames:
+        return AbilityNames.CHARISMA
+
+    def _get_spellcasting_mod(self) -> int:
+        ability_scores = self._get_abilities()
+        ability = self._get_spellcasting_ability()
+        return ability_scores.get_intelligence_mod() if ability == AbilityNames.INTELLIGENCE else (
+            ability_scores.get_wisdom_mod() if ability == AbilityNames.WISDOM else ability_scores.get_charisma_mod())
 
     def get_name(self) -> str:
         return self._name
@@ -226,7 +248,7 @@ class Character:
                 "EP": "",
                 "Equipment": "\n".join([self._armor.get_name() if self._armor is not None else ""] + [
                     self._shield.get_name() if self._shield is not None else ""]),
-                "Feat+Traits": "TODO",
+                "Feat+Traits ": "",  # TODO
                 "Features and Traits": "\n\n".join(feature.summary() for feature in compiled_features
                                                    if feature.summary() is not None),
                 "Flaws": str(self._background.get_flaws()),
@@ -373,34 +395,34 @@ class Character:
                 image.getPage(0), scale=0.137, tx=435, ty=530)
 
         prepared_spells = self._get_prepared_spells()
-        known_spells = self._get_prepared_spells()
-        all_spells = list(set(prepared_spells) & set(known_spells))
+        known_spells = self._get_known_spells()
+        all_spells = sorted(list(set(prepared_spells) & set(known_spells)))
         if len(all_spells) > 0:
             writer.add_page(reader.pages[2])
-            cantrips = [spell.get_name()
+            cantrips = [spell
                         for spell in all_spells if spell.get_level() == 0]
-            first_level = [spell.get_name()
+            first_level = [spell
                            for spell in all_spells if spell.get_level() == 1]
-            second_level = [spell.get_name()
+            second_level = [spell
                             for spell in all_spells if spell.get_level() == 2]
-            third_level = [spell.get_name()
+            third_level = [spell
                            for spell in all_spells if spell.get_level() == 3]
-            fourth_level = [spell.get_name()
+            fourth_level = [spell
                             for spell in all_spells if spell.get_level() == 4]
-            fifth_level = [spell.get_name()
+            fifth_level = [spell
                            for spell in all_spells if spell.get_level() == 5]
-            sixth_level = [spell.get_name()
+            sixth_level = [spell
                            for spell in all_spells if spell.get_level() == 6]
-            seventh_level = [spell.get_name()
+            seventh_level = [spell
                              for spell in all_spells if spell.get_level() == 7]
-            eighth_level = [spell.get_name()
+            eighth_level = [spell
                             for spell in all_spells if spell.get_level() == 8]
-            ninth_level = [spell.get_name()
+            ninth_level = [spell
                            for spell in all_spells if spell.get_level() == 9]
 
-            def process_spells(sublist: list[str], rows: int, cantrip=False):
+            def process_spells(sublist: list[spells.Spell | None], rows: int, prepared_count: int, cantrip=False):
                 while len(sublist) % rows != 0:
-                    sublist.append("")
+                    sublist.append(None)
 
                 columns = len(sublist) // rows
 
@@ -408,43 +430,69 @@ class Character:
                 for i in range(rows):
                     for ii in range(columns):
                         item = sublist[ii * rows + i]
-                        if item != "" and ii != 0 and not cantrip:
-                            processed[i] += "O "
-                        max_width = max(calculate_string_width(name)
-                                        for name in sublist[ii * rows:ii * rows + rows])
-                        item_width = calculate_string_width(item)
-                        space_width = calculate_string_width(" ")
-                        processed[i] += str(item) + (" " *
-                                                     int((max_width - item_width) / space_width)) + " "
+                        if item is not None and (ii != 0 or cantrip):
+                            if prepared_count > ii * rows + i:
+                                processed[i] += "● "
+                            else:
+                                processed[i] += "○ "
+                        max_width = max(spells.calculate_spell_name_width(spell)
+                                        for spell in sublist[ii * rows:ii * rows + rows])
+                        item_width = spells.calculate_spell_name_width(item)
+                        space_width = 4.4453125
+                        processed[i] += str(item.get_name() if item is not None else "") + (
+                                " " * int((max_width - item_width) / space_width)) + " "
 
                 return processed
 
-            cantrips = process_spells(cantrips, 8, True)
-            first_level = process_spells(first_level, 12)
-            second_level = process_spells(second_level, 13)
-            third_level = process_spells(third_level, 13)
-            fourth_level = process_spells(fourth_level, 13)
-            fifth_level = process_spells(fifth_level, 9)
-            sixth_level = process_spells(sixth_level, 9)
-            seventh_level = process_spells(seventh_level, 9)
-            eighth_level = process_spells(eighth_level, 7)
-            ninth_level = process_spells(ninth_level, 7)
+            prepared_cantrips = len(
+                [spell for spell in prepared_spells if spell.get_level() == 0])
+            prepared_first = len(
+                [spell for spell in prepared_spells if spell.get_level() == 1])
+            prepared_second = len(
+                [spell for spell in prepared_spells if spell.get_level() == 2])
+            prepared_third = len(
+                [spell for spell in prepared_spells if spell.get_level() == 3])
+            prepared_fourth = len(
+                [spell for spell in prepared_spells if spell.get_level() == 4])
+            prepared_fifth = len(
+                [spell for spell in prepared_spells if spell.get_level() == 5])
+            prepared_sixth = len(
+                [spell for spell in prepared_spells if spell.get_level() == 6])
+            prepared_seventh = len(
+                [spell for spell in prepared_spells if spell.get_level() == 7])
+            prepared_eighth = len(
+                [spell for spell in prepared_spells if spell.get_level() == 8])
+            prepared_ninth = len(
+                [spell for spell in prepared_spells if spell.get_level() == 9])
+
+            cantrip_names = process_spells(cantrips, 8, prepared_cantrips, True)
+            first_level_names = process_spells(first_level, 12, prepared_first)
+            second_level_names = process_spells(second_level, 13, prepared_second)
+            third_level_names = process_spells(third_level, 13, prepared_third)
+            fourth_level_names = process_spells(fourth_level, 13, prepared_fourth)
+            fifth_level_names = process_spells(fifth_level, 9, prepared_fifth)
+            sixth_level_names = process_spells(sixth_level, 9, prepared_sixth)
+            seventh_level_names = process_spells(seventh_level, 9, prepared_seventh)
+            eighth_level_names = process_spells(eighth_level, 7, prepared_eighth)
+            ninth_level_names = process_spells(ninth_level, 7, prepared_ninth)
+
+            spell_slots = self._get_spell_slots()
 
             writer.update_page_form_field_values(
                 writer.pages[2], {
-                    "Spellcasting Class 2": "TODO",
-                    "SpellcastingAbility 2": "TODO",
-                    "SpellSaveDC  2": "TODO",
-                    "SpellAtkBonus 2": "TODO",
-                    "SlotsTotal 19": "TODO",
-                    "SlotsTotal 20": "TODO",
-                    "SlotsTotal 21": "TODO",
-                    "SlotsTotal 22": "TODO",
-                    "SlotsTotal 23": "TODO",
-                    "SlotsTotal 24": "TODO",
-                    "SlotsTotal 25": "TODO",
-                    "SlotsTotal 26": "TODO",
-                    "SlotsTotal 27": "TODO",
+                    "Spellcasting Class 2": self._get_spellcasting_class(),
+                    "SpellcastingAbility 2": self._get_spellcasting_ability().value,
+                    "SpellSaveDC  2": 8 + self._get_spellcasting_mod() + prof_bonus,
+                    "SpellAtkBonus 2": mod(self._get_spellcasting_mod() + prof_bonus),
+                    "SlotsTotal 19": spell_slots[0],
+                    "SlotsTotal 20": spell_slots[1],
+                    "SlotsTotal 21": spell_slots[2],
+                    "SlotsTotal 22": spell_slots[3],
+                    "SlotsTotal 23": spell_slots[4],
+                    "SlotsTotal 24": spell_slots[5],
+                    "SlotsTotal 25": spell_slots[6],
+                    "SlotsTotal 26": spell_slots[7],
+                    "SlotsTotal 27": spell_slots[8],
                     "SlotsRemaining 19": "",
                     "SlotsRemaining 20": "",
                     "SlotsRemaining 21": "",
@@ -454,127 +502,108 @@ class Character:
                     "SlotsRemaining 25": "",
                     "SlotsRemaining 26": "",
                     "SlotsRemaining 27": "",
-                    "Spells 1014": cantrips[0],
-                    "Spells 1016": cantrips[1],
-                    "Spells 1017": cantrips[2],
-                    "Spells 1018": cantrips[3],
-                    "Spells 1019": cantrips[4],
-                    "Spells 1020": cantrips[5],
-                    "Spells 1021": cantrips[6],
-                    "Spells 1022": cantrips[7],
-                    "Spells 1015": first_level[0],
-                    "Spells 1023": first_level[1],
-                    "Spells 1024": first_level[2],
-                    "Spells 1025": first_level[3],
-                    "Spells 1026": first_level[4],
-                    "Spells 1027": first_level[5],
-                    "Spells 1028": first_level[6],
-                    "Spells 1029": first_level[7],
-                    "Spells 1030": first_level[8],
-                    "Spells 1031": first_level[9],
-                    "Spells 1032": first_level[10],
-                    "Spells 1033": first_level[11],
-                    "Spells 1046": second_level[0],
-                    "Spells 1034": second_level[1],
-                    "Spells 1035": second_level[2],
-                    "Spells 1036": second_level[3],
-                    "Spells 1037": second_level[4],
-                    "Spells 1038": second_level[5],
-                    "Spells 1039": second_level[6],
-                    "Spells 1040": second_level[7],
-                    "Spells 1041": second_level[8],
-                    "Spells 1042": second_level[9],
-                    "Spells 1043": second_level[10],
-                    "Spells 1044": second_level[11],
-                    "Spells 1045": second_level[12],
-                    "Spells 1048": third_level[0],
-                    "Spells 1047": third_level[1],
-                    "Spells 1049": third_level[2],
-                    "Spells 1050": third_level[3],
-                    "Spells 1051": third_level[4],
-                    "Spells 1052": third_level[5],
-                    "Spells 1053": third_level[6],
-                    "Spells 1054": third_level[7],
-                    "Spells 1055": third_level[8],
-                    "Spells 1056": third_level[9],
-                    "Spells 1057": third_level[10],
-                    "Spells 1058": third_level[11],
-                    "Spells 1059": third_level[12],
-                    "Spells 1061": fourth_level[0],
-                    "Spells 1060": fourth_level[1],
-                    "Spells 1062": fourth_level[2],
-                    "Spells 1063": fourth_level[3],
-                    "Spells 1064": fourth_level[4],
-                    "Spells 1065": fourth_level[5],
-                    "Spells 1066": fourth_level[6],
-                    "Spells 1067": fourth_level[7],
-                    "Spells 1068": fourth_level[8],
-                    "Spells 1069": fourth_level[9],
-                    "Spells 1070": fourth_level[10],
-                    "Spells 1071": fourth_level[11],
-                    "Spells 1072": fourth_level[12],
-                    "Spells 1074": fifth_level[0],
-                    "Spells 1073": fifth_level[1],
-                    "Spells 1075": fifth_level[2],
-                    "Spells 1076": fifth_level[3],
-                    "Spells 1077": fifth_level[4],
-                    "Spells 1078": fifth_level[5],
-                    "Spells 1079": fifth_level[6],
-                    "Spells 1080": fifth_level[7],
-                    "Spells 1081": fifth_level[8],
-                    "Spells 1083": sixth_level[0],
-                    "Spells 1082": sixth_level[1],
-                    "Spells 1084": sixth_level[2],
-                    "Spells 1085": sixth_level[3],
-                    "Spells 1086": sixth_level[4],
-                    "Spells 1087": sixth_level[5],
-                    "Spells 1088": sixth_level[6],
-                    "Spells 1089": sixth_level[7],
-                    "Spells 1090": sixth_level[8],
-                    "Spells 1092": seventh_level[0],
-                    "Spells 1091": seventh_level[1],
-                    "Spells 1093": seventh_level[2],
-                    "Spells 1094": seventh_level[3],
-                    "Spells 1095": seventh_level[4],
-                    "Spells 1096": seventh_level[5],
-                    "Spells 1097": seventh_level[6],
-                    "Spells 1098": seventh_level[7],
-                    "Spells 1099": seventh_level[8],
-                    "Spells 10101": eighth_level[0],
-                    "Spells 10100": eighth_level[1],
-                    "Spells 10102": eighth_level[2],
-                    "Spells 10103": eighth_level[3],
-                    "Spells 10104": eighth_level[4],
-                    "Spells 10105": eighth_level[5],
-                    "Spells 10106": eighth_level[6],
-                    "Spells 10108": ninth_level[0],
-                    "Spells 10107": ninth_level[1],
-                    "Spells 10109": ninth_level[2],
-                    "Spells 101010": ninth_level[3],
-                    "Spells 101011": ninth_level[4],
-                    "Spells 101012": ninth_level[5],
-                    "Spells 101013": ninth_level[6],
+                    "Spells 1014": cantrip_names[0],
+                    "Spells 1016": cantrip_names[1],
+                    "Spells 1017": cantrip_names[2],
+                    "Spells 1018": cantrip_names[3],
+                    "Spells 1019": cantrip_names[4],
+                    "Spells 1020": cantrip_names[5],
+                    "Spells 1021": cantrip_names[6],
+                    "Spells 1022": cantrip_names[7],
+                    "Spells 1015": first_level_names[0],
+                    "Spells 1023": first_level_names[1],
+                    "Spells 1024": first_level_names[2],
+                    "Spells 1025": first_level_names[3],
+                    "Spells 1026": first_level_names[4],
+                    "Spells 1027": first_level_names[5],
+                    "Spells 1028": first_level_names[6],
+                    "Spells 1029": first_level_names[7],
+                    "Spells 1030": first_level_names[8],
+                    "Spells 1031": first_level_names[9],
+                    "Spells 1032": first_level_names[10],
+                    "Spells 1033": first_level_names[11],
+                    "Spells 1046": second_level_names[0],
+                    "Spells 1034": second_level_names[1],
+                    "Spells 1035": second_level_names[2],
+                    "Spells 1036": second_level_names[3],
+                    "Spells 1037": second_level_names[4],
+                    "Spells 1038": second_level_names[5],
+                    "Spells 1039": second_level_names[6],
+                    "Spells 1040": second_level_names[7],
+                    "Spells 1041": second_level_names[8],
+                    "Spells 1042": second_level_names[9],
+                    "Spells 1043": second_level_names[10],
+                    "Spells 1044": second_level_names[11],
+                    "Spells 1045": second_level_names[12],
+                    "Spells 1048": third_level_names[0],
+                    "Spells 1047": third_level_names[1],
+                    "Spells 1049": third_level_names[2],
+                    "Spells 1050": third_level_names[3],
+                    "Spells 1051": third_level_names[4],
+                    "Spells 1052": third_level_names[5],
+                    "Spells 1053": third_level_names[6],
+                    "Spells 1054": third_level_names[7],
+                    "Spells 1055": third_level_names[8],
+                    "Spells 1056": third_level_names[9],
+                    "Spells 1057": third_level_names[10],
+                    "Spells 1058": third_level_names[11],
+                    "Spells 1059": third_level_names[12],
+                    "Spells 1061": fourth_level_names[0],
+                    "Spells 1060": fourth_level_names[1],
+                    "Spells 1062": fourth_level_names[2],
+                    "Spells 1063": fourth_level_names[3],
+                    "Spells 1064": fourth_level_names[4],
+                    "Spells 1065": fourth_level_names[5],
+                    "Spells 1066": fourth_level_names[6],
+                    "Spells 1067": fourth_level_names[7],
+                    "Spells 1068": fourth_level_names[8],
+                    "Spells 1069": fourth_level_names[9],
+                    "Spells 1070": fourth_level_names[10],
+                    "Spells 1071": fourth_level_names[11],
+                    "Spells 1072": fourth_level_names[12],
+                    "Spells 1074": fifth_level_names[0],
+                    "Spells 1073": fifth_level_names[1],
+                    "Spells 1075": fifth_level_names[2],
+                    "Spells 1076": fifth_level_names[3],
+                    "Spells 1077": fifth_level_names[4],
+                    "Spells 1078": fifth_level_names[5],
+                    "Spells 1079": fifth_level_names[6],
+                    "Spells 1080": fifth_level_names[7],
+                    "Spells 1081": fifth_level_names[8],
+                    "Spells 1083": sixth_level_names[0],
+                    "Spells 1082": sixth_level_names[1],
+                    "Spells 1084": sixth_level_names[2],
+                    "Spells 1085": sixth_level_names[3],
+                    "Spells 1086": sixth_level_names[4],
+                    "Spells 1087": sixth_level_names[5],
+                    "Spells 1088": sixth_level_names[6],
+                    "Spells 1089": sixth_level_names[7],
+                    "Spells 1090": sixth_level_names[8],
+                    "Spells 1092": seventh_level_names[0],
+                    "Spells 1091": seventh_level_names[1],
+                    "Spells 1093": seventh_level_names[2],
+                    "Spells 1094": seventh_level_names[3],
+                    "Spells 1095": seventh_level_names[4],
+                    "Spells 1096": seventh_level_names[5],
+                    "Spells 1097": seventh_level_names[6],
+                    "Spells 1098": seventh_level_names[7],
+                    "Spells 1099": seventh_level_names[8],
+                    "Spells 10101": eighth_level_names[0],
+                    "Spells 10100": eighth_level_names[1],
+                    "Spells 10102": eighth_level_names[2],
+                    "Spells 10103": eighth_level_names[3],
+                    "Spells 10104": eighth_level_names[4],
+                    "Spells 10105": eighth_level_names[5],
+                    "Spells 10106": eighth_level_names[6],
+                    "Spells 10108": ninth_level_names[0],
+                    "Spells 10107": ninth_level_names[1],
+                    "Spells 10109": ninth_level_names[2],
+                    "Spells 101010": ninth_level_names[3],
+                    "Spells 101011": ninth_level_names[4],
+                    "Spells 101012": ninth_level_names[5],
+                    "Spells 101013": ninth_level_names[6],
                 }
             )
-
-            prepared_first = len(
-                [spell.get_name() for spell in prepared_spells if spell.get_level() == 1])
-            prepared_second = len(
-                [spell.get_name() for spell in prepared_spells if spell.get_level() == 2])
-            prepared_third = len(
-                [spell.get_name() for spell in prepared_spells if spell.get_level() == 3])
-            prepared_fourth = len(
-                [spell.get_name() for spell in prepared_spells if spell.get_level() == 4])
-            prepared_fifth = len(
-                [spell.get_name() for spell in prepared_spells if spell.get_level() == 5])
-            prepared_sixth = len(
-                [spell.get_name() for spell in prepared_spells if spell.get_level() == 6])
-            prepared_seventh = len(
-                [spell.get_name() for spell in prepared_spells if spell.get_level() == 7])
-            prepared_eighth = len(
-                [spell.get_name() for spell in prepared_spells if spell.get_level() == 8])
-            prepared_ninth = len(
-                [spell.get_name() for spell in prepared_spells if spell.get_level() == 9])
 
             checkboxes = {
                 "Check Box 251": "/Yes" if prepared_first > 0 else "/No",
@@ -680,6 +709,17 @@ class Character:
                             NameObject("/V"): NameObject(value),
                             NameObject("/AS"): NameObject(value)
                         })
+
+            reader2 = PdfReader("BlankPage.pdf")
+            writer.add_page(reader2.pages[0])
+
+            writer.update_page_form_field_values(
+                writer.pages[3], {
+                    "Spells": "\n\n".join(str(spell) for spell in cantrips + first_level + second_level + third_level +
+                                          fourth_level + fifth_level + sixth_level + seventh_level + eighth_level +
+                                          ninth_level if spell is not None)
+                }
+            )
 
         writer.write(filepath)
 

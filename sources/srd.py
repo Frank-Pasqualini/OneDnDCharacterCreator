@@ -170,6 +170,32 @@ class Shield(armors.Armor):
                          armor_class=2)
 
 
+class AnimalFriendship(spells.Spell):
+    """
+    Animal Friendship Spell
+    SRD p. 115
+    """
+
+    def __init__(self):
+        super().__init__(name="Animal Friendship",
+                         spell_lists=[SpellLists.PRIMAL],
+                         level=1,
+                         school=SpellSchools.ENCHANTMENT,
+                         spell_range="30 feet",
+                         verbal_components=True,
+                         somatic_components=True,
+                         material_components=True,
+                         material_components_list="a morsel of food",
+                         duration="24 hours",
+                         description="This spell lets you convince a beast that you mean it no harm. Choose a beast "
+                                     "that you can see within range. It must see and hear you. If the beast's "
+                                     "Intelligence is 4 or higher, the spell fails. Otherwise, the beast must succeed "
+                                     "on a Wisdom saving throw or be charmed by you for the spell's duration. If you "
+                                     "or one of your companions harms the target, the spells ends.",
+                         at_higher_levels="When you cast this spell using a spell slot of 2nd level or higher, "
+                                          "you can affect one additional beast t level above 1st.")
+
+
 class AnimalMessenger(spells.Spell):
     """
     Animal Messenger Spell
@@ -399,36 +425,67 @@ CONTENT = {
     },
     "Spells": {
         # TODO All spells from SRD
+        "Animal Friendship": AnimalFriendship,
         "Animal Messenger": AnimalMessenger,
-        # "Barkskin": Barkskin,
+        "Augury": Augury,
+        "Barkskin": "OBSOLETE",
+        "Beast Sense": BeastSense,
         "Chill Touch": ChillTouch,
-        # "Cure Wounds": CureWounds,
+        "Cordon of Arrows": CordonOfArrows,
+        "Create or Destroy Water": CreateOrDestroyWater,
+        "Cure Wounds": CureWounds,
         # "Dancing Lights": DancingLights,
         # "Darkness": Darkness,
-        # "Detect Magic": DetectMagic,
+        "Darkvision": Darkvision,
+        "Detect Magic": DetectMagic,
+        "Detect Poison and Disease": DetectPoisonAndDisease,
         "Detect Thoughts": DetectThoughts,
         # "Divine Favor": DivineFavor,
-        # "Druidcraft": Druidcraft,
-        # "Faerie Fire: FaerieFire,
+        "Druidcraft": Druidcraft,
+        "Enhance Ability": EnhanceAbility,
+        "Enlarge/Reduce": EnlargeReduce,
+        "Ensnaring Strike": EnsnaringStrike,
+        "Entangle": Entangle,
+        # "Faerie Fire": FaerieFire,
         "False Life": FalseLife,
+        "Find Traps": FindTraps,
         # "Fire Bolt": FireBolt,
-        # "Guidance": Guidance,
-        # "Healing Word": HealingWord,
+        "Fog Cloud": FogCloud,
+        "Gentle Repose": GentleRepose,
+        "Goodberry": Goodberry,
+        "Guidance": "OBSOLETE",
+        "Hail of Thorns": HailOfThorns,
+        "Healing Word": HealingWord,
+        "Heat Metal": HeatMetal,
         # "Hellish Rebuke": HellishRebuke,
         # "Hold Person": HoldPerson,
-        # "Lesser Restoration": LesserRestoration,
+        "Hunter's Mark": HuntersMark,
+        "Jump": Jump,
+        "Lesser Restoration": LesserRestoration,
         "Light": Light,
-        # "Longstrider": Longstrider,
-        # "Mending": Mending,
+        "Locate Animals or Plants": LocateAnimalsOrPlants,
+        "Locate Object": LocateObject,
+        "Longstrider": Longstrider,
+        "Mending": Mending,
+        "Message": Message,
         # "Minor Illusion": MinorIllusion,
         # "Misty Step": MistyStep,
-        # "Pass Without Trace": PassWithoutTrace,
-        # "Poison Spray": PoisonSpray,
+        "Pass Without Trace": PassWithoutTrace,
+        "Poison Spray": PoisonSpray,
         # "Prestidigitation": Prestidigitation,
+        "Protection from Poison": ProtectionFromPoison,
+        "Purify Food and Drink": PurifyFoodAndDrink,
         "Ray of Enfeeblement": RayOfEnfeeblement,
         # "Ray of Sickness": RayOfSickness,
-        # "Speak with Animals": SpeakWithAnimals,
+        "Resistance": Resistance,
+        "Shillelagh": Shillelagh,
+        "Silence": Silence,
+        "Spare the Dying": SpareTheDying,
+        "Speak with Animals": SpeakWithAnimals,
+        "Spike Growth": SpikeGrowth
         "Thaumaturgy": Thaumaturgy,
+        "Thorn Whip": ThornWhip,
+        "Thunderwave": Thunderwave,
         # "Zone of Truth": ZoneOfTruth,
     },
     # TODO Other things from SRD
