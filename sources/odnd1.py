@@ -718,7 +718,8 @@ class MagicInitiate(feats.Feat):
                                      "Whenever you gain a new level, you can replace one of the Spells you chose for "
                                      "this Feat with a different Spell of the same level from the chosen Spell list.",
                          repeatable="Yes, but you must choose a different Spell List each time",
-                         feat_spells=[cantrip1, cantrip2, spell])
+                         feat_spells=[cantrip1, cantrip2, spell],
+                         spellcasting_ability=ability)
 
 
 class Musician(feats.Feat):
@@ -923,7 +924,8 @@ class ExaltedArdling(Ardling):
                                          "this trait.",
                              feat_spells=[content["Spells"]["Thaumaturgy"](),
                                           content["Spells"]["Divine Favor"](),
-                                          content["Spells"]["Lesser Restoration"]()]
+                                          content["Spells"]["Lesser Restoration"]()],
+                             spellcasting_ability=ability
                          ),
                          ability=ability)
 
@@ -954,7 +956,8 @@ class HeavenlyArdling(Ardling):
                                          "this trait.",
                              feat_spells=[content["Spells"]["Light"](),
                                           content["Spells"]["Cure Wounds"](),
-                                          content["Spells"]["Zone of Truth"]()]
+                                          content["Spells"]["Zone of Truth"]()],
+                             spellcasting_ability=ability
                          ),
                          ability=ability)
 
@@ -985,7 +988,8 @@ class IdyllicArdling(Ardling):
                                          "this trait.",
                              feat_spells=[content["Spells"]["Guidance"](),
                                           content["Spells"]["Healing Word"](),
-                                          content["Spells"]["Animal Messenger"]()]
+                                          content["Spells"]["Animal Messenger"]()],
+                             spellcasting_ability=ability
                          ),
                          ability=ability)
 
@@ -1313,7 +1317,8 @@ class Drow(Elf):
                                          "this trait.",
                              feat_spells=[content["Spells"]["Dancing Lights"](),
                                           content["Spells"]["Faerie Fire"](),
-                                          content["Spells"]["Darkness"]()]
+                                          content["Spells"]["Darkness"]()],
+                             spellcasting_ability=ability
                          ),
                          ability=ability,
                          darkvision=feats.Feat(
@@ -1348,7 +1353,8 @@ class HighElf(Elf):
                                          "this trait.",
                              feat_spells=[content["Spells"]["Prestidigitation"](),
                                           content["Spells"]["Detect Magic"](),
-                                          content["Spells"]["Misty Step"]()]
+                                          content["Spells"]["Misty Step"]()],
+                             spellcasting_ability=ability
                          ),
                          ability=ability)
 
@@ -1377,7 +1383,8 @@ class WoodElf(Elf):
                                          "this trait.",
                              feat_spells=[content["Spells"]["Druidcraft"](),
                                           content["Spells"]["Longstrider"](),
-                                          content["Spells"]["Pass Without Trace"]()]
+                                          content["Spells"]["Pass Without Trace"]()],
+                             spellcasting_ability=ability
                          ),
                          ability=ability)
 
@@ -1432,7 +1439,8 @@ class ForestGnome(Gnome):
                                          "and you regain all expended uses when you finish a Long Rest. You can also "
                                          "use any Spell Slots you have to cast the Spell.",
                              feat_spells=[content["Spells"]["Minor Illusion"](),
-                                          content["Spells"]["Speak with Animals"]()]
+                                          content["Spells"]["Speak with Animals"]()],
+                             spellcasting_ability=ability
                          ),
                          ability=ability)
 
@@ -1469,7 +1477,8 @@ class RockGnome(Gnome):
                                          "your devices and dismantle it as an Action. After a device is dismantled, "
                                          "the 10 GP of materials used to create it can be reclaimed.",
                              feat_spells=[content["Spells"]["Mending"](),
-                                          content["Spells"]["Prestidigitation"]()]
+                                          content["Spells"]["Prestidigitation"]()],
+                             spellcasting_ability=ability
                          ),
                          ability=ability)
 
@@ -1576,7 +1585,8 @@ class Tiefling(races.Race):
                                  description="You know the Thaumaturgy cantrip. When you cast it with this trait, "
                                              f"the Spell uses {ability.value}.",
                                  feat_spells=[
-                                     content["Spells"]["Thaumaturgy"]()]
+                                     content["Spells"]["Thaumaturgy"]()],
+                                 spellcasting_ability=ability
                              )
                          ],
                          size=size)
@@ -1610,7 +1620,8 @@ class AbyssalTiefling(Tiefling):
                                          "this trait.",
                              feat_spells=[content["Spells"]["Poison Spray"](),
                                           content["Spells"]["Ray of Sickness"](),
-                                          content["Spells"]["Hold Person"]()]
+                                          content["Spells"]["Hold Person"]()],
+                             spellcasting_ability=ability
                          ),
                          ability=ability)
 
@@ -1643,7 +1654,8 @@ class ChthonicTiefling(Tiefling):
                                          "this trait.",
                              feat_spells=[content["Spells"]["Chill Touch"](),
                                           content["Spells"]["False Life"](),
-                                          content["Spells"]["Ray of Enfeeblement"]()]
+                                          content["Spells"]["Ray of Enfeeblement"]()],
+                             spellcasting_ability=ability
                          ),
                          ability=ability)
 
@@ -1676,7 +1688,8 @@ class InfernalTiefling(Tiefling):
                                          "this trait.",
                              feat_spells=[content["Spells"]["Fire Bolt"](),
                                           content["Spells"]["Hellish Rebuke"](),
-                                          content["Spells"]["Darkness"]()]
+                                          content["Spells"]["Darkness"]()],
+                             spellcasting_ability=ability
                          ),
                          ability=ability)
 

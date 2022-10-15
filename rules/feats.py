@@ -6,6 +6,7 @@ from abc import ABC
 
 from rules import abilities, bonuses, spells
 from rules.common import ordinal, validate_string
+from rules.enums import AbilityNames
 
 
 class Feat(ABC):
@@ -20,7 +21,8 @@ class Feat(ABC):
     _repeatable: str
     _abilities: abilities.Abilities
     _bonuses: bonuses.Bonuses
-    _spells: list[spells.Spell]
+    _spells: list[spells.Spell] | None
+    _spellcasting_ability: AbilityNames | None
     _visible: bool
 
     def __init__(self,
@@ -32,9 +34,14 @@ class Feat(ABC):
                  feat_abilities: abilities.Abilities = abilities.Abilities(),
                  feat_bonuses: bonuses.Bonuses = bonuses.Bonuses(),
                  feat_spells: list[spells.Spell] = None,
+                 spellcasting_ability: AbilityNames = None,
                  visible: bool = True):
         if level not in [None, 1, 4, 20]:
             raise Exception("Invalid Feat level")
+
+        if feat_spells is not None and spellcasting_ability is None:
+            raise Exception(
+                "If spells are added in a feat it must have an ability")
 
         self._name = validate_string(name)
         self._description = validate_string(description)
@@ -44,6 +51,7 @@ class Feat(ABC):
         self._abilities = feat_abilities
         self._bonuses = feat_bonuses
         self._spells = feat_spells
+        self._spellcasting_ability = spellcasting_ability
         self._visible = visible
 
     def get_abilities(self) -> abilities.Abilities:
@@ -57,6 +65,9 @@ class Feat(ABC):
 
     def get_name(self) -> str:
         return self._name
+
+    def get_spellcasting_ability(self) -> AbilityNames:
+        return self._spellcasting_ability
 
     def get_spells(self) -> list[spells.Spell]:
         return self._spells if self._spells is not None else []

@@ -40,7 +40,9 @@ class HunterRanger(classes.Ranger):
                                                      "You can also cast the Spell with 1st- and 2nd-level Spell "
                                                      "Slots. When you do so,the Spell’s damage is reduced by 1d8 for "
                                                      "each slot level below 3rd.",
-                                         feat_spells=[content["Spells"]["Conjure Barrage"]]))
+                                         feat_spells=[
+                                             content["Spells"]["Conjure Barrage"]],
+                                         spellcasting_ability=AbilityNames.WISDOM))
 
     def _level_up_14(self):
         self._features.append(feats.Feat(name="Superior Hunter's Defense",

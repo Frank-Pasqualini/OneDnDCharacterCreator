@@ -20,6 +20,12 @@ class AbilityNames(Enum):
     WISDOM = "Wisdom"
     CHARISMA = "Charisma"
 
+    def __eq__(self, other) -> bool:
+        return self.value == other
+
+    def __hash__(self) -> int:
+        return hash(self.value)
+
 
 class Alignments(Enum):
     """

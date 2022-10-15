@@ -24,6 +24,7 @@ class CharacterClass(ABC):
     _level: int
     _rolled_hit_dice: list[int]
     _known_spells: list[spells.Spell]
+    _spellcasting_ability: AbilityNames | None
 
     def __init__(self,
                  name: str,
@@ -31,7 +32,8 @@ class CharacterClass(ABC):
                  primary_abilities: list[AbilityNames],
                  features: list[feats.Feat],
                  hit_die: int,
-                 class_bonuses: bonuses.Bonuses):
+                 class_bonuses: bonuses.Bonuses,
+                 spellcasting_ability: AbilityNames = None):
         if hit_die not in [6, 8, 10, 12]:
             raise Exception("Invalid hit die")
 
@@ -41,6 +43,7 @@ class CharacterClass(ABC):
         self._features = features
         self._hit_die = hit_die
         self._bonuses = class_bonuses
+        self._spellcasting_ability = spellcasting_ability
 
         self._level = 1
         self._rolled_hit_dice = [hit_die]
@@ -146,8 +149,15 @@ class CharacterClass(ABC):
     def get_rolled_hit_dice(self) -> list[int]:
         return self._rolled_hit_dice
 
+    def get_spellcasting_ability(self) -> AbilityNames | None:
+        return self._spellcasting_ability
+
     @abstractmethod
-    def get_spellcasting_level(self):
+    def get_spellcasting_class(self) -> str | None:
+        pass
+
+    @abstractmethod
+    def get_spellcasting_level(self) -> float:
         pass
 
     def level_up(self, hit_roll: int = -1, **kwargs):
@@ -237,7 +247,9 @@ class Ranger(CharacterClass, ABC):
                                                     "you don’t have to concentrate on the Spell once you cast it; it "
                                                     "lasts for its full duration, until you end it as a Bonus Action, "
                                                     "or until you are Incapacitated.",
-                                        feat_spells=[content["Spells"]["Hunter's Mark"]()]),
+                                        feat_spells=[
+                                            content["Spells"]["Hunter's Mark"]()],
+                                        spellcasting_ability=AbilityNames.WISDOM),
                              feats.Feat(name="Spellcasting",
                                         description="Spell Preparation. Any Spell you prepare for this Class must be "
                                                     "a Primal Spell, and it can be from any School of Magic except "
@@ -267,7 +279,8 @@ class Ranger(CharacterClass, ABC):
                                  ArmorTraining.LIGHT, ArmorTraining.MEDIUM, ArmorTraining.SHIELD],
                              weapon_types=[WeaponTypes.SIMPLE,
                                            WeaponTypes.MARTIAL]
-                         ))
+                         ),
+                         spellcasting_ability=AbilityNames.WISDOM)
 
         self._known_spells = [spell() for spell in content["Spells"].values() if
                               spell().get_level() in [0, 1] and
@@ -388,7 +401,10 @@ class Ranger(CharacterClass, ABC):
 
         self._features.append(feat)
 
-    def get_spellcasting_level(self):
+    def get_spellcasting_class(self) -> str | None:
+        return "Ranger"
+
+    def get_spellcasting_level(self) -> float:
         return self._level / 2
 
 
@@ -576,5 +592,8 @@ class Rogue(CharacterClass, ABC):
 
         self._features.append(feat)
 
-    def get_spellcasting_level(self):
+    def get_spellcasting_class(self) -> str | None:
+        return None
+
+    def get_spellcasting_level(self) -> float:
         return 0

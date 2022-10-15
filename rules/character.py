@@ -1,7 +1,7 @@
 """
 All the information about a character.
 """
-
+import logging
 import math
 
 import PyPDF2
@@ -196,16 +196,24 @@ class Character:
         return slots[spellcasting_level]
 
     def _get_spellcasting_class(self) -> str:
-        return ""  # TODO
+        return ", ".join(character_class.get_spellcasting_class() for character_class in self._classes if
+                         character_class.get_spellcasting_class() is not None)
 
-    def _get_spellcasting_ability(self) -> AbilityNames:
-        return AbilityNames.CHARISMA  # TODO
+    def _get_spellcasting_ability(self) -> AbilityNames | None:
+        spellcasting_abilities = [character_class.get_spellcasting_ability() for character_class in self._classes if
+                                  character_class.get_spellcasting_ability() is not None] + [
+            feat.get_spellcasting_ability() for feat in self._get_features() if
+            feat.get_spellcasting_ability() is not None]
+        if len(set(spellcasting_abilities)) != 1:
+            logging.warning("Multiple spellcasting abilities detected")
+        return spellcasting_abilities[0] if len(spellcasting_abilities) > 0 else None
 
     def _get_spellcasting_mod(self) -> int:
         ability_scores = self._get_abilities()
         ability = self._get_spellcasting_ability()
         return ability_scores.get_intelligence_mod() if ability == AbilityNames.INTELLIGENCE else (
-            ability_scores.get_wisdom_mod() if ability == AbilityNames.WISDOM else ability_scores.get_charisma_mod())
+            ability_scores.get_wisdom_mod() if ability == AbilityNames.WISDOM else (
+                ability_scores.get_charisma_mod() if ability == AbilityNames.CHARISMA else 0))
 
     def get_name(self) -> str:
         return self._name
@@ -520,7 +528,8 @@ class Character:
             writer.update_page_form_field_values(
                 writer.pages[2], {
                     "Spellcasting Class 2": self._get_spellcasting_class(),
-                    "SpellcastingAbility 2": self._get_spellcasting_ability().value,
+                    "SpellcastingAbility 2": self._get_spellcasting_ability().value if (
+                        self._get_spellcasting_ability() is not None) else "",
                     "SpellSaveDC  2": 8 + self._get_spellcasting_mod() + prof_bonus,
                     "SpellAtkBonus 2": mod(self._get_spellcasting_mod() + prof_bonus),
                     "SlotsTotal 19": spell_slots[0],
@@ -749,16 +758,9 @@ class Character:
                             NameObject("/AS"): NameObject(value)
                         })
 
-            reader2 = PdfReader("BlankPage.pdf")  # TODO
-            writer.add_page(reader2.pages[0])
-
-            writer.update_page_form_field_values(
-                writer.pages[3], {
-                    "Spells": "\n\n".join(str(spell) for spell in cantrips + first_level + second_level + third_level +
-                                          fourth_level + fifth_level + sixth_level + seventh_level + eighth_level +
-                                          ninth_level if spell is not None)
-                }
-            )
+            # spell_descriptions = [str(spell) for spell in cantrips + first_level + second_level + third_level +
+            #                       fourth_level + fifth_level + sixth_level + seventh_level + eighth_level +
+            #                       ninth_level if spell is not None]
 
         writer.write(filepath)
 
