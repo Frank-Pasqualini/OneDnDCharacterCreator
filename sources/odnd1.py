@@ -46,7 +46,7 @@ class Acolyte(backgrounds.Background):
                          description="You devoted yourself to service in a temple, either nestled in a town or "
                                      "secluded in a sacred grove. There you performed hallowed rites in honor of a "
                                      "god or pantheon. You served under a priest and studied religion. Thanks to your "
-                                     "priest’s instruction and your own devotion, you also learned how to channel a "
+                                     "priest's instruction and your own devotion, you also learned how to channel a "
                                      "modicum of divine power in service to your place of worship and the people "
                                      "who prayed there.")
 
@@ -79,12 +79,12 @@ class Artisan(backgrounds.Background):
                              languages=[Languages.GNOMISH],
                          ),
                          feat=Crafter(tool2, tool3, tool4),
-                         description="You began mopping floors and scrubbing counters in an artisan’s workshop for a "
+                         description="You began mopping floors and scrubbing counters in an artisan's workshop for a "
                                      "few coppers per day as soon as you were strong enough to carry a bucket. When "
                                      "you were finally old enough to apprentice, you learned to create basic crafts "
                                      "of your own, as well as how to sweet-talk the occasional demanding customer. As "
                                      "part of your studies,you picked up Gnomish, the tongue from which so many of "
-                                     "the artisan’s terms of art are derived.")
+                                     "the artisan's terms of art are derived.")
 
 
 class Charlatan(backgrounds.Background):
@@ -143,7 +143,7 @@ class Criminal(backgrounds.Background):
                          description="You learned to earn your coin in dark alleyways, cutting purses or burgling "
                                      "shops. Perhaps you were part of a small gang of like-minded wrongdoers, "
                                      "who looked out for each other. Or maybe you were a lone wolf, fending for "
-                                     "yourself against the local thieves’ guild and older, more fearsome lawbreakers.")
+                                     "yourself against the local thieves' guild and older, more fearsome lawbreakers.")
 
 
 class Cultist(backgrounds.Background):
@@ -175,7 +175,7 @@ class Cultist(backgrounds.Background):
                          description="You scarcely recall what drove you into the service of the otherworldly "
                                      "being. Those memories were blotted out long ago by recurrent dreams of midnight "
                                      "gatherings round the obsidian pillar in the glade. By the light of each waning "
-                                     "moon, the hierophants instructed you in the being’s creed and the rudiments of "
+                                     "moon, the hierophants instructed you in the being's creed and the rudiments of "
                                      "the arcane arts. When you came of age, you were ordered to blend in among the "
                                      "nonbelievers and await whatever mission the Great One has in store for you.")
 
@@ -238,7 +238,7 @@ class Farmer(backgrounds.Background):
                          feat=Tough(),
                          description="You grew up close to the land. Years tending animals and cultivating the earth "
                                      "rewarded you with patience and good health. You have a keen appreciation for "
-                                     "nature’s bounty alongside a healthy respect for nature’s wrath. Like many "
+                                     "nature's bounty alongside a healthy respect for nature's wrath. Like many "
                                      "farmers, you made frequent use of the agricultural almanacs produced by the "
                                      "greatest halfling farmers.")
 
@@ -268,7 +268,7 @@ class Gladiator(backgrounds.Background):
                                      "one of the scars you carry from your instructors ands parring partners. Each "
                                      "scar was a lesson that taught you how to best your opponents and curry favor "
                                      "with the crowds your brawls entertained. Your time in the pits left you with a "
-                                     "strong hand and a strong heart. You’ll forever share a remarkable bond with the "
+                                     "strong hand and a strong heart. You'll forever share a remarkable bond with the "
                                      "other pit fighters in your stable—humans, dragonborn, dwarves, "
                                      "and orcs—hardened warriors all.")
 
@@ -299,7 +299,7 @@ class Guard(backgrounds.Background):
                                      "post in the tower. You were trained to keep one eye outside the wall, "
                                      "watching for marauders sweeping from the nearby forest, and your other eye "
                                      "inside the wall, searching for cutpurses and troublemakers. At the end of each "
-                                     "shift, you bunked in the mayor’s barracks alongside your fellow sentries and "
+                                     "shift, you bunked in the mayor's barracks alongside your fellow sentries and "
                                      "the dwarven smiths who kept your armor snug and your weapons sharp.")
 
 
@@ -466,7 +466,7 @@ class Pilgrim(backgrounds.Background):
                          feat=Healer(),
                          description="You and a group of like-minded believers—mostly humans and halflings—once "
                                      "endeavored to walk a thousand miles of road to reach a faraway shrine. Priests "
-                                     "counseled at the outset that, long after your journey was complete, you’d come "
+                                     "counseled at the outset that, long after your journey was complete, you'd come "
                                      "to realize that you found the key to your salvation not at your destination, "
                                      "but somewhere along the road that led there.")
 
@@ -529,9 +529,9 @@ class Sailor(backgrounds.Background):
                              languages=[Languages.PRIMORDIAL],
                          ),
                          feat=TavernBrawler(),
-                         description="Thus far, you’ve spent most of your days living the life of a seafarer, "
+                         description="Thus far, you've spent most of your days living the life of a seafarer, "
                                      "wind at your back and decks swaying beneath your feet, as you sailed toward "
-                                     "your next adventure. You’ve perched on barstools in more ports of call than you "
+                                     "your next adventure. You've perched on barstools in more ports of call than you "
                                      "can remember, faced down mighty storms, and swapped stories with the folk who "
                                      "live beneath the waves.")
 
@@ -608,7 +608,7 @@ class Alert(feats.Feat):
                                      "Bonus to the roll.\n"
                                      "Initiative Swap. Immediately after you roll Initiative, you can swap your "
                                      "Initiative with the Initiative of one willing ally in the same combat. You "
-                                     "can’t make this swap if you or the ally is Incapacitated.",
+                                     "can't make this swap if you or the ally is Incapacitated.",
                          feat_bonuses=bonuses.Bonuses(initiative=ProficiencyLevels.PROFICIENT))
 
 
@@ -650,12 +650,12 @@ class Healer(feats.Feat):
                          level=1,
                          description="You have the training and intuition to administer first aid and other care "
                                      "effectively, granting you the following benefits:\n"
-                                     "Battle Medic. If you have a Healer’s Kit, you can expend one use of it and tend "
+                                     "Battle Medic. If you have a Healer's Kit, you can expend one use of it and tend "
                                      "to a creature within 5 feet of you as an Action. That creature can expend one "
                                      "of its Hit Dice, and you then roll that die. The creature regains a number of "
                                      "Hit Points equal to the roll plus your Proficiency Bonus.\n"
                                      "Healing Rerolls. Whenever you roll a die to determine the number of Hit Points "
-                                     "you restore with a spell or with this feat’s Battle Medic benefit, you can "
+                                     "you restore with a spell or with this feat's Battle Medic benefit, you can "
                                      "reroll the die if it rolls a 1, and you must use the new roll.")
 
 
@@ -760,7 +760,7 @@ class SavageAttacker(feats.Feat):
                          level=1,
                          description="You have trained to deal particularly damaging strikes. When you take the "
                                      "Attack Action and hit a target with a Weapon as part of that Action, "
-                                     "you can roll the Weapon’s damage dice twice and use either roll against the "
+                                     "you can roll the Weapon's damage dice twice and use either roll against the "
                                      "target. You can use this benefit only once per turn.")
 
 
@@ -917,7 +917,7 @@ class ExaltedArdling(Ardling):
                                          "gain the initial benefit of the chosen legacy: the Thaumaturgy cantrip.\n"
                                          "Starting at 3rd level and again at 5th level, you gain the ability to cast "
                                          "a higher-level Spell with this trait, Divine Favor and Lesser Restoration. "
-                                         "Once you cast the Spell with this trait, you can’t cast that Spell with it "
+                                         "Once you cast the Spell with this trait, you can't cast that Spell with it "
                                          "again until you finish a Long Rest; however, you can cast the Spell using "
                                          "any Spell Slots you have of the appropriate level.\n"
                                          f"{ability.value} is your spellcasting ability for the Spells you cast with "
@@ -949,7 +949,7 @@ class HeavenlyArdling(Ardling):
                                          "gain the initial benefit of the chosen legacy: the Light cantrip.\n"
                                          "Starting at 3rd level and again at 5th level, you gain the ability to cast "
                                          "a higher-level Spell with this trait, Cure Wounds and Zone of Truth. "
-                                         "Once you cast the Spell with this trait, you can’t cast that Spell with it "
+                                         "Once you cast the Spell with this trait, you can't cast that Spell with it "
                                          "again until you finish a Long Rest; however, you can cast the Spell using "
                                          "any Spell Slots you have of the appropriate level.\n"
                                          f"{ability.value} is your spellcasting ability for the Spells you cast with "
@@ -981,7 +981,7 @@ class IdyllicArdling(Ardling):
                                          "gain the initial benefit of the chosen legacy: the Guidance cantrip.\n"
                                          "Starting at 3rd level and again at 5th level, you gain the ability to cast "
                                          "a higher-level Spell with this trait, Healing Word and Animal Messenger. "
-                                         "Once you cast the Spell with this trait, you can’t cast that Spell with it "
+                                         "Once you cast the Spell with this trait, you can't cast that Spell with it "
                                          "again until you finish a Long Rest; however, you can cast the Spell using "
                                          "any Spell Slots you have of the appropriate level.\n"
                                          f"{ability.value} is your spellcasting ability for the Spells you cast with "
@@ -1285,7 +1285,7 @@ class Elf(races.Race):
                              ),
                              feats.Feat(
                                  name="Trance",
-                                 description="You don’t need to sleep,and magic can’t put you to sleep.You can finish "
+                                 description="You don't need to sleep,and magic can't put you to sleep.You can finish "
                                              "a Long Rest in 4 hours if you spend those hours in a trancelike "
                                              "meditation, during which you retain consciousness."
                              )
@@ -1310,7 +1310,7 @@ class Drow(Elf):
                                          "Your Drow lineage is of the Underdark. You know the Dancing Lights cantrip.\n"
                                          "Starting at 3rd level and again at 5th level, you also gain the ability to "
                                          "cast a Spell with this trait, Faerie Fire and Darkness. Once you cast the "
-                                         "Spell with this trait, you can’t cast that Spell with it again until you "
+                                         "Spell with this trait, you can't cast that Spell with it again until you "
                                          "finish a Long Rest; however, you can cast the Spell using any Spell Slots "
                                          "you have of the appropriate level.\n"
                                          f"{ability.value} is your spellcasting ability for the Spells you cast with "
@@ -1346,7 +1346,7 @@ class HighElf(Elf):
                                          "List.\n"
                                          "Starting at 3rd level and again at 5th level, you also gain the ability to "
                                          "cast a Spell with this trait, Detect Magic and Misty Step. Once you cast the "
-                                         "Spell with this trait, you can’t cast that Spell with it again until you "
+                                         "Spell with this trait, you can't cast that Spell with it again until you "
                                          "finish a Long Rest; however, you can cast the Spell using any Spell Slots "
                                          "you have of the appropriate level.\n"
                                          f"{ability.value} is your spellcasting ability for the Spells you cast with "
@@ -1376,7 +1376,7 @@ class WoodElf(Elf):
                                          "feet. You know the Druidcraft cantrip.\n"
                                          "Starting at 3rd level and again at 5th level, you also gain the ability to "
                                          "cast a Spell with this trait, Longstrider and Pass Without Trace. Once you "
-                                         "cast the Spell with this trait, you can’t cast that Spell with it again "
+                                         "cast the Spell with this trait, you can't cast that Spell with it again "
                                          "until you finish a Long Rest; however, you can cast the Spell using any "
                                          "Spell Slots you have of the appropriate level.\n"
                                          f"{ability.value} is your spellcasting ability for the Spells you cast with "
@@ -1470,7 +1470,7 @@ class RockGnome(Gnome):
                                          "or another creature takes a Bonus Action to touch the device and activate "
                                          "it. If the chosen effect has options within it, you choose one of those "
                                          "options for the device when you create it. For example, if you choose the "
-                                         "spell’s ignite-extinguish effect, you determine whether the device ignites "
+                                         "spell's ignite-extinguish effect, you determine whether the device ignites "
                                          "or extinguishes fire; the device doesn't do both.\n"
                                          "You can have three such devices in existence at a time, and each one "
                                          "dismantles itself 8 hours after its creation. You can also touch one of "
@@ -1500,7 +1500,7 @@ class Halfling(races.Race):
                              feats.Feat(
                                  name="Halfling Nimbleness",
                                  description="You can move through the space of any creature that is of a Size larger "
-                                             "than yours, but you can’t stop there."
+                                             "than yours, but you can't stop there."
                              ),
                              feats.Feat(
                                  name="Luck",
@@ -1547,7 +1547,7 @@ class Orc(races.Race):
                              feats.Feat(
                                  name="Relentless Endurance",
                                  description="When you are reduced to 0 Hit Points but not killed outright, you can "
-                                             "drop to 1 Hit Point instead. Once you use this trait,you can’t do so "
+                                             "drop to 1 Hit Point instead. Once you use this trait,you can't do so "
                                              "again until you finish a Long Rest"
                              )
                          ],
@@ -1613,7 +1613,7 @@ class AbyssalTiefling(Tiefling):
                                          "and resistance to Poison damage.\n"
                                          "Starting at 3rd level and again at 5th level, you gain the ability to cast "
                                          "a higher-level Spell with this trait, Ray of Sickness and Hold Person. "
-                                         "Once you cast the Spell with this trait, you can’t cast that Spell with it "
+                                         "Once you cast the Spell with this trait, you can't cast that Spell with it "
                                          "again until you finish a Long Rest; however, you can cast the Spell using "
                                          "any Spell Slots you have of the appropriate level.\n"
                                          f"{ability.value} is your spellcasting ability for the Spells you cast with "
@@ -1647,7 +1647,7 @@ class ChthonicTiefling(Tiefling):
                                          "and resistance to Necrotic damage.\n"
                                          "Starting at 3rd level and again at 5th level, you gain the ability to cast "
                                          "a higher-level Spell with this trait, False Life and Ray of Enfeeblement. "
-                                         "Once you cast the Spell with this trait, you can’t cast that Spell with it "
+                                         "Once you cast the Spell with this trait, you can't cast that Spell with it "
                                          "again until you finish a Long Rest; however, you can cast the Spell using "
                                          "any Spell Slots you have of the appropriate level.\n"
                                          f"{ability.value} is your spellcasting ability for the Spells you cast with "
@@ -1681,7 +1681,7 @@ class InfernalTiefling(Tiefling):
                                          "and resistance to Fire damage.\n"
                                          "Starting at 3rd level and again at 5th level, you gain the ability to cast "
                                          "a higher-level Spell with this trait, Hellish Rebuke and Darkness. "
-                                         "Once you cast the Spell with this trait, you can’t cast that Spell with it "
+                                         "Once you cast the Spell with this trait, you can't cast that Spell with it "
                                          "again until you finish a Long Rest; however, you can cast the Spell using "
                                          "any Spell Slots you have of the appropriate level.\n"
                                          f"{ability.value} is your spellcasting ability for the Spells you cast with "

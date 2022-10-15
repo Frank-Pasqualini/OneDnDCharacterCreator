@@ -166,7 +166,7 @@ class Character:
         return self._race.get_speed()
 
     def _get_spell_slots(self) -> list[int]:
-        spellcasting_level = math.floor(
+        spellcasting_level = math.ceil(
             sum(character_class.get_spellcasting_level() for character_class in self._classes))
 
         slots = {
@@ -202,8 +202,8 @@ class Character:
     def _get_spellcasting_ability(self) -> AbilityNames | None:
         spellcasting_abilities = [character_class.get_spellcasting_ability() for character_class in self._classes if
                                   character_class.get_spellcasting_ability() is not None] + [
-            feat.get_spellcasting_ability() for feat in self._get_features() if
-            feat.get_spellcasting_ability() is not None]
+                                     feat.get_spellcasting_ability() for feat in self._get_features() if
+                                     feat.get_spellcasting_ability() is not None]
         if len(set(spellcasting_abilities)) != 1:
             logging.warning("Multiple spellcasting abilities detected")
         return spellcasting_abilities[0] if len(spellcasting_abilities) > 0 else None
@@ -529,7 +529,7 @@ class Character:
                 writer.pages[2], {
                     "Spellcasting Class 2": self._get_spellcasting_class(),
                     "SpellcastingAbility 2": self._get_spellcasting_ability().value if (
-                        self._get_spellcasting_ability() is not None) else "",
+                            self._get_spellcasting_ability() is not None) else "",
                     "SpellSaveDC  2": 8 + self._get_spellcasting_mod() + prof_bonus,
                     "SpellAtkBonus 2": mod(self._get_spellcasting_mod() + prof_bonus),
                     "SlotsTotal 19": spell_slots[0],

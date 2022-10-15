@@ -21,7 +21,7 @@ class HunterRanger(classes.Ranger):
                                          description="Your tenacity can wear down even the most resilient foes. When "
                                                      "you hit a creature with a Weapon or an Unarmed Strike as part "
                                                      "of the Attack Action on your turn, the Weapon or Unarmed Strike "
-                                                     "deals an extra 1d8 damage to the target if it’s missing any of "
+                                                     "deals an extra 1d8 damage to the target if it's missing any of "
                                                      "its Hit Points. You can deal this extra damage only once per "
                                                      "turn."))
 
@@ -29,7 +29,7 @@ class HunterRanger(classes.Ranger):
         self._features.append(feats.Feat(name="Hunter's Lore",
                                          description="You can call on the forces of nature to reveal certain "
                                                      "strengths and weaknesses of your prey. While a creature is "
-                                                     "marked by your Hunter’s Mark,you know whether that creature has "
+                                                     "marked by your Hunter's Mark,you know whether that creature has "
                                                      "any Immunities,Resistances, and Vulnerabilities, and if the "
                                                      "creature has any,you know what they are."))
 
@@ -38,7 +38,7 @@ class HunterRanger(classes.Ranger):
                                          description="You now always have Conjure Barrage prepared, and it doesn't "
                                                      "count against the number of Spells you can prepare.\n"
                                                      "You can also cast the Spell with 1st- and 2nd-level Spell "
-                                                     "Slots. When you do so,the Spell’s damage is reduced by 1d8 for "
+                                                     "Slots. When you do so,the Spell's damage is reduced by 1d8 for "
                                                      "each slot level below 3rd.",
                                          feat_spells=[
                                              content["Spells"]["Conjure Barrage"]],
@@ -47,7 +47,7 @@ class HunterRanger(classes.Ranger):
     def _level_up_14(self):
         self._features.append(feats.Feat(name="Superior Hunter's Defense",
                                          description="When you are hit by an Attack Roll,you can use your Reaction to "
-                                                     "halve the attack’s damage against yourself,and you can redirect "
+                                                     "halve the attack's damage against yourself,and you can redirect "
                                                      "the other half of the damage to one creature (other than the "
                                                      "attacker) that you can see within 5 feet of yourself."))
 
@@ -67,7 +67,7 @@ class ThiefRogue(classes.Rogue):
                                                      "Cunning Action, with which you can do the following:\n"
                                                      "Search. Take the Search Action.\n"
                                                      "Sleight of Hand. Make a Dexterity Check (Sleight of Hand) to "
-                                                     "pick a lock or disarm a trap with Thieves’ Tools or to pick a "
+                                                     "pick a lock or disarm a trap with Thieves' Tools or to pick a "
                                                      "pocket."))
         self._features.append(feats.Feat(name="Second-Story Work",
                                          description="You have trained to reach especially hard-to-reach places, "
@@ -79,7 +79,7 @@ class ThiefRogue(classes.Rogue):
     def _level_up_6(self):
         self._features.append(feats.Feat(name="Supreme Sneak",
                                          description="You have Advantage on every Dexterity Check (Stealth) you make, "
-                                                     "provided you aren’t wearing Medium or Heavy Armor."))
+                                                     "provided you aren't wearing Medium or Heavy Armor."))
 
     def _level_up_10(self, feat: feats.Feat):
         if feat.get_level() > 10:
@@ -96,7 +96,7 @@ class ThiefRogue(classes.Rogue):
                                                      "Scrolls. You can use any Spell Scroll that bears a cantrip or a "
                                                      "1st-level Spell. You can also try to use any Spell Scroll that "
                                                      "contains a higher-level Spell, but you must first succeed on an "
-                                                     "Intelligence Check (Arcana) with a DC equal to 10 + the Spell’s "
+                                                     "Intelligence Check (Arcana) with a DC equal to 10 + the Spell's "
                                                      "level. On a successful check, you cast the Spell from the "
                                                      "scroll, and you use Intelligence as your Spellcasting Ability "
                                                      "for this casting. On a failed check, the scroll disintegrates."))
@@ -184,8 +184,8 @@ class Barkskin(spells.Spell):
                          concentration=True,
                          duration="1 hour",
                          description="You touch one willing creature to protect it with regenerating bark. Until the "
-                                     "Spell ends, the target’s skin assumes a bark-like appearance, and at the start "
-                                     "of each of the target’s turns, the target gains a number of Temporary Hit "
+                                     "Spell ends, the target's skin assumes a bark-like appearance, and at the start "
+                                     "of each of the target's turns, the target gains a number of Temporary Hit "
                                      "Points equal to your Spellcasting Ability Modifier plus your Proficiency Bonus.",
                          at_higher_levels="When you cast this Spell using a Spell Slot of 3rd level or higher, "
                                           "you can target one additional willing creature for each slot level above "
@@ -211,7 +211,7 @@ class Guidance(spells.Spell):
                          description="You channel magical insight to the creature who failed the Ability Check. That "
                                      "creature can roll a d4 and add the number rolled to the check, potentially "
                                      "turning it into a success.\n"
-                                     "Once a creature rolls the die for this Spell,that creature can’t benefit from "
+                                     "Once a creature rolls the die for this Spell,that creature can't benefit from "
                                      "the Spell again until the creature finishes a Long Rest.")
 
 

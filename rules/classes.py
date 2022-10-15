@@ -242,9 +242,9 @@ class Ranger(CharacterClass, ABC):
                                         visible=False),
                              feats.Feat(name="Favored Enemy",
                                         description="You are adept at focusing your ire on a single foe. You always "
-                                                    "have the Hunter’s Mark Spell prepared, and it doesn't count "
+                                                    "have the Hunter's Mark Spell prepared, and it doesn't count "
                                                     "against the number of Spells you can prepare. Moreover, "
-                                                    "you don’t have to concentrate on the Spell once you cast it; it "
+                                                    "you don't have to concentrate on the Spell once you cast it; it "
                                                     "lasts for its full duration, until you end it as a Bonus Action, "
                                                     "or until you are Incapacitated.",
                                         feat_spells=[
@@ -256,7 +256,7 @@ class Ranger(CharacterClass, ABC):
                                                     "Evocation.\n"
                                                     "Whenever you finish a Long Rest, you can commune with nature and "
                                                     "replace any Spell you have prepared for this Class with another "
-                                                    "Primal Spell of the same level that isn’t an Evocation.\n"
+                                                    "Primal Spell of the same level that isn't an Evocation.\n"
                                                     "Your spell slots determine the number of different Spells you "
                                                     "can prepare of each level.\n"
                                                     "Spellcasting Ability. Wisdom is your Spellcasting Ability for "
@@ -315,7 +315,7 @@ class Ranger(CharacterClass, ABC):
     def _level_up_7(self):
         self._features.append(feats.Feat(
             name="Roving",
-            description="Your Speed increases by 10 feet while you aren’t wearing Heavy Armor. You also have a Climb "
+            description="Your Speed increases by 10 feet while you aren't wearing Heavy Armor. You also have a Climb "
                         "Speed and a Swim Speed equal to your Speed."))  # TODO
 
     def _level_up_8(self, feat: feats.Feat):
@@ -386,7 +386,7 @@ class Ranger(CharacterClass, ABC):
 
     def _level_up_18(self):
         self._features.append(feats.Feat(name="Foe Slayer",
-                                         description="Your Hunter’s Mark now deals an extra 1d10 damage to its "
+                                         description="Your Hunter's Mark now deals an extra 1d10 damage to its "
                                                      "target, rather than an extra 1d6."))
 
     def _level_up_19(self, feat: feats.Feat):
@@ -451,18 +451,18 @@ class Rogue(CharacterClass, ABC):
                                         description="You know how to turn a subtle attack into a deadly one. Once on "
                                                     "each of your turns when you take the Attack Action, you can deal "
                                                     "extra damage to one creature you hit with an Attack Roll if "
-                                                    "you’re attacking with a Finesse Weapon or a Ranged Weapon and if "
+                                                    "you're attacking with a Finesse Weapon or a Ranged Weapon and if "
                                                     "at least one of the following requirements is met:\n"
                                                     "Advantage. You have Advantage on the Attack Roll.\n"
                                                     "Ally Adjacent to Target. At least one of your allies is within 5 "
-                                                    "feet of the target, the ally isn’t Incapacitated, "
-                                                    "and you don’t have Disadvantage on the Attack Roll.\n"
+                                                    "feet of the target, the ally isn't Incapacitated, "
+                                                    "and you don't have Disadvantage on the Attack Roll.\n"
                                                     "To determine the extra damage, roll a number of d6s equal to "
                                                     "half your Rogue level(round up), and add the dice together. The "
-                                                    "extra damage’s type is the same as the weapon’s Damage Type."),
+                                                    "extra damage's type is the same as the weapon's Damage Type."),
                              feats.Feat(name="Thieves' Cant",
                                         description="You picked up various languages in the communities where you "
-                                                    "plied your roguish talents. You know Thieves’ Cant and "
+                                                    "plied your roguish talents. You know Thieves' Cant and "
                                                     f"{language.value}.",
                                         feat_bonuses=bonuses.Bonuses(
                                             languages=[Languages.THIEVES_CANT, language]),
@@ -503,7 +503,7 @@ class Rogue(CharacterClass, ABC):
     def _level_up_5(self):
         self._features.append(feats.Feat(name="Uncanny Dodge",
                                          description="When an attacker that you can see hits you with an Attack Roll, "
-                                                     "you can use your Reaction to halve the attack’s damage against "
+                                                     "you can use your Reaction to halve the attack's damage against "
                                                      "you (round down)."))
 
     def _level_up_7(self, expertise1: Skills, expertise2: Skills):
@@ -529,7 +529,7 @@ class Rogue(CharacterClass, ABC):
                                                      "you are subjected to an effect that allows you to make a "
                                                      "Dexterity Saving Throw to take only half damage, you instead "
                                                      "take no damage if you succeed on the Saving Throw and only half "
-                                                     "damage if you fail. You can’t use this feature if you’re "
+                                                     "damage if you fail. You can't use this feature if you're "
                                                      "Incapacitated."))
 
     def _level_up_11(self):
@@ -547,10 +547,10 @@ class Rogue(CharacterClass, ABC):
 
     def _level_up_13(self):
         self._features.append(feats.Feat(name="Subtle Strikes",
-                                         description="When you attack, you know how to exploit a target’s "
+                                         description="When you attack, you know how to exploit a target's "
                                                      "distraction. You have Advantage on any Attack Roll that targets "
                                                      "a creature that is within 5 feet of at least one of your allies "
-                                                     "who isn’t Incapacitated."))
+                                                     "who isn't Incapacitated."))
 
     def _level_up_15(self):
         self._features.append(feats.Feat(name="Slippery Mind",
@@ -571,13 +571,13 @@ class Rogue(CharacterClass, ABC):
         self._features.append(feats.Feat(name="Elusive",
                                          description="You are so evasive that attackers rarely gain the upper hand "
                                                      "against you. No Attack Roll has Advantage against you while you "
-                                                     "aren’t Incapacitated."))
+                                                     "aren't Incapacitated."))
 
     def _level_up_18(self):
         self._features.append(feats.Feat(name="Stroke of Luck",
                                          description="You have an uncanny knack for succeeding when you need to. If "
                                                      "you fail a d20 Test,you can turn the roll into a 20.\n"
-                                                     "Once you use this feature, you can’t use it again until you "
+                                                     "Once you use this feature, you can't use it again until you "
                                                      "finish a Short Rest or a Long Rest."))
 
     def _level_up_19(self, feat: feats.Feat):
