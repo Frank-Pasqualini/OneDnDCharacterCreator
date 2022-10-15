@@ -104,7 +104,7 @@ def create(content: dict[str, dict[str, any]]) -> character.Character:
         content["Weapons"]["Hand Crossbow"](name="Hand Crossbow"),
         content["Weapons"]["Dagger"](name="Silvered Dagger"),
     ])
-    zylith.set_magic_items(magic_items=[
+    zylith.set_magic_items(magic_items=[  # TODO better magic items
         magicitem.MagicItem(name="Gloves of Thievery",
                             description="These gloves are invisible while worn. While wearing them, you gain a +5 "
                                         "bonus to Dexterity (Sleight of Hand) checks and Dexterity checks made to "

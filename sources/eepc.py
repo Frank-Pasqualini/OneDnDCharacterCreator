@@ -1,5 +1,6 @@
 """
 Content from the Dungeons and Dragons Elemental Evil Player's Companion.
+https://media.wizards.com/2015/downloads/dnd/EE_PlayersCompanion.pdf
 """
 
 from rules import spells

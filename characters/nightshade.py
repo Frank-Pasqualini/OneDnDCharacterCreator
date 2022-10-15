@@ -96,7 +96,7 @@ def create(content: dict[str, dict[str, any]]) -> character.Character:
         content["Weapons"]["Rapier"](name="Hellfire Rapier", magical=True),
         content["Weapons"]["Dagger"](name="Hellfire Dagger", magical=True),
     ])
-    nightshade.set_magic_items([
+    nightshade.set_magic_items([  # TODO better magic items
         magicitem.MagicItem(name="Hellfire Weapon",
                             description="This weapon is fashioned from infernal iron and traced with veins of "
                                         "hellfire that shed dim light in a 5-foot-radius.\n"
