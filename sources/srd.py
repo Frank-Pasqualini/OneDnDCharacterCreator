@@ -1403,7 +1403,7 @@ CONTENT = {
         "Shield": Shield,
     },
     "Classes": {
-        # TODO All subclasses from SRD
+        # TODO The rest of the subclasses
         # "Berserker Barbarian": BerserkerBarbarian,
         "Lore Bard": "OBSOLETE",
         # "Life Cleric": LifeCleric,
@@ -1444,7 +1444,7 @@ CONTENT = {
         "Infernal Tiefling": "OBSOLETE",
     },
     "Spells": {
-        # TODO All spells from SRD
+        # TODO The rest of the spells
         # "Acid Arrow": AcidArrow,
         # "Acid Splash": AcidSplash,
         # "Aid": Aid,
@@ -1766,7 +1766,7 @@ CONTENT = {
         # "Zone of Truth": ZoneOfTruth,
     },
     "Weapons": {
-        # TODO All weapons from SRD
+        # TODO The rest of the weapons
         # "Club": Club,
         "Dagger": Dagger,
         # "Greatclub": Greatclub,

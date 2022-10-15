@@ -34,6 +34,7 @@ class Background(ABC):
                  ideals: str = "",
                  bonds: str = "",
                  flaws: str = ""):
+        # TODO Refactor this to remove abilities and bonuses object from constructor
         abilities_list = [background_abilities.get_strength(), background_abilities.get_dexterity(),
                           background_abilities.get_constitution(), background_abilities.get_intelligence(),
                           background_abilities.get_wisdom(), background_abilities.get_charisma()]

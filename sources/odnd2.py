@@ -120,7 +120,7 @@ class FightingStyleArchery(feats.FightingStyle):
                          level=1,
                          prerequisite="Warrior Group",
                          description="You gain a +2 bonus to Attack Rolls you make with Ranged Weapons.",
-                         feat_bonuses=bonuses.Bonuses())  # TODO
+                         feat_bonuses=bonuses.Bonuses())  # TODO implement ranged attack bonus
 
 
 class AbilityScoreImprovement(feats.Feat):
@@ -223,7 +223,7 @@ CONTENT = {
         "Thief Rogue": ThiefRogue,
     },
     "Feats": {
-        # TODO the feats
+        # TODO The rest of the feats
         "Ability Score Improvement": AbilityScoreImprovement,
         # "Actor": Actor,
         # "Athlete": Athlete,

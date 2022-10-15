@@ -35,7 +35,7 @@ class Bonuses:
                  languages: list[Languages] = None,
                  initiative: ProficiencyLevels = ProficiencyLevels.NONE,
                  hp_bonus: int = 0):
-
+        # TODO it seems like expertise is only for skills, maybe simplify this
         self._saving_throws = saving_throws if saving_throws is not None else {}
         self._skills = skills if skills is not None else {}
         self._tools = tools if tools is not None else {}

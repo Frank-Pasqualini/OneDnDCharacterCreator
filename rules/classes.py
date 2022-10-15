@@ -316,7 +316,7 @@ class Ranger(CharacterClass, ABC):
         self._features.append(feats.Feat(
             name="Roving",
             description="Your Speed increases by 10 feet while you aren't wearing Heavy Armor. You also have a Climb "
-                        "Speed and a Swim Speed equal to your Speed."))  # TODO
+                        "Speed and a Swim Speed equal to your Speed."))  # TODO Implement Speed increases
 
     def _level_up_8(self, feat: feats.Feat):
         if feat.get_level() > 8:

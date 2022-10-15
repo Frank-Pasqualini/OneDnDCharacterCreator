@@ -1,5 +1,6 @@
 """
 A magic item.
+TODO
 """
 
 from abc import ABC
@@ -9,7 +10,8 @@ from rules.common import validate_string
 
 class MagicItem(ABC):
     """
-    A magic item. TODO
+    A magic item.
+    TODO
     """
 
     _name: str

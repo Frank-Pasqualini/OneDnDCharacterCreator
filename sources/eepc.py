@@ -332,7 +332,7 @@ class Skywrite(spells.Spell):
 
 CONTENT = {
     "Spells": {
-        # TODO the rest of the spells
+        # TODO The rest of the spells
         # "Abi-Dalzim's Horrid Wilting": HorridWilting,
         "Absorb Elements": AbsorbElements,
         # "Aganazzar's Scorcher": AganazzarsScorcher,
@@ -377,5 +377,5 @@ CONTENT = {
         # "Watery Sphere": WaterySphere,
         # "Whirlwind": Whirlwind,
     }
-    # TODO the rest
+    # TODO The rest of the content
 }

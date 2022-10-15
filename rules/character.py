@@ -202,8 +202,8 @@ class Character:
     def _get_spellcasting_ability(self) -> AbilityNames | None:
         spellcasting_abilities = [character_class.get_spellcasting_ability() for character_class in self._classes if
                                   character_class.get_spellcasting_ability() is not None] + [
-            feat.get_spellcasting_ability() for feat in self._get_features() if
-            feat.get_spellcasting_ability() is not None]
+                                     feat.get_spellcasting_ability() for feat in self._get_features() if
+                                     feat.get_spellcasting_ability() is not None]
         if len(set(spellcasting_abilities)) != 1:
             logging.warning("Multiple spellcasting abilities detected")
         return spellcasting_abilities[0] if len(spellcasting_abilities) > 0 else None
@@ -289,7 +289,7 @@ class Character:
                 "EP": "",
                 "Equipment": "\n".join([self._armor.get_name() if self._armor is not None else ""] + [
                     self._shield.get_name() if self._shield is not None else ""]),
-                "Feat+Traits ": "",  # TODO
+                "Feat+Traits ": "",  # TODO Implement if first Feat box gets too long
                 "Features and Traits": "\n\n".join(feature.summary() for feature in compiled_features
                                                    if feature.summary() is not None),
                 "Flaws": str(self._background.get_flaws()),
@@ -529,7 +529,7 @@ class Character:
                 writer.pages[2], {
                     "Spellcasting Class 2": self._get_spellcasting_class(),
                     "SpellcastingAbility 2": self._get_spellcasting_ability().value if (
-                        self._get_spellcasting_ability() is not None) else "",
+                            self._get_spellcasting_ability() is not None) else "",
                     "SpellSaveDC  2": 8 + self._get_spellcasting_mod() + prof_bonus,
                     "SpellAtkBonus 2": mod(self._get_spellcasting_mod() + prof_bonus),
                     "SlotsTotal 19": spell_slots[0],
@@ -758,6 +758,7 @@ class Character:
                             NameObject("/AS"): NameObject(value)
                         })
 
+            # TODO spellbook pages
             # spell_descriptions = [str(spell) for spell in cantrips + first_level + second_level + third_level +
             #                       fourth_level + fifth_level + sixth_level + seventh_level + eighth_level +
             #                       ninth_level if spell is not None]
