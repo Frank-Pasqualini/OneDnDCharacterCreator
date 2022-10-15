@@ -13,11 +13,11 @@ import mergedeep
 logging.basicConfig(level=os.getenv("LOGLEVEL", "WARNING"))
 
 
-def load_all_content_files(directory: str, packages: list[str]) -> list:
+def load_all_content_files(directories: list[str], packages: list[str]) -> list:
     """
     Loads in a list of python modules to process. Used for variable imports
-    :param directory: The directory to scan for content files
-    :type directory: str
+    :param directories: The directories to scan for content files
+    :type directories: list[str]
     :param packages: The list of content files to scan
     :type packages: str
     :return: A list of usable python modules
@@ -25,21 +25,28 @@ def load_all_content_files(directory: str, packages: list[str]) -> list:
     """
 
     package_importers = {}
-    for importer, package_name, _ in pkgutil.iter_modules([directory]):
-        package_importers[package_name] = importer
+
+    for directory in directories:
+        for importer, package_name, _ in pkgutil.iter_modules([directory]):
+            package_importers[package_name] = {
+                "importer": importer,
+                "directory": directory
+            }
 
     for package in packages:
         try:
-            importer = package_importers[package]
+            importer = package_importers[package]["importer"]
+            directory = package_importers[package]["directory"]
+
             full_package_name = f"{directory}.{package})"
             if full_package_name not in sys.modules:
                 module = importer.find_module(package).load_module(package)
                 yield module
         except KeyError as exc:
-            logging.error("Cannot find file %s.py in directory %s",
-                          package, directory)
+            logging.error(
+                "Cannot find file %s.py in directories %s", package, directories)
             raise ImportError(
-                f"Cannot find file {package}.py in directory {directory}") from exc
+                f"Cannot find file {package}.py in directories {directories}") from exc
 
 
 def main(characters: list[str], sources: list[str]):
@@ -51,7 +58,7 @@ def main(characters: list[str], sources: list[str]):
         "Generating sheets for characters %s using sources %s", characters, sources)
 
     content = {}
-    for source in load_all_content_files("sources", sources):
+    for source in load_all_content_files(["sources", "extra_sources"], sources):
         try:
             mergedeep.merge(content, source.CONTENT)
         except AttributeError as exc:
@@ -62,7 +69,7 @@ def main(characters: list[str], sources: list[str]):
 
     os.makedirs("output", exist_ok=True)
 
-    for character in load_all_content_files("characters", characters):
+    for character in load_all_content_files(["characters"], characters):
         try:
             finished_character = character.create(content)
             finished_character.write_character_sheet(

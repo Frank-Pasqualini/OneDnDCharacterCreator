@@ -85,6 +85,9 @@ class Spell(ABC):
     def get_name(self) -> str:
         return self._name
 
+    def summary(self) -> str:
+        return self._name + (" (C)" if self._concentration else "") + (" (R)" if self._ritual else "")
+
     def __str__(self) -> str:
         output = f"{self._name}\n"
 
@@ -239,7 +242,7 @@ def calculate_spell_name_width(spell: Spell) -> float:
         "~": 9.34375,
     }
 
-    for char in spell.get_name():
+    for char in spell.summary():
         size += widths[char]
 
     return size

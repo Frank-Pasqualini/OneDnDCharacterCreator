@@ -232,6 +232,41 @@ class AnimalMessenger(spells.Spell):
                                           "2nd.")
 
 
+class Augury(spells.Spell):
+    """
+    Augury Spell
+    SRD p. 120
+    """
+
+    def __init__(self):
+        super().__init__(name="Augury",
+                         spell_lists=[SpellLists.DIVINE, SpellLists.PRIMAL],
+                         level=2,
+                         school=SpellSchools.DIVINATION,
+                         ritual=True,
+                         casting_time="1 minute",
+                         spell_range="Self",
+                         verbal_components=True,
+                         somatic_components=True,
+                         material_components=True,
+                         material_components_list="specially marked sticks, bones, or similar tokens worth at least "
+                                                  "25 gp",
+                         description="By casting gem-inlaid sticks, rolling dragon bones, laying out ornate cards, "
+                                     "or employing some other divining tool, you receive an omen from an otherworldly "
+                                     "entity about the results of a specific course of action that you plan to take "
+                                     "within the next 30 minutes. The DM chooses from the following possible omens:\n"
+                                     "• Weal, for good results\n"
+                                     "• Woe, for bad results\n"
+                                     "• Weal and woe, for both good and bad results\n"
+                                     "• Nothing, for results that aren't especially good or bad\n"
+                                     "The spell doesn't take into account any possible circumstances that might "
+                                     "change the outcome, such as the casting of additional spells or the loss or "
+                                     "gain of a companion.\n"
+                                     "If you cast the spell two or more times before completing your next long rest, "
+                                     "there is a cumulative 25 percent chance for each casting after the first that "
+                                     "you get a random reading. The DM makes this roll in secret.")
+
+
 class ChillTouch(spells.Spell):
     """
     Chill Touch Spell
@@ -256,6 +291,128 @@ class ChillTouch(spells.Spell):
                                      "you until the end of your next turn.\n"
                                      "This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level "
                                      "(3d8), and 17th level (4d8).")
+
+
+class CreateOrDestroyWater(spells.Spell):
+    """
+    Create or Destroy Water Spell
+    SRD p. 132
+    """
+
+    def __init__(self):
+        super().__init__(name="Create or Destroy Water",
+                         spell_lists=[SpellLists.PRIMAL],
+                         level=1,
+                         school=SpellSchools.TRANSMUTATION,
+                         spell_range="30 feet",
+                         verbal_components=True,
+                         somatic_components=True,
+                         material_components=True,
+                         material_components_list="a drop of water if creating water or a few grains of sand if "
+                                                  "destroying it",
+                         description="You either create or destroy water.\n"
+                                     "Create Water. You create up to 10 gallons of clean water within range in an "
+                                     "open container. Alternatively, the water falls as rain in a 30-foot cube within "
+                                     "range, extinguishing exposed flames in the area.\n"
+                                     "Destroy Water. You destroy up to 10 gallons of water in an open container "
+                                     "within range. Alternatively, you destroy fog in a 30-foot cube within range.",
+                         at_higher_levels="When you cast this spell using a spell slot of 2nd level or higher, "
+                                          "you create or destroy 10 additional gallons of water, or the size of the "
+                                          "cube increases by 5 feet, for each slot level above 1st.")
+
+
+class CureWounds(spells.Spell):
+    """
+    Cure Wounds Spell
+    SRD p. 132-133
+    """
+
+    def __init__(self):
+        super().__init__(name="Cure Wounds",
+                         spell_lists=[SpellLists.DIVINE, SpellLists.PRIMAL],
+                         level=1,
+                         school=SpellSchools.ABJURATION,
+                         spell_range="Touch",
+                         verbal_components=True,
+                         somatic_components=True,
+                         description="A creature you touch regains a number of hit points equal to 1d8 + your "
+                                     "spellcasting ability modifier. This spell has no effect on undead or "
+                                     "constructs.",
+                         at_higher_levels="When you cast this spell using a spell slot of 2nd level or higher, "
+                                          "the healing increases by 1d8 for each slot level above 1st.")
+
+
+class Darkvision(spells.Spell):
+    """
+    Darkvision Spell
+    SRD p. 133
+    """
+
+    def __init__(self):
+        super().__init__(name="Darkvision",
+                         spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
+                         level=2,
+                         school=SpellSchools.TRANSMUTATION,
+                         spell_range="Touch",
+                         verbal_components=True,
+                         somatic_components=True,
+                         material_components=True,
+                         material_components_list="either a pinch of dried carrot or an agate",
+                         duration="8 hours",
+                         description="You touch a willing creature to grant it the ability to see in the dark. For "
+                                     "the duration, that creature has darkvision out to a range of 60 feet.")
+
+
+class DetectMagic(spells.Spell):
+    """
+    Detect Magic Spell
+    SRD p. 134
+    """
+
+    def __init__(self):
+        super().__init__(name="Detect Magic",
+                         spell_lists=[SpellLists.ARCANE,
+                                      SpellLists.DIVINE, SpellLists.PRIMAL],
+                         level=1,
+                         school=SpellSchools.DIVINATION,
+                         ritual=True,
+                         spell_range="Self",
+                         verbal_components=True,
+                         somatic_components=True,
+                         concentration=True,
+                         duration="10 minutes",
+                         description="For the duration, you sense the presence of magic within 30 feet of you. If you "
+                                     "sense magic in this way, you can use your action to see a faint aura around any "
+                                     "visible creature or object in the area that bears magic, and you learn its "
+                                     "school of magic, if any.\n"
+                                     "The spell can penetrate most barriers, but it is blocked by 1 foot of stone, "
+                                     "1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt.")
+
+
+class DetectPoisonAndDisease(spells.Spell):
+    """
+    Detect Poison and Disease Spell
+    SRD p. 134
+    """
+
+    def __init__(self):
+        super().__init__(name="Detect Poison and Disease",
+                         spell_lists=[SpellLists.DIVINE, SpellLists.PRIMAL],
+                         level=1,
+                         school=SpellSchools.DIVINATION,
+                         ritual=True,
+                         spell_range="Self",
+                         verbal_components=True,
+                         somatic_components=True,
+                         material_components=True,
+                         material_components_list="a yew leaf",
+                         concentration=True,
+                         duration="10 minutes",
+                         description="For the duration, you can sense the presence and location of poisons, poisonous "
+                                     "creatures, and diseases within 30 feet of you. You also identify the kind of "
+                                     "poison, poisonous creature, or disease in each case.\n"
+                                     "The spell can penetrate most barriers, but it is blocked by 1 foot of stone, "
+                                     "1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt.")
 
 
 class DetectThoughts(spells.Spell):
@@ -333,6 +490,107 @@ class Druidcraft(spells.Spell):
                                      "• You instantly light or snuff out a candle, a torch, or a small campfire.")
 
 
+class EnhanceAbility(spells.Spell):
+    """
+    Enhance Ability Spell
+    SRD p. 139
+    """
+
+    def __init__(self):
+        super().__init__(name="Longstrider",
+                         spell_lists=[SpellLists.PRIMAL],
+                         level=2,
+                         school=SpellSchools.TRANSMUTATION,
+                         spell_range="Touch",
+                         verbal_components=True,
+                         somatic_components=True,
+                         material_components=True,
+                         material_components_list="(fur or a feather from a beast",
+                         concentration=True,
+                         duration="1 hour",
+                         description="You touch a creature and bestow upon it a magical enhancement. Choose one of "
+                                     "the following effects; the target gains that effect until the spell ends.\n"
+                                     "Bear's Endurance. The target has advantage on Constitution checks. It also "
+                                     "gains 2d6 temporary hit points, which are lost when the spell ends.\n"
+                                     "Bull's Strength. The target has advantage on Strength checks, and his or her "
+                                     "carrying capacity doubles.\n"
+                                     "Cat's Grace. The target has advantage on Dexterity checks. It also doesn't take "
+                                     "damage from falling 20 feet or less if it isn't incapacitated.\n"
+                                     "Eagle's Splendor. The target has advantage on Charisma checks.\n"
+                                     "Fox's Cunning. The target has advantage on Intelligence checks.\n"
+                                     "Owl's Wisdom. The target has advantage on Wisdom checks.",
+                         at_higher_levels="When you cast this spell using a spell slot of 3rd level or higher, "
+                                          "you can target one additional creature for each slot level above 2nd.")
+
+
+class EnlargeReduce(spells.Spell):
+    """
+    Enlarge/Reduce Spell
+    SRD p. 140
+    """
+
+    def __init__(self):
+        super().__init__(name="Enlarge/Reduce",
+                         spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
+                         level=2,
+                         school=SpellSchools.TRANSMUTATION,
+                         spell_range="30 feet",
+                         verbal_components=True,
+                         somatic_components=True,
+                         material_components=True,
+                         material_components_list="a pinch of powdered iron",
+                         concentration=True,
+                         duration="1 minute",
+                         description="You cause a creature or an object you can see within range to grow larger or "
+                                     "smaller for the duration. Choose either a creature or an object that is neither "
+                                     "worn nor carried. If the target is unwilling, it can make a Constitution saving "
+                                     "throw. On a success, the spell has no effect.\n"
+                                     "If the target is a creature, everything it is wearing and carrying changes size "
+                                     "with it. Any item dropped by an affected creature returns to normal size at "
+                                     "once.\n"
+                                     "Enlarge. The target's size doubles in all dimensions, and its weight is "
+                                     "multiplied by eight. This growth increases its size by one category-- from "
+                                     "Medium to Large, for example. If there isn't enough room for the target to "
+                                     "double its size, the creature or object attains the maximum possible size in "
+                                     "the space available. Until the spell ends, the target also has advantage on "
+                                     "Strength checks and Strength saving throws. The target's weapons also grow to "
+                                     "match its new size. While these weapons are enlarged, the target's attacks with "
+                                     "them deal 1d4 extra damage.\n"
+                                     "Reduce. The target's size is halved in all dimensions, and its weight is "
+                                     "reduced to one-eighth of normal. This reduction decreases its size by one "
+                                     "category--from Medium to Small, for example. Until the spell ends, the target "
+                                     "also has disadvantage on Strength checks and Strength saving throws. The "
+                                     "target's weapons also shrink to match its new size. While these weapons are "
+                                     "reduced, the target's attacks with them deal 1d4 less damage (this can't reduce "
+                                     "the damage below 1).")
+
+
+class Entangle(spells.Spell):
+    """
+    Entangle Spell
+    SRD p. 140
+    """
+
+    def __init__(self):
+        super().__init__(name="Entangle",
+                         spell_lists=[SpellLists.PRIMAL],
+                         level=1,
+                         school=SpellSchools.CONJURATION,
+                         spell_range="90 feet",
+                         verbal_components=True,
+                         somatic_components=True,
+                         concentration=True,
+                         duration="1 minute",
+                         description="Grasping weeds and vines sprout from the ground in a 20-foot square starting "
+                                     "from a point within range. For the duration, these plants turn the ground in "
+                                     "the area into difficult terrain.\n"
+                                     "A creature in the area when you cast the spell must succeed on a Strength "
+                                     "saving throw or be restrained by the entangling plants until the spell ends. A "
+                                     "creature restrained by the plants can use its action to make a Strength check "
+                                     "against your spell save DC. On a success, it frees itself.\n"
+                                     "When the spell ends, the conjured plants wilt away.")
+
+
 class FalseLife(spells.Spell):
     """
     False Life Spell
@@ -354,6 +612,158 @@ class FalseLife(spells.Spell):
                                      "temporary hit points for the duration.",
                          at_higher_levels="When you cast this spell using a spell slot of 2nd level or higher, "
                                           "you gain 5 additional temporary hit points for each slot level above 1st.")
+
+
+class FindTraps(spells.Spell):
+    """
+    Find Traps Spell
+    SRD p. 144
+    """
+
+    def __init__(self):
+        super().__init__(name="Find Traps",
+                         spell_lists=[SpellLists.DIVINE, SpellLists.PRIMAL],
+                         level=2,
+                         school=SpellSchools.DIVINATION,
+                         spell_range="120 feet",
+                         verbal_components=True,
+                         somatic_components=True,
+                         description="You sense the presence of any trap within range that is within line of sight. A "
+                                     "trap, for the purpose of this spell, includes anything that would inflict a "
+                                     "sudden or unexpected effect you consider harmful or undesirable, "
+                                     "which was specifically intended as such by its creator. Thus, the spell would "
+                                     "sense an area affected by the alarm spell, a glyph of warding, or a mechanical "
+                                     "pit trap, but it would not reveal a natural weakness in the floor, an unstable "
+                                     "ceiling, or a hidden sinkhole.\n"
+                                     "This spell merely reveals that a trap is present. You don't learn the location "
+                                     "of each trap, but you do learn the general nature of the danger posed by a trap "
+                                     "you sense.")
+
+
+class FogCloud(spells.Spell):
+    """
+    Fog Cloud Spell
+    SRD p. 146
+    """
+
+    def __init__(self):
+        super().__init__(name="Fog Cloud",
+                         spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
+                         level=1,
+                         school=SpellSchools.CONJURATION,
+                         spell_range="120 feet",
+                         verbal_components=True,
+                         somatic_components=True,
+                         concentration=True,
+                         duration="1 hour",
+                         description="You create a 20-foot-radius sphere of fog centered on a point within range. The "
+                                     "sphere spreads around corners, and its area is heavily obscured. It lasts for "
+                                     "the duration or until a wind of moderate or greater speed (at least 10 miles "
+                                     "per hour) disperses it.",
+                         at_higher_levels="When you cast this spell using a spell slot of 2nd level or higher, "
+                                          "the radius of the fog increases by 20 feet for each slot level above 1st.")
+
+
+class GentleRepose(spells.Spell):
+    """
+    Gentle Repose Spell
+    SRD p. 148-149
+    """
+
+    def __init__(self):
+        super().__init__(name="Gentle Repose",
+                         spell_lists=[SpellLists.DIVINE, SpellLists.PRIMAL],
+                         level=2,
+                         school=SpellSchools.NECROMANCY,
+                         ritual=True,
+                         spell_range="Touch",
+                         verbal_components=True,
+                         somatic_components=True,
+                         material_components=True,
+                         material_components_list="a pinch of salt and one copper piece placed on each of the "
+                                                  "corpse’s eyes, which must remain there for the duration",
+                         duration="10 days",
+                         description="You touch a corpse or other remains. For the duration, the target is protected "
+                                     "from decay and can't become undead.\n"
+                                     "The spell also effectively extends the time limit on raising the target from "
+                                     "the dead, since days spent under the influence of this spell don't count "
+                                     "against the time limit of spells such as raise dead.")
+
+
+class Goodberry(spells.Spell):
+    """
+    Goodberry Spell
+    SRD p. 150
+    """
+
+    def __init__(self):
+        super().__init__(name="Goodberry",
+                         spell_lists=[SpellLists.PRIMAL],
+                         level=1,
+                         school=SpellSchools.TRANSMUTATION,
+                         spell_range="Touch",
+                         verbal_components=True,
+                         somatic_components=True,
+                         material_components=True,
+                         material_components_list="a sprig of mistletoe",
+                         description="Up to ten berries appear in your hand and are infused with magic for the "
+                                     "duration. A creature can use its action to eat one berry. Eating a berry "
+                                     "restores 1 hit point, and the berry provides enough nourishment to sustain a "
+                                     "creature for one day.\n"
+                                     "The berries lose their potency if they have not been consumed within 24 hours "
+                                     "of the casting of this spell.")
+
+
+class HealingWord(spells.Spell):
+    """
+    Healing Word Spell
+    SRD p. 153
+    """
+
+    def __init__(self):
+        super().__init__(name="Healing Word",
+                         spell_lists=[SpellLists.DIVINE, SpellLists.PRIMAL],
+                         level=1,
+                         school=SpellSchools.ABJURATION,
+                         casting_time="1 bonus action",
+                         spell_range="60 feet",
+                         verbal_components=True,
+                         description="A creature of your choice that you can see within range regains hit points "
+                                     "equal to 1d4 + your spellcasting ability modifier. This spell has no effect on "
+                                     "undead or constructs.",
+                         at_higher_levels="When you cast this spell using a spell slot of 2nd level or higher, "
+                                          "the healing increases by 1d4 for each slot level above 1st.")
+
+
+class HeatMetal(spells.Spell):
+    """
+    Heat Metal Spell
+    SRD p. 153-154
+    """
+
+    def __init__(self):
+        super().__init__(name="Heat Metal",
+                         spell_lists=[SpellLists.PRIMAL],
+                         level=1,
+                         school=SpellSchools.TRANSMUTATION,
+                         spell_range="60 feet",
+                         verbal_components=True,
+                         somatic_components=True,
+                         material_components=True,
+                         material_components_list="a piece of iron and a flame",
+                         concentration=True,
+                         duration="1 minute",
+                         description="Choose a manufactured metal object, such as a metal weapon or a suit of heavy "
+                                     "or medium metal armor, that you can see within range. You cause the object to "
+                                     "glow red-hot. Any creature in physical contact with the object takes 2d8 fire "
+                                     "damage when you cast the spell. Until the spell ends, you can use a bonus "
+                                     "action on each of your subsequent turns to cause this damage again.\n"
+                                     "If a creature is holding or wearing the object and takes the damage from it, "
+                                     "the creature must succeed on a Constitution saving throw or drop the object if "
+                                     "it can. If it doesn't drop the object, it has disadvantage on attack rolls and "
+                                     "ability checks until the start of your next turn.",
+                         at_higher_levels="When you cast this spell using a spell slot of 3rd level or higher, "
+                                          "the damage increases by 1d8 for each slot level above 2nd.")
 
 
 class HuntersMark(spells.Spell):
@@ -384,6 +794,45 @@ class HuntersMark(spells.Spell):
                                           "the spell for up to 24 hours.")
 
 
+class Jump(spells.Spell):
+    """
+    Jump Spell
+    SRD p. 158
+    """
+
+    def __init__(self):
+        super().__init__(name="Jump",
+                         spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
+                         level=1,
+                         school=SpellSchools.TRANSMUTATION,
+                         spell_range="Touch",
+                         verbal_components=True,
+                         somatic_components=True,
+                         material_components=True,
+                         material_components_list="a grasshopper’s hind leg",
+                         duration="1 minute",
+                         description="You touch a creature. The creature's jump distance is tripled until the spell "
+                                     "ends.")
+
+
+class LesserRestoration(spells.Spell):
+    """
+    Lesser Restoration Spell
+    SRD p. 158
+    """
+
+    def __init__(self):
+        super().__init__(name="Lesser Restoration",
+                         spell_lists=[SpellLists.DIVINE, SpellLists.PRIMAL],
+                         level=2,
+                         school=SpellSchools.ABJURATION,
+                         spell_range="Touch",
+                         verbal_components=True,
+                         somatic_components=True,
+                         description="You touch a creature and can end either one disease or one condition afflicting "
+                                     "it. The condition can be blinded, deafened, paralyzed, or poisoned.")
+
+
 class Light(spells.Spell):
     """
     Light Spell
@@ -409,6 +858,36 @@ class Light(spells.Spell):
                                      "succeed on a Dexterity saving throw to avoid the spell.")
 
 
+class LocateObject(spells.Spell):
+    """
+    Locate Object Spell
+    SRD p. 159-160
+    """
+
+    def __init__(self):
+        super().__init__(name="Locate Object",
+                         spell_lists=[SpellLists.ARCANE,
+                                      SpellLists.DIVINE, SpellLists.PRIMAL],
+                         level=1,
+                         school=SpellSchools.DIVINATION,
+                         spell_range="Self",
+                         verbal_components=True,
+                         somatic_components=True,
+                         material_components=True,
+                         material_components_list="a forked twig",
+                         concentration=True,
+                         duration="10 minutes",
+                         description="Describe or name an object that is familiar to you. You sense the direction to "
+                                     "the object's location, as long as that object is within 1,000 feet of you. If "
+                                     "the object is in motion, you know the direction of its movement.\n"
+                                     "The spell can locate a specific object known to you, as long as you have seen "
+                                     "it up close--within 30 feet--at least once. Alternatively, the spell can locate "
+                                     "the nearest object of a particular kind, such as a certain kind of apparel, "
+                                     "jewelry, furniture, tool, or weapon.\n"
+                                     "This spell can't locate an object if any thickness of lead, even a thin sheet, "
+                                     "blocks a direct path between you and the object.")
+
+
 class Longstrider(spells.Spell):
     """
     Longstrider Spell
@@ -430,6 +909,57 @@ class Longstrider(spells.Spell):
                                      "ends.",
                          at_higher_levels="When you cast this spell using a spell slot of 2nd level or higher, "
                                           "you can target one additional creature for each slot level above 1st.")
+
+
+class Mending(spells.Spell):
+    """
+    Mending Spell
+    SRD p. 164
+    """
+
+    def __init__(self):
+        super().__init__(name="Mending",
+                         spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
+                         level=0,
+                         school=SpellSchools.TRANSMUTATION,
+                         spell_range="Touch",
+                         verbal_components=True,
+                         somatic_components=True,
+                         material_components=True,
+                         material_components_list="two lodestones",
+                         description="This spell repairs a single break or tear in an object you touch, such as a "
+                                     "broken chain link, two halves of a broken key, a torn cloak, or a leaking "
+                                     "wineskin. As long as the break or tear is no larger than 1 foot in any "
+                                     "dimension, you mend it, leaving no trace of the former damage.\n"
+                                     "This spell can physically repair a magic item or construct, but the spell can't "
+                                     "restore magic to such an object.")
+
+
+class Message(spells.Spell):
+    """
+    Message Spell
+    SRD p. 164
+    """
+
+    def __init__(self):
+        super().__init__(name="Message",
+                         spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
+                         level=0,
+                         school=SpellSchools.TRANSMUTATION,
+                         spell_range="120 feet",
+                         verbal_components=True,
+                         somatic_components=True,
+                         material_components=True,
+                         material_components_list="a short piece of copper wire",
+                         duration="1 round",
+                         description="You point your finger toward a creature within range and whisper a message. The "
+                                     "target (and only the target) hears the message and can reply in a whisper that "
+                                     "only you can hear.\n"
+                                     "You can cast this spell through solid objects if you are familiar with the "
+                                     "target and know it is beyond the barrier. Magical silence, 1 foot of stone, "
+                                     "1 inch of common metal, a thin sheet of lead, or 3 feet of wood blocks the "
+                                     "spell. The spell doesn't have to follow a straight line and can travel freely "
+                                     "around corners or through openings.")
 
 
 class PassWithoutTrace(spells.Spell):
@@ -457,6 +987,69 @@ class PassWithoutTrace(spells.Spell):
                                      "leaves behind no tracks or other traces of its passage.")
 
 
+class PoisonSpray(spells.Spell):
+    """
+    Poison Spray Spell
+    SRD p. 169
+    """
+
+    def __init__(self):
+        super().__init__(name="Poison Spray",
+                         spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
+                         level=0,
+                         school=SpellSchools.CONJURATION,
+                         spell_range="10 feet",
+                         verbal_components=True,
+                         somatic_components=True,
+                         description="You extend your hand toward a creature you can see within range and project a "
+                                     "puff of noxious gas from your palm. The creature must succeed on a Constitution "
+                                     "saving throw or take 1d12 poison damage.\n"
+                                     "This spell's damage increases by 1d12 when you reach 5th level (2d12), "
+                                     "11th level (3d12), and 17th level (4d12).")
+
+
+class ProtectionFromPoison(spells.Spell):
+    """
+    Protection From Poison Spell
+    SRD p. 173
+    """
+
+    def __init__(self):
+        super().__init__(name="Protection From Poison",
+                         spell_lists=[SpellLists.DIVINE, SpellLists.PRIMAL],
+                         level=2,
+                         school=SpellSchools.ABJURATION,
+                         spell_range="Touch",
+                         verbal_components=True,
+                         somatic_components=True,
+                         duration="1 hour",
+                         description="You touch a creature. If it is poisoned, you neutralize the poison. If more "
+                                     "than one poison afflicts the target, you neutralize one poison that you know is "
+                                     "present, or you neutralize one at random.\n"
+                                     "For the duration, the target has advantage on saving throws against being "
+                                     "poisoned, and it has resistance to poison damage.")
+
+
+class PurifyFoodAndDrink(spells.Spell):
+    """
+    Purify Food and Drink Spell
+    SRD p. 173
+    """
+
+    def __init__(self):
+        super().__init__(name="Purify Food and Drink",
+                         spell_lists=[SpellLists.DIVINE, SpellLists.PRIMAL],
+                         level=1,
+                         school=SpellSchools.TRANSMUTATION,
+                         ritual=True,
+                         spell_range="10 feet",
+                         verbal_components=True,
+                         somatic_components=True,
+                         description="All nonmagical food and drink within a 5-foot-radius sphere centered on a point "
+                                     "of your choice within range is purified and rendered free of poison and "
+                                     "disease.")
+
+
 class RayOfEnfeeblement(spells.Spell):
     """
     Ray of Enfeeblement Spell
@@ -481,6 +1074,79 @@ class RayOfEnfeeblement(spells.Spell):
                                      "throw against the spell. On a success, the spell ends.")
 
 
+class Resistance(spells.Spell):
+    """
+    Resistance Spell
+    SRD p. 175
+    """
+
+    def __init__(self):
+        super().__init__(name="Resistance",
+                         spell_lists=[SpellLists.DIVINE, SpellLists.PRIMAL],
+                         level=0,
+                         school=SpellSchools.TRANSMUTATION,
+                         spell_range="Touch",
+                         verbal_components=True,
+                         somatic_components=True,
+                         material_components=True,
+                         material_components_list="a miniature cloak",
+                         concentration=True,
+                         duration="1 minute",
+                         description="You touch one willing creature. Once before the spell ends, the target can roll "
+                                     "a d4 and add the number rolled to one saving throw of its choice. It can roll "
+                                     "the die before or after making the saving throw. The spell then ends.")
+
+
+class Shillelagh(spells.Spell):
+    """
+    Shillelagh Spell
+    SRD p. 179
+    """
+
+    def __init__(self):
+        super().__init__(name="Shillelagh",
+                         spell_lists=[SpellLists.PRIMAL],
+                         level=0,
+                         school=SpellSchools.TRANSMUTATION,
+                         casting_time="1 bonus action",
+                         spell_range="Touch",
+                         verbal_components=True,
+                         somatic_components=True,
+                         material_components=True,
+                         material_components_list="(mistletoe, a shamrock leaf, and a club or quarterstaff",
+                         duration="1 minute",
+                         description="The wood of a club or quarterstaff you are holding is imbued with nature's "
+                                     "power. For the duration, you can use your spellcasting ability instead of "
+                                     "Strength for the attack and damage rolls of melee attacks using that weapon, "
+                                     "and the weapon's damage die becomes a d8. The weapon also becomes magical, "
+                                     "if it isn't already. The spell ends if you cast it again or if you let go of "
+                                     "the weapon.")
+
+
+class Silence(spells.Spell):
+    """
+    Silence Spell
+    SRD p. 179
+    """
+
+    def __init__(self):
+        super().__init__(name="Silence",
+                         spell_lists=[SpellLists.DIVINE, SpellLists.PRIMAL],
+                         level=2,
+                         school=SpellSchools.ILLUSION,
+                         ritual=True,
+                         spell_range="120 feet",
+                         verbal_components=True,
+                         somatic_components=True,
+                         concentration=True,
+                         duration="10 minutes",
+                         description="For the duration, no sound can be created within or pass through a "
+                                     "20-foot-radius sphere centered on a point you choose within range. Any creature "
+                                     "or object entirely inside the sphere is immune to thunder damage, and creatures "
+                                     "are deafened while entirely inside it. Casting a spell that includes a verbal "
+                                     "component is impossible there.")
+
+
 class SpareTheDying(spells.Spell):
     """
     Spare the Dying Spell
@@ -497,6 +1163,58 @@ class SpareTheDying(spells.Spell):
                          somatic_components=True,
                          description="You touch a living creature that has 0 hit points. The creature becomes stable. "
                                      "This spell has no effect on undead or constructs.")
+
+
+class SpeakWithAnimals(spells.Spell):
+    """
+    Speak with Animals Spell
+    SRD p. 181
+    """
+
+    def __init__(self):
+        super().__init__(name="Speak with Animals",
+                         spell_lists=[SpellLists.PRIMAL],
+                         level=1,
+                         school=SpellSchools.DIVINATION,
+                         ritual=True,
+                         spell_range="Self",
+                         verbal_components=True,
+                         somatic_components=True,
+                         duration="10 minutes",
+                         description="You gain the ability to comprehend and verbally communicate with beasts for the "
+                                     "duration. The knowledge and awareness of many beasts is limited by their "
+                                     "intelligence, but at minimum, beasts can give you information about nearby "
+                                     "locations and monsters, including whatever they can perceive or have perceived "
+                                     "within the past day. You might be able to persuade a beast to perform a small "
+                                     "favor for you, at the GM's discretion.")
+
+
+class SpikeGrowth(spells.Spell):
+    """
+    Spike Growth Spell
+    SRD p. 182
+    """
+
+    def __init__(self):
+        super().__init__(name="Spike Growth",
+                         spell_lists=[SpellLists.PRIMAL],
+                         level=2,
+                         school=SpellSchools.TRANSMUTATION,
+                         spell_range="150 feet",
+                         verbal_components=True,
+                         somatic_components=True,
+                         material_components=True,
+                         material_components_list="seven sharp thorns or seven small twigs, each sharpened to a point",
+                         concentration=True,
+                         duration="10 minutes",
+                         description="The ground in a 20-foot radius centered on a point within range twists and "
+                                     "sprouts hard spikes and thorns. The area becomes difficult terrain for the "
+                                     "duration. When a creature moves into or within the area, it takes 2d4 piercing "
+                                     "damage for every 5 feet it travels.\n"
+                                     "The transformation of the ground is camouflaged to look natural. Any creature "
+                                     "that can't see the area at the time the spell is cast must make a Wisdom ("
+                                     "Perception) check against your spell save DC to recognize the terrain as "
+                                     "hazardous before entering it.")
 
 
 class Thaumaturgy(spells.Spell):
@@ -526,6 +1244,31 @@ class Thaumaturgy(spells.Spell):
                                      "• You alter the appearance of your eyes for 1 minute.\n"
                                      "If you cast this spell multiple times, you can have up to three of its 1-minute "
                                      "effects active at a time, and you can dismiss such an effect as an action.")
+
+
+class Thunderwave(spells.Spell):
+    """
+    Thunderwave Spell
+    SRD p. 187
+    """
+
+    def __init__(self):
+        super().__init__(name="Thunderwave",
+                         spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
+                         level=1,
+                         school=SpellSchools.TRANSMUTATION,
+                         spell_range="Self (15-foot cube)",
+                         verbal_components=True,
+                         somatic_components=True,
+                         description="A wave of thunderous force sweeps out from you. Each creature in a 15-foot cube "
+                                     "originating from you must make a Constitution saving throw. On a failed save, "
+                                     "a creature takes 2d8 thunder damage and is pushed 10 feet away from you. On a "
+                                     "successful save, the creature takes half as much damage and isn't pushed.\n"
+                                     "In addition, unsecured objects that are completely within the area of effect "
+                                     "are automatically pushed 10 feet away from you by the spell's effect, "
+                                     "and the spell emits a thunderous boom audible out to 300 feet.",
+                         at_higher_levels="When you cast this spell using a spell slot of 2nd level or higher, "
+                                          "the damage increases by 1d8 for each slot level above 1st.")
 
 
 class Dagger(weapons.Weapon):

@@ -202,8 +202,8 @@ class Character:
     def _get_spellcasting_ability(self) -> AbilityNames | None:
         spellcasting_abilities = [character_class.get_spellcasting_ability() for character_class in self._classes if
                                   character_class.get_spellcasting_ability() is not None] + [
-                                     feat.get_spellcasting_ability() for feat in self._get_features() if
-                                     feat.get_spellcasting_ability() is not None]
+            feat.get_spellcasting_ability() for feat in self._get_features() if
+            feat.get_spellcasting_ability() is not None]
         if len(set(spellcasting_abilities)) != 1:
             logging.warning("Multiple spellcasting abilities detected")
         return spellcasting_abilities[0] if len(spellcasting_abilities) > 0 else None
@@ -471,17 +471,17 @@ class Character:
                 processed = [""] * rows
                 for i in range(rows):
                     for ii in range(columns):
-                        item = sublist[ii * rows + i]
-                        if item is not None and (ii != 0 or cantrip):
+                        spell = sublist[ii * rows + i]
+                        if spell is not None and (ii != 0 or cantrip):
                             if prepared_count > ii * rows + i:
                                 processed[i] += "● "
                             else:
                                 processed[i] += "○ "
                         max_width = max(spells.calculate_spell_name_width(spell)
                                         for spell in sublist[ii * rows:ii * rows + rows])
-                        item_width = spells.calculate_spell_name_width(item)
+                        item_width = spells.calculate_spell_name_width(spell)
                         space_width = 4.4453125
-                        processed[i] += str(item.get_name() if item is not None else ""
+                        processed[i] += str(spell.summary() if spell is not None else ""
                                             ) + (" " * int((max_width - item_width) / space_width)) + " "
 
                 return processed
@@ -529,7 +529,7 @@ class Character:
                 writer.pages[2], {
                     "Spellcasting Class 2": self._get_spellcasting_class(),
                     "SpellcastingAbility 2": self._get_spellcasting_ability().value if (
-                            self._get_spellcasting_ability() is not None) else "",
+                        self._get_spellcasting_ability() is not None) else "",
                     "SpellSaveDC  2": 8 + self._get_spellcasting_mod() + prof_bonus,
                     "SpellAtkBonus 2": mod(self._get_spellcasting_mod() + prof_bonus),
                     "SlotsTotal 19": spell_slots[0],
