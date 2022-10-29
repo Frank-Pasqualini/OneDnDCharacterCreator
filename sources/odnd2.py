@@ -240,7 +240,6 @@ class Barkskin(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components=True,
                          material_components_list="a handful of bark",
                          concentration=True,
                          duration="1 hour",

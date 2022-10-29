@@ -46,7 +46,6 @@ class BeastBond(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components=True,
                          material_components_list="a bit of fur wrapped in a cloth",
                          concentration=True,
                          duration="10 minutes",
@@ -130,7 +129,6 @@ class DustDevil(spells.Spell):
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components=True,
                          material_components_list="a pinch of dust",
                          concentration=True,
                          duration="1 minute",
@@ -210,7 +208,6 @@ class IceKnife(spells.Spell):
                          school=SpellSchools.CONJURATION,
                          spell_range="60 feet",
                          somatic_components=True,
-                         material_components=True,
                          material_components_list="a drop of water or a piece of ice",
                          description="You create a shard of ice and fling it at one creature within range. Make a "
                                      "ranged spell attack against the target. On a hit, the target takes 1d10 "

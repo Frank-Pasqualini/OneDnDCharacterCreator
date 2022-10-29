@@ -184,7 +184,6 @@ class AnimalFriendship(spells.Spell):
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components=True,
                          material_components_list="a morsel of food",
                          duration="24 hours",
                          description="This spell lets you convince a beast that you mean it no harm. Choose a beast "
@@ -211,7 +210,6 @@ class AnimalMessenger(spells.Spell):
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components=True,
                          material_components_list="a morsel of food",
                          duration="24 hours",
                          description="By means of this spell, you use an animal to deliver a message. Choose a Tiny "
@@ -248,7 +246,6 @@ class Augury(spells.Spell):
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components=True,
                          material_components_list="specially marked sticks, bones, or similar tokens worth at least "
                                                   "25 gp",
                          description="By casting gem-inlaid sticks, rolling dragon bones, laying out ornate cards, "
@@ -307,7 +304,6 @@ class CreateOrDestroyWater(spells.Spell):
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components=True,
                          material_components_list="a drop of water if creating water or a few grains of sand if "
                                                   "destroying it",
                          description="You either create or destroy water.\n"
@@ -356,7 +352,6 @@ class Darkvision(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components=True,
                          material_components_list="either a pinch of dried carrot or an agate",
                          duration="8 hours",
                          description="You touch a willing creature to grant it the ability to see in the dark. For "
@@ -404,7 +399,6 @@ class DetectPoisonAndDisease(spells.Spell):
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components=True,
                          material_components_list="a yew leaf",
                          concentration=True,
                          duration="10 minutes",
@@ -429,7 +423,6 @@ class DetectThoughts(spells.Spell):
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components=True,
                          material_components_list="a copper piece",
                          concentration=True,
                          duration="1 minute",
@@ -504,7 +497,6 @@ class EnhanceAbility(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components=True,
                          material_components_list="(fur or a feather from a beast",
                          concentration=True,
                          duration="1 hour",
@@ -537,7 +529,6 @@ class EnlargeReduce(spells.Spell):
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components=True,
                          material_components_list="a pinch of powdered iron",
                          concentration=True,
                          duration="1 minute",
@@ -605,7 +596,6 @@ class FalseLife(spells.Spell):
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components=True,
                          material_components_list="a small amount of alcohol or distilled spirits",
                          duration="1 hour",
                          description="Bolstering yourself with a necromantic facsimile of life, you gain 1d4 + 4 "
@@ -679,7 +669,6 @@ class GentleRepose(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components=True,
                          material_components_list="a pinch of salt and one copper piece placed on each of the "
                                                   "corpse's eyes, which must remain there for the duration",
                          duration="10 days",
@@ -704,7 +693,6 @@ class Goodberry(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components=True,
                          material_components_list="a sprig of mistletoe",
                          description="Up to ten berries appear in your hand and are infused with magic for the "
                                      "duration. A creature can use its action to eat one berry. Eating a berry "
@@ -749,7 +737,6 @@ class HeatMetal(spells.Spell):
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components=True,
                          material_components_list="a piece of iron and a flame",
                          concentration=True,
                          duration="1 minute",
@@ -808,7 +795,6 @@ class Jump(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components=True,
                          material_components_list="a grasshopper's hind leg",
                          duration="1 minute",
                          description="You touch a creature. The creature's jump distance is tripled until the spell "
@@ -846,7 +832,6 @@ class Light(spells.Spell):
                          school=SpellSchools.EVOCATION,
                          spell_range="Touch",
                          verbal_components=True,
-                         material_components=True,
                          material_components_list="a firefly or phosphorescent moss",
                          duration="1 hour",
                          description="You touch one object that is no larger than 10 feet in any dimension. Until the "
@@ -873,7 +858,6 @@ class LocateObject(spells.Spell):
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components=True,
                          material_components_list="a forked twig",
                          concentration=True,
                          duration="10 minutes",
@@ -902,7 +886,6 @@ class Longstrider(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components=True,
                          material_components_list="a pinch of dirt",
                          duration="1 hour",
                          description="You touch a creature. The target's speed increases by 10 feet until the spell "
@@ -925,7 +908,6 @@ class Mending(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components=True,
                          material_components_list="two lodestones",
                          description="This spell repairs a single break or tear in an object you touch, such as a "
                                      "broken chain link, two halves of a broken key, a torn cloak, or a leaking "
@@ -949,7 +931,6 @@ class Message(spells.Spell):
                          spell_range="120 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components=True,
                          material_components_list="a short piece of copper wire",
                          duration="1 round",
                          description="You point your finger toward a creature within range and whisper a message. The "
@@ -976,7 +957,6 @@ class PassWithoutTrace(spells.Spell):
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components=True,
                          material_components_list="ashes from a burned leaf of mistletoe and a sprig of spruce",
                          concentration=True,
                          duration="1 hour",
@@ -1088,7 +1068,6 @@ class Resistance(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components=True,
                          material_components_list="a miniature cloak",
                          concentration=True,
                          duration="1 minute",
@@ -1112,7 +1091,6 @@ class Shillelagh(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components=True,
                          material_components_list="(mistletoe, a shamrock leaf, and a club or quarterstaff",
                          duration="1 minute",
                          description="The wood of a club or quarterstaff you are holding is imbued with nature's "
@@ -1203,7 +1181,6 @@ class SpikeGrowth(spells.Spell):
                          spell_range="150 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components=True,
                          material_components_list="seven sharp thorns or seven small twigs, each sharpened to a point",
                          concentration=True,
                          duration="10 minutes",

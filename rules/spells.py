@@ -22,7 +22,6 @@ class Spell(ABC):
     _spell_range: str
     _verbal_components: bool
     _somatic_components: bool
-    _material_components: bool
     _material_components_list: str | None
     _concentration: bool
     _duration: str
@@ -40,7 +39,6 @@ class Spell(ABC):
                  casting_time: str = "1 action",
                  verbal_components: bool = False,
                  somatic_components: bool = False,
-                 material_components: bool = False,
                  material_components_list: str = None,
                  concentration: bool = False,
                  duration: str = "Instantaneous",
@@ -53,10 +51,6 @@ class Spell(ABC):
             for component in material_components_list:
                 validate_string(component)
 
-        if (material_components_list is not None) != material_components:
-            raise Exception(
-                "If and only if a spell has material components they should be listed")
-
         self._name = validate_string(name)
         self._spell_lists = spell_lists
         self._level = level
@@ -66,7 +60,6 @@ class Spell(ABC):
         self._spell_range = validate_string(spell_range)
         self._verbal_components = verbal_components
         self._somatic_components = somatic_components
-        self._material_components = material_components
         self._material_components_list = material_components_list
         self._concentration = concentration
         self._duration = validate_string(duration)
@@ -101,11 +94,11 @@ class Spell(ABC):
 
         component_types = ["V" if self._verbal_components else None,
                            "S" if self._somatic_components else None,
-                           "M" if self._material_components else None]
+                           "M" if self._material_components_list else None]
         component_types = [
             component_type for component_type in component_types if component_type is not None]
         output += f"Component: {', '.join(component_types)}"
-        output += f"{' (' + self._material_components_list + ')' if self._material_components else ''}\n"
+        output += f"{' (' + self._material_components_list + ')' if self._material_components_list else ''}\n"
 
         output += f"Duration: {'Concentration, up to ' if self._concentration else ''}{self._duration}\n"
 
