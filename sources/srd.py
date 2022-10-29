@@ -481,7 +481,7 @@ class Druidcraft(spells.Spell):
                                      "within range:\n"
                                      "• You create a tiny, harmless sensory effect that predicts what the weather "
                                      "will be at your location for the next 24 hours. The effect might manifest as a "
-                                     "golden orb for clear skies, a cloud fo r rain, falling snowflakes for snow, "
+                                     "golden orb for clear skies, a cloud for rain, falling snowflakes for snow, "
                                      "and so on. This effect persists for 1 round.\n"
                                      "• You instantly make a flower blossom, a seed pod open, or a leaf bud bloom.\n"
                                      "• You create an instantaneous, harmless sensory effect, such as falling leaves, "
@@ -681,7 +681,7 @@ class GentleRepose(spells.Spell):
                          somatic_components=True,
                          material_components=True,
                          material_components_list="a pinch of salt and one copper piece placed on each of the "
-                                                  "corpse’s eyes, which must remain there for the duration",
+                                                  "corpse's eyes, which must remain there for the duration",
                          duration="10 days",
                          description="You touch a corpse or other remains. For the duration, the target is protected "
                                      "from decay and can't become undead.\n"
@@ -809,7 +809,7 @@ class Jump(spells.Spell):
                          verbal_components=True,
                          somatic_components=True,
                          material_components=True,
-                         material_components_list="a grasshopper’s hind leg",
+                         material_components_list="a grasshopper's hind leg",
                          duration="1 minute",
                          description="You touch a creature. The creature's jump distance is tripled until the spell "
                                      "ends.")

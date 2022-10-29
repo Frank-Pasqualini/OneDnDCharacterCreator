@@ -106,13 +106,13 @@ class CreateBonfire(spells.Spell):
                          concentration=True,
                          duration="1 minute",
                          description="You create a bonfire on ground that you can see within range. Until the spell "
-                                     "ends, the magic bonfire fills a 5-foot cube. Any creature in the bonfire’s "
+                                     "ends, the magic bonfire fills a 5-foot cube. Any creature in the bonfire's "
                                      "space when you cast the spell must succeed on a Dexterity saving throw or take "
                                      "1d8 fire damage. A creature must also make the saving throw when it moves into "
-                                     "the bonfire’s space for the first time on a turn or ends its turn there.\n"
-                                     "The bonfire ignites flammable objects in its area that aren’t being worn or "
+                                     "the bonfire's space for the first time on a turn or ends its turn there.\n"
+                                     "The bonfire ignites flammable objects in its area that aren't being worn or "
                                      "carried.\n"
-                                     "The spell’s damage increases by 1d8 when you reach 5th level (2d8), 11th level "
+                                     "The spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level "
                                      "(3d8), and 17th level (4d8).")
 
 
@@ -140,7 +140,7 @@ class DustDevil(spells.Spell):
                                      "Any creature that ends its turn within 5 feet of the dust devil must make a "
                                      "Strength saving throw. On a failed save, the creature takes 1d8 bludgeoning "
                                      "damage and is pushed 10 feet away. On a successful save, the creature takes "
-                                     "half as much damage and isn’t pushed.\n"
+                                     "half as much damage and isn't pushed.\n"
                                      "As a bonus action, you can move the dust devil up to 30 feet in any direction. "
                                      "If the dust devil moves over sand, dust, loose dirt, or small gravel, "
                                      "it sucks up the material and forms a 10-foot-radius cloud of debris around "
@@ -241,7 +241,7 @@ class MagicStone(spells.Spell):
                                      "can make a ranged spell attack with one of the pebbles by throwing it or "
                                      "hurling it with a sling. If thrown, it has a range of 60 feet. If someone else "
                                      "attacks with the pebble, that attacker adds your spellcasting ability modifier, "
-                                     "not the attacker’s, to the attack roll. On a hit, the target takes bludgeoning "
+                                     "not the attacker's, to the attack roll. On a hit, the target takes bludgeoning "
                                      "damage equal to 1d6 + your spellcasting ability modifier. Hit or miss, "
                                      "the spell then ends on the stone.\n"
                                      "If you cast this spell again, the spell ends early on any pebbles still "

@@ -4,7 +4,7 @@ https://media.dndbeyond.com/compendium-images/one-dnd/expert-classes/kpx0MvyfBGH
 """
 
 from rules import abilities, bonuses, classes, feats, spells
-from rules.enums import AbilityNames, SpellLists, SpellSchools
+from rules.enums import AbilityNames, ProficiencyLevels, Skills, SpellLists, SpellSchools
 
 
 class HunterRanger(classes.Ranger):
@@ -50,6 +50,67 @@ class HunterRanger(classes.Ranger):
                                                      "halve the attack's damage against yourself,and you can redirect "
                                                      "the other half of the damage to one creature (other than the "
                                                      "attacker) that you can see within 5 feet of yourself."))
+
+
+class LoreBard(classes.Bard):
+    """
+    Thief subclass for Rogue
+    UA p. 7
+    """
+
+    def _level_up_3(self, content: dict[str, dict[str, any]]):
+        self._features.append(feats.Feat(name="Bonus Proficiencies",
+                                         description="You gain three Skill Proficiencies: Arcana, History, "
+                                                     "and Nature. If you already have one of these Proficiencies, "
+                                                     "choose a Skill Proficiency you lack, and gain that Proficiency.",
+                                         feat_bonuses=bonuses.Bonuses(skills={
+                                             Skills.ARCANA: ProficiencyLevels.PROFICIENT,
+                                             Skills.HISTORY: ProficiencyLevels.PROFICIENT,
+                                             Skills.NATURE: ProficiencyLevels.PROFICIENT,
+                                         }),
+                                         visible=False))
+
+        self._features.append(feats.Feat(name="Cutting Words",
+                                         description="You learn how to use your wit to supernaturally distract, "
+                                                     "confuse, and otherwise sap the confidence and competence of "
+                                                     "others. When a creature that you can see within 60 feet of "
+                                                     "yourself succeeds on an Ability Check or an Attack Roll, "
+                                                     "you can use your Reaction to expend one of your uses of Bardic "
+                                                     "Inspiration, rolling a Bardic Inspiration die and subtracting "
+                                                     "the number rolled from the creature's roll, potentially turning "
+                                                     "it into a failure."))
+
+        self._known_spells = [spell() for spell in content["Spells"].values() if
+                              spell().get_level() in [0, 1, 2] and
+                              SpellLists.ARCANE in spell().get_spell_lists() and
+                              spell().get_school() in [
+                                  SpellSchools.DIVINATION,
+                                  SpellSchools.ENCHANTMENT,
+                                  SpellSchools.ILLUSION,
+                                  SpellSchools.TRANSMUTATION]
+                              ]
+
+    def _level_up_6(self):
+        self._features.append(feats.Feat(name="Cunning Inspiration",
+                                         description="Through your studies and your cunning, you've learned to "
+                                                     "inspire others exceptionally well. When any creature rolls your "
+                                                     "Bardic Inspiration die, that creature can roll the die twice "
+                                                     "and use the higher of the two rolls."))
+
+    def _level_up_10(self):
+        self._features.append(feats.Feat(name="Improved Cutting Words",
+                                         description="Whenever you use your Cutting Words feature on a creature, "
+                                                     "you can deal Psychic Damage to that creature equal to the "
+                                                     "number rolled on the Bardic Inspiration die plus your Charisma "
+                                                     "modifier."))
+
+    def _level_up_14(self):
+        self._features.append(feats.Feat(name="Peerless Skill",
+                                         description="When you make an Ability Check and fail,you can expend one use "
+                                                     "of Bardic Inspiration, roll the Bardic Inspiration die, "
+                                                     "and add the number rolled to the Ability Check, potentially "
+                                                     "turning it into a success. If the check still fails, "
+                                                     "the Bardic Inspiration isn't expended."))
 
 
 class ThiefRogue(classes.Rogue):
@@ -211,15 +272,14 @@ class Guidance(spells.Spell):
                          description="You channel magical insight to the creature who failed the Ability Check. That "
                                      "creature can roll a d4 and add the number rolled to the check, potentially "
                                      "turning it into a success.\n"
-                                     "Once a creature rolls the die for this Spell,that creature can't benefit from "
+                                     "Once a creature rolls the die for this Spell, that creature can't benefit from "
                                      "the Spell again until the creature finishes a Long Rest.")
 
 
 CONTENT = {
     "Classes": {
-        #  TODO The rest of the subclasses
         "Hunter Ranger": HunterRanger,
-        # "Lore Bard": LoreBard,
+        "Lore Bard": LoreBard,
         "Thief Rogue": ThiefRogue,
     },
     "Feats": {

@@ -6,8 +6,8 @@ from abc import ABC, abstractmethod
 
 from rules import bonuses, feats, spells
 from rules.common import validate_string
-from rules.enums import AbilityNames, ArmorTraining, ClassGroups, Languages, ProficiencyLevels, Skills, SpellLists
-from rules.enums import SpellSchools, Tools, WeaponTypes
+from rules.enums import AbilityNames, ArmorTraining, ClassGroups, Languages, MusicalInstruments, ProficiencyLevels
+from rules.enums import Skills, SpellLists, SpellSchools, Tools, WeaponTypes
 
 
 class CharacterClass(ABC):
@@ -202,6 +202,311 @@ class CharacterClass(ABC):
 
     def __str__(self):
         return f"{self._name} {self._level}"
+
+
+class Bard(CharacterClass, ABC):
+    """
+    The Bard class.
+    """
+
+    def __init__(self,
+                 content: dict[str, dict[str, any]],
+                 name: str,
+                 skill1: Skills,
+                 skill2: Skills,
+                 skill3: Skills,
+                 instrument1: MusicalInstruments,
+                 instrument2: MusicalInstruments,
+                 instrument3: MusicalInstruments):
+        if (skill1 == skill2) or (skill1 == skill3) or (skill2 == skill3):
+            raise Exception("All 3 skills must be unique")
+
+        if (instrument1 == instrument2) or (instrument1 == instrument3) or (instrument2 == instrument3):
+            raise Exception("All 3 instruments must be unique")
+
+        super().__init__(name=name,
+                         class_group=ClassGroups.EXPERT,
+                         primary_abilities=[AbilityNames.CHARISMA],
+                         features=[
+                             feats.Feat(name="Bardic Inspiration",
+                                        description="You can supernaturally inspire others through words, music, "
+                                                    "or dance.This inspiration is represented by your Bardic "
+                                                    "Inspiration die, which is a d6.\n"
+                                                    "Using Bardic Inspiration. You can use your Bardic Inspiration "
+                                                    "die in the following ways:\n"
+                                                    "Boost a d20 Test. When another creature within 60 feet of you "
+                                                    "that you can see or hear fails a d20 Test, you can use your "
+                                                    "Reaction to give the creature a Bardic Inspiration die. The "
+                                                    "creature rolls that die and adds the number rolled to the d20, "
+                                                    "potentially turning the failure into a success.\n"
+                                                    "Heal. Immediately after another creature within 60 feet of you "
+                                                    "that you can see or hear takes damage, you can use your Reaction "
+                                                    "to roll your Bardic Inspiration die and restore a number of Hit "
+                                                    "Points to the creature equal to the number rolled.\n"
+                                                    "Number of Uses. A Bardic Inspiration die is expended when it's "
+                                                    "rolled. You can confer a Bardic Inspiration die a number of "
+                                                    "times equal to your Proficiency Bonus,and you regain all "
+                                                    "expended uses when you finish a Long Rest.\n"
+                                                    "At Higher Levels. Your Bardic Inspiration die changes when you "
+                                                    "reach certain levels in this Class,as shown in the Bardic Die "
+                                                    "column of the Bard table. The die becomes a d8 at 5th level, "
+                                                    "a d10 at 10th level, and a d12 at 15th level."),
+                             feats.Feat(name="Spellcasting",
+                                        description="Spell Preparation. Any Spell you prepare for this Class must be "
+                                                    "an Arcane Spell, and it must be from one of the following "
+                                                    "Schools of Magic: Divination, Enchantment, Illusion,"
+                                                    "or Transmutation.\n"
+                                                    "Whenever you finish a Long Rest,you can practice your bardic "
+                                                    "arts and replace any Spell you have prepared for this Class with "
+                                                    "another Arcane Spell of the same level,abiding by the school "
+                                                    "restriction above.\n"
+                                                    "Your spell slots determine the number of different Spells you "
+                                                    "can prepare of each level.\n"
+                                                    "Spellcasting Ability. Charisma is your Spellcasting Ability for "
+                                                    "your Bard Spells.\n"
+                                                    "Spellcasting Focus. You can use a Musical Instrument as a "
+                                                    "Spellcasting Focus for the Spells you prepare for this Class. "
+                                        )
+                         ],
+                         hit_die=8,
+                         class_bonuses=bonuses.Bonuses(
+                             saving_throws={
+                                 AbilityNames.DEXTERITY: ProficiencyLevels.PROFICIENT,
+                                 AbilityNames.CHARISMA: ProficiencyLevels.PROFICIENT,
+                             },
+                             skills={
+                                 skill1: ProficiencyLevels.PROFICIENT,
+                                 skill2: ProficiencyLevels.PROFICIENT,
+                                 skill3: ProficiencyLevels.PROFICIENT,
+                             },
+                             tools={
+                                 instrument1: ProficiencyLevels.PROFICIENT,
+                                 instrument2: ProficiencyLevels.PROFICIENT,
+                                 instrument3: ProficiencyLevels.PROFICIENT,
+                             },
+                             armor_training=[ArmorTraining.LIGHT],
+                             weapon_types=[WeaponTypes.SIMPLE]
+                         ),
+                         spellcasting_ability=AbilityNames.CHARISMA)
+
+        self._known_spells = [spell() for spell in content["Spells"].values() if
+                              spell().get_level() in [0, 1] and
+                              SpellLists.ARCANE in spell().get_spell_lists() and
+                              spell().get_school() in [
+                                  SpellSchools.DIVINATION,
+                                  SpellSchools.ENCHANTMENT,
+                                  SpellSchools.ILLUSION,
+                                  SpellSchools.TRANSMUTATION]
+                              ]
+
+    def _level_up_2(self,
+                    content: dict[str, dict[str, any]],
+                    expertise1: Skills,
+                    expertise2: Skills):
+        self._features.append(feats.Feat(name="Expertise",
+                                         description=f"You gain expertise in {expertise1.value} and "
+                                                     f"{expertise2.value}.",
+                                         feat_bonuses=bonuses.Bonuses(skills={expertise1: ProficiencyLevels.EXPERT,
+                                                                              expertise2: ProficiencyLevels.EXPERT}),
+                                         visible=False))
+        self._features.append(feats.Feat(name="Song of Restoration",
+                                         description="You have learned how to use music, poetry, and dance to heal "
+                                                     "wounds and maladies. When you reach certain levels in this "
+                                                     "Class, you add a specific Spell to your Songs of Restoration "
+                                                     "repertoire, as shown on the Songs of Restoration Repertoire "
+                                                     "table. You always have that Spell prepared, and it doesn't "
+                                                     "count against the number of Spells you can prepare.",
+                                         feat_spells=[content["Spells"]["Healing Word"](),
+                                                      content["Spells"]["Lesser Restoration"](
+                                         ),
+                                             content["Spells"]["Mass Healing Word"](
+                                         ),
+                                             content["Spells"]["Freedom of Movement"](
+                                         ),
+                                             content["Spells"]["Greater Restoration"]()]))
+
+    def _level_up_4(self, feat: feats.Feat):
+        if feat.get_level() > 4:
+            raise Exception("Invalid feat level. Must be 4 or lower")
+
+        self._features.append(feat)
+
+    def _level_up_5(self, content: dict[str, dict[str, any]]):
+        self._features.append(feats.Feat(name="Jack of All Trades",
+                                         description="You can add half your Proficiency Bonus (round down) to any "
+                                                     "Ability Check you make that uses a Skill Proficiency you lack "
+                                                     "and that doesn't otherwise use your Proficiency Bonus. For "
+                                                     "example, if you make a Strength Check (Athletics) and lack "
+                                                     "Athletics Proficiency, you can add half your Proficiency Bonus "
+                                                     "to the check.",
+                                         feat_bonuses=bonuses.Bonuses(
+                                             skills={
+                                                 Skills.ACROBATICS: ProficiencyLevels.HALF,
+                                                 Skills.ANIMAL_HANDLING: ProficiencyLevels.HALF,
+                                                 Skills.ARCANA: ProficiencyLevels.HALF,
+                                                 Skills.ATHLETICS: ProficiencyLevels.HALF,
+                                                 Skills.DECEPTION: ProficiencyLevels.HALF,
+                                                 Skills.HISTORY: ProficiencyLevels.HALF,
+                                                 Skills.INSIGHT: ProficiencyLevels.HALF,
+                                                 Skills.INTIMIDATION: ProficiencyLevels.HALF,
+                                                 Skills.INVESTIGATION: ProficiencyLevels.HALF,
+                                                 Skills.MEDICINE: ProficiencyLevels.HALF,
+                                                 Skills.NATURE: ProficiencyLevels.HALF,
+                                                 Skills.PERCEPTION: ProficiencyLevels.HALF,
+                                                 Skills.PERFORMANCE: ProficiencyLevels.HALF,
+                                                 Skills.PERSUASION: ProficiencyLevels.HALF,
+                                                 Skills.RELIGION: ProficiencyLevels.HALF,
+                                                 Skills.SLEIGHT_OF_HAND: ProficiencyLevels.HALF,
+                                                 Skills.STEALTH: ProficiencyLevels.HALF,
+                                                 Skills.SURVIVAL: ProficiencyLevels.HALF,
+                                             }),
+                                         visible=False))
+
+        self._known_spells = [spell() for spell in content["Spells"].values() if
+                              spell().get_level() in [0, 1, 2, 3] and
+                              SpellLists.ARCANE in spell().get_spell_lists() and
+                              spell().get_school() in [
+                                  SpellSchools.DIVINATION,
+                                  SpellSchools.ENCHANTMENT,
+                                  SpellSchools.ILLUSION,
+                                  SpellSchools.TRANSMUTATION]
+                              ]
+
+    def _level_up_7(self, content: dict[str, dict[str, any]]):
+        self._features.append(feats.Feat(
+            name="Font of Bardic Inspiration",
+            description="You now regain all your expended uses of Bardic Inspiration when you finish a Short Rest or "
+                        "a Long Rest.\n"
+                        "In addition, if a creature rolls your Bardic Inspiration die and gets a 1 (after any rerolls "
+                        "you might have), that use of your Bardic Inspiration isn't expended."))
+        self._known_spells = [spell() for spell in content["Spells"].values() if
+                              spell().get_level() in [0, 1, 2, 3, 4] and
+                              SpellLists.ARCANE in spell().get_spell_lists() and
+                              spell().get_school() in [
+                                  SpellSchools.DIVINATION,
+                                  SpellSchools.ENCHANTMENT,
+                                  SpellSchools.ILLUSION,
+                                  SpellSchools.TRANSMUTATION]
+                              ]
+
+    def _level_up_8(self, feat: feats.Feat):
+        if feat.get_level() > 8:
+            raise Exception("Invalid feat level. Must be 8 or lower")
+
+        self._features.append(feat)
+
+    def _level_up_9(self, content: dict[str, dict[str, any]], expertise1: Skills, expertise2: Skills):
+        if expertise1 == expertise2:
+            raise Exception("Expertise skills must be unique")
+
+        self._features.append(feats.Feat(
+            name="Expertise",
+            description=f"You gain expertise in {expertise1.value} and {expertise2.value}.",
+            feat_bonuses=bonuses.Bonuses(skills={expertise1: ProficiencyLevels.EXPERT,
+                                                 expertise2: ProficiencyLevels.EXPERT}),
+            visible=False))
+        self._known_spells = [spell() for spell in content["Spells"].values() if
+                              spell().get_level() in [0, 1, 2, 3, 4, 5] and
+                              SpellLists.ARCANE in spell().get_spell_lists() and
+                              spell().get_school() in [
+                                  SpellSchools.DIVINATION,
+                                  SpellSchools.ENCHANTMENT,
+                                  SpellSchools.ILLUSION,
+                                  SpellSchools.TRANSMUTATION]
+                              ]
+
+    def _level_up_11(self, content: dict[str, dict[str, any]], spell_list: SpellLists):
+        self._features.append(feats.Feat(name="Magical Secrets",
+                                         description="You have collected magical knowledge from a wide spectrum of "
+                                                     "disciplines. Whenever you prepare Spells for this Class, "
+                                                     f"up to two of the Spells you prepare can be from {spell_list} "
+                                                     "and from any School of Magic. The prepared Spells otherwise "
+                                                     "follow the rules of your Bard Spellcasting feature."))  # TODO
+
+        self._known_spells = [spell() for spell in content["Spells"].values() if
+                              spell().get_level() in [0, 1, 2, 3, 4, 5, 6] and
+                              SpellLists.ARCANE in spell().get_spell_lists() and
+                              spell().get_school() in [
+                                  SpellSchools.DIVINATION,
+                                  SpellSchools.ENCHANTMENT,
+                                  SpellSchools.ILLUSION,
+                                  SpellSchools.TRANSMUTATION]
+                              ]
+
+    def _level_up_12(self, feat: feats.Feat):
+        if feat.get_level() > 12:
+            raise Exception("Invalid feat level. Must be 12 or lower")
+
+        self._features.append(feat)
+
+    def _level_up_13(self, content: dict[str, dict[str, any]]):
+        self._known_spells = [spell() for spell in content["Spells"].values() if
+                              spell().get_level() in [0, 1, 2, 3, 4, 5, 6, 7] and
+                              SpellLists.ARCANE in spell().get_spell_lists() and
+                              spell().get_school() in [
+                                  SpellSchools.DIVINATION,
+                                  SpellSchools.ENCHANTMENT,
+                                  SpellSchools.ILLUSION,
+                                  SpellSchools.TRANSMUTATION]
+                              ]
+
+    def _level_up_15(self, content: dict[str, dict[str, any]], spell_list: SpellLists):
+        self._features.append(feats.Feat(name="Magical Secrets",
+                                         description="Your understanding of magic has grown even broader. Whenever "
+                                                     "you prepare Spells for this Class, up to two of the Spells you "
+                                                     f"prepare can be from {spell_list} and from any School of Magic. "
+                                                     "The prepared Spells otherwise follow the rules of your Bard "
+                                                     "Spellcasting feature."))  # TODO
+
+        self._known_spells = [spell() for spell in content["Spells"].values() if
+                              spell().get_level() in [0, 1, 2, 3, 4, 5, 6, 7, 8] and
+                              SpellLists.ARCANE in spell().get_spell_lists() and
+                              spell().get_school() in [
+                                  SpellSchools.DIVINATION,
+                                  SpellSchools.ENCHANTMENT,
+                                  SpellSchools.ILLUSION,
+                                  SpellSchools.TRANSMUTATION]
+                              ]
+
+    def _level_up_16(self, feat: feats.Feat):
+        if feat.get_level() > 16:
+            raise Exception("Invalid feat level. Must be 16 or lower")
+
+        self._features.append(feat)
+
+    def _level_up_17(self, content: dict[str, dict[str, any]]):
+        self._known_spells = [spell() for spell in content["Spells"].values() if
+                              spell().get_level() in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] and
+                              SpellLists.ARCANE in spell().get_spell_lists() and
+                              spell().get_school() in [
+                                  SpellSchools.DIVINATION,
+                                  SpellSchools.ENCHANTMENT,
+                                  SpellSchools.ILLUSION,
+                                  SpellSchools.TRANSMUTATION]
+                              ]
+
+    def _level_up_18(self):
+        self._features.append(feats.Feat(name="Superior Bardic Inspiration",
+                                         description="When you roll Initiative, you regain two expended uses of your "
+                                                     "Bardic Inspiration."))
+
+    def _level_up_19(self, feat: feats.Feat):
+        if feat.get_level() > 19:
+            raise Exception("Invalid feat level. Must be 19 or lower")
+
+        self._features.append(feat)
+
+    def _level_up_20(self, feat: feats.Feat):
+        if feat.get_level() > 20:
+            raise Exception("Invalid feat level. Must be 20 or lower")
+
+        self._features.append(feat)
+
+    def get_spellcasting_class(self) -> str | None:
+        return "Bard"
+
+    def get_spellcasting_level(self) -> float:
+        return self._level
 
 
 class Ranger(CharacterClass, ABC):
