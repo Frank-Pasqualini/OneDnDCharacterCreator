@@ -4,7 +4,7 @@ https://media.dndbeyond.com/compendium-images/one-dnd/expert-classes/kpx0MvyfBGH
 """
 
 from rules import abilities, bonuses, classes, feats, spells
-from rules.enums import AbilityNames, ProficiencyLevels, Skills, SpellLists, SpellSchools
+from rules.enums import AbilityNames, DamageTypes, ProficiencyLevels, Skills, SpellLists, SpellSchools
 
 
 class HunterRanger(classes.Ranger):
@@ -170,20 +170,6 @@ class ThiefRogue(classes.Rogue):
                                                      "and you regain all expended uses when you finish a Long Rest."))
 
 
-class FightingStyleArchery(feats.FightingStyle):
-    """
-    Fighting Style: Archery Feat
-    UA p. 19
-    """
-
-    def __init__(self):
-        super().__init__(name="Fighting Style: Archery",
-                         level=1,
-                         prerequisite="Warrior Group",
-                         description="You gain a +2 bonus to Attack Rolls you make with Ranged Weapons.",
-                         feat_bonuses=bonuses.Bonuses())  # TODO implement ranged attack bonus
-
-
 class AbilityScoreImprovement(feats.Feat):
     """
     Ability Score Improvement Feat
@@ -223,6 +209,222 @@ class AbilityScoreImprovement(feats.Feat):
                                      ability1, ability2] else 0),
                                  charisma=(1 if AbilityNames.CHARISMA in [ability1, ability2] else 0)),
                              visible=False)
+
+
+class Actor(feats.Feat):
+    """
+    Actor Feat
+    UA p. 16
+    """
+
+    def __init__(self):
+        super().__init__(name="Actor",
+                         level=4,
+                         prerequisite="Charisma 13+",
+                         description="Skilled at mimicry and dramatics, you gain the following benefits:\n"
+                                     "Ability Score Increase. Increase your Charisma score by 1, to a maximum of 20.\n"
+                                     "Impersonation. While you're disguised as a fictional person or a real person "
+                                     "other than yourself, you have Advantage on Charisma Checks (Performance) to "
+                                     "convince others that you are that person.\n"
+                                     "Mimicry. You can mimic the sounds of other creatures,including speech. To mimic "
+                                     "a sound or a way of speaking, you must listen to it for at least 1 minute. Any "
+                                     "time thereafter, you can make a DC15Charisma Check (Performance) to perform the "
+                                     "mimicry; on a success, you perform it convincingly for up to 1 hour.",
+                         feat_abilities=abilities.Abilities(charisma=1))
+
+
+class Athlete(feats.Feat):
+    """
+    Athlete Feat
+    UA p. 16
+    """
+
+    def __init__(self, ability: AbilityNames):
+        if ability not in [AbilityNames.STRENGTH, AbilityNames.DEXTERITY, AbilityNames.CONSTITUTION]:
+            raise Exception(
+                "Ability must be Strength, Dexterity, or Constitution")
+
+        super().__init__(name="Athlete",
+                         level=4,
+                         prerequisite="Strength, Dexterity,or Constitution 13+",
+                         description="You have undergone extensive physical training to gain the following benefits:\n"
+                                     f"Ability Score Increase. Increase your {ability.value} score by 1, to a maximum "
+                                     "of 20.\n"
+                                     "Climb Speed. You gain a Climb Speed equal to your Speed.\n"
+                                     "Hop Up. When you are Prone, you can right yourself with only 5 feet of "
+                                     "movement.\n"
+                                     "Jumping. You have Advantage on any Ability Check you make for the Jump Action.",
+                         feat_abilities=abilities.Abilities(
+                             strength=(1 if AbilityNames.STRENGTH ==
+                                       ability else 0),
+                             dexterity=(
+                                 1 if AbilityNames.DEXTERITY == ability else 0),
+                             constitution=(1 if AbilityNames.CONSTITUTION == ability else 0)))
+
+
+class Charger(feats.Feat):
+    """
+    Charger Feat
+    UA p. 16
+    """
+
+    def __init__(self, ability: AbilityNames):
+        if ability not in [AbilityNames.STRENGTH, AbilityNames.DEXTERITY]:
+            raise Exception("Ability must be Strength or Dexterity")
+
+        super().__init__(name="Charger",
+                         level=4,
+                         prerequisite="Proficiency with Any Martial Weapon",
+                         description="You have trained to charge headlong into battle, gaining the following "
+                                     "benefits:\n"
+                                     f"Ability Score Increase. Increase your {ability.value} score by 1, to a maximum "
+                                     "of 20.\n"
+                                     "Improved Dash. When you take the Dash Action,your Speed increases by 10 feet for "
+                                     "that Action.\n"
+                                     "Charge Attack. If you move at least 10 feet in a straight line immediately "
+                                     "before hitting with an attack as part of the Attack Action on your turn, "
+                                     "choose one of the following effects: gain a +1d8 bonus to the attack's damage "
+                                     "roll, or push the target up to 10 feet,provided the target you want to push is "
+                                     "no more than one Size larger than you. You can use this benefit only once on "
+                                     "each of your turns.",
+                         feat_abilities=abilities.Abilities(
+                             strength=(1 if AbilityNames.STRENGTH ==
+                                       ability else 0),
+                             dexterity=(1 if AbilityNames.DEXTERITY == ability else 0)))
+
+
+class CrossbowExpert(feats.Feat):
+    """
+    Crossbow Expert Feat
+    UA p. 16
+    """
+
+    def __init__(self):
+        super().__init__(name="Crossbow Expert",
+                         level=4,
+                         prerequisite="Proficiency with Any Martial Weapon",
+                         description="Thanks to extensive practice with crossbows, you gain the following benefits:\n"
+                                     "Ability Score Increase. Increase your Dexterity score by 1, to a maximum of 20.\n"
+                                     "Ignore Loading. You ignore the Loading property of crossbows.\n"
+                                     "Firing in Melee. Being within 5 feet of an enemy doesn't impose Disadvantage on "
+                                     "your Attack Rolls with crossbows.\n "
+                                     "Dual Wielding. When you make the extra attack of the Light weapon property,"
+                                     "you can add your Ability Modifier to the damage of the extra attack if that "
+                                     "attack is with a crossbow that has the Light property.",
+                         feat_abilities=abilities.Abilities(dexterity=1))
+
+
+class DefensiveDuelist(feats.Feat):
+    """
+    Defensive Duelist Feat
+    UA p. 16
+    """
+
+    def __init__(self):
+        super().__init__(name="Defensive Duelist",
+                         level=4,
+                         prerequisite="Dexterity 13+",
+                         description="You’ve learned to deftly parry attacks, granting you the following benefits:\n"
+                                     "Ability Score Increase. Increase your Dexterity score by 1, to a maximum of 20.\n"
+                                     "Parry. If you are holding a Finesse Weapon and another creature hits you with a "
+                                     "Melee Attack, you can use your Reaction to add your Proficiency Bonus to your "
+                                     "Armor Class for that attack, potentially causing the attack to miss you.",
+                         feat_abilities=abilities.Abilities(dexterity=1))
+
+
+class DualWielder(feats.Feat):
+    """
+    Dual Wielder Feat
+    UA p. 16
+    """
+
+    def __init__(self, ability: AbilityNames):
+        if ability not in [AbilityNames.STRENGTH, AbilityNames.DEXTERITY]:
+            raise Exception("Ability must be Strength or Dexterity")
+
+        super().__init__(name="Dual Wielder",
+                         level=4,
+                         prerequisite="Proficiency with Any Martial Weapon",
+                         description="You master fighting with two weapons, gaining the following benefits:\n"
+                                     f"Ability Score Increase. Increase your {ability.value} score by 1, to a maximum "
+                                     "of 20.\n"
+                                     "Enhanced Dual Wielding. When you are holding a Weapon with the Light property "
+                                     "in one hand, you can treat a non-Light Weapon in your other hand as if it had "
+                                     "the Light property, provided that Weapon lacks the Two-Handed property.\n "
+                                     "Quick Draw. You can draw or stow two Weapons that lack the Two-Handed property "
+                                     "when you would normally be able to draw or stow only one.",
+                         feat_abilities=abilities.Abilities(
+                             strength=(1 if AbilityNames.STRENGTH ==
+                                       ability else 0),
+                             dexterity=(1 if AbilityNames.DEXTERITY == ability else 0)))
+
+
+class Durable(feats.Feat):
+    """
+    Durable Feat
+    UA p. 16
+    """
+
+    def __init__(self):
+        super().__init__(name="Durable",
+                         level=4,
+                         prerequisite="Constitution 13+",
+                         description="Hardy and resilient, you gain the following benefits:\n"
+                                     "Ability Score Increase. Increase your Constitution score by 1, to a maximum of "
+                                     "20.\n"
+                                     "Defy Death. You have Advantage on Death Saving Throws.\n"
+                                     "Speedy Recovery. As a Bonus Action, you can expend one of your Hit Dice, "
+                                     "roll the die, and regain a number of Hit Points equal to the roll.",
+                         feat_abilities=abilities.Abilities(constitution=1))
+
+
+class ElementalAdept(feats.Feat):
+    """
+    Elemental Adept Feat
+    UA p. 16
+    """
+
+    def __init__(self, ability: AbilityNames, damage_type: DamageTypes):
+        if ability not in [AbilityNames.INTELLIGENCE, AbilityNames.WISDOM, AbilityNames.CHARISMA]:
+            raise Exception(
+                "Ability must be Strength, Dexterity, or Constitution")
+
+        if damage_type not in [DamageTypes.ACID, DamageTypes.COLD, DamageTypes.FIRE, DamageTypes.LIGHTNING,
+                               DamageTypes.THUNDER]:
+            raise Exception(
+                "Damage type must be Acid, Cold, Fire, Lightning, or Thunder")
+
+        super().__init__(name="Elemental Adept",
+                         level=4,
+                         prerequisite="Spellcasting or Pact Magic Feature",
+                         repeatable="Yes, but you must choose a different Damage Type each time for Energy Mastery",
+                         description="In your spellcasting,you can harness a particular form of energy with deadly "
+                                     "mastery, granting you the following benefits:\n"
+                                     f"Ability Score Increase. Increase your {ability.value} score by 1, to a maximum "
+                                     "of 20.\n"
+                                     f"Energy Mastery. Spells you cast ignore Resistance to {damage_type.value} "
+                                     "damage. In addition, when you roll damage for a Spell you cast that deals "
+                                     "damage of that type, you can treat any 1 on a damage die as a 2.",
+                         feat_abilities=abilities.Abilities(
+                             intelligence=(
+                                 1 if AbilityNames.INTELLIGENCE == ability else 0),
+                             wisdom=(1 if AbilityNames.WISDOM ==
+                                     ability else 0),
+                             charisma=(1 if AbilityNames.CHARISMA == ability else 0)))
+
+
+class FightingStyleArchery(feats.FightingStyle):
+    """
+    Fighting Style: Archery Feat
+    UA p. 19
+    """
+
+    def __init__(self):
+        super().__init__(name="Fighting Style: Archery",
+                         level=1,
+                         prerequisite="Warrior Group",
+                         description="You gain a +2 bonus to Attack Rolls you make with Ranged Weapons.",
+                         feat_bonuses=bonuses.Bonuses())  # TODO implement ranged attack bonus
 
 
 class Barkskin(spells.Spell):
@@ -284,14 +486,14 @@ CONTENT = {
     "Feats": {
         # TODO The rest of the feats
         "Ability Score Improvement": AbilityScoreImprovement,
-        # "Actor": Actor,
-        # "Athlete": Athlete,
-        # "Charger": Charger,
-        # "Crossbow Expert": CrossbowExpert,
-        # "Defensive Duelist": DefensiveDuelist,
-        # "Dual Wielder": DualWielder,
-        # "Durable": Durable,
-        # "Elemental Adept": ElementalAdept,
+        "Actor": Actor,
+        "Athlete": Athlete,
+        "Charger": Charger,
+        "Crossbow Expert": CrossbowExpert,
+        "Defensive Duelist": DefensiveDuelist,
+        "Dual Wielder": DualWielder,
+        "Durable": Durable,
+        "Elemental Adept": ElementalAdept,
         # "Epic Boon of Combat Prowess": EpicBoonCombatProwess,
         # "Epic Boon of Dimensional Travel": EpicBoonDimensionalTravel,
         # "Epic Boon of Energy Resistance": EpicBoonEnergyResistance,
