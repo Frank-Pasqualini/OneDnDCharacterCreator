@@ -187,14 +187,21 @@ raw_spell_list = parse(txt)
 
 data = generate_dataset(raw_spell_list)
 
+true_list = []
+for spell_name in data['name']:
+    spells = data['name'][spell_name]
+    if len(spells) > 1:
+        print(spells[0]['name'])
+        merged = [x['spell_list'] for x in spells]
+        spells[0]['spell_list'] = merged
+        data['name'][spell_name] = spells[0]
+    else:
+        spell = spells[0]
+        spell['spell_list'] = [spell['spell_list']]
+        data['name'][spell_name] = spell
+
 open('sources/parsed/odnd2.json',
-     'w+').write(json.dumps([x.toJSON() for x in raw_spell_list], indent=4))
+     'w+').write(json.dumps([data['name'][x] for x in data['name']], indent=4))
 
-for x in data:
-    for y in data[x]:
-        if y == 'Acid Arrow':
-            for z in data[x][y]:
-                print(x, y, z)
-
-
-print([x for x in raw_spell_list if 'Acid' in x['name']])
+# open('sources/parsed/odnd2.json',
+#     'w+').write(json.dumps([x.toJSON() for x in raw_spell_list], indent=4))

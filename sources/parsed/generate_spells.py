@@ -29,7 +29,7 @@ class {class_name}(spells.Spell):
 
     def __init__(self):
         super().__init__(name="{name}",
-                         spell_lists=[SpellLists.{spells_type}],
+                         spell_lists={spells_type},
                          concentration={concentration},
                          level={level},
                          ritual={ritual},
@@ -53,6 +53,20 @@ def class_name(name: str) -> str:
     return name
 
 
+def spell_list(s: list[str]) -> str:
+    print(s)
+    s = ['SpellLists.' + x.upper() for x in s]
+    print(s)
+    return '[' + ', '.join(s) + "]"
+
+
+def material_components_list(text: str):
+    if text == '':
+        return None
+    else:
+        return text
+
+
 def generate_spell(spell_json) -> str:
     if 'description' not in spell_json:
         return None
@@ -67,14 +81,16 @@ def generate_spell(spell_json) -> str:
                                  pages=pages,
                                  concentration='oncentration' in spell_json['duration'],
                                  name=spell_json['name'],
-                                 spells_type=spell_json['spell_list'].upper(),
+                                 spells_type=spell_list(
+                                     spell_json['spell_list']),
                                  ritual=spell_json['is_ritual'],
                                  level=spell_json['level'],
                                  school=spell_json['school'],
                                  range=spell_json['spell_range'],
                                  verbal_components=spell_json['verbal_components'],
                                  somatic_components=spell_json['somatic_components'],
-                                 material_components_list=spell_json['material_components_list'],
+                                 material_components_list=material_components_list(
+                                     spell_json['material_components_list']),
                                  duration=spell_json['duration'],
                                  description=spell_json['description'],
                                  at_higher_levels=spell_json['at_higher_levels']

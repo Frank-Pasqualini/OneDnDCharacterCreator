@@ -4,3163 +4,3331 @@
         "level": 0,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Blade Ward",
         "level": 0,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Chill Touch",
         "level": 0,
         "school": "Necromancy",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Dancing Lights",
         "level": 0,
         "school": "Illusion",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Fire Bolt",
         "level": 0,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Friends",
         "level": 0,
         "school": "Enchantment",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Light",
         "level": 0,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Divine"
+        ]
     },
     {
         "name": "Mage Hand",
         "level": 0,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Mending",
         "level": 0,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Primal"
+        ]
     },
     {
         "name": "Message",
         "level": 0,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Primal"
+        ]
     },
     {
         "name": "Minor Illusion",
         "level": 0,
         "school": "Illusion",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Poison Spray",
         "level": 0,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Primal"
+        ]
     },
     {
         "name": "Prestidigitation",
         "level": 0,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Ray of Frost",
         "level": 0,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Shocking Grasp",
         "level": 0,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "True Strike",
         "level": 0,
         "school": "Divination",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Vicious Mockery",
         "level": 0,
         "school": "Enchantment",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Alarm",
         "level": 1,
         "school": "Abjuration",
         "is_ritual": true,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Armor of Agathys",
         "level": 1,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Arms of Hadar",
         "level": 1,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Burning Hands",
         "level": 1,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Charm Person",
         "level": 1,
         "school": "Enchantment",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Chromatic Orb",
         "level": 1,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Color Spray",
         "level": 1,
         "school": "Illusion",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Comprehend Languages",
         "level": 1,
         "school": "Divination",
         "is_ritual": true,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Detect Magic",
         "level": 1,
         "school": "Divination",
         "is_ritual": true,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Divine",
+            "Primal"
+        ]
     },
     {
         "name": "Disguise Self",
         "level": 1,
         "school": "Illusion",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Dissonant Whispers",
         "level": 1,
         "school": "Enchantment",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Expeditious Retreat",
         "level": 1,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "False Life",
         "level": 1,
         "school": "Necromancy",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Feather Fall",
         "level": 1,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Find Familiar",
         "level": 1,
         "school": "Conjuration",
         "is_ritual": true,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Fog Cloud",
         "level": 1,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Primal"
+        ]
     },
     {
         "name": "Grease",
         "level": 1,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Hellish Rebuke",
         "level": 1,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Hex",
         "level": 1,
         "school": "Enchantment",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Identify",
         "level": 1,
         "school": "Divination",
         "is_ritual": true,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Illusory Script",
         "level": 1,
         "school": "Illusion",
         "is_ritual": true,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Jump",
         "level": 1,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Primal"
+        ]
     },
     {
         "name": "Longstrider",
         "level": 1,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Primal"
+        ]
     },
     {
         "name": "Mage Armor",
         "level": 1,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Magic Missile",
         "level": 1,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Protection from Evil and Good",
         "level": 1,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Divine"
+        ]
     },
     {
         "name": "Ray of Sickness",
         "level": 1,
         "school": "Necromancy",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Shield",
         "level": 1,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Silent Image",
         "level": 1,
         "school": "Illusion",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Sleep",
         "level": 1,
         "school": "Enchantment",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Tasha's Hideous Laughter",
         "level": 1,
         "school": "Enchantment",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Tenser's Floating Disk",
         "level": 1,
         "school": "Conjuration",
         "is_ritual": true,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Thunderwave",
         "level": 1,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Primal"
+        ]
     },
     {
         "name": "Unseen Servant",
         "level": 1,
         "school": "Conjuration",
         "is_ritual": true,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Witch Bolt",
         "level": 1,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Alter Self",
         "level": 2,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Arcane Lock",
         "level": 2,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Blindness/Deafness",
         "level": 2,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Divine"
+        ]
     },
     {
         "name": "Blur",
         "level": 2,
         "school": "Illusion",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Calm Emotions",
         "level": 2,
         "school": "Enchantment",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Divine"
+        ]
     },
     {
         "name": "Cloud of Daggers",
         "level": 2,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Continual Flame",
         "level": 2,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Crown of Madness",
         "level": 2,
         "school": "Enchantment",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Darkness",
         "level": 2,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Darkvision",
         "level": 2,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Primal"
+        ]
     },
     {
         "name": "Detect Thoughts",
         "level": 2,
         "school": "Divination",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Enlarge/Reduce",
         "level": 2,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Primal"
+        ]
     },
     {
         "name": "Enthrall",
         "level": 2,
         "school": "Enchantment",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Flaming Sphere",
         "level": 2,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Primal"
+        ]
     },
     {
         "name": "Gust of Wind",
         "level": 2,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Primal"
+        ]
     },
     {
         "name": "Hold Person",
         "level": 2,
         "school": "Enchantment",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Divine"
+        ]
     },
     {
         "name": "Invisibility",
         "level": 2,
         "school": "Illusion",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Knock",
         "level": 2,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Levitate",
         "level": 2,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Locate Object",
         "level": 2,
         "school": "Divination",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Divine",
+            "Primal"
+        ]
     },
     {
         "name": "Magic Aura",
         "level": 2,
         "school": "Illusion",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Magic Mouth",
         "level": 2,
         "school": "Illusion",
         "is_ritual": true,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Magic Weapon",
         "level": 2,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Divine"
+        ]
     },
     {
         "name": "Melf's Acid Arrow",
         "level": 2,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Mirror Image",
         "level": 2,
         "school": "Illusion",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Misty Step",
         "level": 2,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Phantasmal Force",
         "level": 2,
         "school": "Illusion",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Ray of Enfeeblement",
         "level": 2,
         "school": "Necromancy",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Rope Trick",
         "level": 2,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Scorching Ray",
         "level": 2,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "See Invisibility",
         "level": 2,
         "school": "Divination",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Shatter",
         "level": 2,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Spider Climb",
         "level": 2,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Suggestion",
         "level": 2,
         "school": "Enchantment",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Web",
         "level": 2,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Animate Dead",
         "level": 3,
         "school": "Necromancy",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Bestow Curse",
         "level": 3,
         "school": "Necromancy",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Blink",
         "level": 3,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Clairvoyance",
         "level": 3,
         "school": "Divination",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Divine"
+        ]
     },
     {
         "name": "Counterspell",
         "level": 3,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Dispel Magic",
         "level": 3,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Divine",
+            "Primal"
+        ]
     },
     {
         "name": "Fear",
         "level": 3,
         "school": "Illusion",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Fireball",
         "level": 3,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Fly",
         "level": 3,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Gaseous Form",
         "level": 3,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Glyph of Warding",
         "level": 3,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Divine"
+        ]
     },
     {
         "name": "Haste",
         "level": 3,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Hunger of Hadar",
         "level": 3,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Hypnotic Pattern",
         "level": 3,
         "school": "Illusion",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Leomund's Tiny Hut",
         "level": 3,
         "school": "Evocation",
         "is_ritual": true,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Lightning Bolt",
         "level": 3,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Magic Circle",
         "level": 3,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Divine"
+        ]
     },
     {
         "name": "Major Image",
         "level": 3,
         "school": "Illusion",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Nondetection",
         "level": 3,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Primal"
+        ]
     },
     {
         "name": "Phantom Steed",
         "level": 3,
         "school": "Illusion",
         "is_ritual": true,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Protection from Energy",
         "level": 3,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Primal"
+        ]
     },
     {
         "name": "Remove Curse",
         "level": 3,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Divine"
+        ]
     },
     {
         "name": "Sending",
         "level": 3,
         "school": "Divination",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Sleet Storm",
         "level": 3,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Primal"
+        ]
     },
     {
         "name": "Slow",
         "level": 3,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Stinking Cloud",
         "level": 3,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Tongues",
         "level": 3,
         "school": "Divination",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Divine"
+        ]
     },
     {
         "name": "Vampiric Touch",
         "level": 3,
         "school": "Necromancy",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Water Breathing",
         "level": 3,
         "school": "Transmutation",
         "is_ritual": true,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Primal"
+        ]
     },
     {
         "name": "Arcane Eye",
         "level": 4,
         "school": "Divination",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Banishment",
         "level": 4,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Divine"
+        ]
     },
     {
         "name": "Blight",
         "level": 4,
         "school": "Necromancy",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Compulsion",
         "level": 4,
         "school": "Enchantment",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Confusion",
         "level": 4,
         "school": "Enchantment",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Conjure Minor Elementals",
         "level": 4,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Primal"
+        ]
     },
     {
         "name": "Control Water",
         "level": 4,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Primal"
+        ]
     },
     {
         "name": "Dimension Door",
         "level": 4,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Evard's Black Tentacles",
         "level": 4,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Fabricate",
         "level": 4,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Fire Shield",
         "level": 4,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Greater Invisibility",
         "level": 4,
         "school": "Illusion",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Hallucinatory Terrain",
         "level": 4,
         "school": "Illusion",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Ice Storm",
         "level": 4,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Primal"
+        ]
     },
     {
         "name": "Leomund's Secret Chest",
         "level": 4,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Locate Creature",
         "level": 4,
         "school": "Divination",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Divine",
+            "Primal"
+        ]
     },
     {
         "name": "Mordenkainen's Faithful Hound",
         "level": 4,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Mordenkainen's Private Sanctum",
         "level": 4,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Otiluke's Resilient Sphere",
         "level": 4,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Phantasmal Killer",
         "level": 4,
         "school": "Illusion",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Polymorph",
         "level": 4,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Primal"
+        ]
     },
     {
         "name": "Stone Shape",
         "level": 4,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Primal"
+        ]
     },
     {
         "name": "Stoneskin",
         "level": 4,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Primal"
+        ]
     },
     {
         "name": "Wall of Fire",
         "level": 4,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Primal"
+        ]
     },
     {
         "name": "Animate Objects",
         "level": 5,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Bigby's Hand",
         "level": 5,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Cloudkill",
         "level": 5,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Cone of Cold",
         "level": 5,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Conjure Elemental",
         "level": 5,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Primal"
+        ]
     },
     {
         "name": "Contact Other Plane",
         "level": 5,
         "school": "Divination",
         "is_ritual": true,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Creation",
         "level": 5,
         "school": "Illusion",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Dominate Person",
         "level": 5,
         "school": "Enchantment",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Dream",
         "level": 5,
         "school": "Illusion",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Geas",
         "level": 5,
         "school": "Enchantment",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Divine"
+        ]
     },
     {
         "name": "Hold Monster",
         "level": 5,
         "school": "Enchantment",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Legend Lore",
         "level": 5,
         "school": "Divination",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Divine"
+        ]
     },
     {
         "name": "Mislead",
         "level": 5,
         "school": "Illusion",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Modify Memory",
         "level": 5,
         "school": "Enchantment",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Passwall",
         "level": 5,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Planar Binding",
         "level": 5,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Divine"
+        ]
     },
     {
         "name": "Rary's Telepathic Bond",
         "level": 5,
         "school": "Divination",
         "is_ritual": true,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Scrying",
         "level": 5,
         "school": "Divination",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Divine",
+            "Primal"
+        ]
     },
     {
         "name": "Seeming",
         "level": 5,
         "school": "Illusion",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Telekinesis",
         "level": 5,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Teleportation Circle",
         "level": 5,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Wall of Force",
         "level": 5,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Wall of Stone",
         "level": 5,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Primal"
+        ]
     },
     {
         "name": "Arcane Gate",
         "level": 6,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Chain Lightning",
         "level": 6,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Circle of Death",
         "level": 6,
         "school": "Necromancy",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Contingency",
         "level": 6,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Create Undead",
         "level": 6,
         "school": "Necromancy",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Disintegrate",
         "level": 6,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Eyebite",
         "level": 6,
         "school": "Necromancy",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Flesh to Stone",
         "level": 6,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Globe of Invulnerability",
         "level": 6,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Guards and Wards",
         "level": 6,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Instant Summons",
         "level": 6,
         "school": "Conjuration",
         "is_ritual": true,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Magic Jar",
         "level": 6,
         "school": "Necromancy",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Mass Suggestion",
         "level": 6,
         "school": "Enchantment",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Move Earth",
         "level": 6,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Primal"
+        ]
     },
     {
         "name": "Otiluke's Freezing Sphere",
         "level": 6,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Otto's Irresistible Dance",
         "level": 6,
         "school": "Enchantment",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Programmed Illusion",
         "level": 6,
         "school": "Illusion",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Sunbeam",
         "level": 6,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Divine",
+            "Primal"
+        ]
     },
     {
         "name": "True Seeing",
         "level": 6,
         "school": "Divination",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Divine"
+        ]
     },
     {
         "name": "Wall of Ice",
         "level": 6,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Primal"
+        ]
     },
     {
         "name": "Delayed Blast Fireball",
         "level": 7,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Etherealness",
         "level": 7,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Divine"
+        ]
     },
     {
         "name": "Finger of Death",
         "level": 7,
         "school": "Necromancy",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Forcecage",
         "level": 7,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Mirage Arcane",
         "level": 7,
         "school": "Illusion",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Mordenkainen's Magnificent Mansion",
         "level": 7,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Mordenkainen's Sword",
         "level": 7,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Plane Shift",
         "level": 7,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Divine"
+        ]
     },
     {
         "name": "Prismatic Spray",
         "level": 7,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Project Image",
         "level": 7,
         "school": "Illusion",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Reverse Gravity",
         "level": 7,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Primal"
+        ]
     },
     {
         "name": "Sequester",
         "level": 7,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Simulacrum",
         "level": 7,
         "school": "Illusion",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Symbol",
         "level": 7,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Divine"
+        ]
     },
     {
         "name": "Teleport",
         "level": 7,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Antimagic Field",
         "level": 8,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Divine"
+        ]
     },
     {
         "name": "Antipathy/Sympathy",
         "level": 8,
         "school": "Enchantment",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Divine"
+        ]
     },
     {
         "name": "Clone",
         "level": 8,
         "school": "Necromancy",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Control Weather",
         "level": 8,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Primal"
+        ]
     },
     {
         "name": "Demiplane",
         "level": 8,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Dominate Monster",
         "level": 8,
         "school": "Enchantment",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Feeblemind",
         "level": 8,
         "school": "Enchantment",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Glibness",
         "level": 8,
         "school": "Enchantment",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Incendiary Cloud",
         "level": 8,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Maze",
         "level": 8,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Mind Blank",
         "level": 8,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Power Word Stun",
         "level": 8,
         "school": "Enchantment",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Sunburst",
         "level": 8,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Divine",
+            "Primal"
+        ]
     },
     {
         "name": "Telepathy",
         "level": 8,
         "school": "Divination",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Astral Projection",
         "level": 9,
         "school": "Necromancy",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Divine"
+        ]
     },
     {
         "name": "Foresight",
         "level": 9,
         "school": "Divination",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Divine"
+        ]
     },
     {
         "name": "Gate",
         "level": 9,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Divine"
+        ]
     },
     {
         "name": "Imprisonment",
         "level": 9,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Meteor Swarm",
         "level": 9,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Power Word Kill",
         "level": 9,
         "school": "Enchantment",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Prismatic Wall",
         "level": 9,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Shapechange",
         "level": 9,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane",
+            "Primal"
+        ]
     },
     {
         "name": "Time Stop",
         "level": 9,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "True Polymorph",
         "level": 9,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Weird",
         "level": 9,
         "school": "Illusion",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Wish",
         "level": 9,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Arcane"
+        "spell_list": [
+            "Arcane"
+        ]
     },
     {
         "name": "Guidance",
         "level": 0,
         "school": "Divination",
         "is_ritual": false,
-        "spell_list": "Divine"
-    },
-    {
-        "name": "Light",
-        "level": 0,
-        "school": "Evocation",
-        "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine",
+            "Primal"
+        ]
     },
     {
         "name": "Resistance",
         "level": 0,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine",
+            "Primal"
+        ]
     },
     {
         "name": "Sacred Flame",
         "level": 0,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Spare the Dying",
         "level": 0,
         "school": "Necromancy",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine",
+            "Primal"
+        ]
     },
     {
         "name": "Thaumaturgy",
         "level": 0,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Bane",
         "level": 1,
         "school": "Enchantment",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Bless",
         "level": 1,
         "school": "Enchantment",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Command",
         "level": 1,
         "school": "Enchantment",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Compelled Duel",
         "level": 1,
         "school": "Enchantment",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Cure Wounds",
         "level": 1,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine",
+            "Primal"
+        ]
     },
     {
         "name": "Detect Evil and Good",
         "level": 1,
         "school": "Divination",
         "is_ritual": false,
-        "spell_list": "Divine"
-    },
-    {
-        "name": "Detect Magic",
-        "level": 1,
-        "school": "Divination",
-        "is_ritual": true,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Detect Poison and Disease",
         "level": 1,
         "school": "Divination",
         "is_ritual": true,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine",
+            "Primal"
+        ]
     },
     {
         "name": "Divine Favor",
         "level": 1,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Guiding Bolt",
         "level": 1,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Healing Word",
         "level": 1,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine",
+            "Primal"
+        ]
     },
     {
         "name": "Heroism",
         "level": 1,
         "school": "Enchantment",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Inflict Wounds",
         "level": 1,
         "school": "Necromancy",
         "is_ritual": false,
-        "spell_list": "Divine"
-    },
-    {
-        "name": "Protection from Evil and Good",
-        "level": 1,
-        "school": "Abjuration",
-        "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Purify Food and Drink",
         "level": 1,
         "school": "Transmutation",
         "is_ritual": true,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine",
+            "Primal"
+        ]
     },
     {
         "name": "Sanctuary",
         "level": 1,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Searing Smite",
         "level": 1,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Shield of Faith",
         "level": 1,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Thunderous Smite",
         "level": 1,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Wrathful Smite",
         "level": 1,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Aid",
         "level": 2,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Augury",
         "level": 2,
         "school": "Divination",
         "is_ritual": true,
-        "spell_list": "Divine"
-    },
-    {
-        "name": "Blindness/Deafness",
-        "level": 2,
-        "school": "Transmutation",
-        "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine",
+            "Primal"
+        ]
     },
     {
         "name": "Branding Smite",
         "level": 2,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Divine"
-    },
-    {
-        "name": "Calm Emotions",
-        "level": 2,
-        "school": "Enchantment",
-        "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Find Steed",
         "level": 2,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Find Traps",
         "level": 2,
         "school": "Divination",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine",
+            "Primal"
+        ]
     },
     {
         "name": "Gentle Repose",
         "level": 2,
         "school": "Necromancy",
         "is_ritual": true,
-        "spell_list": "Divine"
-    },
-    {
-        "name": "Hold Person",
-        "level": 2,
-        "school": "Enchantment",
-        "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine",
+            "Primal"
+        ]
     },
     {
         "name": "Lesser Restoration",
         "level": 2,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Divine"
-    },
-    {
-        "name": "Locate Object",
-        "level": 2,
-        "school": "Divination",
-        "is_ritual": false,
-        "spell_list": "Divine"
-    },
-    {
-        "name": "Magic Weapon",
-        "level": 2,
-        "school": "Transmutation",
-        "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine",
+            "Primal"
+        ]
     },
     {
         "name": "Prayer of Healing",
         "level": 2,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Protection from Poison",
         "level": 2,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine",
+            "Primal"
+        ]
     },
     {
         "name": "Silence",
         "level": 2,
         "school": "Illusion",
         "is_ritual": true,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine",
+            "Primal"
+        ]
     },
     {
         "name": "Spiritual Weapon",
         "level": 2,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Warding Bond",
         "level": 2,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Zone of Truth",
         "level": 2,
         "school": "Enchantment",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Aura of Vitality",
         "level": 3,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Beacon of Hope",
         "level": 3,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Blinding Smite",
         "level": 3,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Divine"
-    },
-    {
-        "name": "Clairvoyance",
-        "level": 3,
-        "school": "Divination",
-        "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Create Food and Water",
         "level": 3,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Crusader's Mantle",
         "level": 3,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Daylight",
         "level": 3,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Divine"
-    },
-    {
-        "name": "Dispel Magic",
-        "level": 3,
-        "school": "Abjuration",
-        "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine",
+            "Primal"
+        ]
     },
     {
         "name": "Feign Death",
         "level": 3,
         "school": "Necromancy",
         "is_ritual": true,
-        "spell_list": "Divine"
-    },
-    {
-        "name": "Glyph of Warding",
-        "level": 3,
-        "school": "Abjuration",
-        "is_ritual": false,
-        "spell_list": "Divine"
-    },
-    {
-        "name": "Magic Circle",
-        "level": 3,
-        "school": "Abjuration",
-        "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine",
+            "Primal"
+        ]
     },
     {
         "name": "Mass Healing Word",
         "level": 3,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Divine"
-    },
-    {
-        "name": "Remove Curse",
-        "level": 3,
-        "school": "Abjuration",
-        "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine",
+            "Primal"
+        ]
     },
     {
         "name": "Revivify",
         "level": 3,
         "school": "Necromancy",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine",
+            "Primal"
+        ]
     },
     {
         "name": "Speak with Dead",
         "level": 3,
         "school": "Necromancy",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Spirit Guardians",
         "level": 3,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Divine"
-    },
-    {
-        "name": "Tongues",
-        "level": 3,
-        "school": "Divination",
-        "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Aura of Life",
         "level": 4,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Aura of Purity",
         "level": 4,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Divine"
-    },
-    {
-        "name": "Banishment",
-        "level": 4,
-        "school": "Abjuration",
-        "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Death Ward",
         "level": 4,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Divination",
         "level": 4,
         "school": "Divination",
         "is_ritual": true,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Freedom of Movement",
         "level": 4,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine",
+            "Primal"
+        ]
     },
     {
         "name": "Guardian of Faith",
         "level": 4,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Divine"
-    },
-    {
-        "name": "Locate Creature",
-        "level": 4,
-        "school": "Divination",
-        "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Staggering Smite",
         "level": 4,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Banishing Smite",
         "level": 5,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Circle of Power",
         "level": 5,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Commune",
         "level": 5,
         "school": "Divination",
         "is_ritual": true,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Contagion",
         "level": 5,
         "school": "Necromancy",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Destructive Wave",
         "level": 5,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Dispel Evil and Good",
         "level": 5,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Flame Strike",
         "level": 5,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Divine"
-    },
-    {
-        "name": "Geas",
-        "level": 5,
-        "school": "Enchantment",
-        "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Greater Restoration",
         "level": 5,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine",
+            "Primal"
+        ]
     },
     {
         "name": "Hallow",
         "level": 5,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Divine"
-    },
-    {
-        "name": "Legend Lore",
-        "level": 5,
-        "school": "Divination",
-        "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Mass Cure Wounds",
         "level": 5,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Divine"
-    },
-    {
-        "name": "Planar Binding",
-        "level": 5,
-        "school": "Abjuration",
-        "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine",
+            "Primal"
+        ]
     },
     {
         "name": "Raise Dead",
         "level": 5,
         "school": "Necromancy",
         "is_ritual": false,
-        "spell_list": "Divine"
-    },
-    {
-        "name": "Scrying",
-        "level": 5,
-        "school": "Divination",
-        "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Blade Barrier",
         "level": 6,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Find the Path",
         "level": 6,
         "school": "Divination",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine",
+            "Primal"
+        ]
     },
     {
         "name": "Forbiddance",
         "level": 6,
         "school": "Abjuration",
         "is_ritual": true,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Harm",
         "level": 6,
         "school": "Necromancy",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Heal",
         "level": 6,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine",
+            "Primal"
+        ]
     },
     {
         "name": "Heroes' Feast",
         "level": 6,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Planar Ally",
         "level": 6,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Divine"
-    },
-    {
-        "name": "Sunbeam",
-        "level": 6,
-        "school": "Evocation",
-        "is_ritual": false,
-        "spell_list": "Divine"
-    },
-    {
-        "name": "True Seeing",
-        "level": 6,
-        "school": "Divination",
-        "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Word of Recall",
         "level": 6,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Conjure Celestial",
         "level": 7,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Divine Word",
         "level": 7,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Divine"
-    },
-    {
-        "name": "Etherealness",
-        "level": 7,
-        "school": "Transmutation",
-        "is_ritual": false,
-        "spell_list": "Divine"
-    },
-    {
-        "name": "Plane Shift",
-        "level": 7,
-        "school": "Conjuration",
-        "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Regenerate",
         "level": 7,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine",
+            "Primal"
+        ]
     },
     {
         "name": "Resurrection",
         "level": 7,
         "school": "Necromancy",
         "is_ritual": false,
-        "spell_list": "Divine"
-    },
-    {
-        "name": "Symbol",
-        "level": 7,
-        "school": "Abjuration",
-        "is_ritual": false,
-        "spell_list": "Divine"
-    },
-    {
-        "name": "Antimagic Field",
-        "level": 8,
-        "school": "Abjuration",
-        "is_ritual": false,
-        "spell_list": "Divine"
-    },
-    {
-        "name": "Antipathy/Sympathy",
-        "level": 8,
-        "school": "Enchantment",
-        "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Holy Aura",
         "level": 8,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Divine"
-    },
-    {
-        "name": "Sunburst",
-        "level": 8,
-        "school": "Evocation",
-        "is_ritual": false,
-        "spell_list": "Divine"
-    },
-    {
-        "name": "Astral Projection",
-        "level": 9,
-        "school": "Necromancy",
-        "is_ritual": false,
-        "spell_list": "Divine"
-    },
-    {
-        "name": "Foresight",
-        "level": 9,
-        "school": "Divination",
-        "is_ritual": false,
-        "spell_list": "Divine"
-    },
-    {
-        "name": "Gate",
-        "level": 9,
-        "school": "Conjuration",
-        "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Mass Heal",
         "level": 9,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine"
+        ]
     },
     {
         "name": "Power Word Heal",
         "level": 9,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine",
+            "Primal"
+        ]
     },
     {
         "name": "True Resurrection",
         "level": 9,
         "school": "Necromancy",
         "is_ritual": false,
-        "spell_list": "Divine"
+        "spell_list": [
+            "Divine",
+            "Primal"
+        ]
     },
     {
         "name": "Druidcraft",
         "level": 0,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Guidance",
-        "level": 0,
-        "school": "Divination",
-        "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Mending",
-        "level": 0,
-        "school": "Transmutation",
-        "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Message",
-        "level": 0,
-        "school": "Transmutation",
-        "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Poison Spray",
-        "level": 0,
-        "school": "Conjuration",
-        "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Produce Flame",
         "level": 0,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Resistance",
-        "level": 0,
-        "school": "Abjuration",
-        "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Shillelagh",
         "level": 0,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Spare the Dying",
-        "level": 0,
-        "school": "Necromancy",
-        "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Thorn Whip",
         "level": 0,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Animal Friendship",
         "level": 1,
         "school": "Enchantment",
         "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Create or Destroy Water",
         "level": 1,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Cure Wounds",
-        "level": 1,
-        "school": "Abjuration",
-        "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Detect Magic",
-        "level": 1,
-        "school": "Divination",
-        "is_ritual": true,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Detect Poison and Disease",
-        "level": 1,
-        "school": "Divination",
-        "is_ritual": true,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Ensnaring Strike",
         "level": 1,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Entangle",
         "level": 1,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Faerie Fire",
         "level": 1,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Fog Cloud",
-        "level": 1,
-        "school": "Conjuration",
-        "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Goodberry",
         "level": 1,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Hail of Thorns",
         "level": 1,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Healing Word",
-        "level": 1,
-        "school": "Abjuration",
-        "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Hunter's Mark",
         "level": 1,
         "school": "Divination",
         "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Jump",
-        "level": 1,
-        "school": "Transmutation",
-        "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Longstrider",
-        "level": 1,
-        "school": "Transmutation",
-        "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Purify Food and Drink",
-        "level": 1,
-        "school": "Transmutation",
-        "is_ritual": true,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Speak with Animals",
         "level": 1,
         "school": "Divination",
         "is_ritual": true,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Thunderwave",
-        "level": 1,
-        "school": "Transmutation",
-        "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Animal Messenger",
         "level": 2,
         "school": "Enchantment",
         "is_ritual": true,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Augury",
-        "level": 2,
-        "school": "Divination",
-        "is_ritual": true,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Barkskin",
         "level": 2,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Beast Sense",
         "level": 2,
         "school": "Divination",
         "is_ritual": true,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Cordon of Arrows",
         "level": 2,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Darkvision",
-        "level": 2,
-        "school": "Transmutation",
-        "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Enhance Ability",
         "level": 2,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Enlarge/Reduce",
-        "level": 2,
-        "school": "Transmutation",
-        "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Find Traps",
-        "level": 2,
-        "school": "Divination",
-        "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Flame Blade",
         "level": 2,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Flaming Sphere",
-        "level": 2,
-        "school": "Evocation",
-        "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Gentle Repose",
-        "level": 2,
-        "school": "Necromancy",
-        "is_ritual": true,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Gust of Wind",
-        "level": 2,
-        "school": "Evocation",
-        "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Heat Metal",
         "level": 2,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Lesser Restoration",
-        "level": 2,
-        "school": "Abjuration",
-        "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Locate Animals or Plants",
         "level": 2,
         "school": "Divination",
         "is_ritual": true,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Locate Object",
-        "level": 2,
-        "school": "Divination",
-        "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Moonbeam",
         "level": 2,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Pass without Trace",
         "level": 2,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Protection from Poison",
-        "level": 2,
-        "school": "Abjuration",
-        "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Silence",
-        "level": 2,
-        "school": "Illusion",
-        "is_ritual": true,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Spike Growth",
         "level": 2,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Call Lightning",
         "level": 3,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Conjure Animals",
         "level": 3,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Conjure Barrage",
         "level": 3,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Daylight",
-        "level": 3,
-        "school": "Evocation",
-        "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Dispel Magic",
-        "level": 3,
-        "school": "Abjuration",
-        "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Elemental Weapon",
         "level": 3,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Feign Death",
-        "level": 3,
-        "school": "Necromancy",
-        "is_ritual": true,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Lightning Arrow",
         "level": 3,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Mass Healing Word",
-        "level": 3,
-        "school": "Abjuration",
-        "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Meld into Stone",
         "level": 3,
         "school": "Transmutation",
         "is_ritual": true,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Nondetection",
-        "level": 3,
-        "school": "Abjuration",
-        "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Plant Growth",
         "level": 3,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Protection from Energy",
-        "level": 3,
-        "school": "Abjuration",
-        "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Revivify",
-        "level": 3,
-        "school": "Necromancy",
-        "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Sleet Storm",
-        "level": 3,
-        "school": "Conjuration",
-        "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Speak with Plants",
         "level": 3,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Water Breathing",
-        "level": 3,
-        "school": "Transmutation",
-        "is_ritual": true,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Water Walk",
         "level": 3,
         "school": "Transmutation",
         "is_ritual": true,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Wind Wall",
         "level": 3,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Conjure Minor Elementals",
-        "level": 4,
-        "school": "Conjuration",
-        "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Conjure Woodland Beings",
         "level": 4,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Control Water",
-        "level": 4,
-        "school": "Transmutation",
-        "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Dominate Beast",
         "level": 4,
         "school": "Enchantment",
         "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Freedom of Movement",
-        "level": 4,
-        "school": "Abjuration",
-        "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Giant Insect",
         "level": 4,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Grasping Vine",
         "level": 4,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Ice Storm",
-        "level": 4,
-        "school": "Evocation",
-        "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Locate Creature",
-        "level": 4,
-        "school": "Divination",
-        "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Polymorph",
-        "level": 4,
-        "school": "Transmutation",
-        "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Stone Shape",
-        "level": 4,
-        "school": "Transmutation",
-        "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Stoneskin",
-        "level": 4,
-        "school": "Transmutation",
-        "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Wall of Fire",
-        "level": 4,
-        "school": "Evocation",
-        "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Antilife Shell",
         "level": 5,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Awaken",
         "level": 5,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Commune with Nature",
         "level": 5,
         "school": "Divination",
         "is_ritual": true,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Conjure Elemental",
-        "level": 5,
-        "school": "Conjuration",
-        "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Conjure Volley",
         "level": 5,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Greater Restoration",
-        "level": 5,
-        "school": "Abjuration",
-        "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Insect Plague",
         "level": 5,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Mass Cure Wounds",
-        "level": 5,
-        "school": "Abjuration",
-        "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Reincarnate",
         "level": 5,
         "school": "Necromancy",
         "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Scrying",
-        "level": 5,
-        "school": "Divination",
-        "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Swift Quiver",
         "level": 5,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Tree Stride",
         "level": 5,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Wall of Stone",
-        "level": 5,
-        "school": "Evocation",
-        "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Conjure Fey",
         "level": 6,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Find the Path",
-        "level": 6,
-        "school": "Divination",
-        "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Heal",
-        "level": 6,
-        "school": "Abjuration",
-        "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Move Earth",
-        "level": 6,
-        "school": "Transmutation",
-        "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Sunbeam",
-        "level": 6,
-        "school": "Evocation",
-        "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Transport via Plants",
         "level": 6,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Wall of Ice",
-        "level": 6,
-        "school": "Evocation",
-        "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Wall of Thorns",
         "level": 6,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Wind Walk",
         "level": 6,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Fire Storm",
         "level": 7,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Regenerate",
-        "level": 7,
-        "school": "Transmutation",
-        "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Reverse Gravity",
-        "level": 7,
-        "school": "Transmutation",
-        "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Animal Shapes",
         "level": 8,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Control Weather",
-        "level": 8,
-        "school": "Transmutation",
-        "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Earthquake",
         "level": 8,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Sunburst",
-        "level": 8,
-        "school": "Evocation",
-        "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Tsunami",
         "level": 8,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Power Word Heal",
-        "level": 9,
-        "school": "Abjuration",
-        "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "Shapechange",
-        "level": 9,
-        "school": "Transmutation",
-        "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     },
     {
         "name": "Storm of Vengeance",
         "level": 9,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_list": "Primal"
-    },
-    {
-        "name": "True Resurrection",
-        "level": 9,
-        "school": "Necromancy",
-        "is_ritual": false,
-        "spell_list": "Primal"
+        "spell_list": [
+            "Primal"
+        ]
     }
 ]
