@@ -2,7 +2,7 @@
 class AcidArrow(spells.Spell):
     """
     Acid Arrow Spell
-    SRD p. 0
+    SRD p. 115
     Generated
     """
 
@@ -25,7 +25,7 @@ class AcidArrow(spells.Spell):
 class AcidSplash(spells.Spell):
     """
     Acid Splash Spell
-    SRD p. 0
+    SRD p. 115
     Generated
     """
 
@@ -48,7 +48,7 @@ class AcidSplash(spells.Spell):
 class Aid(spells.Spell):
     """
     Aid Spell
-    SRD p. 0
+    SRD p. 115
     Generated
     """
 
@@ -71,7 +71,7 @@ class Aid(spells.Spell):
 class Alarm(spells.Spell):
     """
     Alarm Spell
-    SRD p. 0
+    SRD p. 115
     Generated
     """
 
@@ -94,7 +94,7 @@ class Alarm(spells.Spell):
 class AlterSelf(spells.Spell):
     """
     Alter Self Spell
-    SRD p. 0
+    SRD p. 115-116
     Generated
     """
 
@@ -117,7 +117,7 @@ class AlterSelf(spells.Spell):
 class AnimalFriendship(spells.Spell):
     """
     Animal Friendship Spell
-    SRD p. 0
+    SRD p. 116
     Generated
     """
 
@@ -140,7 +140,7 @@ class AnimalFriendship(spells.Spell):
 class AnimalMessenger(spells.Spell):
     """
     Animal Messenger Spell
-    SRD p. 0
+    SRD p. 116
     Generated
     """
 
@@ -163,7 +163,7 @@ class AnimalMessenger(spells.Spell):
 class AnimalShapes(spells.Spell):
     """
     Animal Shapes Spell
-    SRD p. 0
+    SRD p. 116
     Generated
     """
 
@@ -186,7 +186,7 @@ class AnimalShapes(spells.Spell):
 class AnimateDead(spells.Spell):
     """
     Animate Dead Spell
-    SRD p. 0
+    SRD p. 116-117
     Generated
     """
 
@@ -209,7 +209,7 @@ class AnimateDead(spells.Spell):
 class AnimateObjects(spells.Spell):
     """
     Animate Objects Spell
-    SRD p. 0
+    SRD p. 117
     Generated
     """
 
@@ -232,7 +232,7 @@ class AnimateObjects(spells.Spell):
 class AntilifeShell(spells.Spell):
     """
     Antilife Shell Spell
-    SRD p. 0
+    SRD p. 117-118
     Generated
     """
 
@@ -255,7 +255,7 @@ class AntilifeShell(spells.Spell):
 class AntimagicField(spells.Spell):
     """
     Antimagic Field Spell
-    SRD p. 0
+    SRD p. 118
     Generated
     """
 
@@ -275,10 +275,10 @@ class AntimagicField(spells.Spell):
                          at_higher_levels="")
 
 
-class Antipathysympathy(spells.Spell):
+class AntipathySympathy(spells.Spell):
     """
     Antipathy/Sympathy Spell
-    SRD p. 0
+    SRD p. 118-119
     Generated
     """
 
@@ -301,7 +301,7 @@ class Antipathysympathy(spells.Spell):
 class ArcaneEye(spells.Spell):
     """
     Arcane Eye Spell
-    SRD p. 0
+    SRD p. 119
     Generated
     """
 
@@ -324,7 +324,7 @@ class ArcaneEye(spells.Spell):
 class ArcaneHand(spells.Spell):
     """
     Arcane Hand Spell
-    SRD p. 0
+    SRD p. 119
     Generated
     """
 
@@ -347,7 +347,7 @@ class ArcaneHand(spells.Spell):
 class ArcaneLock(spells.Spell):
     """
     Arcane Lock Spell
-    SRD p. 0
+    SRD p. 119-120
     Generated
     """
 
@@ -370,7 +370,7 @@ class ArcaneLock(spells.Spell):
 class ArcaneSword(spells.Spell):
     """
     Arcane Sword Spell
-    SRD p. 0
+    SRD p. 120
     Generated
     """
 
@@ -393,7 +393,7 @@ class ArcaneSword(spells.Spell):
 class ArcanistsMagicAura(spells.Spell):
     """
     Arcanist's Magic Aura Spell
-    SRD p. 0
+    SRD p. 120
     Generated
     """
 
@@ -416,7 +416,7 @@ class ArcanistsMagicAura(spells.Spell):
 class AstralProjection(spells.Spell):
     """
     Astral Projection Spell
-    SRD p. 0
+    SRD p. 120-121
     Generated
     """
 
@@ -439,7 +439,7 @@ class AstralProjection(spells.Spell):
 class Augury(spells.Spell):
     """
     Augury Spell
-    SRD p. 0
+    SRD p. 121
     Generated
     """
 
@@ -462,7 +462,7 @@ class Augury(spells.Spell):
 class Awaken(spells.Spell):
     """
     Awaken Spell
-    SRD p. 0
+    SRD p. 121
     Generated
     """
 
@@ -485,7 +485,7 @@ class Awaken(spells.Spell):
 class Bane(spells.Spell):
     """
     Bane Spell
-    SRD p. 0
+    SRD p. 121
     Generated
     """
 
@@ -508,7 +508,7 @@ class Bane(spells.Spell):
 class Banishment(spells.Spell):
     """
     Banishment Spell
-    SRD p. 0
+    SRD p. 121-122
     Generated
     """
 
@@ -531,7 +531,7 @@ class Banishment(spells.Spell):
 class Barkskin(spells.Spell):
     """
     Barkskin Spell
-    SRD p. 0
+    SRD p. 122
     Generated
     """
 
@@ -554,7 +554,7 @@ class Barkskin(spells.Spell):
 class BeaconOfHope(spells.Spell):
     """
     Beacon of Hope Spell
-    SRD p. 0
+    SRD p. 122
     Generated
     """
 
@@ -577,7 +577,7 @@ class BeaconOfHope(spells.Spell):
 class BestowCurse(spells.Spell):
     """
     Bestow Curse Spell
-    SRD p. 0
+    SRD p. 122
     Generated
     """
 
@@ -600,7 +600,7 @@ class BestowCurse(spells.Spell):
 class BlackTentacles(spells.Spell):
     """
     Black Tentacles Spell
-    SRD p. 0
+    SRD p. 122-123
     Generated
     """
 
@@ -623,7 +623,7 @@ class BlackTentacles(spells.Spell):
 class BladeBarrier(spells.Spell):
     """
     Blade Barrier Spell
-    SRD p. 0
+    SRD p. 123
     Generated
     """
 
@@ -646,7 +646,7 @@ class BladeBarrier(spells.Spell):
 class Bless(spells.Spell):
     """
     Bless Spell
-    SRD p. 0
+    SRD p. 123
     Generated
     """
 
@@ -669,7 +669,7 @@ class Bless(spells.Spell):
 class Blight(spells.Spell):
     """
     Blight Spell
-    SRD p. 0
+    SRD p. 123
     Generated
     """
 
@@ -689,10 +689,10 @@ class Blight(spells.Spell):
                          at_higher_levels="When you cast this spell using a spell slot of 5th level or higher, the damage increases by 1d8 for each slot level above 4th.")
 
 
-class Blindnessdeafness(spells.Spell):
+class BlindnessDeafness(spells.Spell):
     """
     Blindness/Deafness Spell
-    SRD p. 0
+    SRD p. 123
     Generated
     """
 
@@ -715,7 +715,7 @@ class Blindnessdeafness(spells.Spell):
 class Blink(spells.Spell):
     """
     Blink Spell
-    SRD p. 0
+    SRD p. 123-124
     Generated
     """
 
@@ -738,7 +738,7 @@ class Blink(spells.Spell):
 class Blur(spells.Spell):
     """
     Blur Spell
-    SRD p. 0
+    SRD p. 124
     Generated
     """
 
@@ -761,7 +761,7 @@ class Blur(spells.Spell):
 class BrandingSmite(spells.Spell):
     """
     Branding Smite Spell
-    SRD p. 0
+    SRD p. 124
     Generated
     """
 
@@ -784,7 +784,7 @@ class BrandingSmite(spells.Spell):
 class BurningHands(spells.Spell):
     """
     Burning Hands Spell
-    SRD p. 0
+    SRD p. 124
     Generated
     """
 
@@ -807,7 +807,7 @@ class BurningHands(spells.Spell):
 class CallLightning(spells.Spell):
     """
     Call Lightning Spell
-    SRD p. 0
+    SRD p. 124
     Generated
     """
 
@@ -830,7 +830,7 @@ class CallLightning(spells.Spell):
 class CalmEmotions(spells.Spell):
     """
     Calm Emotions Spell
-    SRD p. 0
+    SRD p. 124-125
     Generated
     """
 
@@ -853,7 +853,7 @@ class CalmEmotions(spells.Spell):
 class ChainLightning(spells.Spell):
     """
     Chain Lightning Spell
-    SRD p. 0
+    SRD p. 125
     Generated
     """
 
@@ -876,7 +876,7 @@ class ChainLightning(spells.Spell):
 class CharmPerson(spells.Spell):
     """
     Charm Person Spell
-    SRD p. 0
+    SRD p. 125
     Generated
     """
 
@@ -899,7 +899,7 @@ class CharmPerson(spells.Spell):
 class ChillTouch(spells.Spell):
     """
     Chill Touch Spell
-    SRD p. 0
+    SRD p. 125
     Generated
     """
 
@@ -922,7 +922,7 @@ class ChillTouch(spells.Spell):
 class CircleOfDeath(spells.Spell):
     """
     Circle of Death Spell
-    SRD p. 0
+    SRD p. 125
     Generated
     """
 
@@ -945,7 +945,7 @@ class CircleOfDeath(spells.Spell):
 class Clairvoyance(spells.Spell):
     """
     Clairvoyance Spell
-    SRD p. 0
+    SRD p. 125-126
     Generated
     """
 
@@ -968,7 +968,7 @@ class Clairvoyance(spells.Spell):
 class Clone(spells.Spell):
     """
     Clone Spell
-    SRD p. 0
+    SRD p. 126
     Generated
     """
 
@@ -991,7 +991,7 @@ class Clone(spells.Spell):
 class Cloudkill(spells.Spell):
     """
     Cloudkill Spell
-    SRD p. 0
+    SRD p. 126
     Generated
     """
 
@@ -1014,7 +1014,7 @@ class Cloudkill(spells.Spell):
 class ColorSpray(spells.Spell):
     """
     Color Spray Spell
-    SRD p. 0
+    SRD p. 126
     Generated
     """
 
@@ -1037,7 +1037,7 @@ class ColorSpray(spells.Spell):
 class Command(spells.Spell):
     """
     Command Spell
-    SRD p. 0
+    SRD p. 126-127
     Generated
     """
 
@@ -1060,7 +1060,7 @@ class Command(spells.Spell):
 class Commune(spells.Spell):
     """
     Commune Spell
-    SRD p. 0
+    SRD p. 127
     Generated
     """
 
@@ -1083,7 +1083,7 @@ class Commune(spells.Spell):
 class CommuneWithNature(spells.Spell):
     """
     Commune with Nature Spell
-    SRD p. 0
+    SRD p. 127
     Generated
     """
 
@@ -1106,7 +1106,7 @@ class CommuneWithNature(spells.Spell):
 class ComprehendLanguages(spells.Spell):
     """
     Comprehend Languages Spell
-    SRD p. 0
+    SRD p. 127
     Generated
     """
 
@@ -1129,7 +1129,7 @@ class ComprehendLanguages(spells.Spell):
 class Compulsion(spells.Spell):
     """
     Compulsion Spell
-    SRD p. 0
+    SRD p. 127-128
     Generated
     """
 
@@ -1152,7 +1152,7 @@ class Compulsion(spells.Spell):
 class ConeOfCold(spells.Spell):
     """
     Cone of Cold Spell
-    SRD p. 0
+    SRD p. 128
     Generated
     """
 
@@ -1175,7 +1175,7 @@ class ConeOfCold(spells.Spell):
 class Confusion(spells.Spell):
     """
     Confusion Spell
-    SRD p. 0
+    SRD p. 128
     Generated
     """
 
@@ -1198,7 +1198,7 @@ class Confusion(spells.Spell):
 class ConjureAnimals(spells.Spell):
     """
     Conjure Animals Spell
-    SRD p. 0
+    SRD p. 128
     Generated
     """
 
@@ -1221,7 +1221,7 @@ class ConjureAnimals(spells.Spell):
 class ConjureCelestial(spells.Spell):
     """
     Conjure Celestial Spell
-    SRD p. 0
+    SRD p. 128-129
     Generated
     """
 
@@ -1244,7 +1244,7 @@ class ConjureCelestial(spells.Spell):
 class ConjureElemental(spells.Spell):
     """
     Conjure Elemental Spell
-    SRD p. 0
+    SRD p. 129
     Generated
     """
 
@@ -1267,7 +1267,7 @@ class ConjureElemental(spells.Spell):
 class ConjureFey(spells.Spell):
     """
     Conjure Fey Spell
-    SRD p. 0
+    SRD p. 129
     Generated
     """
 
@@ -1290,7 +1290,7 @@ class ConjureFey(spells.Spell):
 class ConjureMinorElementals(spells.Spell):
     """
     Conjure Minor Elementals Spell
-    SRD p. 0
+    SRD p. 129-130
     Generated
     """
 
@@ -1313,7 +1313,7 @@ class ConjureMinorElementals(spells.Spell):
 class ConjureWoodlandBeings(spells.Spell):
     """
     Conjure Woodland Beings Spell
-    SRD p. 0
+    SRD p. 130
     Generated
     """
 
@@ -1336,7 +1336,7 @@ class ConjureWoodlandBeings(spells.Spell):
 class ContactOtherPlane(spells.Spell):
     """
     Contact Other Plane Spell
-    SRD p. 0
+    SRD p. 130
     Generated
     """
 
@@ -1359,7 +1359,7 @@ class ContactOtherPlane(spells.Spell):
 class Contagion(spells.Spell):
     """
     Contagion Spell
-    SRD p. 0
+    SRD p. 130-131
     Generated
     """
 
@@ -1382,7 +1382,7 @@ class Contagion(spells.Spell):
 class Contingency(spells.Spell):
     """
     Contingency Spell
-    SRD p. 0
+    SRD p. 131
     Generated
     """
 
@@ -1405,7 +1405,7 @@ class Contingency(spells.Spell):
 class ContinualFlame(spells.Spell):
     """
     Continual Flame Spell
-    SRD p. 0
+    SRD p. 131
     Generated
     """
 
@@ -1428,7 +1428,7 @@ class ContinualFlame(spells.Spell):
 class ControlWater(spells.Spell):
     """
     Control Water Spell
-    SRD p. 0
+    SRD p. 131-132
     Generated
     """
 
@@ -1451,7 +1451,7 @@ class ControlWater(spells.Spell):
 class ControlWeather(spells.Spell):
     """
     Control Weather Spell
-    SRD p. 0
+    SRD p. 132
     Generated
     """
 
@@ -1474,7 +1474,7 @@ class ControlWeather(spells.Spell):
 class Counterspell(spells.Spell):
     """
     Counterspell Spell
-    SRD p. 0
+    SRD p. 132
     Generated
     """
 
@@ -1497,7 +1497,7 @@ class Counterspell(spells.Spell):
 class CreateFoodAndWater(spells.Spell):
     """
     Create Food and Water Spell
-    SRD p. 0
+    SRD p. 132-133
     Generated
     """
 
@@ -1520,7 +1520,7 @@ class CreateFoodAndWater(spells.Spell):
 class CreateUndead(spells.Spell):
     """
     Create Undead Spell
-    SRD p. 0
+    SRD p. 133
     Generated
     """
 
@@ -1543,7 +1543,7 @@ class CreateUndead(spells.Spell):
 class CreateOrDestroyWater(spells.Spell):
     """
     Create or Destroy Water Spell
-    SRD p. 0
+    SRD p. 133
     Generated
     """
 
@@ -1566,7 +1566,7 @@ class CreateOrDestroyWater(spells.Spell):
 class Creation(spells.Spell):
     """
     Creation Spell
-    SRD p. 0
+    SRD p. 133
     Generated
     """
 
@@ -1589,7 +1589,7 @@ class Creation(spells.Spell):
 class CureWounds(spells.Spell):
     """
     Cure Wounds Spell
-    SRD p. 0
+    SRD p. 133-134
     Generated
     """
 
@@ -1612,7 +1612,7 @@ class CureWounds(spells.Spell):
 class DancingLights(spells.Spell):
     """
     Dancing Lights Spell
-    SRD p. 0
+    SRD p. 134
     Generated
     """
 
@@ -1635,7 +1635,7 @@ class DancingLights(spells.Spell):
 class Darkness(spells.Spell):
     """
     Darkness Spell
-    SRD p. 0
+    SRD p. 134
     Generated
     """
 
@@ -1658,7 +1658,7 @@ class Darkness(spells.Spell):
 class Darkvision(spells.Spell):
     """
     Darkvision Spell
-    SRD p. 0
+    SRD p. 134
     Generated
     """
 
@@ -1681,7 +1681,7 @@ class Darkvision(spells.Spell):
 class Daylight(spells.Spell):
     """
     Daylight Spell
-    SRD p. 0
+    SRD p. 134
     Generated
     """
 
@@ -1704,7 +1704,7 @@ class Daylight(spells.Spell):
 class DeathWard(spells.Spell):
     """
     Death Ward Spell
-    SRD p. 0
+    SRD p. 134
     Generated
     """
 
@@ -1727,7 +1727,7 @@ class DeathWard(spells.Spell):
 class DelayedBlastFireball(spells.Spell):
     """
     Delayed Blast Fireball Spell
-    SRD p. 0
+    SRD p. 134-135
     Generated
     """
 
@@ -1750,7 +1750,7 @@ class DelayedBlastFireball(spells.Spell):
 class Demiplane(spells.Spell):
     """
     Demiplane Spell
-    SRD p. 0
+    SRD p. 135
     Generated
     """
 
@@ -1773,7 +1773,7 @@ class Demiplane(spells.Spell):
 class DetectEvilAndGood(spells.Spell):
     """
     Detect Evil and Good Spell
-    SRD p. 0
+    SRD p. 135
     Generated
     """
 
@@ -1796,7 +1796,7 @@ class DetectEvilAndGood(spells.Spell):
 class DetectMagic(spells.Spell):
     """
     Detect Magic Spell
-    SRD p. 0
+    SRD p. 135
     Generated
     """
 
@@ -1819,7 +1819,7 @@ class DetectMagic(spells.Spell):
 class DetectPoisonAndDisease(spells.Spell):
     """
     Detect Poison and Disease Spell
-    SRD p. 0
+    SRD p. 135-136
     Generated
     """
 
@@ -1842,7 +1842,7 @@ class DetectPoisonAndDisease(spells.Spell):
 class DetectThoughts(spells.Spell):
     """
     Detect Thoughts Spell
-    SRD p. 0
+    SRD p. 136
     Generated
     """
 
@@ -1865,7 +1865,7 @@ class DetectThoughts(spells.Spell):
 class DimensionDoor(spells.Spell):
     """
     Dimension Door Spell
-    SRD p. 0
+    SRD p. 136
     Generated
     """
 
@@ -1888,7 +1888,7 @@ class DimensionDoor(spells.Spell):
 class DisguiseSelf(spells.Spell):
     """
     Disguise Self Spell
-    SRD p. 0
+    SRD p. 136
     Generated
     """
 
@@ -1911,7 +1911,7 @@ class DisguiseSelf(spells.Spell):
 class Disintegrate(spells.Spell):
     """
     Disintegrate Spell
-    SRD p. 0
+    SRD p. 136-137
     Generated
     """
 
@@ -1934,7 +1934,7 @@ class Disintegrate(spells.Spell):
 class DispelEvilAndGood(spells.Spell):
     """
     Dispel Evil and Good Spell
-    SRD p. 0
+    SRD p. 137
     Generated
     """
 
@@ -1957,7 +1957,7 @@ class DispelEvilAndGood(spells.Spell):
 class DispelMagic(spells.Spell):
     """
     Dispel Magic Spell
-    SRD p. 0
+    SRD p. 137
     Generated
     """
 
@@ -1980,7 +1980,7 @@ class DispelMagic(spells.Spell):
 class Divination(spells.Spell):
     """
     Divination Spell
-    SRD p. 0
+    SRD p. 137
     Generated
     """
 
@@ -2003,7 +2003,7 @@ class Divination(spells.Spell):
 class DivineFavor(spells.Spell):
     """
     Divine Favor Spell
-    SRD p. 0
+    SRD p. 137-138
     Generated
     """
 
@@ -2026,7 +2026,7 @@ class DivineFavor(spells.Spell):
 class DivineWord(spells.Spell):
     """
     Divine Word Spell
-    SRD p. 0
+    SRD p. 138
     Generated
     """
 
@@ -2049,7 +2049,7 @@ class DivineWord(spells.Spell):
 class DominateBeast(spells.Spell):
     """
     Dominate Beast Spell
-    SRD p. 0
+    SRD p. 138
     Generated
     """
 
@@ -2072,7 +2072,7 @@ class DominateBeast(spells.Spell):
 class DominateMonster(spells.Spell):
     """
     Dominate Monster Spell
-    SRD p. 0
+    SRD p. 138-139
     Generated
     """
 
@@ -2095,7 +2095,7 @@ class DominateMonster(spells.Spell):
 class DominatePerson(spells.Spell):
     """
     Dominate Person Spell
-    SRD p. 0
+    SRD p. 139
     Generated
     """
 
@@ -2118,7 +2118,7 @@ class DominatePerson(spells.Spell):
 class Dream(spells.Spell):
     """
     Dream Spell
-    SRD p. 0
+    SRD p. 139
     Generated
     """
 
@@ -2141,7 +2141,7 @@ class Dream(spells.Spell):
 class Druidcraft(spells.Spell):
     """
     Druidcraft Spell
-    SRD p. 0
+    SRD p. 139-140
     Generated
     """
 
@@ -2164,7 +2164,7 @@ class Druidcraft(spells.Spell):
 class Earthquake(spells.Spell):
     """
     Earthquake Spell
-    SRD p. 0
+    SRD p. 140
     Generated
     """
 
@@ -2187,7 +2187,7 @@ class Earthquake(spells.Spell):
 class EnhanceAbility(spells.Spell):
     """
     Enhance Ability Spell
-    SRD p. 0
+    SRD p. 140-141
     Generated
     """
 
@@ -2207,10 +2207,10 @@ class EnhanceAbility(spells.Spell):
                          at_higher_levels="When you cast this spell using a spell slot of 3rd level or higher, you can target one additional creature for each slot level above 2nd.")
 
 
-class Enlargereduce(spells.Spell):
+class EnlargeReduce(spells.Spell):
     """
     Enlarge/Reduce Spell
-    SRD p. 0
+    SRD p. 141
     Generated
     """
 
@@ -2233,7 +2233,7 @@ class Enlargereduce(spells.Spell):
 class Entangle(spells.Spell):
     """
     Entangle Spell
-    SRD p. 0
+    SRD p. 141
     Generated
     """
 
@@ -2256,7 +2256,7 @@ class Entangle(spells.Spell):
 class Enthrall(spells.Spell):
     """
     Enthrall Spell
-    SRD p. 0
+    SRD p. 141
     Generated
     """
 
@@ -2279,7 +2279,7 @@ class Enthrall(spells.Spell):
 class Etherealness(spells.Spell):
     """
     Etherealness Spell
-    SRD p. 0
+    SRD p. 141-142
     Generated
     """
 
@@ -2302,7 +2302,7 @@ class Etherealness(spells.Spell):
 class ExpeditiousRetreat(spells.Spell):
     """
     Expeditious Retreat Spell
-    SRD p. 0
+    SRD p. 142
     Generated
     """
 
@@ -2325,7 +2325,7 @@ class ExpeditiousRetreat(spells.Spell):
 class Eyebite(spells.Spell):
     """
     Eyebite Spell
-    SRD p. 0
+    SRD p. 142
     Generated
     """
 
@@ -2348,7 +2348,7 @@ class Eyebite(spells.Spell):
 class Fabricate(spells.Spell):
     """
     Fabricate Spell
-    SRD p. 0
+    SRD p. 142
     Generated
     """
 
@@ -2371,7 +2371,7 @@ class Fabricate(spells.Spell):
 class FaerieFire(spells.Spell):
     """
     Faerie Fire Spell
-    SRD p. 0
+    SRD p. 142-143
     Generated
     """
 
@@ -2394,7 +2394,7 @@ class FaerieFire(spells.Spell):
 class FaithfulHound(spells.Spell):
     """
     Faithful Hound Spell
-    SRD p. 0
+    SRD p. 143
     Generated
     """
 
@@ -2417,7 +2417,7 @@ class FaithfulHound(spells.Spell):
 class FalseLife(spells.Spell):
     """
     False Life Spell
-    SRD p. 0
+    SRD p. 143
     Generated
     """
 
@@ -2440,7 +2440,7 @@ class FalseLife(spells.Spell):
 class Fear(spells.Spell):
     """
     Fear Spell
-    SRD p. 0
+    SRD p. 143
     Generated
     """
 
@@ -2463,7 +2463,7 @@ class Fear(spells.Spell):
 class FeatherFall(spells.Spell):
     """
     Feather Fall Spell
-    SRD p. 0
+    SRD p. 143
     Generated
     """
 
@@ -2486,7 +2486,7 @@ class FeatherFall(spells.Spell):
 class Feeblemind(spells.Spell):
     """
     Feeblemind Spell
-    SRD p. 0
+    SRD p. 143-144
     Generated
     """
 
@@ -2509,7 +2509,7 @@ class Feeblemind(spells.Spell):
 class FindFamiliar(spells.Spell):
     """
     Find Familiar Spell
-    SRD p. 0
+    SRD p. 144
     Generated
     """
 
@@ -2532,7 +2532,7 @@ class FindFamiliar(spells.Spell):
 class FindSteed(spells.Spell):
     """
     Find Steed Spell
-    SRD p. 0
+    SRD p. 144
     Generated
     """
 
@@ -2555,7 +2555,7 @@ class FindSteed(spells.Spell):
 class FindTraps(spells.Spell):
     """
     Find Traps Spell
-    SRD p. 0
+    SRD p. 145
     Generated
     """
 
@@ -2578,7 +2578,7 @@ class FindTraps(spells.Spell):
 class FindThePath(spells.Spell):
     """
     Find the Path Spell
-    SRD p. 0
+    SRD p. 144-145
     Generated
     """
 
@@ -2601,7 +2601,7 @@ class FindThePath(spells.Spell):
 class FingerOfDeath(spells.Spell):
     """
     Finger of Death Spell
-    SRD p. 0
+    SRD p. 145
     Generated
     """
 
@@ -2624,7 +2624,7 @@ class FingerOfDeath(spells.Spell):
 class FireBolt(spells.Spell):
     """
     Fire Bolt Spell
-    SRD p. 0
+    SRD p. 145
     Generated
     """
 
@@ -2647,7 +2647,7 @@ class FireBolt(spells.Spell):
 class FireShield(spells.Spell):
     """
     Fire Shield Spell
-    SRD p. 0
+    SRD p. 145-146
     Generated
     """
 
@@ -2670,7 +2670,7 @@ class FireShield(spells.Spell):
 class FireStorm(spells.Spell):
     """
     Fire Storm Spell
-    SRD p. 0
+    SRD p. 146
     Generated
     """
 
@@ -2693,7 +2693,7 @@ class FireStorm(spells.Spell):
 class Fireball(spells.Spell):
     """
     Fireball Spell
-    SRD p. 0
+    SRD p. 145
     Generated
     """
 
@@ -2716,7 +2716,7 @@ class Fireball(spells.Spell):
 class FlameBlade(spells.Spell):
     """
     Flame Blade Spell
-    SRD p. 0
+    SRD p. 146
     Generated
     """
 
@@ -2739,7 +2739,7 @@ class FlameBlade(spells.Spell):
 class FlameStrike(spells.Spell):
     """
     Flame Strike Spell
-    SRD p. 0
+    SRD p. 146
     Generated
     """
 
@@ -2762,7 +2762,7 @@ class FlameStrike(spells.Spell):
 class FlamingSphere(spells.Spell):
     """
     Flaming Sphere Spell
-    SRD p. 0
+    SRD p. 146
     Generated
     """
 
@@ -2785,7 +2785,7 @@ class FlamingSphere(spells.Spell):
 class FleshToStone(spells.Spell):
     """
     Flesh to Stone Spell
-    SRD p. 0
+    SRD p. 146-147
     Generated
     """
 
@@ -2808,7 +2808,7 @@ class FleshToStone(spells.Spell):
 class FloatingDisk(spells.Spell):
     """
     Floating Disk Spell
-    SRD p. 0
+    SRD p. 147
     Generated
     """
 
@@ -2831,7 +2831,7 @@ class FloatingDisk(spells.Spell):
 class Fly(spells.Spell):
     """
     Fly Spell
-    SRD p. 0
+    SRD p. 147
     Generated
     """
 
@@ -2854,7 +2854,7 @@ class Fly(spells.Spell):
 class FogCloud(spells.Spell):
     """
     Fog Cloud Spell
-    SRD p. 0
+    SRD p. 147
     Generated
     """
 
@@ -2877,7 +2877,7 @@ class FogCloud(spells.Spell):
 class Forbiddance(spells.Spell):
     """
     Forbiddance Spell
-    SRD p. 0
+    SRD p. 147-148
     Generated
     """
 
@@ -2900,7 +2900,7 @@ class Forbiddance(spells.Spell):
 class Forcecage(spells.Spell):
     """
     Forcecage Spell
-    SRD p. 0
+    SRD p. 148
     Generated
     """
 
@@ -2923,7 +2923,7 @@ class Forcecage(spells.Spell):
 class Foresight(spells.Spell):
     """
     Foresight Spell
-    SRD p. 0
+    SRD p. 148
     Generated
     """
 
@@ -2946,7 +2946,7 @@ class Foresight(spells.Spell):
 class FreedomOfMovement(spells.Spell):
     """
     Freedom of Movement Spell
-    SRD p. 0
+    SRD p. 148
     Generated
     """
 
@@ -2969,7 +2969,7 @@ class FreedomOfMovement(spells.Spell):
 class FreezingSphere(spells.Spell):
     """
     Freezing Sphere Spell
-    SRD p. 0
+    SRD p. 148-149
     Generated
     """
 
@@ -2992,7 +2992,7 @@ class FreezingSphere(spells.Spell):
 class GaseousForm(spells.Spell):
     """
     Gaseous Form Spell
-    SRD p. 0
+    SRD p. 149
     Generated
     """
 
@@ -3015,7 +3015,7 @@ class GaseousForm(spells.Spell):
 class Gate(spells.Spell):
     """
     Gate Spell
-    SRD p. 0
+    SRD p. 149
     Generated
     """
 
@@ -3038,7 +3038,7 @@ class Gate(spells.Spell):
 class Geas(spells.Spell):
     """
     Geas Spell
-    SRD p. 0
+    SRD p. 149
     Generated
     """
 
@@ -3061,7 +3061,7 @@ class Geas(spells.Spell):
 class GentleRepose(spells.Spell):
     """
     Gentle Repose Spell
-    SRD p. 0
+    SRD p. 149-150
     Generated
     """
 
@@ -3084,7 +3084,7 @@ class GentleRepose(spells.Spell):
 class GiantInsect(spells.Spell):
     """
     Giant Insect Spell
-    SRD p. 0
+    SRD p. 150
     Generated
     """
 
@@ -3107,7 +3107,7 @@ class GiantInsect(spells.Spell):
 class Glibness(spells.Spell):
     """
     Glibness Spell
-    SRD p. 0
+    SRD p. 150
     Generated
     """
 
@@ -3130,7 +3130,7 @@ class Glibness(spells.Spell):
 class GlobeOfInvulnerability(spells.Spell):
     """
     Globe of Invulnerability Spell
-    SRD p. 0
+    SRD p. 150
     Generated
     """
 
@@ -3153,7 +3153,7 @@ class GlobeOfInvulnerability(spells.Spell):
 class GlyphOfWarding(spells.Spell):
     """
     Glyph of Warding Spell
-    SRD p. 0
+    SRD p. 150-151
     Generated
     """
 
@@ -3176,7 +3176,7 @@ class GlyphOfWarding(spells.Spell):
 class Goodberry(spells.Spell):
     """
     Goodberry Spell
-    SRD p. 0
+    SRD p. 151
     Generated
     """
 
@@ -3199,7 +3199,7 @@ class Goodberry(spells.Spell):
 class Grease(spells.Spell):
     """
     Grease Spell
-    SRD p. 0
+    SRD p. 151
     Generated
     """
 
@@ -3222,7 +3222,7 @@ class Grease(spells.Spell):
 class GreaterInvisibility(spells.Spell):
     """
     Greater Invisibility Spell
-    SRD p. 0
+    SRD p. 151
     Generated
     """
 
@@ -3245,7 +3245,7 @@ class GreaterInvisibility(spells.Spell):
 class GreaterRestoration(spells.Spell):
     """
     Greater Restoration Spell
-    SRD p. 0
+    SRD p. 151
     Generated
     """
 
@@ -3268,7 +3268,7 @@ class GreaterRestoration(spells.Spell):
 class GuardianOfFaith(spells.Spell):
     """
     Guardian of Faith Spell
-    SRD p. 0
+    SRD p. 151-152
     Generated
     """
 
@@ -3291,7 +3291,7 @@ class GuardianOfFaith(spells.Spell):
 class GuardsAndWards(spells.Spell):
     """
     Guards and Wards Spell
-    SRD p. 0
+    SRD p. 152
     Generated
     """
 
@@ -3314,7 +3314,7 @@ class GuardsAndWards(spells.Spell):
 class Guidance(spells.Spell):
     """
     Guidance Spell
-    SRD p. 0
+    SRD p. 152
     Generated
     """
 
@@ -3337,7 +3337,7 @@ class Guidance(spells.Spell):
 class GuidingBolt(spells.Spell):
     """
     Guiding Bolt Spell
-    SRD p. 0
+    SRD p. 152-153
     Generated
     """
 
@@ -3360,7 +3360,7 @@ class GuidingBolt(spells.Spell):
 class GustOfWind(spells.Spell):
     """
     Gust of Wind Spell
-    SRD p. 0
+    SRD p. 153
     Generated
     """
 
@@ -3383,7 +3383,7 @@ class GustOfWind(spells.Spell):
 class Hallow(spells.Spell):
     """
     Hallow Spell
-    SRD p. 0
+    SRD p. 153
     Generated
     """
 
@@ -3406,7 +3406,7 @@ class Hallow(spells.Spell):
 class HallucinatoryTerrain(spells.Spell):
     """
     Hallucinatory Terrain Spell
-    SRD p. 0
+    SRD p. 153-154
     Generated
     """
 
@@ -3429,7 +3429,7 @@ class HallucinatoryTerrain(spells.Spell):
 class Harm(spells.Spell):
     """
     Harm Spell
-    SRD p. 0
+    SRD p. 154
     Generated
     """
 
@@ -3452,7 +3452,7 @@ class Harm(spells.Spell):
 class Haste(spells.Spell):
     """
     Haste Spell
-    SRD p. 0
+    SRD p. 154
     Generated
     """
 
@@ -3475,7 +3475,7 @@ class Haste(spells.Spell):
 class Heal(spells.Spell):
     """
     Heal Spell
-    SRD p. 0
+    SRD p. 154
     Generated
     """
 
@@ -3498,7 +3498,7 @@ class Heal(spells.Spell):
 class HealingWord(spells.Spell):
     """
     Healing Word Spell
-    SRD p. 0
+    SRD p. 154
     Generated
     """
 
@@ -3521,7 +3521,7 @@ class HealingWord(spells.Spell):
 class HeatMetal(spells.Spell):
     """
     Heat Metal Spell
-    SRD p. 0
+    SRD p. 154-155
     Generated
     """
 
@@ -3544,7 +3544,7 @@ class HeatMetal(spells.Spell):
 class HellishRebuke(spells.Spell):
     """
     Hellish Rebuke Spell
-    SRD p. 0
+    SRD p. 155
     Generated
     """
 
@@ -3567,7 +3567,7 @@ class HellishRebuke(spells.Spell):
 class HeroesFeast(spells.Spell):
     """
     Heroes' Feast Spell
-    SRD p. 0
+    SRD p. 155
     Generated
     """
 
@@ -3590,7 +3590,7 @@ class HeroesFeast(spells.Spell):
 class Heroism(spells.Spell):
     """
     Heroism Spell
-    SRD p. 0
+    SRD p. 155
     Generated
     """
 
@@ -3613,7 +3613,7 @@ class Heroism(spells.Spell):
 class HideousLaughter(spells.Spell):
     """
     Hideous Laughter Spell
-    SRD p. 0
+    SRD p. 155
     Generated
     """
 
@@ -3636,7 +3636,7 @@ class HideousLaughter(spells.Spell):
 class HoldMonster(spells.Spell):
     """
     Hold Monster Spell
-    SRD p. 0
+    SRD p. 155
     Generated
     """
 
@@ -3659,7 +3659,7 @@ class HoldMonster(spells.Spell):
 class HoldPerson(spells.Spell):
     """
     Hold Person Spell
-    SRD p. 0
+    SRD p. 155-156
     Generated
     """
 
@@ -3682,7 +3682,7 @@ class HoldPerson(spells.Spell):
 class HolyAura(spells.Spell):
     """
     Holy Aura Spell
-    SRD p. 0
+    SRD p. 156
     Generated
     """
 
@@ -3705,7 +3705,7 @@ class HolyAura(spells.Spell):
 class HuntersMark(spells.Spell):
     """
     Hunter's Mark Spell
-    SRD p. 0
+    SRD p. 156
     Generated
     """
 
@@ -3728,7 +3728,7 @@ class HuntersMark(spells.Spell):
 class HypnoticPattern(spells.Spell):
     """
     Hypnotic Pattern Spell
-    SRD p. 0
+    SRD p. 156
     Generated
     """
 
@@ -3751,7 +3751,7 @@ class HypnoticPattern(spells.Spell):
 class IceStorm(spells.Spell):
     """
     Ice Storm Spell
-    SRD p. 0
+    SRD p. 156
     Generated
     """
 
@@ -3774,7 +3774,7 @@ class IceStorm(spells.Spell):
 class Identify(spells.Spell):
     """
     Identify Spell
-    SRD p. 0
+    SRD p. 156-157
     Generated
     """
 
@@ -3797,7 +3797,7 @@ class Identify(spells.Spell):
 class IllusoryScript(spells.Spell):
     """
     Illusory Script Spell
-    SRD p. 0
+    SRD p. 157
     Generated
     """
 
@@ -3820,7 +3820,7 @@ class IllusoryScript(spells.Spell):
 class Imprisonment(spells.Spell):
     """
     Imprisonment Spell
-    SRD p. 0
+    SRD p. 157-158
     Generated
     """
 
@@ -3843,7 +3843,7 @@ class Imprisonment(spells.Spell):
 class IncendiaryCloud(spells.Spell):
     """
     Incendiary Cloud Spell
-    SRD p. 0
+    SRD p. 158
     Generated
     """
 
@@ -3866,7 +3866,7 @@ class IncendiaryCloud(spells.Spell):
 class InflictWounds(spells.Spell):
     """
     Inflict Wounds Spell
-    SRD p. 0
+    SRD p. 158
     Generated
     """
 
@@ -3889,7 +3889,7 @@ class InflictWounds(spells.Spell):
 class InsectPlague(spells.Spell):
     """
     Insect Plague Spell
-    SRD p. 0
+    SRD p. 158
     Generated
     """
 
@@ -3912,7 +3912,7 @@ class InsectPlague(spells.Spell):
 class InstantSummons(spells.Spell):
     """
     Instant Summons Spell
-    SRD p. 0
+    SRD p. 158
     Generated
     """
 
@@ -3935,7 +3935,7 @@ class InstantSummons(spells.Spell):
 class Invisibility(spells.Spell):
     """
     Invisibility Spell
-    SRD p. 0
+    SRD p. 158-159
     Generated
     """
 
@@ -3958,7 +3958,7 @@ class Invisibility(spells.Spell):
 class IrresistibleDance(spells.Spell):
     """
     Irresistible Dance Spell
-    SRD p. 0
+    SRD p. 159
     Generated
     """
 
@@ -3981,7 +3981,7 @@ class IrresistibleDance(spells.Spell):
 class Jump(spells.Spell):
     """
     Jump Spell
-    SRD p. 0
+    SRD p. 159
     Generated
     """
 
@@ -4004,7 +4004,7 @@ class Jump(spells.Spell):
 class Knock(spells.Spell):
     """
     Knock Spell
-    SRD p. 0
+    SRD p. 159
     Generated
     """
 
@@ -4027,7 +4027,7 @@ class Knock(spells.Spell):
 class LegendLore(spells.Spell):
     """
     Legend Lore Spell
-    SRD p. 0
+    SRD p. 159
     Generated
     """
 
@@ -4050,7 +4050,7 @@ class LegendLore(spells.Spell):
 class LesserRestoration(spells.Spell):
     """
     Lesser Restoration Spell
-    SRD p. 0
+    SRD p. 159
     Generated
     """
 
@@ -4073,7 +4073,7 @@ class LesserRestoration(spells.Spell):
 class Levitate(spells.Spell):
     """
     Levitate Spell
-    SRD p. 0
+    SRD p. 159-160
     Generated
     """
 
@@ -4096,7 +4096,7 @@ class Levitate(spells.Spell):
 class Light(spells.Spell):
     """
     Light Spell
-    SRD p. 0
+    SRD p. 160
     Generated
     """
 
@@ -4119,7 +4119,7 @@ class Light(spells.Spell):
 class LightningBolt(spells.Spell):
     """
     Lightning Bolt Spell
-    SRD p. 0
+    SRD p. 160
     Generated
     """
 
@@ -4142,7 +4142,7 @@ class LightningBolt(spells.Spell):
 class LocateAnimalsOrPlants(spells.Spell):
     """
     Locate Animals or Plants Spell
-    SRD p. 0
+    SRD p. 160
     Generated
     """
 
@@ -4165,7 +4165,7 @@ class LocateAnimalsOrPlants(spells.Spell):
 class LocateCreature(spells.Spell):
     """
     Locate Creature Spell
-    SRD p. 0
+    SRD p. 160
     Generated
     """
 
@@ -4188,7 +4188,7 @@ class LocateCreature(spells.Spell):
 class LocateObject(spells.Spell):
     """
     Locate Object Spell
-    SRD p. 0
+    SRD p. 160-161
     Generated
     """
 
@@ -4211,7 +4211,7 @@ class LocateObject(spells.Spell):
 class Longstrider(spells.Spell):
     """
     Longstrider Spell
-    SRD p. 0
+    SRD p. 161
     Generated
     """
 
@@ -4234,7 +4234,7 @@ class Longstrider(spells.Spell):
 class MageArmor(spells.Spell):
     """
     Mage Armor Spell
-    SRD p. 0
+    SRD p. 161
     Generated
     """
 
@@ -4257,7 +4257,7 @@ class MageArmor(spells.Spell):
 class MageHand(spells.Spell):
     """
     Mage Hand Spell
-    SRD p. 0
+    SRD p. 161
     Generated
     """
 
@@ -4280,7 +4280,7 @@ class MageHand(spells.Spell):
 class MagicCircle(spells.Spell):
     """
     Magic Circle Spell
-    SRD p. 0
+    SRD p. 161
     Generated
     """
 
@@ -4303,7 +4303,7 @@ class MagicCircle(spells.Spell):
 class MagicJar(spells.Spell):
     """
     Magic Jar Spell
-    SRD p. 0
+    SRD p. 161-162
     Generated
     """
 
@@ -4326,7 +4326,7 @@ class MagicJar(spells.Spell):
 class MagicMissile(spells.Spell):
     """
     Magic Missile Spell
-    SRD p. 0
+    SRD p. 162
     Generated
     """
 
@@ -4349,7 +4349,7 @@ class MagicMissile(spells.Spell):
 class MagicMouth(spells.Spell):
     """
     Magic Mouth Spell
-    SRD p. 0
+    SRD p. 162
     Generated
     """
 
@@ -4372,7 +4372,7 @@ class MagicMouth(spells.Spell):
 class MagicWeapon(spells.Spell):
     """
     Magic Weapon Spell
-    SRD p. 0
+    SRD p. 162-163
     Generated
     """
 
@@ -4395,7 +4395,7 @@ class MagicWeapon(spells.Spell):
 class MagnificentMansion(spells.Spell):
     """
     Magnificent Mansion Spell
-    SRD p. 0
+    SRD p. 163
     Generated
     """
 
@@ -4418,7 +4418,7 @@ class MagnificentMansion(spells.Spell):
 class MajorImage(spells.Spell):
     """
     Major Image Spell
-    SRD p. 0
+    SRD p. 163
     Generated
     """
 
@@ -4441,7 +4441,7 @@ class MajorImage(spells.Spell):
 class MassCureWounds(spells.Spell):
     """
     Mass Cure Wounds Spell
-    SRD p. 0
+    SRD p. 163-164
     Generated
     """
 
@@ -4464,7 +4464,7 @@ class MassCureWounds(spells.Spell):
 class MassHeal(spells.Spell):
     """
     Mass Heal Spell
-    SRD p. 0
+    SRD p. 164
     Generated
     """
 
@@ -4487,7 +4487,7 @@ class MassHeal(spells.Spell):
 class MassHealingWord(spells.Spell):
     """
     Mass Healing Word Spell
-    SRD p. 0
+    SRD p. 164
     Generated
     """
 
@@ -4510,7 +4510,7 @@ class MassHealingWord(spells.Spell):
 class MassSuggestion(spells.Spell):
     """
     Mass Suggestion Spell
-    SRD p. 0
+    SRD p. 164
     Generated
     """
 
@@ -4533,7 +4533,7 @@ class MassSuggestion(spells.Spell):
 class Maze(spells.Spell):
     """
     Maze Spell
-    SRD p. 0
+    SRD p. 164
     Generated
     """
 
@@ -4556,7 +4556,7 @@ class Maze(spells.Spell):
 class MeldIntoStone(spells.Spell):
     """
     Meld into Stone Spell
-    SRD p. 0
+    SRD p. 164-165
     Generated
     """
 
@@ -4579,7 +4579,7 @@ class MeldIntoStone(spells.Spell):
 class Mending(spells.Spell):
     """
     Mending Spell
-    SRD p. 0
+    SRD p. 165
     Generated
     """
 
@@ -4602,7 +4602,7 @@ class Mending(spells.Spell):
 class Message(spells.Spell):
     """
     Message Spell
-    SRD p. 0
+    SRD p. 165
     Generated
     """
 
@@ -4625,7 +4625,7 @@ class Message(spells.Spell):
 class MeteorSwarm(spells.Spell):
     """
     Meteor Swarm Spell
-    SRD p. 0
+    SRD p. 165
     Generated
     """
 
@@ -4648,7 +4648,7 @@ class MeteorSwarm(spells.Spell):
 class MindBlank(spells.Spell):
     """
     Mind Blank Spell
-    SRD p. 0
+    SRD p. 165
     Generated
     """
 
@@ -4671,7 +4671,7 @@ class MindBlank(spells.Spell):
 class MinorIllusion(spells.Spell):
     """
     Minor Illusion Spell
-    SRD p. 0
+    SRD p. 165-166
     Generated
     """
 
@@ -4694,7 +4694,7 @@ class MinorIllusion(spells.Spell):
 class MirageArcane(spells.Spell):
     """
     Mirage Arcane Spell
-    SRD p. 0
+    SRD p. 166
     Generated
     """
 
@@ -4717,7 +4717,7 @@ class MirageArcane(spells.Spell):
 class MirrorImage(spells.Spell):
     """
     Mirror Image Spell
-    SRD p. 0
+    SRD p. 166
     Generated
     """
 
@@ -4740,7 +4740,7 @@ class MirrorImage(spells.Spell):
 class Mislead(spells.Spell):
     """
     Mislead Spell
-    SRD p. 0
+    SRD p. 166
     Generated
     """
 
@@ -4763,7 +4763,7 @@ class Mislead(spells.Spell):
 class MistyStep(spells.Spell):
     """
     Misty Step Spell
-    SRD p. 0
+    SRD p. 166-167
     Generated
     """
 
@@ -4786,7 +4786,7 @@ class MistyStep(spells.Spell):
 class ModifyMemory(spells.Spell):
     """
     Modify Memory Spell
-    SRD p. 0
+    SRD p. 167
     Generated
     """
 
@@ -4809,7 +4809,7 @@ class ModifyMemory(spells.Spell):
 class Moonbeam(spells.Spell):
     """
     Moonbeam Spell
-    SRD p. 0
+    SRD p. 167
     Generated
     """
 
@@ -4832,7 +4832,7 @@ class Moonbeam(spells.Spell):
 class MoveEarth(spells.Spell):
     """
     Move Earth Spell
-    SRD p. 0
+    SRD p. 167-168
     Generated
     """
 
@@ -4855,7 +4855,7 @@ class MoveEarth(spells.Spell):
 class Nondetection(spells.Spell):
     """
     Nondetection Spell
-    SRD p. 0
+    SRD p. 168
     Generated
     """
 
@@ -4878,7 +4878,7 @@ class Nondetection(spells.Spell):
 class PassWithoutTrace(spells.Spell):
     """
     Pass without Trace Spell
-    SRD p. 0
+    SRD p. 168
     Generated
     """
 
@@ -4901,7 +4901,7 @@ class PassWithoutTrace(spells.Spell):
 class Passwall(spells.Spell):
     """
     Passwall Spell
-    SRD p. 0
+    SRD p. 168
     Generated
     """
 
@@ -4924,7 +4924,7 @@ class Passwall(spells.Spell):
 class PhantasmalKiller(spells.Spell):
     """
     Phantasmal Killer Spell
-    SRD p. 0
+    SRD p. 168
     Generated
     """
 
@@ -4947,7 +4947,7 @@ class PhantasmalKiller(spells.Spell):
 class PhantomSteed(spells.Spell):
     """
     Phantom Steed Spell
-    SRD p. 0
+    SRD p. 168-169
     Generated
     """
 
@@ -4970,7 +4970,7 @@ class PhantomSteed(spells.Spell):
 class PlanarAlly(spells.Spell):
     """
     Planar Ally Spell
-    SRD p. 0
+    SRD p. 169
     Generated
     """
 
@@ -4993,7 +4993,7 @@ class PlanarAlly(spells.Spell):
 class PlanarBinding(spells.Spell):
     """
     Planar Binding Spell
-    SRD p. 0
+    SRD p. 169
     Generated
     """
 
@@ -5016,7 +5016,7 @@ class PlanarBinding(spells.Spell):
 class PlaneShift(spells.Spell):
     """
     Plane Shift Spell
-    SRD p. 0
+    SRD p. 169-170
     Generated
     """
 
@@ -5039,7 +5039,7 @@ class PlaneShift(spells.Spell):
 class PlantGrowth(spells.Spell):
     """
     Plant Growth Spell
-    SRD p. 0
+    SRD p. 170
     Generated
     """
 
@@ -5062,7 +5062,7 @@ class PlantGrowth(spells.Spell):
 class PoisonSpray(spells.Spell):
     """
     Poison Spray Spell
-    SRD p. 0
+    SRD p. 170
     Generated
     """
 
@@ -5085,7 +5085,7 @@ class PoisonSpray(spells.Spell):
 class Polymorph(spells.Spell):
     """
     Polymorph Spell
-    SRD p. 0
+    SRD p. 170-171
     Generated
     """
 
@@ -5108,7 +5108,7 @@ class Polymorph(spells.Spell):
 class PowerWordKill(spells.Spell):
     """
     Power Word Kill Spell
-    SRD p. 0
+    SRD p. 171
     Generated
     """
 
@@ -5131,7 +5131,7 @@ class PowerWordKill(spells.Spell):
 class PowerWordStun(spells.Spell):
     """
     Power Word Stun Spell
-    SRD p. 0
+    SRD p. 171
     Generated
     """
 
@@ -5154,7 +5154,7 @@ class PowerWordStun(spells.Spell):
 class PrayerOfHealing(spells.Spell):
     """
     Prayer of Healing Spell
-    SRD p. 0
+    SRD p. 171
     Generated
     """
 
@@ -5177,7 +5177,7 @@ class PrayerOfHealing(spells.Spell):
 class Prestidigitation(spells.Spell):
     """
     Prestidigitation Spell
-    SRD p. 0
+    SRD p. 171
     Generated
     """
 
@@ -5200,7 +5200,7 @@ class Prestidigitation(spells.Spell):
 class PrismaticSpray(spells.Spell):
     """
     Prismatic Spray Spell
-    SRD p. 0
+    SRD p. 171-172
     Generated
     """
 
@@ -5223,7 +5223,7 @@ class PrismaticSpray(spells.Spell):
 class PrismaticWall(spells.Spell):
     """
     Prismatic Wall Spell
-    SRD p. 0
+    SRD p. 172
     Generated
     """
 
@@ -5246,7 +5246,7 @@ class PrismaticWall(spells.Spell):
 class PrivateSanctum(spells.Spell):
     """
     Private Sanctum Spell
-    SRD p. 0
+    SRD p. 172-173
     Generated
     """
 
@@ -5269,7 +5269,7 @@ class PrivateSanctum(spells.Spell):
 class ProduceFlame(spells.Spell):
     """
     Produce Flame Spell
-    SRD p. 0
+    SRD p. 173
     Generated
     """
 
@@ -5292,7 +5292,7 @@ class ProduceFlame(spells.Spell):
 class ProgrammedIllusion(spells.Spell):
     """
     Programmed Illusion Spell
-    SRD p. 0
+    SRD p. 173
     Generated
     """
 
@@ -5315,7 +5315,7 @@ class ProgrammedIllusion(spells.Spell):
 class ProjectImage(spells.Spell):
     """
     Project Image Spell
-    SRD p. 0
+    SRD p. 173-174
     Generated
     """
 
@@ -5338,7 +5338,7 @@ class ProjectImage(spells.Spell):
 class ProtectionFromEnergy(spells.Spell):
     """
     Protection from Energy Spell
-    SRD p. 0
+    SRD p. 174
     Generated
     """
 
@@ -5361,7 +5361,7 @@ class ProtectionFromEnergy(spells.Spell):
 class ProtectionFromEvilAndGood(spells.Spell):
     """
     Protection from Evil and Good Spell
-    SRD p. 0
+    SRD p. 174
     Generated
     """
 
@@ -5384,7 +5384,7 @@ class ProtectionFromEvilAndGood(spells.Spell):
 class ProtectionFromPoison(spells.Spell):
     """
     Protection from Poison Spell
-    SRD p. 0
+    SRD p. 174
     Generated
     """
 
@@ -5407,7 +5407,7 @@ class ProtectionFromPoison(spells.Spell):
 class PurifyFoodAndDrink(spells.Spell):
     """
     Purify Food and Drink Spell
-    SRD p. 0
+    SRD p. 174
     Generated
     """
 
@@ -5430,7 +5430,7 @@ class PurifyFoodAndDrink(spells.Spell):
 class RaiseDead(spells.Spell):
     """
     Raise Dead Spell
-    SRD p. 0
+    SRD p. 174-175
     Generated
     """
 
@@ -5453,7 +5453,7 @@ class RaiseDead(spells.Spell):
 class RayOfEnfeeblement(spells.Spell):
     """
     Ray of Enfeeblement Spell
-    SRD p. 0
+    SRD p. 175
     Generated
     """
 
@@ -5476,7 +5476,7 @@ class RayOfEnfeeblement(spells.Spell):
 class RayOfFrost(spells.Spell):
     """
     Ray of Frost Spell
-    SRD p. 0
+    SRD p. 175
     Generated
     """
 
@@ -5499,7 +5499,7 @@ class RayOfFrost(spells.Spell):
 class Regenerate(spells.Spell):
     """
     Regenerate Spell
-    SRD p. 0
+    SRD p. 175
     Generated
     """
 
@@ -5522,7 +5522,7 @@ class Regenerate(spells.Spell):
 class Reincarnate(spells.Spell):
     """
     Reincarnate Spell
-    SRD p. 0
+    SRD p. 175
     Generated
     """
 
@@ -5545,7 +5545,7 @@ class Reincarnate(spells.Spell):
 class RemoveCurse(spells.Spell):
     """
     Remove Curse Spell
-    SRD p. 0
+    SRD p. 175-176
     Generated
     """
 
@@ -5568,7 +5568,7 @@ class RemoveCurse(spells.Spell):
 class ResilientSphere(spells.Spell):
     """
     Resilient Sphere Spell
-    SRD p. 0
+    SRD p. 176
     Generated
     """
 
@@ -5591,7 +5591,7 @@ class ResilientSphere(spells.Spell):
 class Resistance(spells.Spell):
     """
     Resistance Spell
-    SRD p. 0
+    SRD p. 176
     Generated
     """
 
@@ -5614,7 +5614,7 @@ class Resistance(spells.Spell):
 class Resurrection(spells.Spell):
     """
     Resurrection Spell
-    SRD p. 0
+    SRD p. 176
     Generated
     """
 
@@ -5637,7 +5637,7 @@ class Resurrection(spells.Spell):
 class ReverseGravity(spells.Spell):
     """
     Reverse Gravity Spell
-    SRD p. 0
+    SRD p. 176
     Generated
     """
 
@@ -5660,7 +5660,7 @@ class ReverseGravity(spells.Spell):
 class Revivify(spells.Spell):
     """
     Revivify Spell
-    SRD p. 0
+    SRD p. 176-177
     Generated
     """
 
@@ -5683,7 +5683,7 @@ class Revivify(spells.Spell):
 class RopeTrick(spells.Spell):
     """
     Rope Trick Spell
-    SRD p. 0
+    SRD p. 177
     Generated
     """
 
@@ -5706,7 +5706,7 @@ class RopeTrick(spells.Spell):
 class SacredFlame(spells.Spell):
     """
     Sacred Flame Spell
-    SRD p. 0
+    SRD p. 177
     Generated
     """
 
@@ -5729,7 +5729,7 @@ class SacredFlame(spells.Spell):
 class Sanctuary(spells.Spell):
     """
     Sanctuary Spell
-    SRD p. 0
+    SRD p. 177
     Generated
     """
 
@@ -5752,7 +5752,7 @@ class Sanctuary(spells.Spell):
 class ScorchingRay(spells.Spell):
     """
     Scorching Ray Spell
-    SRD p. 0
+    SRD p. 177
     Generated
     """
 
@@ -5775,7 +5775,7 @@ class ScorchingRay(spells.Spell):
 class Scrying(spells.Spell):
     """
     Scrying Spell
-    SRD p. 0
+    SRD p. 177-178
     Generated
     """
 
@@ -5798,7 +5798,7 @@ class Scrying(spells.Spell):
 class SecretChest(spells.Spell):
     """
     Secret Chest Spell
-    SRD p. 0
+    SRD p. 178
     Generated
     """
 
@@ -5821,7 +5821,7 @@ class SecretChest(spells.Spell):
 class SeeInvisibility(spells.Spell):
     """
     See Invisibility Spell
-    SRD p. 0
+    SRD p. 178
     Generated
     """
 
@@ -5844,7 +5844,7 @@ class SeeInvisibility(spells.Spell):
 class Seeming(spells.Spell):
     """
     Seeming Spell
-    SRD p. 0
+    SRD p. 178
     Generated
     """
 
@@ -5867,7 +5867,7 @@ class Seeming(spells.Spell):
 class Sending(spells.Spell):
     """
     Sending Spell
-    SRD p. 0
+    SRD p. 178-179
     Generated
     """
 
@@ -5890,7 +5890,7 @@ class Sending(spells.Spell):
 class Sequester(spells.Spell):
     """
     Sequester Spell
-    SRD p. 0
+    SRD p. 179
     Generated
     """
 
@@ -5913,7 +5913,7 @@ class Sequester(spells.Spell):
 class Shapechange(spells.Spell):
     """
     Shapechange Spell
-    SRD p. 0
+    SRD p. 179
     Generated
     """
 
@@ -5936,7 +5936,7 @@ class Shapechange(spells.Spell):
 class Shatter(spells.Spell):
     """
     Shatter Spell
-    SRD p. 0
+    SRD p. 179-180
     Generated
     """
 
@@ -5959,7 +5959,7 @@ class Shatter(spells.Spell):
 class Shield(spells.Spell):
     """
     Shield Spell
-    SRD p. 0
+    SRD p. 180
     Generated
     """
 
@@ -5982,7 +5982,7 @@ class Shield(spells.Spell):
 class ShieldOfFaith(spells.Spell):
     """
     Shield of Faith Spell
-    SRD p. 0
+    SRD p. 180
     Generated
     """
 
@@ -6005,7 +6005,7 @@ class ShieldOfFaith(spells.Spell):
 class Shillelagh(spells.Spell):
     """
     Shillelagh Spell
-    SRD p. 0
+    SRD p. 180
     Generated
     """
 
@@ -6028,7 +6028,7 @@ class Shillelagh(spells.Spell):
 class ShockingGrasp(spells.Spell):
     """
     Shocking Grasp Spell
-    SRD p. 0
+    SRD p. 180
     Generated
     """
 
@@ -6051,7 +6051,7 @@ class ShockingGrasp(spells.Spell):
 class Silence(spells.Spell):
     """
     Silence Spell
-    SRD p. 0
+    SRD p. 180
     Generated
     """
 
@@ -6074,7 +6074,7 @@ class Silence(spells.Spell):
 class SilentImage(spells.Spell):
     """
     Silent Image Spell
-    SRD p. 0
+    SRD p. 180-181
     Generated
     """
 
@@ -6097,7 +6097,7 @@ class SilentImage(spells.Spell):
 class Simulacrum(spells.Spell):
     """
     Simulacrum Spell
-    SRD p. 0
+    SRD p. 181
     Generated
     """
 
@@ -6120,7 +6120,7 @@ class Simulacrum(spells.Spell):
 class Sleep(spells.Spell):
     """
     Sleep Spell
-    SRD p. 0
+    SRD p. 181
     Generated
     """
 
@@ -6143,7 +6143,7 @@ class Sleep(spells.Spell):
 class SleetStorm(spells.Spell):
     """
     Sleet Storm Spell
-    SRD p. 0
+    SRD p. 181
     Generated
     """
 
@@ -6166,7 +6166,7 @@ class SleetStorm(spells.Spell):
 class Slow(spells.Spell):
     """
     Slow Spell
-    SRD p. 0
+    SRD p. 181-182
     Generated
     """
 
@@ -6189,7 +6189,7 @@ class Slow(spells.Spell):
 class SpareTheDying(spells.Spell):
     """
     Spare the Dying Spell
-    SRD p. 0
+    SRD p. 182
     Generated
     """
 
@@ -6212,7 +6212,7 @@ class SpareTheDying(spells.Spell):
 class SpeakWithAnimals(spells.Spell):
     """
     Speak with Animals Spell
-    SRD p. 0
+    SRD p. 182
     Generated
     """
 
@@ -6235,7 +6235,7 @@ class SpeakWithAnimals(spells.Spell):
 class SpeakWithDead(spells.Spell):
     """
     Speak with Dead Spell
-    SRD p. 0
+    SRD p. 182
     Generated
     """
 
@@ -6258,7 +6258,7 @@ class SpeakWithDead(spells.Spell):
 class SpeakWithPlants(spells.Spell):
     """
     Speak with Plants Spell
-    SRD p. 0
+    SRD p. 182-183
     Generated
     """
 
@@ -6281,7 +6281,7 @@ class SpeakWithPlants(spells.Spell):
 class SpiderClimb(spells.Spell):
     """
     Spider Climb Spell
-    SRD p. 0
+    SRD p. 183
     Generated
     """
 
@@ -6304,7 +6304,7 @@ class SpiderClimb(spells.Spell):
 class SpikeGrowth(spells.Spell):
     """
     Spike Growth Spell
-    SRD p. 0
+    SRD p. 183
     Generated
     """
 
@@ -6327,7 +6327,7 @@ class SpikeGrowth(spells.Spell):
 class SpiritGuardians(spells.Spell):
     """
     Spirit Guardians Spell
-    SRD p. 0
+    SRD p. 183
     Generated
     """
 
@@ -6350,7 +6350,7 @@ class SpiritGuardians(spells.Spell):
 class SpiritualWeapon(spells.Spell):
     """
     Spiritual Weapon Spell
-    SRD p. 0
+    SRD p. 183
     Generated
     """
 
@@ -6373,7 +6373,7 @@ class SpiritualWeapon(spells.Spell):
 class StinkingCloud(spells.Spell):
     """
     Stinking Cloud Spell
-    SRD p. 0
+    SRD p. 183-184
     Generated
     """
 
@@ -6396,7 +6396,7 @@ class StinkingCloud(spells.Spell):
 class StoneShape(spells.Spell):
     """
     Stone Shape Spell
-    SRD p. 0
+    SRD p. 184
     Generated
     """
 
@@ -6419,7 +6419,7 @@ class StoneShape(spells.Spell):
 class Stoneskin(spells.Spell):
     """
     Stoneskin Spell
-    SRD p. 0
+    SRD p. 184
     Generated
     """
 
@@ -6442,7 +6442,7 @@ class Stoneskin(spells.Spell):
 class StormOfVengeance(spells.Spell):
     """
     Storm of Vengeance Spell
-    SRD p. 0
+    SRD p. 184
     Generated
     """
 
@@ -6465,7 +6465,7 @@ class StormOfVengeance(spells.Spell):
 class Suggestion(spells.Spell):
     """
     Suggestion Spell
-    SRD p. 0
+    SRD p. 184-185
     Generated
     """
 
@@ -6488,7 +6488,7 @@ class Suggestion(spells.Spell):
 class Sunbeam(spells.Spell):
     """
     Sunbeam Spell
-    SRD p. 0
+    SRD p. 185
     Generated
     """
 
@@ -6511,7 +6511,7 @@ class Sunbeam(spells.Spell):
 class Sunburst(spells.Spell):
     """
     Sunburst Spell
-    SRD p. 0
+    SRD p. 185
     Generated
     """
 
@@ -6534,7 +6534,7 @@ class Sunburst(spells.Spell):
 class Symbol(spells.Spell):
     """
     Symbol Spell
-    SRD p. 0
+    SRD p. 185-186
     Generated
     """
 
@@ -6557,7 +6557,7 @@ class Symbol(spells.Spell):
 class Telekinesis(spells.Spell):
     """
     Telekinesis Spell
-    SRD p. 0
+    SRD p. 186
     Generated
     """
 
@@ -6580,7 +6580,7 @@ class Telekinesis(spells.Spell):
 class TelepathicBond(spells.Spell):
     """
     Telepathic Bond Spell
-    SRD p. 0
+    SRD p. 186
     Generated
     """
 
@@ -6603,7 +6603,7 @@ class TelepathicBond(spells.Spell):
 class Teleport(spells.Spell):
     """
     Teleport Spell
-    SRD p. 0
+    SRD p. 186-187
     Generated
     """
 
@@ -6626,7 +6626,7 @@ class Teleport(spells.Spell):
 class TeleportationCircle(spells.Spell):
     """
     Teleportation Circle Spell
-    SRD p. 0
+    SRD p. 187-188
     Generated
     """
 
@@ -6649,7 +6649,7 @@ class TeleportationCircle(spells.Spell):
 class Thaumaturgy(spells.Spell):
     """
     Thaumaturgy Spell
-    SRD p. 0
+    SRD p. 188
     Generated
     """
 
@@ -6672,7 +6672,7 @@ class Thaumaturgy(spells.Spell):
 class Thunderwave(spells.Spell):
     """
     Thunderwave Spell
-    SRD p. 0
+    SRD p. 188
     Generated
     """
 
@@ -6695,7 +6695,7 @@ class Thunderwave(spells.Spell):
 class TimeStop(spells.Spell):
     """
     Time Stop Spell
-    SRD p. 0
+    SRD p. 188
     Generated
     """
 
@@ -6718,7 +6718,7 @@ class TimeStop(spells.Spell):
 class TinyHut(spells.Spell):
     """
     Tiny Hut Spell
-    SRD p. 0
+    SRD p. 188
     Generated
     """
 
@@ -6741,7 +6741,7 @@ class TinyHut(spells.Spell):
 class Tongues(spells.Spell):
     """
     Tongues Spell
-    SRD p. 0
+    SRD p. 188-189
     Generated
     """
 
@@ -6764,7 +6764,7 @@ class Tongues(spells.Spell):
 class TransportViaPlants(spells.Spell):
     """
     Transport via Plants Spell
-    SRD p. 0
+    SRD p. 189
     Generated
     """
 
@@ -6787,7 +6787,7 @@ class TransportViaPlants(spells.Spell):
 class TreeStride(spells.Spell):
     """
     Tree Stride Spell
-    SRD p. 0
+    SRD p. 189
     Generated
     """
 
@@ -6810,7 +6810,7 @@ class TreeStride(spells.Spell):
 class TruePolymorph(spells.Spell):
     """
     True Polymorph Spell
-    SRD p. 0
+    SRD p. 189-190
     Generated
     """
 
@@ -6833,7 +6833,7 @@ class TruePolymorph(spells.Spell):
 class TrueResurrection(spells.Spell):
     """
     True Resurrection Spell
-    SRD p. 0
+    SRD p. 190
     Generated
     """
 
@@ -6856,7 +6856,7 @@ class TrueResurrection(spells.Spell):
 class TrueSeeing(spells.Spell):
     """
     True Seeing Spell
-    SRD p. 0
+    SRD p. 190
     Generated
     """
 
@@ -6879,7 +6879,7 @@ class TrueSeeing(spells.Spell):
 class TrueStrike(spells.Spell):
     """
     True Strike Spell
-    SRD p. 0
+    SRD p. 190
     Generated
     """
 
@@ -6902,7 +6902,7 @@ class TrueStrike(spells.Spell):
 class UnseenServant(spells.Spell):
     """
     Unseen Servant Spell
-    SRD p. 0
+    SRD p. 190
     Generated
     """
 
@@ -6925,7 +6925,7 @@ class UnseenServant(spells.Spell):
 class VampiricTouch(spells.Spell):
     """
     Vampiric Touch Spell
-    SRD p. 0
+    SRD p. 190
     Generated
     """
 
@@ -6948,7 +6948,7 @@ class VampiricTouch(spells.Spell):
 class ViciousMockery(spells.Spell):
     """
     Vicious Mockery Spell
-    SRD p. 0
+    SRD p. 190-191
     Generated
     """
 
@@ -6971,7 +6971,7 @@ class ViciousMockery(spells.Spell):
 class WallOfFire(spells.Spell):
     """
     Wall of Fire Spell
-    SRD p. 0
+    SRD p. 191
     Generated
     """
 
@@ -6994,7 +6994,7 @@ class WallOfFire(spells.Spell):
 class WallOfForce(spells.Spell):
     """
     Wall of Force Spell
-    SRD p. 0
+    SRD p. 191
     Generated
     """
 
@@ -7017,7 +7017,7 @@ class WallOfForce(spells.Spell):
 class WallOfIce(spells.Spell):
     """
     Wall of Ice Spell
-    SRD p. 0
+    SRD p. 191
     Generated
     """
 
@@ -7040,7 +7040,7 @@ class WallOfIce(spells.Spell):
 class WallOfStone(spells.Spell):
     """
     Wall of Stone Spell
-    SRD p. 0
+    SRD p. 191-192
     Generated
     """
 
@@ -7063,7 +7063,7 @@ class WallOfStone(spells.Spell):
 class WallOfThorns(spells.Spell):
     """
     Wall of Thorns Spell
-    SRD p. 0
+    SRD p. 192
     Generated
     """
 
@@ -7086,7 +7086,7 @@ class WallOfThorns(spells.Spell):
 class WardingBond(spells.Spell):
     """
     Warding Bond Spell
-    SRD p. 0
+    SRD p. 192
     Generated
     """
 
@@ -7109,7 +7109,7 @@ class WardingBond(spells.Spell):
 class WaterBreathing(spells.Spell):
     """
     Water Breathing Spell
-    SRD p. 0
+    SRD p. 192
     Generated
     """
 
@@ -7132,7 +7132,7 @@ class WaterBreathing(spells.Spell):
 class WaterWalk(spells.Spell):
     """
     Water Walk Spell
-    SRD p. 0
+    SRD p. 192-193
     Generated
     """
 
@@ -7155,7 +7155,7 @@ class WaterWalk(spells.Spell):
 class Web(spells.Spell):
     """
     Web Spell
-    SRD p. 0
+    SRD p. 193
     Generated
     """
 
@@ -7178,7 +7178,7 @@ class Web(spells.Spell):
 class Weird(spells.Spell):
     """
     Weird Spell
-    SRD p. 0
+    SRD p. 193
     Generated
     """
 
@@ -7201,7 +7201,7 @@ class Weird(spells.Spell):
 class WindWalk(spells.Spell):
     """
     Wind Walk Spell
-    SRD p. 0
+    SRD p. 193
     Generated
     """
 
@@ -7224,7 +7224,7 @@ class WindWalk(spells.Spell):
 class WindWall(spells.Spell):
     """
     Wind Wall Spell
-    SRD p. 0
+    SRD p. 193-194
     Generated
     """
 
@@ -7247,7 +7247,7 @@ class WindWall(spells.Spell):
 class Wish(spells.Spell):
     """
     Wish Spell
-    SRD p. 0
+    SRD p. 194
     Generated
     """
 
@@ -7270,7 +7270,7 @@ class Wish(spells.Spell):
 class WordOfRecall(spells.Spell):
     """
     Word of Recall Spell
-    SRD p. 0
+    SRD p. 194
     Generated
     """
 
@@ -7293,7 +7293,7 @@ class WordOfRecall(spells.Spell):
 class ZoneOfTruth(spells.Spell):
     """
     Zone of Truth Spell
-    SRD p. 0
+    SRD p. 194-195
     Generated
     """
 

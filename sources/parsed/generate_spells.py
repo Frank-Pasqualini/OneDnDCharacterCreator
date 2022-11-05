@@ -45,6 +45,7 @@ class {class_name}(spells.Spell):
 
 
 def class_name(name: str) -> str:
+    name = name.replace('/', ' ')
     for x in "/\\'":
         name = name.replace(x, '')
     name = name.title()
@@ -55,8 +56,15 @@ def class_name(name: str) -> str:
 def generate_spell(spell_json) -> str:
     if 'description' not in spell_json:
         return None
+
+    start, end = spell_json['pages']
+
+    if start == end:
+        pages = str(start)
+    else:
+        pages = str(start) + '-' + str(end)
     return spell_template.format(class_name=class_name(spell_json['name']),
-                                 pages=0,
+                                 pages=pages,
                                  concentration='oncentration' in spell_json['duration'],
                                  name=spell_json['name'],
                                  spells_type=spell_json['spell_list'].upper(),

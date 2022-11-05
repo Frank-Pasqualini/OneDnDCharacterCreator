@@ -174,7 +174,7 @@ def nudge_newlines(text: str) -> str:
     return my_text
 
 
-def split_spell_entry(text: str):
+def split_spell_entry(text: str, pages: tuple[int, int]):
     text = text.split('\n')
     name = text[0]
     level, school = get_level_school(text[1])
@@ -197,7 +197,8 @@ def split_spell_entry(text: str):
         'duration': duration,
         'concentration': 'oncentration' in duration,
         'description': description,
-        'at_higher_levels': at_higher_levels
+        'at_higher_levels': at_higher_levels,
+        'pages': pages
     }
     return ret
 
@@ -206,7 +207,7 @@ def parse_clean_spell_entries(cleaned: list[tuple]):
     ret = []
     for pages, spell_text in cleaned:
         x = nudge_newlines(spell_text)
-        x = split_spell_entry(x)
+        x = split_spell_entry(x, pages)
         ret.append(x)
     return ret
 
