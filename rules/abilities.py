@@ -70,9 +70,9 @@ class Abilities:
         return math.floor((self._charisma - 10) / 2)
 
     def __add__(self, other: Abilities) -> Abilities:
-        return Abilities(strength=self._strength + other.get_strength(),
-                         dexterity=self._dexterity + other.get_dexterity(),
-                         constitution=self._constitution + other.get_constitution(),
-                         intelligence=self._intelligence + other.get_intelligence(),
-                         wisdom=self._wisdom + other.get_wisdom(),
-                         charisma=self._charisma + other.get_charisma())
+        return Abilities(strength=min(self._strength + other.get_strength(), 20),
+                         dexterity=min(self._dexterity + other.get_dexterity(), 20),
+                         constitution=min(self._constitution + other.get_constitution(), 20),
+                         intelligence=min(self._intelligence + other.get_intelligence(), 20),
+                         wisdom=min(self._wisdom + other.get_wisdom(), 20),
+                         charisma=min(self._charisma + other.get_charisma(), 20))
