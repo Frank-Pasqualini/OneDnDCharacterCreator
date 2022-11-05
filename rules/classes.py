@@ -2,6 +2,7 @@
 A specialization a character can have.
 """
 import logging
+import math
 from abc import ABC, abstractmethod
 
 from rules import bonuses, feats, spells
@@ -23,7 +24,6 @@ class CharacterClass(ABC):
     _bonuses: bonuses.Bonuses
     _level: int
     _rolled_hit_dice: list[int]
-    _known_spells: list[spells.Spell]
     _spellcasting_ability: AbilityNames | None
 
     def __init__(self,
@@ -47,7 +47,6 @@ class CharacterClass(ABC):
 
         self._level = 1
         self._rolled_hit_dice = [hit_die]
-        self._known_spells = []
 
     @abstractmethod
     def _level_up_2(self, **kwargs):
@@ -140,8 +139,9 @@ class CharacterClass(ABC):
     def get_hit_die(self) -> int:
         return self._hit_die
 
-    def get_known_spells(self) -> list[spells.Spell]:
-        return self._known_spells
+    @abstractmethod
+    def get_known_spells(self, content: dict[str, dict[str, any]]) -> list[spells.Spell]:
+        pass
 
     def get_level(self) -> int:
         return self._level
@@ -210,7 +210,6 @@ class Bard(CharacterClass, ABC):
     """
 
     def __init__(self,
-                 content: dict[str, dict[str, any]],
                  name: str,
                  skill1: Skills,
                  skill2: Skills,
@@ -289,16 +288,6 @@ class Bard(CharacterClass, ABC):
                          ),
                          spellcasting_ability=AbilityNames.CHARISMA)
 
-        self._known_spells = [spell() for spell in content["Spells"].values() if
-                              spell().get_level() in [0, 1] and
-                              SpellLists.ARCANE in spell().get_spell_lists() and
-                              spell().get_school() in [
-                                  SpellSchools.DIVINATION,
-                                  SpellSchools.ENCHANTMENT,
-                                  SpellSchools.ILLUSION,
-                                  SpellSchools.TRANSMUTATION]
-                              ]
-
     def _level_up_2(self,
                     content: dict[str, dict[str, any]],
                     expertise1: Skills,
@@ -316,14 +305,17 @@ class Bard(CharacterClass, ABC):
                                                      "repertoire, as shown on the Songs of Restoration Repertoire "
                                                      "table. You always have that Spell prepared, and it doesn't "
                                                      "count against the number of Spells you can prepare.",
-                                         feat_spells=[content["Spells"]["Healing Word"](),
-                                                      content["Spells"]["Lesser Restoration"](
-                                         ),
+                                         feat_spells=[
+                                             content["Spells"]["Healing Word"](),
+                                             content["Spells"]["Lesser Restoration"](
+                                             ),
                                              content["Spells"]["Mass Healing Word"](
-                                         ),
+                                             ),
                                              content["Spells"]["Freedom of Movement"](
-                                         ),
-                                             content["Spells"]["Greater Restoration"]()]))
+                                             ),
+                                             content["Spells"]["Greater Restoration"](
+                                             )
+                                         ]))
 
     def _level_up_4(self, feat: feats.Feat):
         if feat.get_level() > 4:
@@ -331,7 +323,7 @@ class Bard(CharacterClass, ABC):
 
         self._features.append(feat)
 
-    def _level_up_5(self, content: dict[str, dict[str, any]]):
+    def _level_up_5(self):
         self._features.append(feats.Feat(name="Jack of All Trades",
                                          description="You can add half your Proficiency Bonus (round down) to any "
                                                      "Ability Check you make that uses a Skill Proficiency you lack "
@@ -362,32 +354,13 @@ class Bard(CharacterClass, ABC):
                                              }),
                                          visible=False))
 
-        self._known_spells = [spell() for spell in content["Spells"].values() if
-                              spell().get_level() in [0, 1, 2, 3] and
-                              SpellLists.ARCANE in spell().get_spell_lists() and
-                              spell().get_school() in [
-                                  SpellSchools.DIVINATION,
-                                  SpellSchools.ENCHANTMENT,
-                                  SpellSchools.ILLUSION,
-                                  SpellSchools.TRANSMUTATION]
-                              ]
-
-    def _level_up_7(self, content: dict[str, dict[str, any]]):
+    def _level_up_7(self):
         self._features.append(feats.Feat(
             name="Font of Bardic Inspiration",
             description="You now regain all your expended uses of Bardic Inspiration when you finish a Short Rest or "
                         "a Long Rest.\n"
                         "In addition, if a creature rolls your Bardic Inspiration die and gets a 1 (after any rerolls "
                         "you might have), that use of your Bardic Inspiration isn't expended."))
-        self._known_spells = [spell() for spell in content["Spells"].values() if
-                              spell().get_level() in [0, 1, 2, 3, 4] and
-                              SpellLists.ARCANE in spell().get_spell_lists() and
-                              spell().get_school() in [
-                                  SpellSchools.DIVINATION,
-                                  SpellSchools.ENCHANTMENT,
-                                  SpellSchools.ILLUSION,
-                                  SpellSchools.TRANSMUTATION]
-                              ]
 
     def _level_up_8(self, feat: feats.Feat):
         if feat.get_level() > 8:
@@ -395,7 +368,7 @@ class Bard(CharacterClass, ABC):
 
         self._features.append(feat)
 
-    def _level_up_9(self, content: dict[str, dict[str, any]], expertise1: Skills, expertise2: Skills):
+    def _level_up_9(self, expertise1: Skills, expertise2: Skills):
         if expertise1 == expertise2:
             raise Exception("Expertise skills must be unique")
 
@@ -405,17 +378,8 @@ class Bard(CharacterClass, ABC):
             feat_bonuses=bonuses.Bonuses(skills={expertise1: ProficiencyLevels.EXPERT,
                                                  expertise2: ProficiencyLevels.EXPERT}),
             visible=False))
-        self._known_spells = [spell() for spell in content["Spells"].values() if
-                              spell().get_level() in [0, 1, 2, 3, 4, 5] and
-                              SpellLists.ARCANE in spell().get_spell_lists() and
-                              spell().get_school() in [
-                                  SpellSchools.DIVINATION,
-                                  SpellSchools.ENCHANTMENT,
-                                  SpellSchools.ILLUSION,
-                                  SpellSchools.TRANSMUTATION]
-                              ]
 
-    def _level_up_11(self, content: dict[str, dict[str, any]], spell_list: SpellLists):
+    def _level_up_11(self, spell_list: SpellLists):
         self._features.append(feats.Feat(name="Magical Secrets",
                                          description="You have collected magical knowledge from a wide spectrum of "
                                                      "disciplines. Whenever you prepare Spells for this Class, "
@@ -423,34 +387,16 @@ class Bard(CharacterClass, ABC):
                                                      "and from any School of Magic. The prepared Spells otherwise "
                                                      "follow the rules of your Bard Spellcasting feature."))  # TODO
 
-        self._known_spells = [spell() for spell in content["Spells"].values() if
-                              spell().get_level() in [0, 1, 2, 3, 4, 5, 6] and
-                              SpellLists.ARCANE in spell().get_spell_lists() and
-                              spell().get_school() in [
-                                  SpellSchools.DIVINATION,
-                                  SpellSchools.ENCHANTMENT,
-                                  SpellSchools.ILLUSION,
-                                  SpellSchools.TRANSMUTATION]
-                              ]
-
     def _level_up_12(self, feat: feats.Feat):
         if feat.get_level() > 12:
             raise Exception("Invalid feat level. Must be 12 or lower")
 
         self._features.append(feat)
 
-    def _level_up_13(self, content: dict[str, dict[str, any]]):
-        self._known_spells = [spell() for spell in content["Spells"].values() if
-                              spell().get_level() in [0, 1, 2, 3, 4, 5, 6, 7] and
-                              SpellLists.ARCANE in spell().get_spell_lists() and
-                              spell().get_school() in [
-                                  SpellSchools.DIVINATION,
-                                  SpellSchools.ENCHANTMENT,
-                                  SpellSchools.ILLUSION,
-                                  SpellSchools.TRANSMUTATION]
-                              ]
+    def _level_up_13(self):
+        pass
 
-    def _level_up_15(self, content: dict[str, dict[str, any]], spell_list: SpellLists):
+    def _level_up_15(self, spell_list: SpellLists):
         self._features.append(feats.Feat(name="Magical Secrets",
                                          description="Your understanding of magic has grown even broader. Whenever "
                                                      "you prepare Spells for this Class, up to two of the Spells you "
@@ -458,32 +404,14 @@ class Bard(CharacterClass, ABC):
                                                      "The prepared Spells otherwise follow the rules of your Bard "
                                                      "Spellcasting feature."))  # TODO
 
-        self._known_spells = [spell() for spell in content["Spells"].values() if
-                              spell().get_level() in [0, 1, 2, 3, 4, 5, 6, 7, 8] and
-                              SpellLists.ARCANE in spell().get_spell_lists() and
-                              spell().get_school() in [
-                                  SpellSchools.DIVINATION,
-                                  SpellSchools.ENCHANTMENT,
-                                  SpellSchools.ILLUSION,
-                                  SpellSchools.TRANSMUTATION]
-                              ]
-
     def _level_up_16(self, feat: feats.Feat):
         if feat.get_level() > 16:
             raise Exception("Invalid feat level. Must be 16 or lower")
 
         self._features.append(feat)
 
-    def _level_up_17(self, content: dict[str, dict[str, any]]):
-        self._known_spells = [spell() for spell in content["Spells"].values() if
-                              spell().get_level() in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] and
-                              SpellLists.ARCANE in spell().get_spell_lists() and
-                              spell().get_school() in [
-                                  SpellSchools.DIVINATION,
-                                  SpellSchools.ENCHANTMENT,
-                                  SpellSchools.ILLUSION,
-                                  SpellSchools.TRANSMUTATION]
-                              ]
+    def _level_up_17(self):
+        pass
 
     def _level_up_18(self):
         self._features.append(feats.Feat(name="Superior Bardic Inspiration",
@@ -502,11 +430,161 @@ class Bard(CharacterClass, ABC):
 
         self._features.append(feat)
 
+    def get_known_spells(self, content: dict[str, dict[str, any]]) -> list[spells.Spell]:
+        return [spell() for spell in content["Spells"].values() if
+                spell().get_level() in range(0, math.ceil(self._level / 2)) and
+                SpellLists.ARCANE in spell().get_spell_lists() and
+                spell().get_school() in [
+                    SpellSchools.DIVINATION,
+                    SpellSchools.ENCHANTMENT,
+                    SpellSchools.ILLUSION,
+                    SpellSchools.TRANSMUTATION]
+                ]
+
     def get_spellcasting_class(self) -> str | None:
         return "Bard"
 
     def get_spellcasting_level(self) -> float:
         return self._level
+
+
+class Fighter(CharacterClass, ABC):
+    """
+    The Fighter class.
+    """
+
+    def __init__(self,
+                 name: str,
+                 skill1: Skills,
+                 skill2: Skills,
+                 fighting_style: feats.FightingStyle,
+                 ):
+        allowable_skills = [Skills.ACROBATICS, Skills.ANIMAL_HANDLING, Skills.ATHLETICS, Skills.HISTORY, Skills.INSIGHT,
+                            Skills.INTIMIDATION, Skills.PERCEPTION, Skills.SURVIVAL]
+
+        if (skill1 not in allowable_skills) or (skill2 not in allowable_skills):
+            raise Exception("All skills must be in the approved skill list")
+
+        if skill1 == skill2:
+            raise Exception("All skills must be unique")
+
+        super().__init__(name=name,
+                         class_group=ClassGroups.WARRIOR,
+                         primary_abilities=[AbilityNames.STRENGTH],
+                         features=[
+                             fighting_style,
+                             feats.Feat(name="Second Wind",
+                                        description="You have a limited well of stamina that you can draw on to "
+                                                    "protect yourself from harm. On your turn, you can use a bonus "
+                                                    "action to regain hit points equal to 1d10 + your fighter level. "
+                                                    "Once you use this feature, you must finish a short or long rest "
+                                                    "before you can use it again.")
+                         ],
+                         hit_die=10,
+                         class_bonuses=bonuses.Bonuses(
+                             saving_throws={
+                                 AbilityNames.STRENGTH: ProficiencyLevels.PROFICIENT,
+                                 AbilityNames.CONSTITUTION: ProficiencyLevels.PROFICIENT,
+                             },
+                             skills={
+                                 skill1: ProficiencyLevels.PROFICIENT,
+                                 skill2: ProficiencyLevels.PROFICIENT,
+                             },
+                             armor_training=[ArmorTraining.LIGHT, ArmorTraining.MEDIUM, ArmorTraining.HEAVY,
+                                             ArmorTraining.SHIELD],
+                             weapon_types=[WeaponTypes.SIMPLE,
+                                           WeaponTypes.MARTIAL]
+                         ))
+
+    def _level_up_2(self):
+        self._features.append(feats.Feat(name="Action Surge",
+                                         description="You can push yourself beyond your normal limits for a moment. "
+                                                     "On your turn, you can take one additional action on top of your "
+                                                     "regular action and a possible bonus action. Once you use this "
+                                                     "feature, you must finish a short or long rest before you can "
+                                                     "use it again.\n"
+                                                     "Starting at 17th level, you can use it twice before a rest, "
+                                                     "but only once on the same turn. "))
+
+    def _level_up_4(self, feat: feats.Feat):
+        if feat.get_level() > 4:
+            raise Exception("Invalid feat level. Must be 4 or lower")
+
+        self._features.append(feat)
+
+    def _level_up_5(self):
+        self._features.append(feats.Feat(name="Extra Attack",
+                                         description="You can attack twice, instead of once, whenever you take the "
+                                                     "Attack action on your turn.\n"
+                                                     "The number of attacks increases to three when you reach 11th "
+                                                     "level in this class and to four when you reach 20th level in "
+                                                     "this class. "))
+
+    def _level_up_6(self, feat: feats.Feat):
+        if feat.get_level() > 6:
+            raise Exception("Invalid feat level. Must be 6 or lower")
+
+        self._features.append(feat)
+
+    def _level_up_8(self, feat: feats.Feat):
+        if feat.get_level() > 8:
+            raise Exception("Invalid feat level. Must be 8 or lower")
+
+        self._features.append(feat)
+
+    def _level_up_9(self):
+        self._features.append(feats.Feat(name="Indomitable",
+                                         description="You can reroll a saving throw that you fail. If you do so, "
+                                                     "you must use the new roll, and you can't use this feature again "
+                                                     "until you finish a long rest.\n"
+                                                     "You can use this feature twice between long rests starting at "
+                                                     "13th level and three times between long rests starting at 17th "
+                                                     "level."))
+
+    def _level_up_11(self):
+        pass
+
+    def _level_up_12(self, feat: feats.Feat):
+        if feat.get_level() > 12:
+            raise Exception("Invalid feat level. Must be 12 or lower")
+
+        self._features.append(feat)
+
+    def _level_up_13(self):
+        pass
+
+    def _level_up_14(self, feat: feats.Feat):
+        if feat.get_level() > 14:
+            raise Exception("Invalid feat level. Must be 14 or lower")
+
+        self._features.append(feat)
+
+    def _level_up_16(self, feat: feats.Feat):
+        if feat.get_level() > 16:
+            raise Exception("Invalid feat level. Must be 16 or lower")
+
+        self._features.append(feat)
+
+    def _level_up_17(self):
+        pass
+
+    def _level_up_19(self, feat: feats.Feat):
+        if feat.get_level() > 19:
+            raise Exception("Invalid feat level. Must be 19 or lower")
+
+        self._features.append(feat)
+
+    def _level_up_20(self, feat: feats.Feat):
+        pass
+
+    def get_known_spells(self, content: dict[str, dict[str, any]]) -> list[spells.Spell]:
+        return []
+
+    def get_spellcasting_class(self) -> str | None:
+        return None
+
+    def get_spellcasting_level(self) -> float:
+        return 0
 
 
 class Ranger(CharacterClass, ABC):
@@ -587,11 +665,6 @@ class Ranger(CharacterClass, ABC):
                          ),
                          spellcasting_ability=AbilityNames.WISDOM)
 
-        self._known_spells = [spell() for spell in content["Spells"].values() if
-                              spell().get_level() in [0, 1] and
-                              SpellLists.PRIMAL in spell().get_spell_lists() and
-                              spell().get_school() != SpellSchools.EVOCATION]
-
     def _level_up_2(self, fighting_style: feats.FightingStyle):
         if fighting_style.get_level() > 2:
             raise Exception("Invalid fighting style level. Must be 2 or lower")
@@ -607,15 +680,10 @@ class Ranger(CharacterClass, ABC):
 
         self._features.append(feat)
 
-    def _level_up_5(self, content: dict[str, dict[str, any]]):
+    def _level_up_5(self):
         self._features.append(feats.Feat(name="Extra Attack",
                                          description="You can attack twice, instead of once, whenever you take the "
                                                      "Attack Action on your turn."))
-
-        self._known_spells = [spell() for spell in content["Spells"].values() if
-                              spell().get_level() in [0, 1, 2] and
-                              SpellLists.PRIMAL in spell().get_spell_lists() and
-                              spell().get_school() != SpellSchools.EVOCATION]
 
     def _level_up_7(self):
         self._features.append(feats.Feat(
@@ -629,7 +697,7 @@ class Ranger(CharacterClass, ABC):
 
         self._features.append(feat)
 
-    def _level_up_9(self, content: dict[str, dict[str, any]], expertise1: Skills, expertise2: Skills):
+    def _level_up_9(self, expertise1: Skills, expertise2: Skills):
         if expertise1 == expertise2:
             raise Exception("Expertise skills must be unique")
 
@@ -639,11 +707,6 @@ class Ranger(CharacterClass, ABC):
             feat_bonuses=bonuses.Bonuses(skills={expertise1: ProficiencyLevels.EXPERT,
                                                  expertise2: ProficiencyLevels.EXPERT}),
             visible=False))
-
-        self._known_spells = [spell() for spell in content["Spells"].values() if
-                              spell().get_level() in [0, 1, 2, 3] and
-                              SpellLists.PRIMAL in spell().get_spell_lists() and
-                              spell().get_school() != SpellSchools.EVOCATION]
 
     def _level_up_11(self):
         self._features.append(feats.Feat(name="Tireless",
@@ -661,16 +724,11 @@ class Ranger(CharacterClass, ABC):
 
         self._features.append(feat)
 
-    def _level_up_13(self, content: dict[str, dict[str, any]]):
+    def _level_up_13(self):
         self._features.append(feats.Feat(name="Nature's Veil",
                                          description="You invoke spirits of nature to magically hide yourself from "
                                                      "view. As a Bonus Action, you can expend a Spell Slot and become "
                                                      "Invisible until the end of your next turn."))
-
-        self._known_spells = [spell() for spell in content["Spells"].values() if
-                              spell().get_level() in [0, 1, 2, 3, 4] and
-                              SpellLists.PRIMAL in spell().get_spell_lists() and
-                              spell().get_school() != SpellSchools.EVOCATION]
 
     def _level_up_15(self):
         self._features.append(feats.Feat(name="Feral Senses",
@@ -683,11 +741,8 @@ class Ranger(CharacterClass, ABC):
 
         self._features.append(feat)
 
-    def _level_up_17(self, content: dict[str, dict[str, any]]):
-        self._known_spells = [spell() for spell in content["Spells"].values() if
-                              spell().get_level() in [0, 1, 2, 3, 4, 5] and
-                              SpellLists.PRIMAL in spell().get_spell_lists() and
-                              spell().get_school() != SpellSchools.EVOCATION]
+    def _level_up_17(self):
+        pass
 
     def _level_up_18(self):
         self._features.append(feats.Feat(name="Foe Slayer",
@@ -705,6 +760,12 @@ class Ranger(CharacterClass, ABC):
             raise Exception("Invalid feat level. Must be 20 or lower")
 
         self._features.append(feat)
+
+    def get_known_spells(self, content: dict[str, dict[str, any]]) -> list[spells.Spell]:
+        return [spell() for spell in content["Spells"].values() if
+                spell().get_level() in range(0, math.ceil(self._level / 4)) and
+                SpellLists.PRIMAL in spell().get_spell_lists() and
+                spell().get_school() != SpellSchools.EVOCATION]
 
     def get_spellcasting_class(self) -> str | None:
         return "Ranger"
@@ -896,6 +957,9 @@ class Rogue(CharacterClass, ABC):
             raise Exception("Invalid feat level. Must be 20 or lower")
 
         self._features.append(feat)
+
+    def get_known_spells(self, content: dict[str, dict[str, any]]) -> list[spells.Spell]:
+        return []
 
     def get_spellcasting_class(self) -> str | None:
         return None

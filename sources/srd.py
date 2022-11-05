@@ -2,9 +2,8 @@
 Content from the Dungeons and Dragons System Reference Document v5.1.
 https://media.wizards.com/2016/downloads/DND/SRD-OGL_V5.1.pdf
 """
-
-from rules import armors, spells, weapons
-from rules.enums import ArmorTraining, DamageTypes, SpellLists, SpellSchools, WeaponTypes
+from rules import armors, bonuses, classes, feats, spells, weapons
+from rules.enums import ArmorTraining, DamageTypes, ProficiencyLevels, Skills, SpellLists, SpellSchools, WeaponTypes
 
 
 class Padded(armors.Armor):
@@ -168,6 +167,55 @@ class Shield(armors.Armor):
         super().__init__(name="Shield",
                          training_needed=ArmorTraining.SHIELD,
                          armor_class=2)
+
+
+class ChampionFighter(classes.Fighter):
+    """
+    Champion subclass for Fighter
+    SRD p. 25
+    """
+
+    def __init__(self, **kwargs):
+        super().__init__(name="Champion Fighter", **kwargs)
+
+    def _level_up_3(self):
+        self._features.append(feats.Feat(name="Improved Critical",
+                                         description="Your weapon attacks score a critical hit on a roll of 19 or 20."))
+
+    def _level_up_7(self):
+        self._features.append(feats.Feat(name="Remarkable Athlete",
+                                         description="You can add half your proficiency bonus (round up) to any "
+                                                     "Strength, Dexterity, or Constitution check you make that "
+                                                     "doesn't already use your proficiency bonus.\n"
+                                                     "In addition, when you make a running long jump, the distance "
+                                                     "you can cover increases by a number of feet equal to your "
+                                                     "Strength modifier.",
+                                         feat_bonuses=bonuses.Bonuses(
+                                             skills={
+                                                 Skills.ACROBATICS: ProficiencyLevels.HALF,
+                                                 Skills.ATHLETICS: ProficiencyLevels.HALF,
+                                                 Skills.SLEIGHT_OF_HAND: ProficiencyLevels.HALF,
+                                                 Skills.STEALTH: ProficiencyLevels.HALF,
+                                             },
+                                             initiative=ProficiencyLevels.HALF)))
+
+    def _level_up_10(self, fighting_style: feats.FightingStyle):
+        if fighting_style.get_level() > 10:
+            raise Exception("Invalid feat level. Must be 10 or lower")
+
+        self._features.append(fighting_style)
+
+    def _level_up_15(self):
+        self._features.append(feats.Feat(name="Superior Critical",
+                                         description="Your weapon attacks score a critical hit on a roll of 18-20."))
+
+    def _level_up_18(self):
+        self._features.append(feats.Feat(name="Survivor",
+                                         description="You attain the pinnacle of resilience in battle. At the start "
+                                                     "of each of your turns, you regain hit points equal to 5 + your "
+                                                     "Constitution modifier if you have no more than half of your hit "
+                                                     "points left. You don’t gain this benefit if you have 0 hit "
+                                                     "points."))
 
 
 class AnimalFriendship(spells.Spell):
@@ -1272,6 +1320,73 @@ class Dagger(weapons.Weapon):
                          attack_bonus=attack_bonus)
 
 
+class Handaxe(weapons.Weapon):
+    """
+    Handaxe Weapon
+    SRD p. 66
+    """
+
+    def __init__(self,
+                 name: str = "Handaxe",
+                 magical: bool = False,
+                 damage_bonus: int = 0,
+                 attack_bonus: int = 0):
+        super().__init__(name=name,
+                         weapon_type=WeaponTypes.SIMPLE,
+                         damage_dice="1d6",
+                         damage_type=DamageTypes.SLASHING,
+                         light=True,
+                         thrown=True,
+                         attack_range=(20, 60),
+                         magical=magical,
+                         damage_bonus=damage_bonus,
+                         attack_bonus=attack_bonus)
+
+
+class Boomerang(weapons.Weapon):
+    """
+    Boomerang Weapon
+    SRD p. ??
+    """
+
+    def __init__(self,
+                 name: str = "Boomerang",
+                 magical: bool = False,
+                 damage_bonus: int = 0,
+                 attack_bonus: int = 0):
+        super().__init__(name=name,
+                         weapon_type=WeaponTypes.SIMPLE,
+                         damage_dice="1d4",
+                         damage_type=DamageTypes.BLUDGEONING,
+                         thrown=True,
+                         attack_range=(60, 120),
+                         magical=magical,
+                         damage_bonus=damage_bonus,
+                         attack_bonus=attack_bonus)
+
+
+class Maul(weapons.Weapon):
+    """
+    Maul Weapon
+    SRD p. 66
+    """
+
+    def __init__(self,
+                 name: str = "Maul",
+                 magical: bool = False,
+                 damage_bonus: int = 0,
+                 attack_bonus: int = 0):
+        super().__init__(name=name,
+                         weapon_type=WeaponTypes.MARTIAL,
+                         damage_dice="2d6",
+                         damage_type=DamageTypes.BLUDGEONING,
+                         heavy=True,
+                         two_handed=True,
+                         magical=magical,
+                         damage_bonus=damage_bonus,
+                         attack_bonus=attack_bonus)
+
+
 class Rapier(weapons.Weapon):
     """
     Rapier Weapon
@@ -1385,7 +1500,7 @@ CONTENT = {
         "Lore Bard": "OBSOLETE",
         # "Life Cleric": LifeCleric,
         # "Land Druid": LandDruid,
-        # "Champion Fighter": ChampionFighter,
+        "Champion Fighter": ChampionFighter,
         # "Open Hand Monk": OpenHandMonk,
         # "Devotion Paladin": DevotionPaladin,
         "Hunter Ranger": "OBSOLETE",
@@ -1747,7 +1862,7 @@ CONTENT = {
         # "Club": Club,
         "Dagger": Dagger,
         # "Greatclub": Greatclub,
-        # "Handaxe": Handaxe,
+        "Handaxe": Handaxe,
         # "Javelin": Javelin,
         # "Light Hammer": LightHammer,
         # "Mace": Mace,
@@ -1758,6 +1873,7 @@ CONTENT = {
         # "Dart": Dart,
         # "Shortbow": Shortbow,
         # "Sling": Sling,
+        "Boomerang": Boomerang,
         # "Battleaxe": Battleaxe,
         # "Flail": Flail,
         # "Glaive": Glaive,
@@ -1766,7 +1882,7 @@ CONTENT = {
         # "Halberd": Halberd,
         # "Lance": Lance,
         # "Longsword": Longsword,
-        # "Maul": Maul,
+        "Maul": Maul,
         # "Morningstar": Morningstar,
         # "Pike": Pike,
         "Rapier": Rapier,

@@ -136,10 +136,10 @@ class Character:
             feature for features in [character_class.get_features() for character_class in self._classes]
             for feature in features]
 
-    def _get_known_spells(self) -> list[spells.Spell]:
+    def _get_known_spells(self, content: dict[str, dict[str, any]], ) -> list[spells.Spell]:
         spell_list = []
         for character_class in self._classes:
-            spell_list += character_class.get_known_spells()
+            spell_list += character_class.get_known_spells(content)
 
         return sorted(spell_list)
 
@@ -237,9 +237,11 @@ class Character:
     def level_up(self, character_class: int, **kwargs):
         self._classes[character_class].level_up(**kwargs)
 
-    def write_character_sheet(self, filepath: str):
+    def write_character_sheet(self, content: dict[str, dict[str, any]], filepath: str):
         """
         Writes out a 5e character sheet from this character
+        :param content: The content dictionary
+        :type content: dict[str, dict[str, any]]
         :param filepath: The pdf file to write to
         :type filepath: str
         """
@@ -436,7 +438,7 @@ class Character:
                 image.getPage(0), scale=0.137, tx=435, ty=530)
 
         prepared_spells = self._get_prepared_spells()
-        known_spells = self._get_known_spells()
+        known_spells = self._get_known_spells(content)
         all_spells = prepared_spells + sorted(
             list(set(known_spells) - set(prepared_spells)))
         if len(all_spells) > 0:
