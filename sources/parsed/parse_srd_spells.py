@@ -195,6 +195,7 @@ def split_spell_entry(text: str):
         'somatic_components': somatic_components,
         'material_components_list': material_components_list,
         'duration': duration,
+        'concentration': 'oncentration' in duration,
         'description': description,
         'at_higher_levels': at_higher_levels
     }

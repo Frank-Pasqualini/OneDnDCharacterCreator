@@ -12,14 +12,14 @@ class SpellListInfo:
     _level: int
     _school: str
     _is_ritual: bool
-    _spell_type: str
+    _spell_list: str
 
-    def __init__(self, name: str, level: int, school: str, is_ritual: bool, spell_type: str):
+    def __init__(self, name: str, level: int, school: str, is_ritual: bool, spell_list: str):
         self._name = name
         self._level = level
         self._school = school
         self._is_ritual = is_ritual
-        self._spell_type = spell_type
+        self._spell_list = spell_list
 
     def get_name(self):
         return self._name
@@ -33,11 +33,11 @@ class SpellListInfo:
     def get_is_ritual(self):
         return self._is_ritual
 
-    def get_spell_type(self):
-        return self._spell_type
+    def get_spell_list(self):
+        return self._spell_list
 
     def __str__(self):
-        return '(' + self._name + ' ' + str(self._level) + ' ' + self._school + ' ' + str(self._is_ritual) + ' ' + self._spell_type + ')'
+        return '(' + self._name + ' ' + str(self._level) + ' ' + self._school + ' ' + str(self._is_ritual) + ' ' + self._spell_list + ')'
 
     def __repr__(self):
         return self._name + ' ' + str(self._level)
@@ -52,8 +52,8 @@ class SpellListInfo:
             return self._school
         elif arg == 'is_ritual':
             return self._is_ritual
-        elif arg == 'spell_type':
-            return self._spell_type
+        elif arg == 'spell_list':
+            return self._spell_list
         else:
             raise Exception('no attribute for spelllistinfo')
 
@@ -63,7 +63,7 @@ class SpellListInfo:
             'level': self['level'],
             'school': self['school'],
             'is_ritual': self['is_ritual'],
-            'spell_type': self['spell_type']
+            'spell_list': self['spell_list']
         }
 
 
@@ -96,11 +96,11 @@ for school in school_abbrs:
         os._exit(1)
 
 
-def parse_single_spell(line: list[str], spell_type: str) -> SpellListInfo:
+def parse_single_spell(line: list[str], spell_list: str) -> SpellListInfo:
     level, *name, school, ritual = line.split(' ')
     if 'Contact' in line:
         print(line)
-    if spell_type == '' or level == '' or school == '' or ritual == '' or name is []:
+    if spell_list == '' or level == '' or school == '' or ritual == '' or name is []:
         print(level)
         print(name)
         print(school)
@@ -119,12 +119,12 @@ def parse_single_spell(line: list[str], spell_type: str) -> SpellListInfo:
         # print(ritual)
         if school == 'Antipathy/Sympathy':
             print('what a funky little edge case :)')
-            return SpellListInfo('Antipathy/Sympathy', level, 'Enchantment', False, spell_type)
+            return SpellListInfo('Antipathy/Sympathy', level, 'Enchantment', False, spell_list)
 
         else:
             os._exit(1)
 
-    return SpellListInfo(name, level, school, isRitual, spell_type)
+    return SpellListInfo(name, level, school, isRitual, spell_list)
 
 
 def clean_source(raw_txt: str) -> list[str]:
@@ -171,11 +171,11 @@ def generate_dataset(spells: list[SpellListInfo]):
         'is_ritual': {},
         'school': {},
         'level': {},
-        'spell_type': {}
+        'spell_list': {}
     }
 
     for spell in spells:
-        for field in ['name', 'is_ritual', 'school', 'level', 'spell_type']:
+        for field in ['name', 'is_ritual', 'school', 'level', 'spell_list']:
             ret = update_or_initialize_spell(ret, field, spell)
 
     return ret

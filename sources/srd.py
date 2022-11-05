@@ -5,6 +5,9 @@ https://media.wizards.com/2016/downloads/DND/SRD-OGL_V5.1.pdf
 
 from rules import armors, spells, weapons
 from rules.enums import ArmorTraining, DamageTypes, SpellLists, SpellSchools, WeaponTypes
+import json
+
+srd_odnd2_json = json.loads(open('sources/parsed/odnd_srd.json', 'r').read())
 
 
 class Padded(armors.Armor):

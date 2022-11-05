@@ -1,4 +1,5 @@
 import json
+from textwrap import indent
 from tkinter.font import names
 odnd2 = json.loads(open('sources/parsed/odnd2.json').read())
 srd = json.loads(open('sources/parsed/srd.json').read())
@@ -41,7 +42,7 @@ print('len odnd2_exclusive')
 print(len(odnd2_exclusive))
 print('len srd')
 print(len(srd_exclusive))
-raise Exception('odnd and source do not agree on names')
+#raise Exception('odnd and source do not agree on names')
 
 odnd2 = {x['name']: x for x in odnd2}
 srd = {x['name']: x for x in srd}
@@ -50,17 +51,24 @@ srd = {x['name']: x for x in srd}
 def merge():
     ret = []
     for name in odnd2:
-        srd_spell_info = srd[name]
-        odnd2_spell_info = odnd2[name]
-        shared_fields = ['name', 'school', 'level']
-        if any(odnd2_spell_info[x] != srd_spell_info[x] for x in shared_fields):
-            print('disagreement')
-            print(odnd2_spell_info)
-            print(srd_spell_info)
-        ret.append(srd_spell_info | odnd2_spell_info)
+        if name in srd and name in odnd2:
+            srd_spell_info = srd[name]
+            odnd2_spell_info = odnd2[name]
+            shared_fields = ['name', 'school', 'level']
+            if any(odnd2_spell_info[x] != srd_spell_info[x] for x in shared_fields):
+                # Default to odnd2, that's why it's 2nd
+                new_spell_info = srd_spell_info | odnd2_spell_info
+                # TODO: Fix
+                ret.append(srd_spell_info | odnd2_spell_info)
+            else:
+                ret.append(srd_spell_info | odnd2_spell_info)
+        else:
+            # TODO: Make sure this is correct
+            ret.append(odnd2[name])
     return ret
 
 
 r = merge()
+open('sources/parsed/odnd2_srd.json', 'w+').write(json.dumps(r, indent=4))
 print(r[0])
 print(r[-1])
