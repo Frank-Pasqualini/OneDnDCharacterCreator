@@ -37,8 +37,8 @@ class {class_name}(spells.Spell):
                          somatic_components={somatic_components},
                          material_components_list={material_components_list},
                          duration="{duration}",
-                         description="{description}",
-                         at_higher_levels="{at_higher_levels}")
+                         description={description},
+                         at_higher_levels={at_higher_levels})
 """
 
 
@@ -78,12 +78,38 @@ def material_components_list(text: str):
 
 
 def duration(text: str) -> str:
-    print(text)
     if 'Concentration, up to ' in text:
-        print(text)
         return text.replace('Concentration, up to ', '').strip()
     else:
         return text
+
+
+def line_limit(text: str, limit: int, offset: int) -> str:
+    if len(text) < limit:
+        if text == '':
+            return '""'
+        else:
+            return text
+    wraps = []
+    cur = ''
+    text = text.split(' ')
+    print(text)
+    for i, word in enumerate(text):
+        if len(cur) + len(word) - 3 < limit:
+            # can add to cur
+            cur += word + ' '
+        else:
+            to_append = '"' + cur + '"'
+
+            if len(wraps) != 0:
+                to_append = ' ' * offset + to_append
+            wraps.append(to_append)
+            cur = word + ' '
+
+        if i == len(text) - 1:
+            # print(word)
+            wraps.append(' ' * offset + '"' + cur + '"')
+    return ' +\n'.join(wraps)
 
 
 def generate_spell(spell_json) -> str:
@@ -112,8 +138,10 @@ def generate_spell(spell_json) -> str:
                                  material_components_list=material_components_list(
                                      spell_json['material_components_list']),
                                  duration=duration(spell_json['duration']),
-                                 description=spell_json['description'],
-                                 at_higher_levels=spell_json['at_higher_levels']
+                                 description=line_limit(
+                                     spell_json['description'], 60, 36),
+                                 at_higher_levels=line_limit(
+                                     spell_json['at_higher_levels'], 60, 42)
                                  )
 
 

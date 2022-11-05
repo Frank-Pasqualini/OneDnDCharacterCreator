@@ -34,14 +34,14 @@ odnd2_exclusive = [
     x for x in odnd2_names if x not in srd_names and x not in names_map]
 srd_exclusive = [
     x for x in srd_names if x not in odnd2_names and x not in names_map]
-print('odnd_2 not in srd:')
-print(sorted(odnd2_exclusive))
-print('srd not in odnd_2')
-print(sorted(srd_exclusive))
-print('len odnd2_exclusive')
-print(len(odnd2_exclusive))
-print('len srd')
-print(len(srd_exclusive))
+#print('odnd_2 not in srd:')
+# print(sorted(odnd2_exclusive))
+#print('srd not in odnd_2')
+# print(sorted(srd_exclusive))
+#print('len odnd2_exclusive')
+# print(len(odnd2_exclusive))
+#print('len srd')
+# print(len(srd_exclusive))
 #raise Exception('odnd and source do not agree on names')
 
 odnd2 = {x['name']: x for x in odnd2}
@@ -73,5 +73,3 @@ def merge():
 
 r = merge()
 open('sources/parsed/odnd2_srd.json', 'w+').write(json.dumps(r, indent=4))
-print(r[0])
-print(r[-1])
