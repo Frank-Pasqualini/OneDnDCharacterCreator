@@ -6,7 +6,6 @@ from abc import ABC
 from typing import Callable
 
 from rules import abilities, bonuses, spells
-from rules.character import Character
 from rules.common import ordinal, validate_string
 from rules.enums import AbilityNames
 
@@ -19,7 +18,7 @@ class Feat(ABC):
     _name: str
     _description: str
     _level: int | None
-    _prerequisite: Callable[[Character], bool]
+    _prerequisite: str
     _repeatable: str
     _abilities: abilities.Abilities
     _bonuses: bonuses.Bonuses

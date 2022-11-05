@@ -239,3 +239,26 @@ def calculate_spell_name_width(spell: Spell) -> float:
         size += widths[char]
 
     return size
+
+    def fromJSON(json):
+        fields = [
+            'name',
+            'spell_lists',
+            'level',
+            'school',
+            'spell_range',
+            'description',
+            'ritual',
+            'casting_time',
+            'verbal_components',
+            'somatic_components',
+            'material_components_list',
+            'concentration',
+            'duration',
+            'at_higher_levels',
+        ]
+        if any(x not in json for x in fields):
+            print(json)
+            return None
+        else:
+            return 

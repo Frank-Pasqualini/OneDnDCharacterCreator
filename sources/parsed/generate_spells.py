@@ -73,7 +73,7 @@ def generate_spell(spell_json) -> str:
                                  )
 
 
-res = [generate_spell(x) for x in spell_info]
+res = [generate_spell(x) for x in sorted(spell_info, key=lambda x: x['name'])]
 
 open('sources/parsed/generated_spells.py', 'w+',
      encoding='utf-8').write('\n'.join([x for x in res if x != None]))

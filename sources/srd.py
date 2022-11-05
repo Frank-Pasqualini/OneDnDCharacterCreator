@@ -168,10 +168,36 @@ class Shield(armors.Armor):
         super().__init__(name="Shield",
                          training_needed=ArmorTraining.SHIELD,
                          armor_class=2)
+
+
+class AcidArrow(spells.Spell):
+    """
+    Acid Arrow Spell
+    SRD p. 0
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Acid Arrow",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=2,
+                         ritual=False,
+                         school=SpellSchools.Evocation,
+                         spell_range="90 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="powdered rhubarb leaf and an adder's stomach",
+                         duration="Instantaneous",
+                         description="A shimmering green arrow streaks toward a target within range and bursts in a spray of acid. Make a ranged spell attack against the target. On a hit, the target takes 4d4 acid damage immediately and 2d4 acid damage at the end of its next turn. On a miss, the arrow splashes the target with acid for half as much of the initial damage and no damage at the end of its next turn.",
+                         at_higher_levels="When you cast this spell using a spell slot of 3rd level or higher, the damage (both initial and later) increases by 1d4 for each slot level above 2nd.")
+
+
 class AcidSplash(spells.Spell):
     """
     Acid Splash Spell
     SRD p. 0
+    Generated
     """
 
     def __init__(self):
@@ -187,6 +213,52 @@ class AcidSplash(spells.Spell):
                          material_components_list="",
                          duration="Instantaneous",
                          description="You hurl a bubble of acid. Choose one creature within range, or choose two creatures within range that are within 5 feet of each other. A target must succeed on a Dexterity saving throw or take 1d6 acid damage. This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).",
+                         at_higher_levels="")
+
+
+class Aid(spells.Spell):
+    """
+    Aid Spell
+    SRD p. 0
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Aid",
+                         spell_lists=[SpellLists.DIVINE],
+                         concentration=False,
+                         level=2,
+                         ritual=False,
+                         school=SpellSchools.Abjuration,
+                         spell_range="30 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a tiny strip of white cloth",
+                         duration="8 hours",
+                         description="Your spell bolsters your allies with toughness and resolve. Choose up to three creatures within range. Each target's hit point maximum and current hit points increase by 5 for the duration.",
+                         at_higher_levels="When you cast this spell using a spell slot of 3rd level or higher, a target's hit points increase by an additional 5 for each slot level above 2nd.")
+
+
+class Alarm(spells.Spell):
+    """
+    Alarm Spell
+    SRD p. 0
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Alarm",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=1,
+                         ritual=True,
+                         school=SpellSchools.Abjuration,
+                         spell_range="30 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a tiny bell and a piece of fine silver wire",
+                         duration="8 hours",
+                         description="You set an alarm against unwanted intrusion. Choose a door, a window, or an area within range that is no larger than a 20-foot cube. Until the spell ends, an alarm alerts you whenever a Tiny or larger creature touches or enters the warded area. When you cast the spell, you can designate creatures that won't set off the alarm. You also choose whether the alarm is mental or audible. A mental alarm alerts you with a ping in your mind if you are within 1 mile of the warded area. This ping awakens you if you are sleeping. An audible alarm produces the sound of a hand bell for 10 seconds within 60 feet.",
                          at_higher_levels="")
 
 class AnimalFriendship(spells.Spell):
@@ -1463,10 +1535,10 @@ CONTENT = {
     },
     "Spells": {
         # TODO The rest of the spells
-        # "Acid Arrow": AcidArrow,
+        "Acid Arrow": AcidArrow,
         "Acid Splash": AcidSplash,
-        # "Aid": Aid,
-        # "Alarm": Alarm,
+        "Aid": Aid,
+        "Alarm": Alarm,
         # "Alter Self", AlterSelf,
         "Animal Friendship": AnimalFriendship,
         "Animal Messenger": AnimalMessenger,
