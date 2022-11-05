@@ -3035,139 +3035,132 @@
         "level": 6,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_type": "<<<<<<< Head"
+        "spell_type": "Primal"
     },
     {
         "name": "Move Earth",
         "level": 6,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_type": "<<<<<<< Head"
+        "spell_type": "Primal"
     },
     {
         "name": "Sunbeam",
         "level": 6,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_type": "<<<<<<< Head"
+        "spell_type": "Primal"
     },
     {
         "name": "Transport via Plants",
         "level": 6,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_type": "<<<<<<< Head"
+        "spell_type": "Primal"
     },
     {
         "name": "Wall of Ice",
         "level": 6,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_type": "<<<<<<< Head"
+        "spell_type": "Primal"
     },
     {
         "name": "Wall of Thorns",
         "level": 6,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_type": "<<<<<<< Head"
+        "spell_type": "Primal"
     },
     {
         "name": "Wind Walk",
         "level": 6,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_type": "<<<<<<< Head"
+        "spell_type": "Primal"
     },
     {
         "name": "Fire Storm",
         "level": 7,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_type": "<<<<<<< Head"
+        "spell_type": "Primal"
     },
     {
         "name": "Regenerate",
         "level": 7,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_type": "<<<<<<< Head"
+        "spell_type": "Primal"
     },
     {
         "name": "Reverse Gravity",
         "level": 7,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_type": "<<<<<<< Head"
+        "spell_type": "Primal"
     },
     {
         "name": "Animal Shapes",
         "level": 8,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_type": "<<<<<<< Head"
+        "spell_type": "Primal"
     },
     {
         "name": "Control Weather",
         "level": 8,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_type": "<<<<<<< Head"
+        "spell_type": "Primal"
     },
     {
         "name": "Earthquake",
         "level": 8,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_type": "<<<<<<< Head"
+        "spell_type": "Primal"
     },
     {
         "name": "Sunburst",
         "level": 8,
         "school": "Evocation",
         "is_ritual": false,
-        "spell_type": "<<<<<<< Head"
+        "spell_type": "Primal"
     },
     {
         "name": "Tsunami",
         "level": 8,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_type": "<<<<<<< Head"
+        "spell_type": "Primal"
     },
     {
         "name": "Power Word Heal",
         "level": 9,
         "school": "Abjuration",
         "is_ritual": false,
-        "spell_type": "<<<<<<< Head"
+        "spell_type": "Primal"
     },
     {
         "name": "Shapechange",
         "level": 9,
         "school": "Transmutation",
         "is_ritual": false,
-        "spell_type": "<<<<<<< Head"
+        "spell_type": "Primal"
     },
     {
         "name": "Storm of Vengeance",
         "level": 9,
         "school": "Conjuration",
         "is_ritual": false,
-        "spell_type": "<<<<<<< Head"
+        "spell_type": "Primal"
     },
     {
         "name": "True Resurrection",
         "level": 9,
         "school": "Necromancy",
         "is_ritual": false,
-        "spell_type": "<<<<<<< Head"
-    },
-    {
-        "name": "Heal",
-        "level": 6,
-        "school": "Abjuration",
-        "is_ritual": false,
-        "spell_type": "======="
+        "spell_type": "Primal"
     }
 ]
