@@ -2066,6 +2066,282 @@ class DetectThoughts(spells.Spell):
                                      "it, but it must still be within range.")
 
 
+class DimensionDoor(spells.Spell):
+    """
+    Dimension Door Spell
+    SRD p. 136
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Dimension Door",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=4,
+                         ritual=False,
+                         school=SpellSchools.Conjuration,
+                         spell_range="500 feet",
+                         verbal_components="True",
+                         somatic_components="False",
+                         material_components_list="",
+                         duration="Instantaneous",
+                         description="You teleport yourself from your current location to any other spot within range. You arrive at exactly the spot desired. It can be a place you can see, one you can visualize, or one you can describe by stating distance and direction, such as “200 feet straight downward” or “upward to the northwest at a 45- degree angle, 300 feet.” You can bring along objects as long as their weight doesn't exceed what you can carry. You can also bring one willing creature of your size or smaller who is carrying gear up to its carrying capacity. The creature must be within 5 feet of you when you cast this spell. If you would arrive in a place already occupied by an object or a creature, you and any creature traveling with you each take 4d6 force damage, and the spell fails to teleport you.",
+                         at_higher_levels="")
+
+
+class DisguiseSelf(spells.Spell):
+    """
+    Disguise Self Spell
+    SRD p. 136
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Disguise Self",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=1,
+                         ritual=False,
+                         school=SpellSchools.Illusion,
+                         spell_range="Self",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="1 hour",
+                         description="You make yourself—including your clothing, armor, weapons, and other belongings on your person— look different until the spell ends or until you use your action to dismiss it. You can seem 1 foot shorter or taller and can appear thin, fat, or in between. You can't change your body type, so you must adopt a form that has the same basic arrangement of limbs. Otherwise, the extent of the illusion is up to you. The changes wrought by this spell fail to hold up to physical inspection. For example, if you use this spell to add a hat to your outfit, objects pass through the hat, and anyone who touches it would feel nothing or would feel your head and hair. If you use this spell to appear thinner than you are, the hand of someone who reaches out to touch you would bump into you while it was seemingly still in midair. To discern that you are disguised, a creature can use its action to inspect your appearance and must succeed on an Intelligence (Investigation) check against your spell save DC.",
+                         at_higher_levels="")
+
+
+class Disintegrate(spells.Spell):
+    """
+    Disintegrate Spell
+    SRD p. 136-137
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Disintegrate",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=6,
+                         ritual=False,
+                         school=SpellSchools.Transmutation,
+                         spell_range="60 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a lodestone and a pinch of dust",
+                         duration="Instantaneous",
+                         description="A thin green ray springs from your pointing finger to a target that you can see within range. The target can be a creature, an object, or a creation of magical force, such as the wall created by wall of force. A creature targeted by this spell must make a Dexterity saving throw. On a failed save, the target takes 10d6 + 40 force damage. If this damage reduces the target to 0 hit points, it is disintegrated. A disintegrated creature and everything it is wearing and carrying, except magic items, are reduced to a pile of fine gray dust. The creature can be restored to life only by means of a true resurrection or a wish spell. This spell automatically disintegrates a Large or smaller nonmagical object or a creation of magical force. If the target is a Huge or larger object or creation of force, this spell disintegrates a 10-footcube portion of it. A magic item is unaffected by this spell.",
+                         at_higher_levels="When you cast this spell using a spell slot of 7th level or higher, the damage increases by 3d6 for each slot level above 6th.")
+
+
+class DispelEvilAndGood(spells.Spell):
+    """
+    Dispel Evil and Good Spell
+    SRD p. 137
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Dispel Evil and Good",
+                         spell_lists=[SpellLists.DIVINE],
+                         concentration=True,
+                         level=5,
+                         ritual=False,
+                         school=SpellSchools.Abjuration,
+                         spell_range="Self",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="holy water or powdered silver and iron",
+                         duration="Concentration, up to 1 minute",
+                         description="Shimmering energy surrounds and protects you from fey, undead, and creatures originating from beyond the Material Plane. For the duration, celestials, elementals, fey, fiends, and undead have disadvantage on attack rolls against you. You can end the spell early by using either of the following special functions. Break Enchantment. As your action, you touch a creature you can reach that is charmed, frightened, or possessed by a celestial, an elemental, a fey, a fiend, or an undead. The creature you touch is no longer charmed, frightened, or possessed by such creatures. Dismissal. As your action, make a melee spell attack against a celestial, an elemental, a fey, a fiend, or an undead you can reach. On a hit, you attempt to drive the creature back to its home plane. The creature must succeed on a Charisma saving throw or be sent back to its home plane (if it isn't there already). If they aren't on their home plane, undead are sent to the Shadowfell, and fey are sent to the Feywild.",
+                         at_higher_levels="")
+
+
+class DispelMagic(spells.Spell):
+    """
+    Dispel Magic Spell
+    SRD p. 137
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Dispel Magic",
+                         spell_lists=[SpellLists.PRIMAL],
+                         concentration=False,
+                         level=3,
+                         ritual=False,
+                         school=SpellSchools.Abjuration,
+                         spell_range="120 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="Instantaneous",
+                         description="Choose one creature, object, or magical effect within range. Any spell of 3rd level or lower on the target ends. For each spell of 4th level or higher on the target, make an ability check using your spellcasting ability. The DC equals 10 + the spell's level. On a successful check, the spell ends.",
+                         at_higher_levels="When you cast this spell using a spell slot of 4th level or higher, you automatically end the effects of a spell on the target if the spell's level is equal to or less than the level of the spell slot you used.")
+
+
+class Divination(spells.Spell):
+    """
+    Divination Spell
+    SRD p. 137
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Divination",
+                         spell_lists=[SpellLists.DIVINE],
+                         concentration=False,
+                         level=4,
+                         ritual=True,
+                         school=SpellSchools.Divination,
+                         spell_range="Self",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="incense and a sacrificial offering appropriate to your religion, together worth at least 25 gp, which the spell consumes",
+                         duration="Instantaneous",
+                         description="Your magic and an offering put you in contact with a god or a god's servants. You ask a single question concerning a specific goal, event, or activity to occur within 7 days. The GM offers a truthful reply. The reply might be a short phrase, a cryptic rhyme, or an omen. The spell doesn't take into account any possible circumstances that might change the outcome, such as the casting of additional spells or the loss or gain of a companion. If you cast the spell two or more times before finishing your next long rest, there is a cumulative 25 percent chance for each casting after the first that you get a random reading. The GM makes this roll in secret.",
+                         at_higher_levels="")
+
+
+class DivineFavor(spells.Spell):
+    """
+    Divine Favor Spell
+    SRD p. 137-138
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Divine Favor",
+                         spell_lists=[SpellLists.DIVINE],
+                         concentration=True,
+                         level=1,
+                         ritual=False,
+                         school=SpellSchools.Evocation,
+                         spell_range="Self",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="Concentration, up to 1 minute",
+                         description="Your prayer empowers you with divine radiance. Until the spell ends, your weapon attacks deal an extra 1d4 radiant damage on a hit.",
+                         at_higher_levels="")
+
+
+class DivineWord(spells.Spell):
+    """
+    Divine Word Spell
+    SRD p. 138
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Divine Word",
+                         spell_lists=[SpellLists.DIVINE],
+                         concentration=False,
+                         level=7,
+                         ritual=False,
+                         school=SpellSchools.Evocation,
+                         spell_range="30 feet",
+                         verbal_components="True",
+                         somatic_components="False",
+                         material_components_list="",
+                         duration="Instantaneous",
+                         description="You utter a divine word, imbued with the power that shaped the world at the dawn of creation. Choose any number of creatures you can see within range. Each creature that can hear you must make a Charisma saving throw. On a failed save, a creature suffers an effect based on its current hit points: • 50 hit points or fewer: deafened for 1 minute • 40 hit points or fewer: deafened and blinded for 10 minutes • 30 hit points or fewer: blinded, deafened, and stunned for 1 hour • 20 hit points or fewer: killed instantly Regardless of its current hit points, a celestial, an elemental, a fey, or a fiend that fails its save is forced back to its plane of origin (if it isn't there already) and can't return to your current plane for 24 hours by any means short of a wish spell.",
+                         at_higher_levels="")
+
+
+class DominateBeast(spells.Spell):
+    """
+    Dominate Beast Spell
+    SRD p. 138
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Dominate Beast",
+                         spell_lists=[SpellLists.PRIMAL],
+                         concentration=True,
+                         level=4,
+                         ritual=False,
+                         school=SpellSchools.Enchantment,
+                         spell_range="60 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="Concentration, up to 1 minute",
+                         description="You attempt to beguile a beast that you can see within range. It must succeed on a Wisdom saving throw or be charmed by you for the duration. If you or creatures that are friendly to you are fighting it, it has advantage on the saving throw. While the beast is charmed, you have a telepathic link with it as long as the two of you are on the same plane of existence. You can use this telepathic link to issue commands to the creature while you are conscious (no action required), which it does its best to obey. You can specify a simple and general course of action, such as “Attack that creature,” “Run over there,” or “Fetch that object.” If the creature completes the order and doesn't receive further direction from you, it defends and preserves itself to the best of its ability. You can use your action to take total and precise control of the target. Until the end of your next turn, the creature takes only the actions you choose, and doesn't do anything that you don't allow it to do. During this time, you can also cause the creature to use a reaction, but this requires you to use your own reaction as well. Each time the target takes damage, it makes a new Wisdom saving throw against the spell. If the saving throw succeeds, the spell ends.",
+                         at_higher_levels="When you cast this spell with a 5th-level spell slot, the duration is concentration, up to 10 minutes. When you use a 6th-level spell slot, the duration is concentration, up to 1 hour. When you use a spell slot of 7th level or higher, the duration is concentration, up to 8 hours.")
+
+
+class DominateMonster(spells.Spell):
+    """
+    Dominate Monster Spell
+    SRD p. 138-139
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Dominate Monster",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=True,
+                         level=8,
+                         ritual=False,
+                         school=SpellSchools.Enchantment,
+                         spell_range="60 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="Concentration, up to 1 hour",
+                         description="You attempt to beguile a creature that you can see within range. It must succeed on a Wisdom saving throw or be charmed by you for the duration. If you or creatures that are friendly to you are fighting it, it has advantage on the saving throw. While the creature is charmed, you have a telepathic link with it as long as the two of you are on the same plane of existence. You can use this telepathic link to issue commands to the creature while you are conscious (no action required), which it does its best to obey. You can specify a simple and general course of action, such as “Attack that creature,” “Run over there,” or “Fetch that object.” If the creature completes the order and doesn't receive further direction from you, it defends and preserves itself to the best of its ability. You can use your action to take total and precise control of the target. Until the end of your next turn, the creature takes only the actions you choose, and doesn't do anything that you don't allow it to do. During this time, you can also cause the creature to use a reaction, but this requires you to use your own reaction as well. Each time the target takes damage, it makes a new Wisdom saving throw against the spell. If the saving throw succeeds, the spell ends.",
+                         at_higher_levels="When you cast this spell with a 9th-level spell slot, the duration is concentration, up to 8 hours.")
+
+
+class DominatePerson(spells.Spell):
+    """
+    Dominate Person Spell
+    SRD p. 139
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Dominate Person",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=True,
+                         level=5,
+                         ritual=False,
+                         school=SpellSchools.Enchantment,
+                         spell_range="60 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="Concentration, up to 1 minute",
+                         description="You attempt to beguile a humanoid that you can see within range. It must succeed on a Wisdom saving throw or be charmed by you for the duration. If you or creatures that are friendly to you are fighting it, it has advantage on the saving throw. While the target is charmed, you have a telepathic link with it as long as the two of you are on the same plane of existence. You can use this telepathic link to issue commands to the creature while you are conscious (no action required), which it does its best to obey. You can specify a simple and general course of action, such as “Attack that creature,” “Run over there,” or “Fetch that object.” If the creature completes the order and doesn't receive further direction from you, it defends and preserves itself to the best of its ability. You can use your action to take total and precise control of the target. Until the end of your next turn, the creature takes only the actions you choose, and doesn't do anything that you don't allow it to do. During this time you can also cause the creature to use a reaction, but this requires you to use your own reaction as well. Each time the target takes damage, it makes a new Wisdom saving throw against the spell. If the saving throw succeeds, the spell ends.",
+                         at_higher_levels="When you cast this spell using a 6th-level spell slot, the duration is concentration, up to 10 minutes. When you use a 7th-level spell slot, the duration is concentration, up to 1 hour. When you use a spell slot of 8th level or higher, the duration is concentration, up to 8 hours.")
+
+
+class Dream(spells.Spell):
+    """
+    Dream Spell
+    SRD p. 139
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Dream",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=5,
+                         ritual=False,
+                         school=SpellSchools.Illusion,
+                         spell_range="Special",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a handful of sand, a dab of ink, and a writing quill plucked from a sleeping bird",
+                         duration="8 hours",
+                         description="This spell shapes a creature's dreams. Choose a creature known to you as the target of this spell. The target must be on the same plane of existence as you. Creatures that don't sleep, such as elves, can't be contacted by this spell. You, or a willing creature you touch, enters a trance state, acting as a messenger. While in the trance, the messenger is aware of his or her surroundings, but can't take actions or move. If the target is asleep, the messenger appears in the target's dreams and can converse with the target as long as it remains asleep, through the duration of the spell. The messenger can also shape the environment of the dream, creating landscapes, objects, and other images. The messenger can emerge from the trance at any time, ending the effect of the spell early. The target recalls the dream perfectly upon waking. If the target is awake when you cast the spell, the messenger knows it, and can either end the trance (and the spell) or wait for the target to fall asleep, at which point the messenger appears in the target's dreams. You can make the messenger appear monstrous and terrifying to the target. If you do, the messenger can deliver a message of no more than ten words and then the target must make a Wisdom saving throw. On a failed save, echoes of the phantasmal monstrosity spawn a nightmare that lasts the duration of the target's sleep and prevents the target from gaining any benefit from that rest. In addition, when the target wakes up, it takes 3d6 psychic damage. If you have a body part, lock of hair, clipping from a nail, or similar portion of the target's body, the target makes its saving throw with disadvantage.",
+                         at_higher_levels="")
+
+
 class Druidcraft(spells.Spell):
     """
     Druidcraft Spell
@@ -2091,6 +2367,29 @@ class Druidcraft(spells.Spell):
                                      "a puff of wind, the sound of a small animal, or the faint odor of skunk. The "
                                      "effect must fit in a 5-foot cube.\n"
                                      "• You instantly light or snuff out a candle, a torch, or a small campfire.")
+
+
+class Earthquake(spells.Spell):
+    """
+    Earthquake Spell
+    SRD p. 140
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Earthquake",
+                         spell_lists=[SpellLists.PRIMAL],
+                         concentration=True,
+                         level=8,
+                         ritual=False,
+                         school=SpellSchools.Evocation,
+                         spell_range="500 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a pinch of dirt, a piece of rock, and a lump of clay",
+                         duration="Concentration, up to 1 minute",
+                         description="You create a seismic disturbance at a point on the ground that you can see within range. For the duration, an intense tremor rips through the ground in a 100-foot-radius circle centered on that point and shakes creatures and structures in contact with the ground in that area. The ground in the area becomes difficult terrain. Each creature on the ground that is concentrating must make a Constitution saving throw. On a failed save, the creature's concentration is broken. When you cast this spell and at the end of each turn you spend concentrating on it, each creature on the ground in the area must make a Dexterity saving throw. On a failed save, the creature is knocked prone. This spell can have additional effects depending on the terrain in the area, as determined by the GM. Fissures. Fissures open throughout the spell's area at the start of your next turn after you cast the spell. A total of 1d6 such fissures open in locations chosen by the GM. Each is 1d10 × 10 feet deep, 10 feet wide, and extends from one edge of the spell's area to the opposite side. A creature standing on a spot where a fissure opens must succeed on a Dexterity saving throw or fall in. A creature that successfully saves moves with the fissure's edge as it opens. A fissure that opens beneath a structure causes it to automatically collapse (see below). Structures. The tremor deals 50 bludgeoning damage to any structure in contact with the ground in the area when you cast the spell and at the start of each of your turns until the spell ends. If a structure drops to 0 hit points, it collapses and potentially damages nearby creatures. A creature within half the distance of a structure's height must make a Dexterity saving throw. On a failed save, the creature takes 5d6 bludgeoning damage, is knocked prone, and is buried in the rubble, requiring a DC 20 Strength (Athletics) check as an action to escape. The GM can adjust the DC higher or lower, depending on the nature of the rubble. On a successful save, the creature takes half as much damage and doesn't fall prone or become buried.",
+                         at_higher_levels="")
 
 
 class EnhanceAbility(spells.Spell):
@@ -2192,6 +2491,167 @@ class Entangle(spells.Spell):
                                      "When the spell ends, the conjured plants wilt away.")
 
 
+class Enthrall(spells.Spell):
+    """
+    Enthrall Spell
+    SRD p. 141
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Enthrall",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=2,
+                         ritual=False,
+                         school=SpellSchools.Enchantment,
+                         spell_range="60 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="1 minute",
+                         description="You weave a distracting string of words, causing creatures of your choice that you can see within range and that can hear you to make a Wisdom saving throw. Any creature that can't be charmed succeeds on this saving throw automatically, and if you or your companions are fighting a creature, it has advantage on the save. On a failed save, the target has disadvantage on Wisdom (Perception) checks made to perceive any creature other than you until the spell ends or until the target can no longer hear you. The spell ends if you are incapacitated or can no longer speak.",
+                         at_higher_levels="")
+
+
+class Etherealness(spells.Spell):
+    """
+    Etherealness Spell
+    SRD p. 141-142
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Etherealness",
+                         spell_lists=[SpellLists.DIVINE],
+                         concentration=False,
+                         level=7,
+                         ritual=False,
+                         school=SpellSchools.Transmutation,
+                         spell_range="Self",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="Up to 8 hours",
+                         description="You step into the border regions of the Ethereal Plane, in the area where it overlaps with your current plane. You remain in the Border Ethereal for the duration or until you use your action to dismiss the spell. During this time, you can move in any direction. If you move up or down, every foot of movement costs an extra foot. You can see and hear the plane you originated from, but everything there looks gray, and you can't see anything more than 60 feet away. While on the Ethereal Plane, you can only affect and be affected by other creatures on that plane. Creatures that aren't on the Ethereal Plane can't perceive you and can't interact with you, unless a special ability or magic has given them the ability to do so. You ignore all objects and effects that aren't on the Ethereal Plane, allowing you to move through objects you perceive on the plane you originated from. When the spell ends, you immediately return to the plane you originated from in the spot you currently occupy. If you occupy the same spot as a solid object or creature when this happens, you are immediately shunted to the nearest unoccupied space that you can occupy and take force damage equal to twice the number of feet you are moved. This spell has no effect if you cast it while you are on the Ethereal Plane or a plane that doesn't border it, such as one of the Outer Planes.",
+                         at_higher_levels="When you cast this spell using a spell slot of 8th level or higher, you can target up to three willing creatures (including you) for each slot level above 7th. The creatures must be within 10 feet of you when you cast the spell.")
+
+
+class ExpeditiousRetreat(spells.Spell):
+    """
+    Expeditious Retreat Spell
+    SRD p. 142
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Expeditious Retreat",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=True,
+                         level=1,
+                         ritual=False,
+                         school=SpellSchools.Transmutation,
+                         spell_range="Self",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="Concentration, up to 10 minutes",
+                         description="This spell allows you to move at an incredible pace. When you cast this spell, and then as a bonus action on each of your turns until the spell ends, you can take the Dash action.",
+                         at_higher_levels="")
+
+
+class Eyebite(spells.Spell):
+    """
+    Eyebite Spell
+    SRD p. 142
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Eyebite",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=True,
+                         level=6,
+                         ritual=False,
+                         school=SpellSchools.Necromancy,
+                         spell_range="Self",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="Concentration, up to 1 minute",
+                         description="For the spell's duration, your eyes become an inky void imbued with dread power. One creature of your choice within 60 feet of you that you can see must succeed on a Wisdom saving throw or be affected by one of the following effects of your choice for the duration. On each of your turns until the spell ends, you can use your action to target another creature but can't target a creature again if it has succeeded on a saving throw against this casting of eyebite. Asleep. The target falls unconscious. It wakes up if it takes any damage or if another creature uses its action to shake the sleeper awake. Panicked. The target is frightened of you. On each of its turns, the frightened creature must take the Dash action and move away from you by the safest and shortest available route, unless there is nowhere to move. If the target moves to a place at least 60 feet away from you where it can no longer see you, this effect ends. Sickened. The target has disadvantage on attack rolls and ability checks. At the end of each of its turns, it can make another Wisdom saving throw. If it succeeds, the effect ends.",
+                         at_higher_levels="")
+
+
+class Fabricate(spells.Spell):
+    """
+    Fabricate Spell
+    SRD p. 142
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Fabricate",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=4,
+                         ritual=False,
+                         school=SpellSchools.Transmutation,
+                         spell_range="120 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="Instantaneous",
+                         description="You convert raw materials into products of the same material. For example, you can fabricate a wooden bridge from a clump of trees, a rope from a patch of hemp, and clothes from flax or wool. Choose raw materials that you can see within range. You can fabricate a Large or smaller object (contained within a 10-foot cube, or eight connected 5-foot cubes), given a sufficient quantity of raw material. If you are working with metal, stone, or another mineral substance, however, the fabricated object can be no larger than Medium (contained within a single 5-foot cube). The quality of objects made by the spell is commensurate with the quality of the raw materials. Creatures or magic items can't be created or transmuted by this spell. You also can't use it to create items that ordinarily require a high degree of craftsmanship, such as jewelry, weapons, glass, or armor, unless you have proficiency with the type of artisan's tools used to craft such objects.",
+                         at_higher_levels="")
+
+
+class FaerieFire(spells.Spell):
+    """
+    Faerie Fire Spell
+    SRD p. 142-143
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Faerie Fire",
+                         spell_lists=[SpellLists.PRIMAL],
+                         concentration=True,
+                         level=1,
+                         ritual=False,
+                         school=SpellSchools.Evocation,
+                         spell_range="60 feet",
+                         verbal_components="True",
+                         somatic_components="False",
+                         material_components_list="",
+                         duration="Concentration, up to 1 minute",
+                         description="Each object in a 20-foot cube within range is outlined in blue, green, or violet light (your choice). Any creature in the area when the spell is cast is also outlined in light if it fails a Dexterity saving throw. For the duration, objects and affected creatures shed dim light in a 10-foot radius. Any attack roll against an affected creature or object has advantage if the attacker can see it, and the affected creature or object can't benefit from being invisible.",
+                         at_higher_levels="")
+
+
+class FaithfulHound(spells.Spell):
+    """
+    Faithful Hound Spell
+    SRD p. 143
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Faithful Hound",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=4,
+                         ritual=False,
+                         school=SpellSchools.Conjuration,
+                         spell_range="30 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a tiny silver whistle, a piece of bone, and a thread",
+                         duration="8 hours",
+                         description="You conjure a phantom watchdog in an unoccupied space that you can see within range, where it remains for the duration, until you dismiss it as an action, or until you move more than 100 feet away from it. The hound is invisible to all creatures except you and can't be harmed. When a Small or larger creature comes within 30 feet of it without first speaking the password that you specify when you cast this spell, the hound starts barking loudly. The hound sees invisible creatures and can see into the Ethereal Plane. It ignores illusions. At the start of each of your turns, the hound attempts to bite one creature within 5 feet of it that is hostile to you. The hound's attack bonus is equal to your spellcasting ability modifier + your proficiency bonus. On a hit, it deals 4d8 piercing damage.",
+                         at_higher_levels="")
+
+
 class FalseLife(spells.Spell):
     """
     False Life Spell
@@ -2212,6 +2672,420 @@ class FalseLife(spells.Spell):
                                      "temporary hit points for the duration.",
                          at_higher_levels="When you cast this spell using a spell slot of 2nd level or higher, "
                                           "you gain 5 additional temporary hit points for each slot level above 1st.")
+
+
+class Fear(spells.Spell):
+    """
+    Fear Spell
+    SRD p. 143
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Fear",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=True,
+                         level=3,
+                         ritual=False,
+                         school=SpellSchools.Illusion,
+                         spell_range="Self (30-foot cone)",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a white feather or the heart of a hen",
+                         duration="Concentration, up to 1 minute",
+                         description="You project a phantasmal image of a creature's worst fears. Each creature in a 30-foot cone must succeed on a Wisdom saving throw or drop whatever it is holding and become frightened for the duration. While frightened by this spell, a creature must take the Dash action and move away from you by the safest available route on each of its turns, unless there is nowhere to move. If the creature ends its turn in a location where it doesn't have line of sight to you, the creature can make a Wisdom saving throw. On a successful save, the spell ends for that creature.",
+                         at_higher_levels="")
+
+
+class FeatherFall(spells.Spell):
+    """
+    Feather Fall Spell
+    SRD p. 143
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Feather Fall",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=1,
+                         ritual=False,
+                         school=SpellSchools.Transmutation,
+                         spell_range="60 feet",
+                         verbal_components="True",
+                         somatic_components="False",
+                         material_components_list="a small feather or piece of down",
+                         duration="1 minute",
+                         description="Choose up to five falling creatures within range. A falling creature's rate of descent slows to 60 feet per round until the spell ends. If the creature lands before the spell ends, it takes no falling damage and can land on its feet, and the spell ends for that creature.",
+                         at_higher_levels="")
+
+
+class Feeblemind(spells.Spell):
+    """
+    Feeblemind Spell
+    SRD p. 143-144
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Feeblemind",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=8,
+                         ritual=False,
+                         school=SpellSchools.Enchantment,
+                         spell_range="150 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a handful of clay, crystal, glass, or mineral spheres",
+                         duration="Instantaneous",
+                         description="You blast the mind of a creature that you can see within range, attempting to shatter its intellect and personality. The target takes 4d6 psychic damage and must make an Intelligence saving throw. On a failed save, the creature's Intelligence and Charisma scores become 1. The creature can't cast spells, activate magic items, understand language, or communicate in any intelligible way. The creature can, however, identify its friends, follow them, and even protect them. At the end of every 30 days, the creature can repeat its saving throw against this spell. If it succeeds on its saving throw, the spell ends. The spell can also be ended by greater restoration, heal, or wish.",
+                         at_higher_levels="")
+
+
+class FindFamiliar(spells.Spell):
+    """
+    Find Familiar Spell
+    SRD p. 144
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Find Familiar",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=1,
+                         ritual=True,
+                         school=SpellSchools.Conjuration,
+                         spell_range="10 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="10 gp worth of charcoal, incense, and herbs that must be consumed by fire in a brass brazier",
+                         duration="Instantaneous",
+                         description="You gain the service of a familiar, a spirit that takes an animal form you choose: bat, cat, crab, frog (toad), hawk, lizard, octopus, owl, poisonous snake, fish (quipper), rat, raven, sea horse, spider, or weasel. Appearing in an unoccupied space within range, the familiar has the statistics of the chosen form, though it is a celestial, fey, or fiend (your choice) instead of a beast. Your familiar acts independently of you, but it always obeys your commands. In combat, it rolls its own initiative and acts on its own turn. A familiar can't attack, but it can take other actions as normal. When the familiar drops to 0 hit points, it disappears, leaving behind no physical form. It reappears after you cast this spell again While your familiar is within 100 feet of you, you can communicate with it telepathically. Additionally, as an action, you can see through your familiar's eyes and hear what it hears until the start of your next turn, gaining the benefits of any special senses that the familiar has. During this time, you are deaf and blind with regard to your own senses. As an action, you can temporarily dismiss your familiar. It disappears into a pocket dimension where it awaits your summons. Alternatively, you can dismiss it forever. As an action while it is temporarily dismissed, you can cause it to reappear in any unoccupied space within 30 feet of you. You can't have more than one familiar at a time. If you cast this spell while you already have a familiar, you instead cause it to adopt a new form. Choose one of the forms from the above list. Your familiar transforms into the chosen creature. Finally, when you cast a spell with a range of touch, your familiar can deliver the spell as if it had cast the spell. Your familiar must be within 100 feet of you, and it must use its reaction to deliver the spell when you cast it. If the spell requires an attack roll, you use your attack modifier for the roll.",
+                         at_higher_levels="")
+
+
+class FindSteed(spells.Spell):
+    """
+    Find Steed Spell
+    SRD p. 144
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Find Steed",
+                         spell_lists=[SpellLists.DIVINE],
+                         concentration=False,
+                         level=2,
+                         ritual=False,
+                         school=SpellSchools.Conjuration,
+                         spell_range="30 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="Instantaneous",
+                         description="You summon a spirit that assumes the form of an unusually intelligent, strong, and loyal steed, creating a long-lasting bond with it. Appearing in an unoccupied space within range, the steed takes on a form that you choose: a warhorse, a pony, a camel, an elk, or a mastiff. (Your GM might allow other animals to be summoned as steeds.) The steed has the statistics of the chosen form, though it is a celestial, fey, or fiend (your choice) instead of its normal type. Additionally, if your steed has an Intelligence of 5 or less, its Intelligence becomes 6, and it gains the ability to understand one language of your choice that you speak. Your steed serves you as a mount, both in combat and out, and you have an instinctive bond with it that allows you to fight as a seamless unit. While mounted on your steed, you can make any spell you cast that targets only you also target your steed. When the steed drops to 0 hit points, it disappears, leaving behind no physical form. You can also dismiss your steed at any time as an action, causing it to disappear. In either case, casting this spell again summons the same steed, restored to its hit point maximum. While your steed is within 1 mile of you, you can communicate with it telepathically. You can't have more than one steed bonded by this spell at a time. As an action, you can release the steed from its bond at any time, causing it to disappear.",
+                         at_higher_levels="")
+
+
+class FindTraps(spells.Spell):
+    """
+    Find Traps Spell
+    SRD p. 145
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Find Traps",
+                         spell_lists=[SpellLists.PRIMAL],
+                         concentration=False,
+                         level=2,
+                         ritual=False,
+                         school=SpellSchools.Divination,
+                         spell_range="120 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="Instantaneous",
+                         description="You sense the presence of any trap within range that is within line of sight. A trap, for the purpose of this spell, includes anything that would inflict a sudden or unexpected effect you consider harmful or undesirable, which was specifically intended as such by its creator. Thus, the spell would sense an area affected by the alarm spell, a glyph of warding, or a mechanical pit trap, but it would not reveal a natural weakness in the floor, an unstable ceiling, or a hidden sinkhole. This spell merely reveals that a trap is present. You don't learn the location of each trap, but you do learn the general nature of the danger posed by a trap you sense.",
+                         at_higher_levels="")
+
+
+class FingerOfDeath(spells.Spell):
+    """
+    Finger of Death Spell
+    SRD p. 145
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Finger of Death",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=7,
+                         ritual=False,
+                         school=SpellSchools.Necromancy,
+                         spell_range="60 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="Instantaneous",
+                         description="You send negative energy coursing through a creature that you can see within range, causing it searing pain. The target must make a Constitution saving throw. It takes 7d8 + 30 necrotic damage on a failed save, or half as much damage on a successful one. A humanoid killed by this spell rises at the start of your next turn as a zombie that is permanently under your command, following your verbal orders to the best of its ability.",
+                         at_higher_levels="")
+
+
+class FireBolt(spells.Spell):
+    """
+    Fire Bolt Spell
+    SRD p. 145
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Fire Bolt",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=0,
+                         ritual=False,
+                         school=SpellSchools.Evocation,
+                         spell_range="120 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="Instantaneous",
+                         description="You hurl a mote of fire at a creature or object within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 fire damage. A flammable object hit by this spell ignites if it isn't being worn or carried. This spell's damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10).",
+                         at_higher_levels="")
+
+
+class FireShield(spells.Spell):
+    """
+    Fire Shield Spell
+    SRD p. 145-146
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Fire Shield",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=4,
+                         ritual=False,
+                         school=SpellSchools.Evocation,
+                         spell_range="Self",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a bit of phosphorus or a firefly",
+                         duration="10 minutes",
+                         description="Thin and wispy flames wreathe your body for the duration, shedding bright light in a 10-foot radius and dim light for an additional 10 feet. You can end the spell early by using an action to dismiss it. The flames provide you with a warm shield or a chill shield, as you choose. The warm shield grants you resistance to cold damage, and the chill shield grants you resistance to fire damage. In addition, whenever a creature within 5 feet of you hits you with a melee attack, the shield erupts with flame. The attacker takes 2d8 fire damage from a warm shield, or 2d8 cold damage from a cold shield.",
+                         at_higher_levels="")
+
+
+class FireStorm(spells.Spell):
+    """
+    Fire Storm Spell
+    SRD p. 146
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Fire Storm",
+                         spell_lists=[SpellLists.PRIMAL],
+                         concentration=False,
+                         level=7,
+                         ritual=False,
+                         school=SpellSchools.Evocation,
+                         spell_range="150 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="Instantaneous",
+                         description="A storm made up of sheets of roaring flame appears in a location you choose within range. The area of the storm consists of up to ten 10-foot cubes, which you can arrange as you wish. Each cube must have at least one face adjacent to the face of another cube. Each creature in the area must make a Dexterity saving throw. It takes 7d10 fire damage on a failed save, or half as much damage on a successful one. The fire damages objects in the area and ignites flammable objects that aren't being worn or carried. If you choose, plant life in the area is unaffected by this spell.",
+                         at_higher_levels="")
+
+
+class Fireball(spells.Spell):
+    """
+    Fireball Spell
+    SRD p. 145
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Fireball",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=3,
+                         ritual=False,
+                         school=SpellSchools.Evocation,
+                         spell_range="150 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a tiny ball of bat guano and sulfur",
+                         duration="Instantaneous",
+                         description="A bright streak flashes from your pointing finger to a point you choose within range and then blossoms with a low roar into an explosion of flame. Each creature in a 20-foot-radius sphere centered on that point must make a Dexterity saving throw. A target takes 8d6 fire damage on a failed save, or half as much damage on a successful one. The fire spreads around corners. It ignites flammable objects in the area that aren't being worn or carried.",
+                         at_higher_levels="When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d6 for each slot level above 3rd.")
+
+
+class FlameBlade(spells.Spell):
+    """
+    Flame Blade Spell
+    SRD p. 146
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Flame Blade",
+                         spell_lists=[SpellLists.PRIMAL],
+                         concentration=True,
+                         level=2,
+                         ritual=False,
+                         school=SpellSchools.Evocation,
+                         spell_range="Self",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="leaf of sumac",
+                         duration="Concentration, up to 10 minutes",
+                         description="You evoke a fiery blade in your free hand. The blade is similar in size and shape to a scimitar, and it lasts for the duration. If you let go of the blade, it disappears, but you can evoke the blade again as a bonus action. You can use your action to make a melee spell attack with the fiery blade. On a hit, the target takes 3d6 fire damage. The flaming blade sheds bright light in a 10-foot radius and dim light for an additional 10 feet.",
+                         at_higher_levels="When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d6 for every two slot levels above 2nd.")
+
+
+class FlameStrike(spells.Spell):
+    """
+    Flame Strike Spell
+    SRD p. 146
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Flame Strike",
+                         spell_lists=[SpellLists.DIVINE],
+                         concentration=False,
+                         level=5,
+                         ritual=False,
+                         school=SpellSchools.Evocation,
+                         spell_range="60 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="pinch of sulfur",
+                         duration="Instantaneous",
+                         description="A vertical column of divine fire roars down from the heavens in a location you specify. Each creature in a 10-foot-radius, 40-foot-high cylinder centered on a point within range must make a Dexterity saving throw. A creature takes 4d6 fire damage and 4d6 radiant damage on a failed save, or half as much damage on a successful one.",
+                         at_higher_levels="When you cast this spell using a spell slot of 6th level or higher, the fire damage or the radiant damage (your choice) increases by 1d6 for each slot level above 5th.")
+
+
+class FlamingSphere(spells.Spell):
+    """
+    Flaming Sphere Spell
+    SRD p. 146
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Flaming Sphere",
+                         spell_lists=[SpellLists.PRIMAL],
+                         concentration=True,
+                         level=2,
+                         ritual=False,
+                         school=SpellSchools.Conjuration,
+                         spell_range="60 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a bit of tallow, a pinch of brimstone, and a dusting of powdered iron",
+                         duration="Concentration, up to 1 minute",
+                         description="A 5-foot-diameter sphere of fire appears in an unoccupied space of your choice within range and lasts for the duration. Any creature that ends its turn within 5 feet of the sphere must make a Dexterity saving throw. The creature takes 2d6 fire damage on a failed save, or half as much damage on a successful one. As a bonus action, you can move the sphere up to 30 feet. If you ram the sphere into a creature, that creature must make the saving throw against the sphere's damage, and the sphere stops moving this turn. When you move the sphere, you can direct it over barriers up to 5 feet tall and jump it across pits up to 10 feet wide. The sphere ignites flammable objects not being worn or carried, and it sheds bright light in a 20-foot radius and dim light for an additional 20 feet.",
+                         at_higher_levels="When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d6 for each slot level above 2nd.")
+
+
+class FleshToStone(spells.Spell):
+    """
+    Flesh to Stone Spell
+    SRD p. 146-147
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Flesh to Stone",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=True,
+                         level=6,
+                         ritual=False,
+                         school=SpellSchools.Transmutation,
+                         spell_range="60 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a pinch of lime, water, and earth",
+                         duration="Concentration, up to 1 minute",
+                         description="You attempt to turn one creature that you can see within range into stone. If the target's body is made of flesh, the creature must make a Constitution saving throw. On a failed save, it is restrained as its flesh begins to harden. On a successful save, the creature isn't affected. A creature restrained by this spell must make another Constitution saving throw at the end of each of its turns. If it successfully saves against this spell three times, the spell ends. If it fails its saves three times, it is turned to stone and subjected to the petrified condition for the duration. The successes and failures don't need to be consecutive; keep track of both until the target collects three of a kind. If the creature is physically broken while petrified, it suffers from similar deformities if it reverts to its original state. If you maintain your concentration on this spell for the entire possible duration, the creature is turned to stone until the effect is removed.",
+                         at_higher_levels="")
+
+
+class FloatingDisk(spells.Spell):
+    """
+    Floating Disk Spell
+    SRD p. 147
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Floating Disk",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=1,
+                         ritual=True,
+                         school=SpellSchools.Conjuration,
+                         spell_range="30 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a drop of mercury",
+                         duration="1 hour",
+                         description="This spell creates a circular, horizontal plane of force, 3 feet in diameter and 1 inch thick, that floats 3 feet above the ground in an unoccupied space of your choice that you can see within range. The disk remains for the duration, and can hold up to 500 pounds. If more weight is placed on it, the spell ends, and everything on the disk falls to the ground. The disk is immobile while you are within 20 feet of it. If you move more than 20 feet away from it, the disk follows you so that it remains within 20 feet of you. It can move across uneven terrain, up or down stairs, slopes and the like, but it can't cross an elevation change of 10 feet or more. For example, the disk can't move across a 10-foot-deep pit, nor could it leave such a pit if it was created at the bottom. If you move more than 100 feet from the disk (typically because it can't move around an obstacle to follow you), the spell ends.",
+                         at_higher_levels="")
+
+
+class Fly(spells.Spell):
+    """
+    Fly Spell
+    SRD p. 147
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Fly",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=True,
+                         level=3,
+                         ritual=False,
+                         school=SpellSchools.Transmutation,
+                         spell_range="Touch",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a wing feather from any bird",
+                         duration="Concentration, up to 10 minutes",
+                         description="You touch a willing creature. The target gains a flying speed of 60 feet for the duration. When the spell ends, the target falls if it is still aloft, unless it can stop the fall.",
+                         at_higher_levels="When you cast this spell using a spell slot of 4th level or higher, you can target one additional creature for each slot level above 3rd.")
+
+
+class FindThePath(spells.Spell):
+    """
+    Find the Path Spell
+    SRD p. 144-145
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Find the Path",
+                         spell_lists=[SpellLists.PRIMAL],
+                         concentration=True,
+                         level=6,
+                         ritual=False,
+                         school=SpellSchools.Divination,
+                         spell_range="Self",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a set of divinatory tools—such as bones, ivory sticks, cards, teeth, or carved runes—worth 100 gp and an object from the location you wish to find",
+                         duration="Concentration, up to 1 day",
+                         description="This spell allows you to find the shortest, most direct physical route to a specific fixed location that you are familiar with on the same plane of existence. If you name a destination on another plane of existence, a destination that moves (such as a mobile fortress), or a destination that isn't specific (such as “a green dragon's lair”), the spell fails. For the duration, as long as you are on the same plane of existence as the destination, you know how far it is and in what direction it lies. While you are traveling there, whenever you are presented with a choice of paths along the way, you automatically determine which path is the shortest and most direct route (but not necessarily the safest route) to the destination.",
+                         at_higher_levels="")
 
 
 class FindTraps(spells.Spell):
@@ -2264,6 +3138,190 @@ class FogCloud(spells.Spell):
                                           "the radius of the fog increases by 20 feet for each slot level above 1st.")
 
 
+class Forbiddance(spells.Spell):
+    """
+    Forbiddance Spell
+    SRD p. 147-148
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Forbiddance",
+                         spell_lists=[SpellLists.DIVINE],
+                         concentration=False,
+                         level=6,
+                         ritual=True,
+                         school=SpellSchools.Abjuration,
+                         spell_range="Touch",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a sprinkling of holy water, rare incense, and powdered ruby worth at least 1,000 gp",
+                         duration="1 day",
+                         description="You create a ward against magical travel that protects up to 40,000 square feet of floor space to a height of 30 feet above the floor. For the duration, creatures can't teleport into the area or use portals, such as those created by the gate spell, to enter the area. The spell proofs the area against planar travel, and therefore prevents creatures from accessing the area by way of the Astral Plane, Ethereal Plane, Feywild, Shadowfell, or the plane shift spell. In addition, the spell damages types of creatures that you choose when you cast it. Choose one or more of the following: celestials, elementals, fey, fiends, and undead. When a chosen creature enters the spell's area for the first time on a turn or starts its turn there, the creature takes 5d10 radiant or necrotic damage (your choice when you cast this spell). When you cast this spell, you can designate a password. A creature that speaks the password as it enters the area takes no damage from the spell. The spell's area can't overlap with the area of another forbiddance spell. If you cast forbiddance every day for 30 days in the same location, the spell lasts until it is dispelled, and the material components are consumed on the last casting.",
+                         at_higher_levels="")
+
+
+class Forcecage(spells.Spell):
+    """
+    Forcecage Spell
+    SRD p. 148
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Forcecage",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=7,
+                         ritual=False,
+                         school=SpellSchools.Evocation,
+                         spell_range="100 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="ruby dust worth 1,500 gp",
+                         duration="1 hour",
+                         description="An immobile, invisible, cube-shaped prison composed of magical force springs into existence around an area you choose within range. The prison can be a cage or a solid box, as you choose. A prison in the shape of a cage can be up to 20 feet on a side and is made from 1/2-inch diameter bars spaced 1/2 inch apart. A prison in the shape of a box can be up to 10 feet on a side, creating a solid barrier that prevents any matter from passing through it and blocking any spells cast into or out from the area. When you cast the spell, any creature that is completely inside the cage's area is trapped. Creatures only partially within the area, or those too large to fit inside the area, are pushed away from the center of the area until they are completely outside the area. A creature inside the cage can't leave it by nonmagical means. If the creature tries to use teleportation or interplanar travel to leave the cage, it must first make a Charisma saving throw. On a success, the creature can use that magic to exit the cage. On a failure, the creature can't exit the cage and wastes the use of the spell or effect. The cage also extends into the Ethereal Plane, blocking ethereal travel. This spell can't be dispelled by dispel magic.",
+                         at_higher_levels="")
+
+
+class Foresight(spells.Spell):
+    """
+    Foresight Spell
+    SRD p. 148
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Foresight",
+                         spell_lists=[SpellLists.DIVINE],
+                         concentration=False,
+                         level=9,
+                         ritual=False,
+                         school=SpellSchools.Divination,
+                         spell_range="Touch",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a hummingbird feather",
+                         duration="8 hours",
+                         description="You touch a willing creature and bestow a limited ability to see into the immediate future. For the duration, the target can't be surprised and has advantage on attack rolls, ability checks, and saving throws. Additionally, other creatures have disadvantage on attack rolls against the target for the duration. This spell immediately ends if you cast it again before its duration ends.",
+                         at_higher_levels="")
+
+
+class FreedomOfMovement(spells.Spell):
+    """
+    Freedom of Movement Spell
+    SRD p. 148
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Freedom of Movement",
+                         spell_lists=[SpellLists.PRIMAL],
+                         concentration=False,
+                         level=4,
+                         ritual=False,
+                         school=SpellSchools.Abjuration,
+                         spell_range="Touch",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a leather strap, bound around the arm or a similar appendage",
+                         duration="1 hour",
+                         description="You touch a willing creature. For the duration, the target's movement is unaffected by difficult terrain, and spells and other magical effects can neither reduce the target's speed nor cause the target to be paralyzed or restrained. The target can also spend 5 feet of movement to automatically escape from nonmagical restraints, such as manacles or a creature that has it grappled. Finally, being underwater imposes no penalties on the target's movement or attacks.",
+                         at_higher_levels="")
+
+
+class FreezingSphere(spells.Spell):
+    """
+    Freezing Sphere Spell
+    SRD p. 148-149
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Freezing Sphere",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=6,
+                         ritual=False,
+                         school=SpellSchools.Evocation,
+                         spell_range="300 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a small crystal sphere",
+                         duration="Instantaneous",
+                         description="A frigid globe of cold energy streaks from your fingertips to a point of your choice within range, where it explodes in a 60-foot-radius sphere. Each creature within the area must make a Constitution saving throw. On a failed save, a creature takes 10d6 cold damage. On a successful save, it takes half as much damage. If the globe strikes a body of water or a liquid that is principally water (not including water-based creatures), it freezes the liquid to a depth of 6 inches over an area 30 feet square. This ice lasts for 1 minute. Creatures that were swimming on the surface of frozen water are trapped in the ice. A trapped creature can use an action to make a Strength check against your spell save DC to break free. You can refrain from firing the globe after completing the spell, if you wish. A small globe about the size of a sling stone, cool to the touch, appears in your hand. At any time, you or a creature you give the globe to can throw the globe (to a range of 40 feet) or hurl it with a sling (to the sling's normal range). It shatters on impact, with the same effect as the normal casting of the spell. You can also set the globe down without shattering it. After 1 minute, if the globe hasn't already shattered, it explodes.",
+                         at_higher_levels="When you cast this spell using a spell slot of 7th level or higher, the damage increases by 1d6 for each slot level above 6th.")
+
+
+class GaseousForm(spells.Spell):
+    """
+    Gaseous Form Spell
+    SRD p. 149
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Gaseous Form",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=True,
+                         level=3,
+                         ritual=False,
+                         school=SpellSchools.Transmutation,
+                         spell_range="Touch",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a bit of gauze and a wisp of smoke",
+                         duration="Concentration, up to 1 hour",
+                         description="You transform a willing creature you touch, along with everything it's wearing and carrying, into a misty cloud for the duration. The spell ends if the creature drops to 0 hit points. An incorporeal creature isn't affected. While in this form, the target's only method of movement is a flying speed of 10 feet. The target can enter and occupy the space of another creature. The target has resistance to nonmagical damage, and it has advantage on Strength, Dexterity, and Constitution saving throws. The target can pass through small holes, narrow openings, and even mere cracks, though it treats liquids as though they were solid surfaces. The target can't fall and remains hovering in the air even when stunned or otherwise incapacitated. While in the form of a misty cloud, the target can't talk or manipulate objects, and any objects it was carrying or holding can't be dropped, used, or otherwise interacted with. The target can't attack or cast spells.",
+                         at_higher_levels="")
+
+
+class Gate(spells.Spell):
+    """
+    Gate Spell
+    SRD p. 149
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Gate",
+                         spell_lists=[SpellLists.DIVINE],
+                         concentration=True,
+                         level=9,
+                         ritual=False,
+                         school=SpellSchools.Conjuration,
+                         spell_range="60 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a diamond worth at least 5,000 gp",
+                         duration="Concentration, up to 1 minute",
+                         description="You conjure a portal linking an unoccupied space you can see within range to a precise location on a different plane of existence. The portal is a circular opening, which you can make 5 to 20 feet in diameter. You can orient the portal in any direction you choose. The portal lasts for the duration. The portal has a front and a back on each plane where it appears. Travel through the portal is possible only by moving through its front. Anything that does so is instantly transported to the other plane, appearing in the unoccupied space nearest to the portal. Deities and other planar rulers can prevent portals created by this spell from opening in their presence or anywhere within their domains. When you cast this spell, you can speak the name of a specific creature (a pseudonym, title, or nickname doesn't work). If that creature is on a plane other than the one you are on, the portal opens in the named creature's immediate vicinity and draws the creature through it to the nearest unoccupied space on your side of the portal. You gain no special power over the creature, and it is free to act as the GM deems appropriate. It might leave, attack you, or help you.",
+                         at_higher_levels="")
+
+
+class Geas(spells.Spell):
+    """
+    Geas Spell
+    SRD p. 149
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Geas",
+                         spell_lists=[SpellLists.DIVINE],
+                         concentration=False,
+                         level=5,
+                         ritual=False,
+                         school=SpellSchools.Enchantment,
+                         spell_range="60 feet",
+                         verbal_components="True",
+                         somatic_components="False",
+                         material_components_list="",
+                         duration="30 days",
+                         description="You place a magical command on a creature that you can see within range, forcing it to carry out some service or refrain from some action or course of activity as you decide. If the creature can understand you, it must succeed on a Wisdom saving throw or become charmed by you for the duration. While the creature is charmed by you, it takes 5d10 psychic damage each time it acts in a manner directly counter to your instructions, but no more than once each day. A creature that can't understand you is unaffected by the spell. You can issue any command you choose, short of an activity that would result in certain death. Should you issue a suicidal command, the spell ends. You can end the spell early by using an action to dismiss it. A remove curse, greater restoration, or wish spell also ends it.",
+                         at_higher_levels="When you cast this spell using a spell slot of 7th or 8th level, the duration is 1 year. When you cast this spell using a spell slot of 9th level, the spell lasts until it is ended by one of the spells mentioned above.")
+
+
 class GentleRepose(spells.Spell):
     """
     Gentle Repose Spell
@@ -2289,6 +3347,98 @@ class GentleRepose(spells.Spell):
                                      "against the time limit of spells such as raise dead.")
 
 
+class GiantInsect(spells.Spell):
+    """
+    Giant Insect Spell
+    SRD p. 150
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Giant Insect",
+                         spell_lists=[SpellLists.PRIMAL],
+                         concentration=True,
+                         level=4,
+                         ritual=False,
+                         school=SpellSchools.Transmutation,
+                         spell_range="30 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="Concentration, up to 10 minutes",
+                         description="You transform up to ten centipedes, three spiders, five wasps, or one scorpion within range into giant versions of their natural forms for the duration. A centipede becomes a giant centipede, a spider becomes a giant spider, a wasp becomes a giant wasp, and a scorpion becomes a giant scorpion. Each creature obeys your verbal commands, and in combat, they act on your turn each round. The GM has the statistics for these creatures and resolves their actions and movement. A creature remains in its giant size for the duration, until it drops to 0 hit points, or until you use an action to dismiss the effect on it. The GM might allow you to choose different targets. For example, if you transform a bee, its giant version might have the same statistics as a giant wasp.",
+                         at_higher_levels="")
+
+
+class Glibness(spells.Spell):
+    """
+    Glibness Spell
+    SRD p. 150
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Glibness",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=8,
+                         ritual=False,
+                         school=SpellSchools.Transmutation,
+                         spell_range="Self",
+                         verbal_components="True",
+                         somatic_components="False",
+                         material_components_list="",
+                         duration="1 hour",
+                         description="Until the spell ends, when you make a Charisma check, you can replace the number you roll with a 15. Additionally, no matter what you say, magic that would determine if you are telling the truth indicates that you are being truthful.",
+                         at_higher_levels="")
+
+
+class GlobeOfInvulnerability(spells.Spell):
+    """
+    Globe of Invulnerability Spell
+    SRD p. 150
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Globe of Invulnerability",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=True,
+                         level=6,
+                         ritual=False,
+                         school=SpellSchools.Abjuration,
+                         spell_range="Self (10-foot radius)",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a glass or crystal bead that shatters when the spell ends",
+                         duration="Concentration, up to 1 minute",
+                         description="An immobile, faintly shimmering barrier springs into existence in a 10-foot radius around you and remains for the duration. Any spell of 5th level or lower cast from outside the barrier can't affect creatures or objects within it, even if the spell is cast using a higher level spell slot. Such a spell can target creatures and objects within the barrier, but the spell has no effect on them. Similarly, the area within the barrier is excluded from the areas affected by such spells.",
+                         at_higher_levels="When you cast this spell using a spell slot of 7th level or higher, the barrier blocks spells of one level higher for each slot level above 6th.")
+
+
+class GlyphOfWarding(spells.Spell):
+    """
+    Glyph of Warding Spell
+    SRD p. 150-151
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Glyph of Warding",
+                         spell_lists=[SpellLists.DIVINE],
+                         concentration=False,
+                         level=3,
+                         ritual=False,
+                         school=SpellSchools.Abjuration,
+                         spell_range="Touch",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="incense and powdered diamond worth at least 200 gp, which the spell consumes",
+                         duration="Until dispelled or triggered",
+                         description="When you cast this spell, you inscribe a glyph that harms other creatures, either upon a surface (such as a table or a section of floor or wall) or within an object that can be closed (such as a book, a scroll, or a treasure chest) to conceal the glyph. If you choose a surface, the glyph can cover an area of the surface no larger than 10 feet in diameter. If you choose an object, that object must remain in its place; if the object is moved more than 10 feet from where you cast this spell, the glyph is broken, and the spell ends without being triggered. The glyph is nearly invisible and requires a successful Intelligence (Investigation) check against your spell save DC to be found. You decide what triggers the glyph when you cast the spell. For glyphs inscribed on a surface, the most typical triggers include touching or standing on the glyph, removing another object covering the glyph, approaching within a certain distance of the glyph, or manipulating the object on which the glyph is inscribed. For glyphs inscribed within an object, the most common triggers include opening that object, approaching within a certain distance of the object, or seeing or reading the glyph. Once a glyph is triggered, this spell ends. You can further refine the trigger so the spell activates only under certain circumstances or according to physical characteristics (such as height or weight), creature kind (for example, the ward could be set to affect aberrations or drow), or alignment. You can also set conditions for creatures that don't trigger the glyph, such as those who say a certain password. When you inscribe the glyph, choose explosive runes or a spell glyph. Explosive Runes. When triggered, the glyph erupts with magical energy in a 20-foot-radius sphere centered on the glyph. The sphere spreads around corners. Each creature in the area must make a Dexterity saving throw. A creature takes 5d8 acid, cold, fire, lightning, or thunder damage on a failed saving throw (your choice when you create the glyph), or half as much damage on a successful one. Spell Glyph. You can store a prepared spell of 3rd level or lower in the glyph by casting it as part of creating the glyph. The spell must target a single creature or an area. The spell being stored has no immediate effect when cast in this way. When the glyph is triggered, the stored spell is cast. If the spell has a target, it targets the creature that triggered the glyph. If the spell affects an area, the area is centered on that creature. If the spell summons hostile creatures or creates harmful objects or traps, they appear as close as possible to the intruder and attack it. If the spell requires concentration, it lasts until the end of its full duration.",
+                         at_higher_levels="When you cast this spell using a spell slot of 4th level or higher, the damage of an explosive runes glyph increases by 1d8 for each slot level above 3rd. If you create a spell glyph, you can store any spell of up to the same level as the slot you use for the glyph of warding.")
+
+
 class Goodberry(spells.Spell):
     """
     Goodberry Spell
@@ -2310,6 +3460,282 @@ class Goodberry(spells.Spell):
                                      "creature for one day.\n"
                                      "The berries lose their potency if they have not been consumed within 24 hours "
                                      "of the casting of this spell.")
+
+
+class Grease(spells.Spell):
+    """
+    Grease Spell
+    SRD p. 151
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Grease",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=1,
+                         ritual=False,
+                         school=SpellSchools.Conjuration,
+                         spell_range="60 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a bit of pork rind or butter",
+                         duration="1 minute",
+                         description="Slick grease covers the ground in a 10-foot square centered on a point within range and turns it into difficult terrain for the duration. When the grease appears, each creature standing in its area must succeed on a Dexterity saving throw or fall prone. A creature that enters the area or ends its turn there must also succeed on a Dexterity saving throw or fall prone.",
+                         at_higher_levels="")
+
+
+class GreaterInvisibility(spells.Spell):
+    """
+    Greater Invisibility Spell
+    SRD p. 151
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Greater Invisibility",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=True,
+                         level=4,
+                         ritual=False,
+                         school=SpellSchools.Illusion,
+                         spell_range="Touch",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="Concentration, up to 1 minute",
+                         description="You or a creature you touch becomes invisible until the spell ends. Anything the target is wearing or carrying is invisible as long as it is on the target's person.",
+                         at_higher_levels="")
+
+
+class GreaterRestoration(spells.Spell):
+    """
+    Greater Restoration Spell
+    SRD p. 151
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Greater Restoration",
+                         spell_lists=[SpellLists.PRIMAL],
+                         concentration=False,
+                         level=5,
+                         ritual=False,
+                         school=SpellSchools.Abjuration,
+                         spell_range="Touch",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="diamond dust worth at least 100 gp, which the spell consumes",
+                         duration="Instantaneous",
+                         description="You imbue a creature you touch with positive energy to undo a debilitating effect. You can reduce the target's exhaustion level by one, or end one of the following effects on the target: • One effect that charmed or petrified the target • One curse, including the target's attunement to a cursed magic item • Any reduction to one of the target's ability scores • One effect reducing the target's hit point maximum",
+                         at_higher_levels="")
+
+
+class GuardianOfFaith(spells.Spell):
+    """
+    Guardian of Faith Spell
+    SRD p. 151-152
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Guardian of Faith",
+                         spell_lists=[SpellLists.DIVINE],
+                         concentration=False,
+                         level=4,
+                         ritual=False,
+                         school=SpellSchools.Conjuration,
+                         spell_range="30 feet",
+                         verbal_components="True",
+                         somatic_components="False",
+                         material_components_list="",
+                         duration="8 hours",
+                         description="A Large spectral guardian appears and hovers for the duration in an unoccupied space of your choice that you can see within range. The guardian occupies that space and is indistinct except for a gleaming sword and shield emblazoned with the symbol of your deity. Any creature hostile to you that moves to a space within 10 feet of the guardian for the first time on a turn must succeed on a Dexterity saving throw. The creature takes 20 radiant damage on a failed save, or half as much damage on a successful one. The guardian vanishes when it has dealt a total of 60 damage.",
+                         at_higher_levels="")
+
+
+class GuardsAndWards(spells.Spell):
+    """
+    Guards and Wards Spell
+    SRD p. 152
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Guards and Wards",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=6,
+                         ritual=False,
+                         school=SpellSchools.Abjuration,
+                         spell_range="Touch",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="burning incense, a small measure of brimstone and oil, a knotted string, a small amount of umber hulk blood, and a small silver rod worth at least 10 gp",
+                         duration="24 hours",
+                         description="You create a ward that protects up to 2,500 square feet of floor space (an area 50 feet square, or one hundred 5-foot squares or twenty-five 10-foot squares). The warded area can be up to 20 feet tall, and shaped as you desire. You can ward several stories of a stronghold by dividing the area among them, as long as you can walk into each contiguous area while you are casting the spell. When you cast this spell, you can specify individuals that are unaffected by any or all of the effects that you choose. You can also specify a password that, when spoken aloud, makes the speaker immune to these effects. Guards and wards creates the following effects within the warded area. Corridors. Fog fills all the warded corridors, making them heavily obscured. In addition, at each intersection or branching passage offering a choice of direction, there is a 50 percent chance that a creature other than you will believe it is going in the opposite direction from the one it chooses. Doors. All doors in the warded area are magically locked, as if sealed by an arcane lock spell. In addition, you can cover up to ten doors with an illusion (equivalent to the illusory object function of the minor illusion spell) to make them appear as plain sections of wall. Stairs. Webs fill all stairs in the warded area from top to bottom, as the web spell. These strands regrow in 10 minutes if they are burned or torn away while guards and wards lasts. Other Spell Effect. You can place your choice of one of the following magical effects within the warded area of the stronghold. • Place dancing lights in four corridors. You can designate a simple program that the lights repeat as long as guards and wards lasts. • Place magic mouth in two locations. • Place stinking cloud in two locations. The vapors appear in the places you designate; they return within 10 minutes if dispersed by wind while guards and wards lasts. • Place a constant gust of wind in one corridor or room. • Place a suggestion in one location. You select an area of up to 5 feet square, and any creature that enters or passes through the area receives the suggestion mentally. The whole warded area radiates magic. A dispel magic cast on a specific effect, if successful, removes only that effect. You can create a permanently guarded and warded structure by casting this spell there every day for one year.",
+                         at_higher_levels="")
+
+
+class GuidingBolt(spells.Spell):
+    """
+    Guiding Bolt Spell
+    SRD p. 152-153
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Guiding Bolt",
+                         spell_lists=[SpellLists.DIVINE],
+                         concentration=False,
+                         level=1,
+                         ritual=False,
+                         school=SpellSchools.Evocation,
+                         spell_range="120 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="1 round",
+                         description="A flash of light streaks toward a creature of your choice within range. Make a ranged spell attack against the target. On a hit, the target takes 4d6 radiant damage, and the next attack roll made against this target before the end of your next turn has advantage, thanks to the mystical dim light glittering on the target until then.",
+                         at_higher_levels="When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st.")
+
+
+class GustOfWind(spells.Spell):
+    """
+    Gust of Wind Spell
+    SRD p. 153
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Gust of Wind",
+                         spell_lists=[SpellLists.PRIMAL],
+                         concentration=True,
+                         level=2,
+                         ritual=False,
+                         school=SpellSchools.Evocation,
+                         spell_range="Self (60-foot line)",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a legume seed",
+                         duration="Concentration, up to 1 minute",
+                         description="A line of strong wind 60 feet long and 10 feet wide blasts from you in a direction you choose for the spell's duration. Each creature that starts its turn in the line must succeed on a Strength saving throw or be pushed 15 feet away from you in a direction following the line. Any creature in the line must spend 2 feet of movement for every 1 foot it moves when moving closer to you. The gust disperses gas or vapor, and it extinguishes candles, torches, and similar unprotected flames in the area. It causes protected flames, such as those of lanterns, to dance wildly and has a 50 percent chance to extinguish them. As a bonus action on each of your turns before the spell ends, you can change the direction in which the line blasts from you.",
+                         at_higher_levels="")
+
+
+class Hallow(spells.Spell):
+    """
+    Hallow Spell
+    SRD p. 153
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Hallow",
+                         spell_lists=[SpellLists.DIVINE],
+                         concentration=False,
+                         level=5,
+                         ritual=False,
+                         school=SpellSchools.Evocation,
+                         spell_range="Touch",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="herbs, oils, and incense worth at least 1,000 gp, which the spell consumes",
+                         duration="Until dispelled",
+                         description="You touch a point and infuse an area around it with holy (or unholy) power. The area can have a radius up to 60 feet, and the spell fails if the radius includes an area already under the effect a hallow spell. The affected area is subject to the following effects. First, celestials, elementals, fey, fiends, and undead can't enter the area, nor can such creatures charm, frighten, or possess creatures within it. Any creature charmed, frightened, or possessed by such a creature is no longer charmed, frightened, or possessed upon entering the area. You can exclude one or more of those types of creatures from this effect. Second, you can bind an extra effect to the area. Choose the effect from the following list, or choose an effect offered by the GM. Some of these effects apply to creatures in the area; you can designate whether the effect applies to all creatures, creatures that follow a specific deity or leader, or creatures of a specific sort, such as orcs or trolls. When a creature that would be affected enters the spell's area for the first time on a turn or starts its turn there, it can make a Charisma saving throw. On a success, the creature ignores the extra effect until it leaves the area. Courage. Affected creatures can't be frightened while in the area. Darkness. Darkness fills the area. Normal light, as well as magical light created by spells of a lower level than the slot you used to cast this spell, can't illuminate the area. Daylight. Bright light fills the area. Magical darkness created by spells of a lower level than the slot you used to cast this spell can't extinguish the light. Energy Protection. Affected creatures in the area have resistance to one damage type of your choice, except for bludgeoning, piercing, or slashing. Energy Vulnerability. Affected creatures in the area have vulnerability to one damage type of your choice, except for bludgeoning, piercing, or slashing. Everlasting Rest. Dead bodies interred in the area can't be turned into undead. Extradimensional Interference. Affected creatures can't move or travel using teleportation or by extradimensional or interplanar means. Fear. Affected creatures are frightened while in the area. Silence. No sound can emanate from within the area, and no sound can reach into it. Tongues. Affected creatures can communicate with any other creature in the area, even if they don't share a common language.",
+                         at_higher_levels="")
+
+
+class HallucinatoryTerrain(spells.Spell):
+    """
+    Hallucinatory Terrain Spell
+    SRD p. 153-154
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Hallucinatory Terrain",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=4,
+                         ritual=False,
+                         school=SpellSchools.Illusion,
+                         spell_range="300 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a stone, a twig, and a bit of green plant",
+                         duration="24 hours",
+                         description="You make natural terrain in a 150-foot cube in range look, sound, and smell like some other sort of natural terrain. Thus, open fields or a road can be made to resemble a swamp, hill, crevasse, or some other difficult or impassable terrain. A pond can be made to seem like a grassy meadow, a precipice like a gentle slope, or a rock-strewn gully like a wide and smooth road. Manufactured structures, equipment, and creatures within the area aren't changed in appearance. The tactile characteristics of the terrain are unchanged, so creatures entering the area are likely to see through the illusion. If the difference isn't obvious by touch, a creature carefully examining the illusion can attempt an Intelligence (Investigation) check against your spell save DC to disbelieve it. A creature who discerns the illusion for what it is, sees it as a vague image superimposed on the terrain.",
+                         at_higher_levels="")
+
+
+class Harm(spells.Spell):
+    """
+    Harm Spell
+    SRD p. 154
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Harm",
+                         spell_lists=[SpellLists.DIVINE],
+                         concentration=False,
+                         level=6,
+                         ritual=False,
+                         school=SpellSchools.Necromancy,
+                         spell_range="60 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="Instantaneous",
+                         description="You unleash a virulent disease on a creature that you can see within range. The target must make a Constitution saving throw. On a failed save, it takes 14d6 necrotic damage, or half as much damage on a successful save. The damage can't reduce the target's hit points below 1. If the target fails the saving throw, its hit point maximum is reduced for 1 hour by an amount equal to the necrotic damage it took. Any effect that removes a disease allows a creature's hit point maximum to return to normal before that time passes.",
+                         at_higher_levels="")
+
+
+class Haste(spells.Spell):
+    """
+    Haste Spell
+    SRD p. 154
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Haste",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=True,
+                         level=3,
+                         ritual=False,
+                         school=SpellSchools.Transmutation,
+                         spell_range="30 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a shaving of licorice root",
+                         duration="Concentration, up to 1 minute",
+                         description="Choose a willing creature that you can see within range. Until the spell ends, the target's speed is doubled, it gains a +2 bonus to AC, it has advantage on Dexterity saving throws, and it gains an additional action on each of its turns. That action can be used only to take the Attack (one weapon attack only), Dash, Disengage, Hide, or Use an Object action. When the spell ends, the target can't move or take actions until after its next turn, as a wave of lethargy sweeps over it.",
+                         at_higher_levels="")
+
+
+class Heal(spells.Spell):
+    """
+    Heal Spell
+    SRD p. 154
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Heal",
+                         spell_lists=[SpellLists.PRIMAL],
+                         concentration=False,
+                         level=6,
+                         ritual=False,
+                         school=SpellSchools.Evocation,
+                         spell_range="60 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="Instantaneous",
+                         description="Choose a creature that you can see within range. A surge of positive energy washes through the creature, causing it to regain 70 hit points. This spell also ends blindness, deafness, and any diseases affecting the target. This spell has no effect on constructs or undead.",
+                         at_higher_levels="When you cast this spell using a spell slot of 7th level or higher, the amount of healing increases by 10 for each slot level above 6th.")
 
 
 class HealingWord(spells.Spell):
@@ -2363,6 +3789,167 @@ class HeatMetal(spells.Spell):
                                           "the damage increases by 1d8 for each slot level above 2nd.")
 
 
+class HellishRebuke(spells.Spell):
+    """
+    Hellish Rebuke Spell
+    SRD p. 155
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Hellish Rebuke",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=1,
+                         ritual=False,
+                         school=SpellSchools.Evocation,
+                         spell_range="60 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="Instantaneous",
+                         description="You point your finger, and the creature that damaged you is momentarily surrounded by hellish flames. The creature must make a Dexterity saving throw. It takes 2d10 fire damage on a failed save, or half as much damage on a successful one.",
+                         at_higher_levels="When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d10 for each slot level above 1st.")
+
+
+class HeroesFeast(spells.Spell):
+    """
+    Heroes' Feast Spell
+    SRD p. 155
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Heroes' Feast",
+                         spell_lists=[SpellLists.DIVINE],
+                         concentration=False,
+                         level=6,
+                         ritual=False,
+                         school=SpellSchools.Conjuration,
+                         spell_range="30 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a gem-encrusted bowl worth at least 1,000 gp, which the spell consumes",
+                         duration="Instantaneous",
+                         description="You bring forth a great feast, including magnificent food and drink. The feast takes 1 hour to consume and disappears at the end of that time, and the beneficial effects don't set in until this hour is over. Up to twelve other creatures can partake of the feast. A creature that partakes of the feast gains several benefits. The creature is cured of all diseases and poison, becomes immune to poison and being frightened, and makes all Wisdom saving throws with advantage. Its hit point maximum also increases by 2d10, and it gains the same number of hit points. These benefits last for 24 hours.",
+                         at_higher_levels="")
+
+
+class Heroism(spells.Spell):
+    """
+    Heroism Spell
+    SRD p. 155
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Heroism",
+                         spell_lists=[SpellLists.DIVINE],
+                         concentration=True,
+                         level=1,
+                         ritual=False,
+                         school=SpellSchools.Enchantment,
+                         spell_range="Touch",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="Concentration, up to 1 minute",
+                         description="A willing creature you touch is imbued with bravery. Until the spell ends, the creature is immune to being frightened and gains temporary hit points equal to your spellcasting ability modifier at the start of each of its turns. When the spell ends, the target loses any remaining temporary hit points from this spell.",
+                         at_higher_levels="When you cast this spell using a spell slot of 2nd level or higher, you can target one additional creature for each slot level above 1st.")
+
+
+class HideousLaughter(spells.Spell):
+    """
+    Hideous Laughter Spell
+    SRD p. 155
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Hideous Laughter",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=True,
+                         level=1,
+                         ritual=False,
+                         school=SpellSchools.Enchantment,
+                         spell_range="30 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="tiny tarts and a feather that is waved in the air",
+                         duration="Concentration, up to 1 minute",
+                         description="A creature of your choice that you can see within range perceives everything as hilariously funny and falls into fits of laughter if this spell affects it. The target must succeed on a Wisdom saving throw or fall prone, becoming incapacitated and unable to stand up for the duration. A creature with an Intelligence score of 4 or less isn't affected. At the end of each of its turns, and each time it takes damage, the target can make another Wisdom saving throw. The target has advantage on the saving throw if it's triggered by damage. On a success, the spell ends.",
+                         at_higher_levels="")
+
+
+class HoldMonster(spells.Spell):
+    """
+    Hold Monster Spell
+    SRD p. 155
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Hold Monster",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=True,
+                         level=5,
+                         ritual=False,
+                         school=SpellSchools.Enchantment,
+                         spell_range="90 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a small, straight piece of iron",
+                         duration="Concentration, up to 1 minute",
+                         description="Choose a creature that you can see within range. The target must succeed on a Wisdom saving throw or be paralyzed for the duration. This spell has no effect on undead. At the end of each of its turns, the target can make another Wisdom saving throw. On a success, the spell ends on the target.",
+                         at_higher_levels="When you cast this spell using a spell slot of 6th level or higher, you can target one additional creature for each slot level above 5th. The creatures must be within 30 feet of each other when you target them.")
+
+
+class HoldPerson(spells.Spell):
+    """
+    Hold Person Spell
+    SRD p. 155-156
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Hold Person",
+                         spell_lists=[SpellLists.DIVINE],
+                         concentration=True,
+                         level=2,
+                         ritual=False,
+                         school=SpellSchools.Enchantment,
+                         spell_range="60 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a small, straight piece of iron",
+                         duration="Concentration, up to 1 minute",
+                         description="Choose a humanoid that you can see within range. The target must succeed on a Wisdom saving throw or be paralyzed for the duration. At the end of each of its turns, the target can make another Wisdom saving throw. On a success, the spell ends on the target.",
+                         at_higher_levels="When you cast this spell using a spell slot of 3rd level or higher, you can target one additional humanoid for each slot level above 2nd. The humanoids must be within 30 feet of each other when you target them.")
+
+
+class HolyAura(spells.Spell):
+    """
+    Holy Aura Spell
+    SRD p. 156
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Holy Aura",
+                         spell_lists=[SpellLists.DIVINE],
+                         concentration=True,
+                         level=8,
+                         ritual=False,
+                         school=SpellSchools.Abjuration,
+                         spell_range="Self",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a tiny reliquary worth at least 1,000 gp containing a sacred relic, such as a scrap of cloth from a saint's robe or a piece of parchment from a religious text",
+                         duration="Concentration, up to 1 minute",
+                         description="Divine light washes out from you and coalesces in a soft radiance in a 30-foot radius around you. Creatures of your choice in that radius when you cast this spell shed dim light in a 5-foot radius and have advantage on all saving throws, and other creatures have disadvantage on attack rolls against them until the spell ends. In addition, when a fiend or an undead hits an affected creature with a melee attack, the aura flashes with brilliant light. The attacker must succeed on a Constitution saving throw or be blinded until the spell ends.",
+                         at_higher_levels="")
+
+
 class HuntersMark(spells.Spell):
     """
     Hunter's Mark Spell
@@ -2391,6 +3978,259 @@ class HuntersMark(spells.Spell):
                                           "the spell for up to 24 hours.")
 
 
+class HypnoticPattern(spells.Spell):
+    """
+    Hypnotic Pattern Spell
+    SRD p. 156
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Hypnotic Pattern",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=True,
+                         level=3,
+                         ritual=False,
+                         school=SpellSchools.Illusion,
+                         spell_range="120 feet",
+                         verbal_components="False",
+                         somatic_components="True",
+                         material_components_list="a glowing stick of incense or a crystal vial filled with phosphorescent material",
+                         duration="Concentration, up to 1 minute",
+                         description="You create a twisting pattern of colors that weaves through the air inside a 30-foot cube within range. The pattern appears for a moment and vanishes. Each creature in the area who sees the pattern must make a Wisdom saving throw. On a failed save, the creature becomes charmed for the duration. While charmed by this spell, the creature is incapacitated and has a speed of 0. The spell ends for an affected creature if it takes any damage or if someone else uses an action to shake the creature out of its stupor.",
+                         at_higher_levels="")
+
+
+class IceStorm(spells.Spell):
+    """
+    Ice Storm Spell
+    SRD p. 156
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Ice Storm",
+                         spell_lists=[SpellLists.PRIMAL],
+                         concentration=False,
+                         level=4,
+                         ritual=False,
+                         school=SpellSchools.Evocation,
+                         spell_range="300 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a pinch of dust and a few drops of water",
+                         duration="Instantaneous",
+                         description="A hail of rock-hard ice pounds to the ground in a 20- foot-radius, 40-foot-high cylinder centered on a point within range. Each creature in the cylinder must make a Dexterity saving throw. A creature takes 2d8 bludgeoning damage and 4d6 cold damage on a failed save, or half as much damage on a successful one. Hailstones turn the storm's area of effect into difficult terrain until the end of your next turn.",
+                         at_higher_levels="When you cast this spell using a spell slot of 5th level or higher, the bludgeoning damage increases by 1d8 for each slot level above 4th.")
+
+
+class Identify(spells.Spell):
+    """
+    Identify Spell
+    SRD p. 156-157
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Identify",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=1,
+                         ritual=True,
+                         school=SpellSchools.Divination,
+                         spell_range="Touch",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a pearl worth at least 100 gp and an owl feather",
+                         duration="Instantaneous",
+                         description="You choose one object that you must touch throughout the casting of the spell. If it is a magic item or some other magic-imbued object, you learn its properties and how to use them, whether it requires attunement to use, and how many charges it has, if any. You learn whether any spells are affecting the item and what they are. If the item was created by a spell, you learn which spell created it. If you instead touch a creature throughout the casting, you learn what spells, if any, are currently affecting it.",
+                         at_higher_levels="")
+
+
+class IllusoryScript(spells.Spell):
+    """
+    Illusory Script Spell
+    SRD p. 157
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Illusory Script",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=1,
+                         ritual=True,
+                         school=SpellSchools.Illusion,
+                         spell_range="Touch",
+                         verbal_components="False",
+                         somatic_components="True",
+                         material_components_list="a lead-based ink worth at least 10 gp, which the spell consumes",
+                         duration="10 days",
+                         description="You write on parchment, paper, or some other suitable writing material and imbue it with a potent illusion that lasts for the duration. To you and any creatures you designate when you cast the spell, the writing appears normal, written in your hand, and conveys whatever meaning you intended when you wrote the text. To all others, the writing appears as if it were written in an unknown or magical script that is unintelligible. Alternatively, you can cause the writing to appear to be an entirely different message, written in a different hand and language, though the language must be one you know. Should the spell be dispelled, the original script and the illusion both disappear. A creature with truesight can read the hidden message.",
+                         at_higher_levels="")
+
+
+class Imprisonment(spells.Spell):
+    """
+    Imprisonment Spell
+    SRD p. 157-158
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Imprisonment",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=9,
+                         ritual=False,
+                         school=SpellSchools.Abjuration,
+                         spell_range="30 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a vellum depiction or a carved statuette in the likeness of the target, and a special component that varies according to the version of the spell you choose, worth at least 500 gp per Hit Die of the target",
+                         duration="Until dispelled",
+                         description="You create a magical restraint to hold a creature that you can see within range. The target must succeed on a Wisdom saving throw or be bound by the spell; if it succeeds, it is immune to this spell if you cast it again. While affected by this spell, the creature doesn't need to breathe, eat, or drink, and it doesn't age. Divination spells can't locate or perceive the target. When you cast the spell, you choose one of the following forms of imprisonment. Burial. The target is entombed far beneath the earth in a sphere of magical force that is just large enough to contain the target. Nothing can pass through the sphere, nor can any creature teleport or use planar travel to get into or out of it. The special component for this version of the spell is a small mithral orb. Chaining. Heavy chains, firmly rooted in the ground, hold the target in place. The target is restrained until the spell ends, and it can't move or be moved by any means until then. The special component for this version of the spell is a fine chain of precious metal. Hedged Prison. The spell transports the target into a tiny demiplane that is warded against teleportation and planar travel. The demiplane can be a labyrinth, a cage, a tower, or any similar confined structure or area of your choice. The special component for this version of the spell is a miniature representation of the prison made from jade. Minimus Containment. The target shrinks to a height of 1 inch and is imprisoned inside a gemstone or similar object. Light can pass through the gemstone normally (allowing the target to see out and other creatures to see in), but nothing else can pass through, even by means of teleportation or planar travel. The gemstone can't be cut or broken while the spell remains in effect. The special component for this version of the spell is a large, transparent gemstone, such as a corundum, diamond, or ruby. Slumber. The target falls asleep and can't be awoken. The special component for this version of the spell consists of rare soporific herbs. Ending the Spell. During the casting of the spell, in any of its versions, you can specify a condition that will cause the spell to end and release the target. The condition can be as specific or as elaborate as you choose, but the GM must agree that the condition is reasonable and has a likelihood of coming to pass. The conditions can be based on a creature's name, identity, or deity but otherwise must be based on observable actions or qualities and not based on intangibles such as level, class, or hit points. A dispel magic spell can end the spell only if it is cast as a 9th-level spell, targeting either the prison or the special component used to create it. You can use a particular special component to create only one prison at a time. If you cast the spell again using the same component, the target of the first casting is immediately freed from its binding.",
+                         at_higher_levels="")
+
+
+class IncendiaryCloud(spells.Spell):
+    """
+    Incendiary Cloud Spell
+    SRD p. 158
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Incendiary Cloud",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=True,
+                         level=8,
+                         ritual=False,
+                         school=SpellSchools.Conjuration,
+                         spell_range="150 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="Concentration, up to 1 minute",
+                         description="A swirling cloud of smoke shot through with whitehot embers appears in a 20-foot-radius sphere centered on a point within range. The cloud spreads around corners and is heavily obscured. It lasts for the duration or until a wind of moderate or greater speed (at least 10 miles per hour) disperses it. When the cloud appears, each creature in it must make a Dexterity saving throw. A creature takes 10d8 fire damage on a failed save, or half as much damage on a successful one. A creature must also make this saving throw when it enters the spell's area for the first time on a turn or ends its turn there. The cloud moves 10 feet directly away from you in a direction that you choose at the start of each of your turns.",
+                         at_higher_levels="")
+
+
+class InflictWounds(spells.Spell):
+    """
+    Inflict Wounds Spell
+    SRD p. 158
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Inflict Wounds",
+                         spell_lists=[SpellLists.DIVINE],
+                         concentration=False,
+                         level=1,
+                         ritual=False,
+                         school=SpellSchools.Necromancy,
+                         spell_range="Touch",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="Instantaneous",
+                         description="Make a melee spell attack against a creature you can reach. On a hit, the target takes 3d10 necrotic damage.",
+                         at_higher_levels="When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d10 for each slot level above 1st.")
+
+
+class InsectPlague(spells.Spell):
+    """
+    Insect Plague Spell
+    SRD p. 158
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Insect Plague",
+                         spell_lists=[SpellLists.PRIMAL],
+                         concentration=True,
+                         level=5,
+                         ritual=False,
+                         school=SpellSchools.Conjuration,
+                         spell_range="300 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a few grains of sugar, some kernels of grain, and a smear of fat",
+                         duration="Concentration, up to 10 minutes",
+                         description="Swarming, biting locusts fill a 20-foot-radius sphere centered on a point you choose within range. The sphere spreads around corners. The sphere remains for the duration, and its area is lightly obscured. The sphere's area is difficult terrain. When the area appears, each creature in it must make a Constitution saving throw. A creature takes 4d10 piercing damage on a failed save, or half as much damage on a successful one. A creature must also make this saving throw when it enters the spell's area for the first time on a turn or ends its turn there.",
+                         at_higher_levels="When you cast this spell using a spell slot of 6th level or higher, the damage increases by 1d10 for each slot level above 5th.")
+
+
+class InstantSummons(spells.Spell):
+    """
+    Instant Summons Spell
+    SRD p. 158
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Instant Summons",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=6,
+                         ritual=True,
+                         school=SpellSchools.Conjuration,
+                         spell_range="Touch",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a sapphire worth 1,000 gp",
+                         duration="Until dispelled",
+                         description="You touch an object weighing 10 pounds or less whose longest dimension is 6 feet or less. The spell leaves an invisible mark on its surface and invisibly inscribes the name of the item on the sapphire you use as the material component. Each time you cast this spell, you must use a different sapphire. At any time thereafter, you can use your action to speak the item's name and crush the sapphire. The item instantly appears in your hand regardless of physical or planar distances, and the spell ends. If another creature is holding or carrying the item, crushing the sapphire doesn't transport the item to you, but instead you learn who the creature possessing the object is and roughly where that creature is located at that moment. Dispel magic or a similar effect successfully applied to the sapphire ends this spell's effect.",
+                         at_higher_levels="")
+
+
+class Invisibility(spells.Spell):
+    """
+    Invisibility Spell
+    SRD p. 158-159
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Invisibility",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=True,
+                         level=2,
+                         ritual=False,
+                         school=SpellSchools.Illusion,
+                         spell_range="Touch",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="an eyelash encased in gum arabic",
+                         duration="Concentration, up to 1 hour",
+                         description="A creature you touch becomes invisible until the spell ends. Anything the target is wearing or carrying is invisible as long as it is on the target's person. The spell ends for a target that attacks or casts a spell.",
+                         at_higher_levels="When you cast this spell using a spell slot of 3rd level or higher, you can target one additional creature for each slot level above 2nd.")
+
+
+class IrresistibleDance(spells.Spell):
+    """
+    Irresistible Dance Spell
+    SRD p. 159
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Irresistible Dance",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=True,
+                         level=6,
+                         ritual=False,
+                         school=SpellSchools.Enchantment,
+                         spell_range="30 feet",
+                         verbal_components="True",
+                         somatic_components="False",
+                         material_components_list="",
+                         duration="Concentration, up to 1 minute",
+                         description="Choose one creature that you can see within range. The target begins a comic dance in place: shuffling, tapping its feet, and capering for the duration. Creatures that can't be charmed are immune to this spell. A dancing creature must use all its movement to dance without leaving its space and has disadvantage on Dexterity saving throws and attack rolls. While the target is affected by this spell, other creatures have advantage on attack rolls against it. As an action, a dancing creature makes a Wisdom saving throw to regain control of itself. On a successful save, the spell ends.",
+                         at_higher_levels="")
+
+
 class Jump(spells.Spell):
     """
     Jump Spell
@@ -2411,6 +4251,52 @@ class Jump(spells.Spell):
                                      "ends.")
 
 
+class Knock(spells.Spell):
+    """
+    Knock Spell
+    SRD p. 159
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Knock",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=2,
+                         ritual=False,
+                         school=SpellSchools.Transmutation,
+                         spell_range="60 feet",
+                         verbal_components="True",
+                         somatic_components="False",
+                         material_components_list="",
+                         duration="Instantaneous",
+                         description="Choose an object that you can see within range. The object can be a door, a box, a chest, a set of manacles, a padlock, or another object that contains a mundane or magical means that prevents access. A target that is held shut by a mundane lock or that is stuck or barred becomes unlocked, unstuck, or unbarred. If the object has multiple locks, only one of them is unlocked. If you choose a target that is held shut with arcane lock, that spell is suppressed for 10 minutes, during which time the target can be opened and shut normally. When you cast the spell, a loud knock, audible from as far away as 300 feet, emanates from the target object.",
+                         at_higher_levels="")
+
+
+class LegendLore(spells.Spell):
+    """
+    Legend Lore Spell
+    SRD p. 159
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Legend Lore",
+                         spell_lists=[SpellLists.DIVINE],
+                         concentration=False,
+                         level=5,
+                         ritual=False,
+                         school=SpellSchools.Divination,
+                         spell_range="Self",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="incense worth at least 250 gp, which the spell consumes, and four ivory strips worth at least 50 gp each",
+                         duration="Instantaneous",
+                         description="Name or describe a person, place, or object. The spell brings to your mind a brief summary of the significant lore about the thing you named. The lore might consist of current tales, forgotten stories, or even secret lore that has never been widely known. If the thing you named isn't of legendary importance, you gain no information. The more information you already have about the thing, the more precise and detailed the information you receive is. The information you learn is accurate but might be couched in figurative language. For example, if you have a mysterious magic axe on hand, the spell might yield this information: “Woe to the evildoer whose hand touches the axe, for even the haft slices the hand of the evil ones. Only a true Child of Stone, lover and beloved of Moradin, may awaken the true powers of the axe, and only with the sacred word Rudnogg on the lips.”",
+                         at_higher_levels="")
+
+
 class LesserRestoration(spells.Spell):
     """
     Lesser Restoration Spell
@@ -2427,6 +4313,29 @@ class LesserRestoration(spells.Spell):
                          somatic_components=True,
                          description="You touch a creature and can end either one disease or one condition afflicting "
                                      "it. The condition can be blinded, deafened, paralyzed, or poisoned.")
+
+
+class Levitate(spells.Spell):
+    """
+    Levitate Spell
+    SRD p. 159-160
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Levitate",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=True,
+                         level=2,
+                         ritual=False,
+                         school=SpellSchools.Transmutation,
+                         spell_range="60 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="either a small leather loop or a piece of golden wire bent into a cup shape with a long shank on one end",
+                         duration="Concentration, up to 10 minutes",
+                         description="One creature or object of your choice that you can see within range rises vertically, up to 20 feet, and remains suspended there for the duration. The spell can levitate a target that weighs up to 500 pounds. An unwilling creature that succeeds on a Constitution saving throw is unaffected. The target can move only by pushing or pulling against a fixed object or surface within reach (such as a wall or a ceiling), which allows it to move as if it were climbing. You can change the target's altitude by up to 20 feet in either direction on your turn. If you are the target, you can move up or down as part of your move. Otherwise, you can use your action to move the target, which must remain within the spell's range. When the spell ends, the target floats gently to the ground if it is still aloft.",
+                         at_higher_levels="")
 
 
 class Light(spells.Spell):
@@ -2451,6 +4360,74 @@ class Light(spells.Spell):
                                      "you cast it again or dismiss it as an action.\n"
                                      "If you target an object held or worn by a hostile creature, that creature must "
                                      "succeed on a Dexterity saving throw to avoid the spell.")
+
+class LightningBolt(spells.Spell):
+    """
+    Lightning Bolt Spell
+    SRD p. 160
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Lightning Bolt",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=3,
+                         ritual=False,
+                         school=SpellSchools.Evocation,
+                         spell_range="Self (100-foot line)",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a bit of fur and a rod of amber, crystal, or glass",
+                         duration="Instantaneous",
+                         description="A stroke of lightning forming a line 100 feet long and 5 feet wide blasts out from you in a direction you choose. Each creature in the line must make a Dexterity saving throw. A creature takes 8d6 lightning damage on a failed save, or half as much damage on a successful one. The lightning ignites flammable objects in the area that aren't being worn or carried.",
+                         at_higher_levels="When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d6 for each slot level above 3rd.")
+
+
+class LocateAnimalsOrPlants(spells.Spell):
+    """
+    Locate Animals or Plants Spell
+    SRD p. 160
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Locate Animals or Plants",
+                         spell_lists=[SpellLists.PRIMAL],
+                         concentration=False,
+                         level=2,
+                         ritual=True,
+                         school=SpellSchools.Divination,
+                         spell_range="Self",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a bit of fur from a bloodhound",
+                         duration="Instantaneous",
+                         description="Describe or name a specific kind of beast or plant. Concentrating on the voice of nature in your surroundings, you learn the direction and distance to the closest creature or plant of that kind within 5 miles, if any are present.",
+                         at_higher_levels="")
+
+
+class LocateCreature(spells.Spell):
+    """
+    Locate Creature Spell
+    SRD p. 160
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Locate Creature",
+                         spell_lists=[SpellLists.PRIMAL],
+                         concentration=True,
+                         level=4,
+                         ritual=False,
+                         school=SpellSchools.Divination,
+                         spell_range="Self",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a bit of fur from a bloodhound",
+                         duration="Concentration, up to 1 hour",
+                         description="Describe or name a creature that is familiar to you. You sense the direction to the creature's location, as long as that creature is within 1,000 feet of you. If the creature is moving, you know the direction of its movement. The spell can locate a specific creature known to you, or the nearest creature of a specific kind (such as a human or a unicorn), so long as you have seen such a creature up close—within 30 feet—at least once. If the creature you described or named is in a different form, such as being under the effects of a polymorph spell, this spell doesn't locate the creature. This spell can't locate a creature if running water at least 10 feet wide blocks a direct path between you and the creature.",
+                         at_higher_levels="")
 
 
 class LocateObject(spells.Spell):
@@ -2503,6 +4480,327 @@ class Longstrider(spells.Spell):
                          at_higher_levels="When you cast this spell using a spell slot of 2nd level or higher, "
                                           "you can target one additional creature for each slot level above 1st.")
 
+
+class MageHand(spells.Spell):
+    """
+    Mage Hand Spell
+    SRD p. 161
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Mage Hand",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=0,
+                         ritual=False,
+                         school=SpellSchools.Conjuration,
+                         spell_range="30 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="1 minute",
+                         description="A spectral, floating hand appears at a point you choose within range. The hand lasts for the duration or until you dismiss it as an action. The hand vanishes if it is ever more than 30 feet away from you or if you cast this spell again. You can use your action to control the hand. You can use the hand to manipulate an object, open an unlocked door or container, stow or retrieve an item from an open container, or pour the contents out of a vial. You can move the hand up to 30 feet each time you use it. The hand can't attack, activate magic items, or carry more than 10 pounds.",
+                         at_higher_levels="")
+
+
+class MagicCircle(spells.Spell):
+    """
+    Magic Circle Spell
+    SRD p. 161
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Magic Circle",
+                         spell_lists=[SpellLists.DIVINE],
+                         concentration=False,
+                         level=3,
+                         ritual=False,
+                         school=SpellSchools.Abjuration,
+                         spell_range="10 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="holy water or powdered silver and iron worth at least 100 gp, which the spell consumes",
+                         duration="1 hour",
+                         description="You create a 10-foot-radius, 20-foot-tall cylinder of magical energy centered on a point on the ground that you can see within range. Glowing runes appear wherever the cylinder intersects with the floor or other surface. Choose one or more of the following types of creatures: celestials, elementals, fey, fiends, or undead. The circle affects a creature of the chosen type in the following ways: • The creature can't willingly enter the cylinder by nonmagical means. If the creature tries to use teleportation or interplanar travel to do so, it must first succeed on a Charisma saving throw. • The creature has disadvantage on attack rolls against targets within the cylinder. • Targets within the cylinder can't be charmed, frightened, or possessed by the creature. When you cast this spell, you can elect to cause its magic to operate in the reverse direction, preventing a creature of the specified type from leaving the cylinder and protecting targets outside it.",
+                         at_higher_levels="When you cast this spell using a spell slot of 4th level or higher, the duration increases by 1 hour for each slot level above 3rd.")
+
+
+class MagicJar(spells.Spell):
+    """
+    Magic Jar Spell
+    SRD p. 161-162
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Magic Jar",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=6,
+                         ritual=False,
+                         school=SpellSchools.Necromancy,
+                         spell_range="Self",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a gem, crystal, reliquary, or some other ornamental container worth at least 500 gp",
+                         duration="Until dispelled",
+                         description="Your body falls into a catatonic state as your soul leaves it and enters the container you used for the spell's material component. While your soul inhabits the container, you are aware of your surroundings as if you were in the container's space. You can't move or use reactions. The only action you can take is to project your soul up to 100 feet out of the container, either returning to your living body (and ending the spell) or attempting to possess a humanoids body. You can attempt to possess any humanoid within 100 feet of you that you can see (creatures warded by a protection from evil and good or magic circle spell can't be possessed). The target must make a Charisma saving throw. On a failure, your soul moves into the target's body, and the target's soul becomes trapped in the container. On a success, the target resists your efforts to possess it, and you can't attempt to possess it again for 24 hours. Once you possess a creature's body, you control it. Your game statistics are replaced by the statistics of the creature, though you retain your alignment and your Intelligence, Wisdom, and Charisma scores. You retain the benefit of your own class features. If the target has any class levels, you can't use any of its class features. Meanwhile, the possessed creature's soul can perceive from the container using its own senses, but it can't move or take actions at all. While possessing a body, you can use your action to return from the host body to the container if it is within 100 feet of you, returning the host creature's soul to its body. If the host body dies while you're in it, the creature dies, and you must make a Charisma saving throw against your own spellcasting DC. On a success, you return to the container if it is within 100 feet of you. Otherwise, you die. If the container is destroyed or the spell ends, your soul immediately returns to your body. If your body is more than 100 feet away from you or if your body is dead when you attempt to return to it, you die. If another creature's soul is in the container when it is destroyed, the creature's soul returns to its body if the body is alive and within 100 feet. Otherwise, that creature dies. When the spell ends, the container is destroyed.",
+                         at_higher_levels="")
+
+
+class MagicMissile(spells.Spell):
+    """
+    Magic Missile Spell
+    SRD p. 162
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Magic Missile",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=1,
+                         ritual=False,
+                         school=SpellSchools.Evocation,
+                         spell_range="120 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="Instantaneous",
+                         description="You create three glowing darts of magical force. Each dart hits a creature of your choice that you can see within range. A dart deals 1d4 + 1 force damage to its target. The darts all strike simultaneously, and you can direct them to hit one creature or several.",
+                         at_higher_levels="When you cast this spell using a spell slot of 2nd level or higher, the spell creates one more dart for each slot level above 1st.")
+
+
+class MagicMouth(spells.Spell):
+    """
+    Magic Mouth Spell
+    SRD p. 162
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Magic Mouth",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=2,
+                         ritual=True,
+                         school=SpellSchools.Illusion,
+                         spell_range="30 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a small bit of honeycomb and jade dust worth at least 10 gp, which the spell consumes",
+                         duration="Until dispelled",
+                         description="You implant a message within an object in range, a message that is uttered when a trigger condition is met. Choose an object that you can see and that isn't being worn or carried by another creature. Then speak the message, which must be 25 words or less, though it can be delivered over as long as 10 minutes. Finally, determine the circumstance that will trigger the spell to deliver your message. When that circumstance occurs, a magical mouth appears on the object and recites the message in your voice and at the same volume you spoke. If the object you chose has a mouth or something that looks like a mouth (for example, the mouth of a statue), the magical mouth appears there so that the words appear to come from the object's mouth. When you cast this spell, you can have the spell end after it delivers its message, or it can remain and repeat its message whenever the trigger occurs. The triggering circumstance can be as general or as detailed as you like, though it must be based on visual or audible conditions that occur within 30 feet of the object. For example, you could instruct the mouth to speak when any creature moves within 30 feet of the object or when a silver bell rings within 30 feet of it.",
+                         at_higher_levels="")
+
+
+class MagicWeapon(spells.Spell):
+    """
+    Magic Weapon Spell
+    SRD p. 162-163
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Magic Weapon",
+                         spell_lists=[SpellLists.DIVINE],
+                         concentration=True,
+                         level=2,
+                         ritual=False,
+                         school=SpellSchools.Transmutation,
+                         spell_range="Touch",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="Concentration, up to 1 hour",
+                         description="You touch a nonmagical weapon. Until the spell ends, that weapon becomes a magic weapon with a +1 bonus to attack rolls and damage rolls.",
+                         at_higher_levels="When you cast this spell using a spell slot of 4th level or higher, the bonus increases to +2. When you use a spell slot of 6th level or higher, the bonus increases to +3.")
+
+
+class MagnificentMansion(spells.Spell):
+    """
+    Magnificent Mansion Spell
+    SRD p. 163
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Magnificent Mansion",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=7,
+                         ritual=False,
+                         school=SpellSchools.Conjuration,
+                         spell_range="300 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a miniature portal carved from ivory, a small piece of polished marble, and a tiny silver spoon, each item worth at least 5 gp",
+                         duration="24 hours",
+                         description="You conjure an extradimensional dwelling in range that lasts for the duration. You choose where its one entrance is located. The entrance shimmers faintly and is 5 feet wide and 10 feet tall. You and any creature you designate when you cast the spell can enter the extradimensional dwelling as long as the portal remains open. You can open or close the portal if you are within 30 feet of it. While closed, the portal is invisible. Beyond the portal is a magnificent foyer with numerous chambers beyond. The atmosphere is clean, fresh, and warm. You can create any floor plan you like, but the space can't exceed 50 cubes, each cube being 10 feet on each side. The place is furnished and decorated as you choose. It contains sufficient food to serve a nine-course banquet for up to 100 people. A staff of 100 near-transparent servants attends all who enter. You decide the visual appearance of these servants and their attire. They are completely obedient to your orders. Each servant can perform any task a normal human servant could perform, but they can't attack or take any action that would directly harm another creature. Thus the servants can fetch things, clean, mend, fold clothes, light fires, serve food, pour wine, and so on. The servants can go anywhere in the mansion but can't leave it. Furnishings and other objects created by this spell dissipate into smoke if removed from the mansion. When the spell ends, any creatures inside the extradimensional space are expelled into the open spaces nearest to the entrance.",
+                         at_higher_levels="")
+
+
+class MajorImage(spells.Spell):
+    """
+    Major Image Spell
+    SRD p. 163
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Major Image",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=True,
+                         level=3,
+                         ritual=False,
+                         school=SpellSchools.Illusion,
+                         spell_range="120 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a bit of fleece",
+                         duration="Concentration, up to 10 minutes",
+                         description="You create the image of an object, a creature, or some other visible phenomenon that is no larger than a 20-foot cube. The image appears at a spot that you can see within range and lasts for the duration. It seems completely real, including sounds, smells, and temperature appropriate to the thing depicted. You can't create sufficient heat or cold to cause damage, a sound loud enough to deal thunder damage or deafen a creature, or a smell that might sicken a creature (like a troglodyte's stench). As long as you are within range of the illusion, you can use your action to cause the image to move to any other spot within range. As the image changes location, you can alter its appearance so that its movements appear natural for the image. For example, if you create an image of a creature and move it, you can alter the image so that it appears to be walking. Similarly, you can cause the illusion to make different sounds at different times, even making it carry on a conversation, for example. Physical interaction with the image reveals it to be an illusion, because things can pass through it. A creature that uses its action to examine the image can determine that it is an illusion with a successful Intelligence (Investigation) check against your spell save DC. If a creature discerns the illusion for what it is, the creature can see through the image, and its other sensory qualities become faint to the creature.",
+                         at_higher_levels="When you cast this spell using a spell slot of 6th level or higher, the spell lasts until dispelled, without requiring your concentration.")
+
+
+class MassCureWounds(spells.Spell):
+    """
+    Mass Cure Wounds Spell
+    SRD p. 163-164
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Mass Cure Wounds",
+                         spell_lists=[SpellLists.PRIMAL],
+                         concentration=False,
+                         level=5,
+                         ritual=False,
+                         school=SpellSchools.Evocation,
+                         spell_range="60 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="Instantaneous",
+                         description="A wave of healing energy washes out from a point of your choice within range. Choose up to six creatures in a 30-foot-radius sphere centered on that point. Each target regains hit points equal to 3d8 + your spellcasting ability modifier. This spell has no effect on undead or constructs.",
+                         at_higher_levels="When you cast this spell using a spell slot of 6th level or higher, the healing increases by 1d8 for each slot level above 5th.")
+
+
+class MassHeal(spells.Spell):
+    """
+    Mass Heal Spell
+    SRD p. 164
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Mass Heal",
+                         spell_lists=[SpellLists.DIVINE],
+                         concentration=False,
+                         level=9,
+                         ritual=False,
+                         school=SpellSchools.Evocation,
+                         spell_range="60 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="Instantaneous",
+                         description="A flood of healing energy flows from you into injured creatures around you. You restore up to 700 hit points, divided as you choose among any number of creatures that you can see within range. Creatures healed by this spell are also cured of all diseases and any effect making them blinded or deafened. This spell has no effect on undead or constructs.",
+                         at_higher_levels="")
+
+
+class MassHealingWord(spells.Spell):
+    """
+    Mass Healing Word Spell
+    SRD p. 164
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Mass Healing Word",
+                         spell_lists=[SpellLists.PRIMAL],
+                         concentration=False,
+                         level=3,
+                         ritual=False,
+                         school=SpellSchools.Evocation,
+                         spell_range="60 feet",
+                         verbal_components="True",
+                         somatic_components="False",
+                         material_components_list="",
+                         duration="Instantaneous",
+                         description="As you call out words of restoration, up to six creatures of your choice that you can see within range regain hit points equal to 1d4 + your spellcasting ability modifier. This spell has no effect on undead or constructs.",
+                         at_higher_levels="When you cast this spell using a spell slot of 4th level or higher, the healing increases by 1d4 for each slot level above 3rd.")
+
+
+class MassSuggestion(spells.Spell):
+    """
+    Mass Suggestion Spell
+    SRD p. 164
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Mass Suggestion",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=6,
+                         ritual=False,
+                         school=SpellSchools.Enchantment,
+                         spell_range="60 feet",
+                         verbal_components="True",
+                         somatic_components="False",
+                         material_components_list="a snake's tongue and either a bit of honeycomb or a drop of sweet oil",
+                         duration="24 hours",
+                         description="You suggest a course of activity (limited to a sentence or two) and magically influence up to twelve creatures of your choice that you can see within range and that can hear and understand you. Creatures that can't be charmed are immune to this effect. The suggestion must be worded in such a manner as to make the course of action sound reasonable. Asking the creature to stab itself, throw itself onto a spear, immolate itself, or do some other obviously harmful act automatically negates the effect of the spell. Each target must make a Wisdom saving throw. On a failed save, it pursues the course of action you described to the best of its ability. The suggested course of action can continue for the entire duration. If the suggested activity can be completed in a shorter time, the spell ends when the subject finishes what it was asked to do. You can also specify conditions that will trigger a special activity during the duration. For example, you might suggest that a group of soldiers give all their money to the first beggar they meet. If the condition isn't met before the spell ends, the activity isn't performed. If you or any of your companions damage a creature affected by this spell, the spell ends for that creature.",
+                         at_higher_levels="When you cast this spell using a 7th-level spell slot, the duration is 10 days. When you use an 8th-level spell slot, the duration is 30 days. When you use a 9th-level spell slot, the duration is a year and a day.")
+
+
+class Maze(spells.Spell):
+    """
+    Maze Spell
+    SRD p. 164
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Maze",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=True,
+                         level=8,
+                         ritual=False,
+                         school=SpellSchools.Conjuration,
+                         spell_range="60 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="Concentration, up to 10 minutes",
+                         description="You banish a creature that you can see within range into a labyrinthine demiplane. The target remains there for the duration or until it escapes the maze. The target can use its action to attempt to escape. When it does so, it makes a DC 20 Intelligence check. If it succeeds, it escapes, and the spell ends (a minotaur or goristro demon automatically succeeds). When the spell ends, the target reappears in the space it left or, if that space is occupied, in the nearest unoccupied space.",
+                         at_higher_levels="")
+
+
+class MeldIntoStone(spells.Spell):
+    """
+    Meld into Stone Spell
+    SRD p. 164-165
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Meld into Stone",
+                         spell_lists=[SpellLists.PRIMAL],
+                         concentration=False,
+                         level=3,
+                         ritual=True,
+                         school=SpellSchools.Transmutation,
+                         spell_range="Touch",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="8 hours",
+                         description="You step into a stone object or surface large enough to fully contain your body, melding yourself and all the equipment you carry with the stone for the duration. Using your movement, you step into the stone at a point you can touch. Nothing of your presence remains visible or otherwise detectable by nonmagical senses. While merged with the stone, you can't see what occurs outside it, and any Wisdom (Perception) checks you make to hear sounds outside it are made with disadvantage. You remain aware of the passage of time and can cast spells on yourself while merged in the stone. You can use your movement to leave the stone where you entered it, which ends the spell. You otherwise can't move. Minor physical damage to the stone doesn't harm you, but its partial destruction or a change in its shape (to the extent that you no longer fit within it) expels you and deals 6d6 bludgeoning damage to you. The stone's complete destruction (or transmutation into a different substance) expels you and deals 50 bludgeoning damage to you. If expelled, you fall prone in an unoccupied space closest to where you first entered.",
+                         at_higher_levels="")
 
 class Mending(spells.Spell):
     """
@@ -3135,125 +5433,125 @@ CONTENT = {
         "Detect Magic": DetectMagic,
         "Detect Poison and Disease": DetectPoisonAndDisease,
         "Detect Thoughts": DetectThoughts,
-        # "Dimension Door": DimensionDoor,
-        # "Disguise Self": DisguiseSelf,
-        # "Disintegrate": Disintegrate,
-        # "Dispel Evil and Good": DispelEvilAndGood,
-        # "Dispel Magic": DispelMagic,
-        # "Divination": Divination,
-        # "Divine Favor": DivineFavor,
-        # "Divine Word": DivineWord,
-        # "Dominate Beast": DominateBeast,
-        # "Dominate Monster": DominateMonster,
-        # "Dominate Person": DominatePerson,
-        # "Dream": Dream,
+        "Dimension Door": DimensionDoor,
+        "Disguise Self": DisguiseSelf,
+        "Disintegrate": Disintegrate,
+        "Dispel Evil and Good": DispelEvilAndGood,
+        "Dispel Magic": DispelMagic,
+        "Divination": Divination,
+        "Divine Favor": DivineFavor,
+        "Divine Word": DivineWord,
+        "Dominate Beast": DominateBeast,
+        "Dominate Monster": DominateMonster,
+        "Dominate Person": DominatePerson,
+        "Dream": Dream,
         "Druidcraft": Druidcraft,
-        # "Earthquake": Earthquake,
+        "Earthquake": Earthquake,
         # "Eldritch Blast": EldritchBlast,
         "Enhance Ability": EnhanceAbility,
         "Enlarge/Reduce": EnlargeReduce,
         "Entangle": Entangle,
-        # "Enthrall": Enthrall,
-        # "Etherealness": Etherealness,
-        # "Expeditious Retreat": ExpeditiousRetreat,
-        # "Eyebite": Eyebite,
-        # "Fabricate": Fabricate,
-        # "Faerie Fire": FaerieFire,
-        # "Faithful Hound": FaithfulHound,
+        "Enthrall": Enthrall,
+        "Etherealness": Etherealness,
+        "Expeditious Retreat": ExpeditiousRetreat,
+        "Eyebite": Eyebite,
+        "Fabricate": Fabricate,
+        "Faerie Fire": FaerieFire,
+        "Faithful Hound": FaithfulHound,
         "False Life": FalseLife,
-        # "Fear": Fear,
-        # "Feather Fall": FeatherFall,
-        # "Feeblemind": Feeblemind,
-        # "Find Familiar": FindFamiliar,
-        # "Find Steed": FindSteed,
-        # "Find the Path": FindThePath,
+        "Fear": Fear,
+        "Feather Fall": FeatherFall,
+        "Feeblemind": Feeblemind,
+        "Find Familiar": FindFamiliar,
+        "Find Steed": FindSteed,
+        "Find the Path": FindThePath,
         "Find Traps": FindTraps,
-        # "Finger of Death": FingerOfDeath,
-        # "Fireball": Fireball,
-        # "Fire Bolt": FireBolt,
-        # "Fire Shield": FireShield,
-        # "Fire Storm": FireStorm,
-        # "Flame Blade": FlameBlade,
-        # "Flame Strike": FlameStrike,
-        # "Flaming Sphere": FlamingSphere,
-        # "Flesh to Stone": FleshToStone,
-        # "Floating Disk": FloatingDisk,
-        # "Fly": Fly,
+        "Finger of Death": FingerOfDeath,
+        "Fireball": Fireball,
+        "Fire Bolt": FireBolt,
+        "Fire Shield": FireShield,
+        "Fire Storm": FireStorm,
+        "Flame Blade": FlameBlade,
+        "Flame Strike": FlameStrike,
+        "Flaming Sphere": FlamingSphere,
+        "Flesh to Stone": FleshToStone,
+        "Floating Disk": FloatingDisk,
+        "Fly": Fly,
         "Fog Cloud": FogCloud,
-        # "Forbiddance": Forbiddance,
-        # "Forcecage": Forcecage,
-        # "Foresight": Foresight,
-        # "Freedom of Movement": FreedomOfMovement,
-        # "Freezing Sphere": FreezingSphere,
-        # "Gaseous Form": GaseousForm,
-        # "Gate": Gate,
-        # "Geas": Geas,
+        "Forbiddance": Forbiddance,
+        "Forcecage": Forcecage,
+        "Foresight": Foresight,
+        "Freedom of Movement": FreedomOfMovement,
+        "Freezing Sphere": FreezingSphere,
+        "Gaseous Form": GaseousForm,
+        "Gate": Gate,
+        "Geas": Geas,
         "Gentle Repose": GentleRepose,
-        # "Giant Insect": GiantInsect,
-        # "Glibness": Glibness,
-        # "Globe of Invulnerability": GlobeOfInvulnerability,
-        # "Glyph of Warning": GlyphOfWarning,
+        "Giant Insect": GiantInsect,
+        "Glibness": Glibness,
+        "Globe of Invulnerability": GlobeOfInvulnerability,
+        "Glyph of Warding": GlyphOfWarding,
         "Goodberry": Goodberry,
-        # "Grease": Grease,
-        # "Greater Invisibility": GreaterInvisibility,
-        # "Greater Restoration": GreaterRestoration,
-        # "Guardian of Faith": GuardianOfFaith,
-        # "Guards and Wards": GuardsAndWards,
+        "Grease": Grease,
+        "Greater Invisibility": GreaterInvisibility,
+        "Greater Restoration": GreaterRestoration,
+        "Guardian of Faith": GuardianOfFaith,
+        "Guards and Wards": GuardsAndWards,
         "Guidance": "OBSOLETE",
-        # "Guiding Bolt": GuidingBolt,
-        # "Gust of Wind": GustOfWind,
-        # "Hallow": Hallow,
-        # "Hallucinatory Terrain": HallucinatoryTerrain,
-        # "Harm": Harm,
-        # "Haste": Haste,
-        # "Heal": Heal,
+        "Guiding Bolt": GuidingBolt,
+        "Gust of Wind": GustOfWind,
+        "Hallow": Hallow,
+        "Hallucinatory Terrain": HallucinatoryTerrain,
+        "Harm": Harm,
+        "Haste": Haste,
+        "Heal": Heal,
         "Healing Word": HealingWord,
         "Heat Metal": HeatMetal,
-        # "Hellish Rebuke": HellishRebuke,
-        # "Heroes' Feast": HeroesFeast,
-        # "Heroism": Heroism,
-        # "Hideous Laughter": HideousLaughter,
-        # "Hold Monster": HoldMonster,
-        # "Hold Person": HoldPerson,
-        # "Holy Aura": HolyAura,
+        "Hellish Rebuke": HellishRebuke,
+        "Heroes' Feast": HeroesFeast,
+        "Heroism": Heroism,
+        "Hideous Laughter": HideousLaughter,
+        "Hold Monster": HoldMonster,
+        "Hold Person": HoldPerson,
+        "Holy Aura": HolyAura,
         "Hunter's Mark": HuntersMark,
-        # "Hypnotic Pattern": HypnoticPattern,
-        # "Ice Storm": IceStorm,
-        # "Identify": Identify,
-        # "Illusory Script": IllusoryScript,
-        # "Imprisonment": Imprisonment,
-        # "Incendiary Cloud": IncendiaryCloud,
-        # "Inflict Wounds": InflictWounds,
-        # "Insect Plague": InsectPlague,
-        # "Instant Summons": InstantSummons,
-        # "Invisibility": Invisibility,
-        # "Irresistible Dance": IrresistibleDance,
+        "Hypnotic Pattern": HypnoticPattern,
+        "Ice Storm": IceStorm,
+        "Identify": Identify,
+        "Illusory Script": IllusoryScript,
+        "Imprisonment": Imprisonment,
+        "Incendiary Cloud": IncendiaryCloud,
+        "Inflict Wounds": InflictWounds,
+        "Insect Plague": InsectPlague,
+        "Instant Summons": InstantSummons,
+        "Invisibility": Invisibility,
+        "Irresistible Dance": IrresistibleDance,
         "Jump": Jump,
-        # "Knock": Knock,
-        # "Legend Lore": LegendLore,
+        "Knock": Knock,
+        "Legend Lore": LegendLore,
         "Lesser Restoration": LesserRestoration,
-        # "Levitate": Levitate,
+        "Levitate": Levitate,
         "Light": Light,
-        # "Lightning Bolt": LightningBolt,
-        # "Locate Animals or Plants": LocateAnimalsOrPlants,
-        # "Locate Creature": LocateCreature,
+        "Lightning Bolt": LightningBolt,
+        "Locate Animals or Plants": LocateAnimalsOrPlants,
+        "Locate Creature": LocateCreature,
         "Locate Object": LocateObject,
         "Longstrider": Longstrider,
-        # "Mage Armor": MageArmor,
-        # "Mage Hand": MageHand,
-        # "Magic Circle": MagicCircle,
-        # "Magic Jar": MagicJar,
-        # "Magic Missile": MagicMissile,
-        # "Magic Mouth": MagicMouth,
-        # "Magic Weapon": MagicWeapon,
-        # "Magnificent Mansion": MagnificentMansion,
-        # "Major Image": MajorImage,
-        # "Mass Cure Wounds": MassCureWounds,
-        # "Mass Heal": MassHeal,
-        # "Mass Healing Word": MassHealingWord,
-        # "Mass Suggestion": MassSuggestion,
-        # "Maze": Maze,
-        # "Meld into Stone": MeldIntoStone,
+        "Mage Armor": MageArmor,
+        "Mage Hand": MageHand,
+        "Magic Circle": MagicCircle,
+        "Magic Jar": MagicJar,
+        "Magic Missile": MagicMissile,
+        "Magic Mouth": MagicMouth,
+        "Magic Weapon": MagicWeapon,
+        "Magnificent Mansion": MagnificentMansion,
+        "Major Image": MajorImage,
+        "Mass Cure Wounds": MassCureWounds,
+        "Mass Heal": MassHeal,
+        "Mass Healing Word": MassHealingWord,
+        "Mass Suggestion": MassSuggestion,
+        "Maze": Maze,
+        "Meld into Stone": MeldIntoStone,
         "Mending": Mending,
         "Message": Message,
         # "Meteor Swarm": MeteorSwarm,
