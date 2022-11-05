@@ -3,6 +3,7 @@
 """
 
 import os
+import string
 
 
 class SpellListInfo:
@@ -35,10 +36,24 @@ class SpellListInfo:
         return self._spell_type
 
     def __str__(self):
-        return self._name
+        return '(' + self._name + ' ' + str(self._level) + ' ' + self._school + ' ' + str(self._is_ritual) + ' ' + self._spell_type + ')'
 
     def __repr__(self):
-        return self._name
+        return self._name + ' ' + self._level + ' ' + self._school
+
+    def __getitem__(self, arg):
+        if arg == 'name':
+            return self._name
+        elif arg == 'level':
+            return self._level
+        elif arg == 'school':
+            return self._school
+        elif arg == 'is_ritual':
+            return self._is_ritual
+        elif arg == 'spell_type':
+            return self._spell_type
+        else:
+            raise Exception('no attribute for spelllistinfo')
 
 
 schools = ['Abjuration', 'Transmutation', 'Conjuration', 'Divination',
@@ -72,18 +87,23 @@ for school in school_abbrs:
 
 def parse_single_spell(line: list[str], spell_type: str):
     level, *name, school, ritual = line.split(' ')
-    if spell_type == '':
-        raise Exception('spell_type cannot be empty')
+    if spell_type == '' or level == '' or school == '' or ritual == '' or name is []:
+        print(level)
+        print(name)
+        print(school)
+        print(school)
+        print(ritual)
+        raise Exception('field cannot be empty')
     try:
         level = int(level)
         name = ' '.join(name)
         school = school_abbrs[school]
         isRitual = (ritual == 'Yes')
     except:
-        print(line)
-        print(name)
-        print(school)
-        print(ritual)
+        # print(line)
+        # print(name)
+        # print(school)
+        # print(ritual)
         if school == 'Antipathy/Sympathy':
             print('what a funky little edge case :)')
             return SpellListInfo('Antipathy/Sympathy', level, 'Enchantment', False, spell_type)
@@ -92,28 +112,12 @@ def parse_single_spell(line: list[str], spell_type: str):
             os._exit(1)
 
     return SpellListInfo(name, level, school, isRitual, spell_type)
-    return {
-        'level': level,
-        'name': name,
-        'school': school,
-        'is_ritual': isRitual,
-        'spell_type': spell_type
-    }
-
-
-def count_schools_of_magic(lines):
-    count = 0
-    for line in lines:
-        if 'SPELLS' in line:
-            print(line)
-            count += 1
-    return count
 
 
 def clean_source(raw_txt: str) -> list[str]:
     txt = raw_txt.replace('\n', ' ')
     txt = txt.replace('â€™', "'")
-    for x in '0123456789':
+    for x in string.digits:
         txt = txt.replace(' ' + x + ' ', '\n' + x + ' ')
     txt = txt.replace('No ', 'No\n')
     txt = txt.replace('Lvl Spell School Ritual', '')
@@ -128,11 +132,20 @@ def parse(lines: list[str]) -> list:
     current_type = ''
     spells = []
     for line in lines:
-        if any(line.startswith(x) for x in '0123456789'):
+        if any(line.startswith(x) for x in string.digits):
             spells.append(parse_single_spell(line, current_type))
         else:
             current_type = line.replace('SPELLS', '').strip().title()
     return spells
+
+
+def update_or_initialize_spell(ret, field, spell):
+    value = spell[field]
+    if value not in ret[field]:
+        ret[field][value] = []
+    else:
+        ret[field][value].append(spell)
+    return ret
 
 
 def generate_dataset(spells: list[SpellListInfo]):
@@ -145,32 +158,9 @@ def generate_dataset(spells: list[SpellListInfo]):
     }
 
     for spell in spells:
-        name = spell.get_name()
-        is_ritual = spell.get_is_ritual()
-        school = spell.get_school()
-        level = spell.get_level()
-        spell_type = spell.get_spell_type()
+        for field in ['name', 'is_ritual', 'school', 'level', 'spell_type']:
+            ret = update_or_initialize_spell(ret, field, spell)
 
-        if name not in ret['name']:
-            ret['name'][name] = []
-
-        if is_ritual not in ret['is_ritual']:
-            ret['is_ritual'][is_ritual] = []
-
-        if school not in ret['school']:
-            ret['school'][school] = []
-
-        if level not in ret['level']:
-            ret['level'][level] = []
-
-        if spell_type not in ret['spell_type']:
-            ret['spell_type'][spell_type] = []
-
-        ret['name'][name].append(spell)
-        ret['is_ritual'][is_ritual].append(spell)
-        ret['school'][school].append(spell)
-        ret['level'][level].append(spell)
-        ret['spell_type'][spell_type].append(spell)
     return ret
 
 
@@ -178,6 +168,7 @@ txt = open('sources\parsed\odnd2_spell_list.txt').read()
 txt = clean_source(txt)
 raw_spell_list = parse(txt)
 data = generate_dataset(raw_spell_list)
+
 for x in data:
     for y in data[x]:
         for z in data[x][y]:
