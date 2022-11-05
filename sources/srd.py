@@ -5,9 +5,6 @@ https://media.wizards.com/2016/downloads/DND/SRD-OGL_V5.1.pdf
 
 from rules import armors, spells, weapons
 from rules.enums import ArmorTraining, DamageTypes, SpellLists, SpellSchools, WeaponTypes
-import json
-
-srd_odnd2_json = json.loads(open('sources/parsed/odnd_srd.json', 'r').read())
 
 
 class Padded(armors.Armor):
@@ -171,7 +168,26 @@ class Shield(armors.Armor):
         super().__init__(name="Shield",
                          training_needed=ArmorTraining.SHIELD,
                          armor_class=2)
+class AcidSplash(spells.Spell):
+    """
+    Acid Splash Spell
+    SRD p. 0
+    """
 
+    def __init__(self):
+        super().__init__(name="Acid Splash",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=0,
+                         ritual=False,
+                         school=SpellSchools.Conjuration,
+                         spell_range="60 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="Instantaneous",
+                         description="You hurl a bubble of acid. Choose one creature within range, or choose two creatures within range that are within 5 feet of each other. A target must succeed on a Dexterity saving throw or take 1d6 acid damage. This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).",
+                         at_higher_levels="")
 
 class AnimalFriendship(spells.Spell):
     """
@@ -1366,6 +1382,28 @@ class Longbow(weapons.Weapon):
                          attack_bonus=attack_bonus)
 
 
+class ZoneOfTruth(spells.Spell):
+    """
+    Zone of Truth Spell
+    SRD p. 0
+    """
+
+    def __init__(self):
+        super().__init__(name="Zone of Truth",
+                         spell_lists=[SpellLists.DIVINE],
+                         concentration=False,
+                         level=2,
+                         ritual=False,
+                         school=SpellSchools.Enchantment,
+                         spell_range="60 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="10 minutes",
+                         description="You create a magical zone that guards against deception in a 15-foot-radius sphere centered on a point of your choice within range. Until the spell ends, a creature that enters the spell's area for the first time on a turn or starts its turn there must make a Charisma saving throw. On a failed save, a creature can't speak a deliberate lie while in the radius. You know whether each creature succeeds or fails on its saving throw. An affected creature is aware of the spell and can thus avoid answering questions to which it would normally respond with a lie. Such a creature can be evasive in its answers as long as it remains within the boundaries of the truth",
+                         at_higher_levels="")
+
+
 CONTENT = {
     "Armors": {
         "Padded": Padded,
@@ -1426,7 +1464,7 @@ CONTENT = {
     "Spells": {
         # TODO The rest of the spells
         # "Acid Arrow": AcidArrow,
-        # "Acid Splash": AcidSplash,
+        "Acid Splash": AcidSplash,
         # "Aid": Aid,
         # "Alarm": Alarm,
         # "Alter Self", AlterSelf,

@@ -59,11 +59,14 @@ def merge():
                 # Default to odnd2, that's why it's 2nd
                 new_spell_info = srd_spell_info | odnd2_spell_info
                 # TODO: Fix
-                ret.append(srd_spell_info | odnd2_spell_info)
+                ret.append(odnd2_spell_info | srd_spell_info)
             else:
-                ret.append(srd_spell_info | odnd2_spell_info)
+                ret.append(odnd2_spell_info | srd_spell_info)
+        elif name in srd and name in names_map:
+            ret.append(odnd2[names_map[name]] | srd[name])
+        elif name in odnd2 and name in names_map:
+            ret.append(odnd2[name] | srd[names_map[name]])
         else:
-            # TODO: Make sure this is correct
             ret.append(odnd2[name])
     return ret
 
