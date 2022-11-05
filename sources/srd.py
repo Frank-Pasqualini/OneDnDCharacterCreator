@@ -654,6 +654,76 @@ class Augury(spells.Spell):
                                      "there is a cumulative 25 percent chance for each casting after the first that "
                                      "you get a random reading. The DM makes this roll in secret.")
 
+
+class Awaken(spells.Spell):
+    """
+    Awaken Spell
+    SRD p. 121
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Awaken",
+                         spell_lists=[SpellLists.PRIMAL],
+                         concentration=False,
+                         level=5,
+                         ritual=False,
+                         school=SpellSchools.Transmutation,
+                         spell_range="Touch",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="an agate worth at least 1,000 gp, which the spell consumes",
+                         duration="Instantaneous",
+                         description="After spending the casting time tracing magical pathways within a precious gemstone, you touch a Huge or smaller beast or plant. The target must have either no Intelligence score or an Intelligence of 3 or less. The target gains an Intelligence of 10. The target also gains the ability to speak one language you know. If the target is a plant, it gains the ability to move its limbs, roots, vines, creepers, and so forth, and it gains senses similar to a human's. Your GM chooses statistics appropriate for the awakened plant, such as the statistics for the awakened shrub or the awakened tree. The awakened beast or plant is charmed by you for 30 days or until you or your companions do anything harmful to it. When the charmed condition ends, the awakened creature chooses whether to remain friendly to you, based on how you treated it while it was charmed.",
+                         at_higher_levels="")
+
+
+class Bane(spells.Spell):
+    """
+    Bane Spell
+    SRD p. 121
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Bane",
+                         spell_lists=[SpellLists.DIVINE],
+                         concentration=True,
+                         level=1,
+                         ritual=False,
+                         school=SpellSchools.Enchantment,
+                         spell_range="30 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a drop of blood",
+                         duration="Concentration, up to 1 minute",
+                         description="Up to three creatures of your choice that you can see within range must make Charisma saving throws. Whenever a target that fails this saving throw makes an attack roll or a saving throw before the spell ends, the target must roll a d4 and subtract the number rolled from the attack roll or saving throw.",
+                         at_higher_levels="When you cast this spell using a spell slot of 2nd level or higher, you can target one additional creature for each slot level above 1st.")
+
+
+class Banishment(spells.Spell):
+    """
+    Banishment Spell
+    SRD p. 121-122
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Banishment",
+                         spell_lists=[SpellLists.DIVINE],
+                         concentration=True,
+                         level=4,
+                         ritual=False,
+                         school=SpellSchools.Abjuration,
+                         spell_range="60 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="an item distasteful to the target",
+                         duration="Concentration, up to 1 minute",
+                         description="You attempt to send one creature that you can see within range to another plane of existence. The target must succeed on a Charisma saving throw or be banished. If the target is native to the plane of existence you're on, you banish the target to a harmless demiplane. While there, the target is incapacitated. The target remains there until the spell ends, at which point the target reappears in the space it left or in the nearest unoccupied space if that space is occupied. If the target is native to a different plane of existence than the one you're on, the target is banished with a faint popping noise, returning to its home plane. If the spell ends before 1 minute has passed, the target reappears in the space it left or in the nearest unoccupied space if that space is occupied. Otherwise, the target doesn't return.",
+                         at_higher_levels="When you cast this spell using a spell slot of 5th level or higher, you can target one additional creature for each slot level above 4th.")
+
+
 class BeaconOfHope(spells.Spell):
     """
     Beacon of Hope Spell
@@ -999,6 +1069,603 @@ class CharmPerson(spells.Spell):
                          at_higher_levels="When you cast this spell using a spell slot of 2nd level or higher, you can target one additional creature for each slot level above 1st. The creatures must be within 30 feet of each other when you target them.")
 
 
+class CircleOfDeath(spells.Spell):
+    """
+    Circle of Death Spell
+    SRD p. 125
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Circle of Death",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=6,
+                         ritual=False,
+                         school=SpellSchools.Necromancy,
+                         spell_range="150 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="the powder of a crushed black pearl worth at least 500 gp",
+                         duration="Instantaneous",
+                         description="A sphere of negative energy ripples out in a 60-footradius sphere from a point within range. Each creature in that area must make a Constitution saving throw. A target takes 8d6 necrotic damage on a failed save, or half as much damage on a successful one.",
+                         at_higher_levels="When you cast this spell using a spell slot of 7th level or higher, the damage increases by 2d6 for each slot level above 6th.")
+
+
+class Clairvoyance(spells.Spell):
+    """
+    Clairvoyance Spell
+    SRD p. 125-126
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Clairvoyance",
+                         spell_lists=[SpellLists.DIVINE],
+                         concentration=True,
+                         level=3,
+                         ritual=False,
+                         school=SpellSchools.Divination,
+                         spell_range="1 mile",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a focus worth at least 100 gp, either a jeweled horn for hearing or a glass eye for seeing",
+                         duration="Concentration, up to 10 minutes",
+                         description="You create an invisible sensor within range in a location familiar to you (a place you have visited or seen before) or in an obvious location that is unfamiliar to you (such as behind a door, around a corner, or in a grove of trees). The sensor remains in place for the duration, and it can't be attacked or otherwise interacted with. When you cast the spell, you choose seeing or hearing. You can use the chosen sense through the sensor as if you were in its space. As your action, you can switch between seeing and hearing. A creature that can see the sensor (such as a creature benefiting from see invisibility or truesight) sees a luminous, intangible orb about the size of your fist.",
+                         at_higher_levels="")
+
+
+class Clone(spells.Spell):
+    """
+    Clone Spell
+    SRD p. 126
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Clone",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=8,
+                         ritual=False,
+                         school=SpellSchools.Necromancy,
+                         spell_range="Touch",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a diamond worth at least 1,000 gp and at least 1 cubic inch of flesh of the creature that is to be cloned, which the spell consumes, and a vessel worth at least 2,000 gp that has a sealable lid and is large enough to hold a Medium creature, such as a huge urn, coffin, mudfilled cyst in the ground, or crystal container filled with salt water",
+                         duration="Instantaneous",
+                         description="This spell grows an inert duplicate of a living creature as a safeguard against death. This clone forms inside a sealed vessel and grows to full size and maturity after 120 days; you can also choose to have the clone be a younger version of the same creature. It remains inert and endures indefinitely, as long as its vessel remains undisturbed. At any time after the clone matures, if the original creature dies, its soul transfers to the clone, provided that the soul is free and willing to return. The clone is physically identical to the original and has the same personality, memories, and abilities, but none of the original's equipment. The original creature's physical remains, if they still exist, become inert and can't thereafter be restored to life, since the creature's soul is elsewhere.",
+                         at_higher_levels="")
+
+
+class Cloudkill(spells.Spell):
+    """
+    Cloudkill Spell
+    SRD p. 126
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Cloudkill",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=True,
+                         level=5,
+                         ritual=False,
+                         school=SpellSchools.Conjuration,
+                         spell_range="120 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="Concentration, up to 10 minutes",
+                         description="You create a 20-foot-radius sphere of poisonous, yellow-green fog centered on a point you choose within range. The fog spreads around corners. It lasts for the duration or until strong wind disperses the fog, ending the spell. Its area is heavily obscured. When a creature enters the spell's area for the first time on a turn or starts its turn there, that creature must make a Constitution saving throw. The creature takes 5d8 poison damage on a failed save, or half as much damage on a successful one. Creatures are affected even if they hold their breath or don't need to breathe. The fog moves 10 feet away from you at the start of each of your turns, rolling along the surface of the ground. The vapors, being heavier than air, sink to the lowest level of the land, even pouring down openings.",
+                         at_higher_levels="When you cast this spell using a spell slot of 6th level or higher, the damage increases by 1d8 for each slot level above 5th.")
+
+
+class ColorSpray(spells.Spell):
+    """
+    Color Spray Spell
+    SRD p. 126
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Color Spray",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=1,
+                         ritual=False,
+                         school=SpellSchools.Illusion,
+                         spell_range="Self (15-foot cone)",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a pinch of powder or sand that is colored red, yellow, and blue",
+                         duration="1 round",
+                         description="A dazzling array of flashing, colored light springs from your hand. Roll 6d10; the total is how many hit points of creatures this spell can effect. Creatures in a 15-foot cone originating from you are affected in ascending order of their current hit points (ignoring unconscious creatures and creatures that can't see). Starting with the creature that has the lowest current hit points, each creature affected by this spell is blinded until the spell ends. Subtract each creature's hit points from the total before moving on to the creature with the next lowest hit points. A creature's hit points must be equal to or less than the remaining total for that creature to be affected.",
+                         at_higher_levels="When you cast this spell using a spell slot of 2nd level or higher, roll an additional 2d10 for each slot level above 1st.")
+
+
+class Command(spells.Spell):
+    """
+    Command Spell
+    SRD p. 126-127
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Command",
+                         spell_lists=[SpellLists.DIVINE],
+                         concentration=False,
+                         level=1,
+                         ritual=False,
+                         school=SpellSchools.Enchantment,
+                         spell_range="60 feet",
+                         verbal_components="True",
+                         somatic_components="False",
+                         material_components_list="",
+                         duration="1 round",
+                         description="You speak a one-word command to a creature you can see within range. The target must succeed on a Wisdom saving throw or follow the command on its next turn. The spell has no effect if the target is undead, if it doesn't understand your language, or if your command is directly harmful to it. Some typical commands and their effects follow. You might issue a command other than one described here. If you do so, the GM determines how the target behaves. If the target can't follow your command, the spell ends. Approach. The target moves toward you by the shortest and most direct route, ending its turn if it moves within 5 feet of you. Drop. The target drops whatever it is holding and then ends its turn. Flee. The target spends its turn moving away from you by the fastest available means. Grovel. The target falls prone and then ends its turn. Halt. The target doesn't move and takes no actions. A flying creature stays aloft, provided that it is able to do so. If it must move to stay aloft, it flies the minimum distance needed to remain in the air.",
+                         at_higher_levels="When you cast this spell using a spell slot of 2nd level or higher, you can affect one additional creature for each slot level above 1st. The creatures must be within 30 feet of each other when you target them.")
+
+
+class Commune(spells.Spell):
+    """
+    Commune Spell
+    SRD p. 127
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Commune",
+                         spell_lists=[SpellLists.DIVINE],
+                         concentration=False,
+                         level=5,
+                         ritual=True,
+                         school=SpellSchools.Divination,
+                         spell_range="Self",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="incense and a vial of holy or unholy water",
+                         duration="1 minute",
+                         description="You contact your deity or a divine proxy and ask up to three questions that can be answered with a yes or no. You must ask your questions before the spell ends. You receive a correct answer for each question. Divine beings aren't necessarily omniscient, so you might receive “unclear” as an answer if a question pertains to information that lies beyond the deity's knowledge. In a case where a one-word answer could be misleading or contrary to the deity's interests, the GM might offer a short phrase as an answer instead. If you cast the spell two or more times before finishing your next long rest, there is a cumulative 25 percent chance for each casting after the first that you get no answer. The GM makes this roll in secret.",
+                         at_higher_levels="")
+
+
+class CommuneWithNature(spells.Spell):
+    """
+    Commune with Nature Spell
+    SRD p. 127
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Commune with Nature",
+                         spell_lists=[SpellLists.PRIMAL],
+                         concentration=False,
+                         level=5,
+                         ritual=True,
+                         school=SpellSchools.Divination,
+                         spell_range="Self",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="Instantaneous",
+                         description="You briefly become one with nature and gain knowledge of the surrounding territory. In the outdoors, the spell gives you knowledge of the land within 3 miles of you. In caves and other natural underground settings, the radius is limited to 300 feet. The spell doesn't function where nature has been replaced by construction, such as in dungeons and towns. You instantly gain knowledge of up to three facts of your choice about any of the following subjects as they relate to the area: • terrain and bodies of water • prevalent plants, minerals, animals, or peoples • powerful celestials, fey, fiends, elementals, or undead • influence from other planes of existence • buildings For example, you could determine the location of powerful undead in the area, the location of major sources of safe drinking water, and the location of any nearby towns.",
+                         at_higher_levels="")
+
+
+class ComprehendLanguages(spells.Spell):
+    """
+    Comprehend Languages Spell
+    SRD p. 127
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Comprehend Languages",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=1,
+                         ritual=True,
+                         school=SpellSchools.Divination,
+                         spell_range="Self",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a pinch of soot and salt",
+                         duration="1 hour",
+                         description="For the duration, you understand the literal meaning of any spoken language that you hear. You also understand any written language that you see, but you must be touching the surface on which the words are written. It takes about 1 minute to read one page of text. This spell doesn't decode secret messages in a text or a glyph, such as an arcane sigil, that isn't part of a written language.",
+                         at_higher_levels="")
+
+
+class Compulsion(spells.Spell):
+    """
+    Compulsion Spell
+    SRD p. 127-128
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Compulsion",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=True,
+                         level=4,
+                         ritual=False,
+                         school=SpellSchools.Enchantment,
+                         spell_range="30 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="Concentration, up to 1 minute",
+                         description="Creatures of your choice that you can see within range and that can hear you must make a Wisdom saving throw. A target automatically succeeds on this saving throw if it can't be charmed. On a failed save, a target is affected by this spell. Until the spell ends, you can use a bonus action on each of your turns to designate a direction that is horizontal to you. Each affected target must use as much of its movement as possible to move in that direction on its next turn. It can take its action before it moves. After moving in this way, it can make another Wisdom saving to try to end the effect. A target isn't compelled to move into an obviously deadly hazard, such as a fire or pit, but it will provoke opportunity attacks to move in the designated direction.",
+                         at_higher_levels="")
+
+
+class ConeOfCold(spells.Spell):
+    """
+    Cone of Cold Spell
+    SRD p. 128
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Cone of Cold",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=5,
+                         ritual=False,
+                         school=SpellSchools.Evocation,
+                         spell_range="Self (60-foot cone)",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a small crystal or glass cone",
+                         duration="Instantaneous",
+                         description="A blast of cold air erupts from your hands. Each creature in a 60-foot cone must make a Constitution saving throw. A creature takes 8d8 cold damage on a failed save, or half as much damage on a successful one. A creature killed by this spell becomes a frozen statue until it thaws.",
+                         at_higher_levels="When you cast this spell using a spell slot of 6th level or higher, the damage increases by 1d8 for each slot level above 5th.")
+
+
+class Confusion(spells.Spell):
+    """
+    Confusion Spell
+    SRD p. 128
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Confusion",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=True,
+                         level=4,
+                         ritual=False,
+                         school=SpellSchools.Enchantment,
+                         spell_range="90 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="three nut shells",
+                         duration="Concentration, up to 1 minute",
+                         description="This spell assaults and twists creatures' minds, spawning delusions and provoking uncontrolled action. Each creature in a 10-foot-radius sphere centered on a point you choose within range must succeed on a Wisdom saving throw when you cast this spell or be affected by it. An affected target can't take reactions and must roll a d10 at the start of each of its turns to determine its behavior for that turn. d10 Behavior 1 The creature uses all its movement to move in a random direction. To determine the direction, roll a d8 and assign a direction to each die face. The creature doesn't take an action this turn. 2–6 The creature doesn't move or take actions this turn. 7–8 The creature uses its action to make a melee attack against a randomly determined creature within its reach. If there is no creature within its reach, the creature does nothing this turn. 9–10 The creature can act and move normally. At the end of each of its turns, an affected target can make a Wisdom saving throw. If it succeeds, this effect ends for that target.",
+                         at_higher_levels="When you cast this spell using a spell slot of 5th level or higher, the radius of the sphere increases by 5 feet for each slot level above 4th.")
+
+
+class ConjureAnimals(spells.Spell):
+    """
+    Conjure Animals Spell
+    SRD p. 128
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Conjure Animals",
+                         spell_lists=[SpellLists.PRIMAL],
+                         concentration=True,
+                         level=3,
+                         ritual=False,
+                         school=SpellSchools.Conjuration,
+                         spell_range="60 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="Concentration, up to 1 hour",
+                         description="You summon fey spirits that take the form of beasts and appear in unoccupied spaces that you can see within range. Choose one of the following options for what appears: • One beast of challenge rating 2 or lower • Two beasts of challenge rating 1 or lower • Four beasts of challenge rating 1/2 or lower • Eight beasts of challenge rating 1/4 or lower Each beast is also considered fey, and it disappears when it drops to 0 hit points or when the spell ends. The summoned creatures are friendly to you and your companions. Roll initiative for the summoned creatures as a group, which has its own turns. They obey any verbal commands that you issue to them (no action required by you). If you don't issue any commands to them, they defend themselves from hostile creatures, but otherwise take no actions. The GM has the creatures' statistics.",
+                         at_higher_levels="When you cast this spell using certain higher-level spell slots, you choose one of the summoning options above, and more creatures appear: twice as many with a 5th-level slot, three times as many with a 7th-level slot, and four times as many with a 9th-level slot.")
+
+
+class ConjureCelestial(spells.Spell):
+    """
+    Conjure Celestial Spell
+    SRD p. 128-129
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Conjure Celestial",
+                         spell_lists=[SpellLists.DIVINE],
+                         concentration=True,
+                         level=7,
+                         ritual=False,
+                         school=SpellSchools.Conjuration,
+                         spell_range="90 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="Concentration, up to 1 hour",
+                         description="You summon a celestial of challenge rating 4 or lower, which appears in an unoccupied space that you can see within range. The celestial disappears when it drops to 0 hit points or when the spell ends. The celestial is friendly to you and your companions for the duration. Roll initiative for the celestial, which has its own turns. It obeys any verbal commands that you issue to it (no action required by you), as long as they don't violate its alignment. If you don't issue any commands to the celestial, it defends itself from hostile creatures but otherwise takes no actions. The GM has the celestial's statistics.",
+                         at_higher_levels="When you cast this spell using a 9th-level spell slot, you summon a celestial of challenge rating 5 or lower.")
+
+
+class ConjureElemental(spells.Spell):
+    """
+    Conjure Elemental Spell
+    SRD p. 129
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Conjure Elemental",
+                         spell_lists=[SpellLists.PRIMAL],
+                         concentration=True,
+                         level=5,
+                         ritual=False,
+                         school=SpellSchools.Conjuration,
+                         spell_range="90 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="burning incense for air, soft clay for earth, sulfur and phosphorus for fire, or water and sand for water",
+                         duration="Concentration, up to 1 hour",
+                         description="You call forth an elemental servant. Choose an area of air, earth, fire, or water that fills a 10-foot cube within range. An elemental of challenge rating 5 or lower appropriate to the area you chose appears in an unoccupied space within 10 feet of it. For example, a fire elemental emerges from a bonfire, and an earth elemental rises up from the ground. The elemental disappears when it drops to 0 hit points or when the spell ends. The elemental is friendly to you and your companions for the duration. Roll initiative for the elemental, which has its own turns. It obeys any verbal commands that you issue to it (no action required by you). If you don't issue any commands to the elemental, it defends itself from hostile creatures but otherwise takes no actions. If your concentration is broken, the elemental doesn't disappear. Instead, you lose control of the elemental, it becomes hostile toward you and your companions, and it might attack. An uncontrolled elemental can't be dismissed by you, and it disappears 1 hour after you summoned it. The GM has the elemental's statistics.",
+                         at_higher_levels="When you cast this spell using a spell slot of 6th level or higher, the challenge rating increases by 1 for each slot level above 5th.")
+
+
+class ConjureFey(spells.Spell):
+    """
+    Conjure Fey Spell
+    SRD p. 129
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Conjure Fey",
+                         spell_lists=[SpellLists.PRIMAL],
+                         concentration=True,
+                         level=6,
+                         ritual=False,
+                         school=SpellSchools.Conjuration,
+                         spell_range="90 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="Concentration, up to 1 hour",
+                         description="You summon a fey creature of challenge rating 6 or lower, or a fey spirit that takes the form of a beast of challenge rating 6 or lower. It appears in an unoccupied space that you can see within range. The fey creature disappears when it drops to 0 hit points or when the spell ends. The fey creature is friendly to you and your companions for the duration. Roll initiative for the creature, which has its own turns. It obeys any verbal commands that you issue to it (no action required by you), as long as they don't violate its alignment. If you don't issue any commands to the fey creature, it defends itself from hostile creatures but otherwise takes no actions. If your concentration is broken, the fey creature doesn't disappear. Instead, you lose control of the fey creature, it becomes hostile toward you and your companions, and it might attack. An uncontrolled fey creature can't be dismissed by you, and it disappears 1 hour after you summoned it. The GM has the fey creature's statistics.",
+                         at_higher_levels="When you cast this spell using a spell slot of 7th level or higher, the challenge rating increases by 1 for each slot level above 6th.")
+
+
+class ConjureMinorElementals(spells.Spell):
+    """
+    Conjure Minor Elementals Spell
+    SRD p. 129-130
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Conjure Minor Elementals",
+                         spell_lists=[SpellLists.PRIMAL],
+                         concentration=True,
+                         level=4,
+                         ritual=False,
+                         school=SpellSchools.Conjuration,
+                         spell_range="90 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="Concentration, up to 1 hour",
+                         description="You summon elementals that appear in unoccupied spaces that you can see within range. You choose one the following options for what appears: • One elemental of challenge rating 2 or lower • Two elementals of challenge rating 1 or lower • Four elementals of challenge rating 1/2 or lower • Eight elementals of challenge rating 1/4 or lower. An elemental summoned by this spell disappears when it drops to 0 hit points or when the spell ends. The summoned creatures are friendly to you and your companions. Roll initiative for the summoned creatures as a group, which has its own turns. They obey any verbal commands that you issue to them (no action required by you). If you don't issue any commands to them, they defend themselves from hostile creatures, but otherwise take no actions. The GM has the creatures' statistics.",
+                         at_higher_levels="When you cast this spell using certain higher-level spell slots, you choose one of the summoning options above, and more creatures appear: twice as many with a 6th-level slot and three times as many with an 8th-level slot.")
+
+
+class ConjureWoodlandBeings(spells.Spell):
+    """
+    Conjure Woodland Beings Spell
+    SRD p. 130
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Conjure Woodland Beings",
+                         spell_lists=[SpellLists.PRIMAL],
+                         concentration=True,
+                         level=4,
+                         ritual=False,
+                         school=SpellSchools.Conjuration,
+                         spell_range="60 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="one holly berry per creature summoned",
+                         duration="Concentration, up to 1 hour",
+                         description="You summon fey creatures that appear in unoccupied spaces that you can see within range. Choose one of the following options for what appears: • One fey creature of challenge rating 2 or lower • Two fey creatures of challenge rating 1 or lower • Four fey creatures of challenge rating 1/2 or lower • Eight fey creatures of challenge rating 1/4 or lower A summoned creature disappears when it drops to 0 hit points or when the spell ends. The summoned creatures are friendly to you and your companions. Roll initiative for the summoned creatures as a group, which have their own turns. They obey any verbal commands that you issue to them (no action required by you). If you don't issue any commands to them, they defend themselves from hostile creatures, but otherwise take no actions. The GM has the creatures' statistics.",
+                         at_higher_levels="When you cast this spell using certain higher-level spell slots, you choose one of the summoning options above, and more creatures appear: twice as many with a 6th-level slot and three times as many with an 8th-level slot.")
+
+
+class ContactOtherPlane(spells.Spell):
+    """
+    Contact Other Plane Spell
+    SRD p. 130
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Contact Other Plane",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=5,
+                         ritual=True,
+                         school=SpellSchools.Divination,
+                         spell_range="Self",
+                         verbal_components="True",
+                         somatic_components="False",
+                         material_components_list="",
+                         duration="1 minute",
+                         description="You mentally contact a demigod, the spirit of a longdead sage, or some other mysterious entity from another plane. Contacting this extraplanar intelligence can strain or even break your mind. When you cast this spell, make a DC 15 Intelligence saving throw. On a failure, you take 6d6 psychic damage and are insane until you finish a long rest. While insane, you can't take actions, can't understand what other creatures say, can't read, and speak only in gibberish. A greater restoration spell cast on you ends this effect. On a successful save, you can ask the entity up to five questions. You must ask your questions before the spell ends. The GM answers each question with one word, such as “yes,” “no,” “maybe,” “never,” “irrelevant,” or “unclear” (if the entity doesn't know the answer to the question). If a one-word answer would be misleading, the GM might instead offer a short phrase as an answer.",
+                         at_higher_levels="")
+
+
+class Contagion(spells.Spell):
+    """
+    Contagion Spell
+    SRD p. 130-131
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Contagion",
+                         spell_lists=[SpellLists.DIVINE],
+                         concentration=False,
+                         level=5,
+                         ritual=False,
+                         school=SpellSchools.Necromancy,
+                         spell_range="Touch",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="7 days",
+                         description="Your touch inflicts disease. Make a melee spell attack against a creature within your reach. On a hit, you afflict the creature with a disease of your choice from any of the ones described below. At the end of each of the target's turns, it must make a Constitution saving throw. After failing three of these saving throws, the disease's effects last for the duration, and the creature stops making these saves. After succeeding on three of these saving throws, the creature recovers from the disease, and the spell ends. Since this spell induces a natural disease in its target, any effect that removes a disease or otherwise ameliorates a disease's effects apply to it. Blinding Sickness. Pain grips the creature's mind, and its eyes turn milky white. The creature has disadvantage on Wisdom checks and Wisdom saving throws and is blinded. Filth Fever. A raging fever sweeps through the creature's body. The creature has disadvantage on Strength checks, Strength saving throws, and attack rolls that use Strength. Flesh Rot. The creature's flesh decays. The creature has disadvantage on Charisma checks and vulnerability to all damage. Mindfire. The creature's mind becomes feverish. The creature has disadvantage on Intelligence checks and Intelligence saving throws, and the creature behaves as if under the effects of the confusion spell during combat. Seizure. The creature is overcome with shaking. The creature has disadvantage on Dexterity checks, Dexterity saving throws, and attack rolls that use Dexterity. Slimy Doom. The creature begins to bleed uncontrollably. The creature has disadvantage on Constitution checks and Constitution saving throws. In addition, whenever the creature takes damage, it is stunned until the end of its next turn.",
+                         at_higher_levels="")
+
+
+class Contingency(spells.Spell):
+    """
+    Contingency Spell
+    SRD p. 131
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Contingency",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=6,
+                         ritual=False,
+                         school=SpellSchools.Evocation,
+                         spell_range="Self",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a statuette of yourself carved from ivory and decorated with gems worth at least 1,500 gp",
+                         duration="10 days",
+                         description="Choose a spell of 5th level or lower that you can cast, that has a casting time of 1 action, and that can target you. You cast that spell—called the contingent spell—as part of casting contingency, expending spell slots for both, but the contingent spell doesn't come into effect. Instead, it takes effect when a certain circumstance occurs. You describe that circumstance when you cast the two spells. For example, a contingency cast with water breathing might stipulate that water breathing comes into effect when you are engulfed in water or a similar liquid. The contingent spell takes effect immediately after the circumstance is met for the first time, whether or not you want it to, and then contingency ends. The contingent spell takes effect only on you, even if it can normally target others. You can use only one contingency spell at a time. If you cast this spell again, the effect of another contingency spell on you ends. Also, contingency ends on you if its material component is ever not on your person.",
+                         at_higher_levels="")
+
+
+class ContinualFlame(spells.Spell):
+    """
+    Continual Flame Spell
+    SRD p. 131
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Continual Flame",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=2,
+                         ritual=False,
+                         school=SpellSchools.Evocation,
+                         spell_range="Touch",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="ruby dust worth 50 gp, which the spell consumes",
+                         duration="Until dispelled",
+                         description="A flame, equivalent in brightness to a torch, springs forth from an object that you touch. The effect looks like a regular flame, but it creates no heat and doesn't use oxygen. A continual flame can be covered or hidden but not smothered or quenched.",
+                         at_higher_levels="")
+
+
+class ControlWater(spells.Spell):
+    """
+    Control Water Spell
+    SRD p. 131-132
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Control Water",
+                         spell_lists=[SpellLists.PRIMAL],
+                         concentration=True,
+                         level=4,
+                         ritual=False,
+                         school=SpellSchools.Transmutation,
+                         spell_range="300 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a drop of water and a pinch of dust",
+                         duration="Concentration, up to 10 minutes",
+                         description="Until the spell ends, you control any freestanding water inside an area you choose that is a cube up to 100 feet on a side. You can choose from any of the following effects when you cast this spell. As an action on your turn, you can repeat the same effect or choose a different one. Flood. You cause the water level of all standing water in the area to rise by as much as 20 feet. If the area includes a shore, the flooding water spills over onto dry land. If you choose an area in a large body of water, you instead create a 20-foot tall wave that travels from one side of the area to the other and then crashes down. Any Huge or smaller vehicles in the wave's path are carried with it to the other side. Any Huge or smaller vehicles struck by the wave have a 25 percent chance of capsizing. The water level remains elevated until the spell ends or you choose a different effect. If this effect produced a wave, the wave repeats on the start of your next turn while the flood effect lasts. Part Water. You cause water in the area to move apart and create a trench. The trench extends across the spell's area, and the separated water forms a wall to either side. The trench remains until the spell ends or you choose a different effect. The water then slowly fills in the trench over the course of the next round until the normal water level is restored. Redirect Flow. You cause flowing water in the area to move in a direction you choose, even if the water has to flow over obstacles, up walls, or in other unlikely directions. The water in the area moves as you direct it, but once it moves beyond the spell's area, it resumes its flow based on the terrain conditions. The water continues to move in the direction you chose until the spell ends or you choose a different effect. Whirlpool. This effect requires a body of water at least 50 feet square and 25 feet deep. You cause a whirlpool to form in the center of the area. The whirlpool forms a vortex that is 5 feet wide at the base, up to 50 feet wide at the top, and 25 feet tall. Any creature or object in the water and within 25 feet of the vortex is pulled 10 feet toward it. A creature can swim away from the vortex by making a Strength (Athletics) check against your spell save DC. When a creature enters the vortex for the first time on a turn or starts its turn there, it must make a Strength saving throw. On a failed save, the creature takes 2d8 bludgeoning damage and is caught in the vortex until the spell ends. On a successful save, the creature takes half damage, and isn't caught in the vortex. A creature caught in the vortex can use its action to try to swim away from the vortex as described above, but has disadvantage on the Strength (Athletics) check to do so. The first time each turn that an object enters the vortex, the object takes 2d8 bludgeoning damage; this damage occurs each round it remains in the vortex.",
+                         at_higher_levels="")
+
+
+class ControlWeather(spells.Spell):
+    """
+    Control Weather Spell
+    SRD p. 132
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Control Weather",
+                         spell_lists=[SpellLists.PRIMAL],
+                         concentration=True,
+                         level=8,
+                         ritual=False,
+                         school=SpellSchools.Transmutation,
+                         spell_range="Self (5-mile radius)",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="burning incense and bits of earth and wood mixed in water",
+                         duration="Concentration, up to 8 hours",
+                         description="You take control of the weather within 5 miles of you for the duration. You must be outdoors to cast this spell. Moving to a place where you don't have a clear path to the sky ends the spell early. When you cast the spell, you change the current weather conditions, which are determined by the GM based on the climate and season. You can change precipitation, temperature, and wind. It takes 1d4 × 10 minutes for the new conditions to take effect. Once they do so, you can change the conditions again. When the spell ends, the weather gradually returns to normal. When you change the weather conditions, find a current condition on the following tables and change its stage by one, up or down. When changing the wind, you can change its direction. Precipitation Stage Condition 1 Clear 2 Light clouds 3 Overcast or ground fog 4 Rain, hail, or snow 5 Torrential rain, driving hail, or blizzard Temperature Stage Condition 1 Unbearable heat 2 Hot 3 Warm 4 Cool 5 Cold 6 Arctic cold Wind Stage Condition 1 Calm 2 Moderate wind 3 Strong wind 4 Gale 5 Storm",
+                         at_higher_levels="")
+
+
+class Counterspell(spells.Spell):
+    """
+    Counterspell Spell
+    SRD p. 132
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Counterspell",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=3,
+                         ritual=False,
+                         school=SpellSchools.Abjuration,
+                         spell_range="60 feet",
+                         verbal_components="False",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="Instantaneous",
+                         description="You attempt to interrupt a creature in the process of casting a spell. If the creature is casting a spell of 3rd level or lower, its spell fails and has no effect. If it is casting a spell of 4th level or higher, make an ability check using your spellcasting ability. The DC equals 10 + the spell's level. On a success, the creature's spell fails and has no effect.",
+                         at_higher_levels="When you cast this spell using a spell slot of 4th level or higher, the interrupted spell has no effect if its level is less than or equal to the level of the spell slot you used.")
+
+
+class CreateFoodAndWater(spells.Spell):
+    """
+    Create Food and Water Spell
+    SRD p. 132-133
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Create Food and Water",
+                         spell_lists=[SpellLists.DIVINE],
+                         concentration=False,
+                         level=3,
+                         ritual=False,
+                         school=SpellSchools.Conjuration,
+                         spell_range="30 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="Instantaneous",
+                         description="You create 45 pounds of food and 30 gallons of water on the ground or in containers within range, enough to sustain up to fifteen humanoids or five steeds for 24 hours. The food is bland but nourishing, and spoils if uneaten after 24 hours. The water is clean and doesn't go bad.",
+                         at_higher_levels="")
+
 
 class ChillTouch(spells.Spell):
     """
@@ -1053,6 +1720,52 @@ class CreateOrDestroyWater(spells.Spell):
                                           "cube increases by 5 feet, for each slot level above 1st.")
 
 
+class CreateUndead(spells.Spell):
+    """
+    Create Undead Spell
+    SRD p. 133
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Create Undead",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=6,
+                         ritual=False,
+                         school=SpellSchools.Necromancy,
+                         spell_range="10 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="one clay pot filled with grave dirt, one clay pot filled with brackish water, and one 150 gp black onyx stone for each corpse",
+                         duration="Instantaneous",
+                         description="You can cast this spell only at night. Choose up to three corpses of Medium or Small humanoids within range. Each corpse becomes a ghoul under your control. (The GM has game statistics for these creatures.) As a bonus action on each of your turns, you can mentally command any creature you animated with this spell if the creature is within 120 feet of you (if you control multiple creatures, you can command any or all of them at the same time, issuing the same command to each one). You decide what action the creature will take and where it will move during its next turn, or you can issue a general command, such as to guard a particular chamber or corridor. If you issue no commands, the creature only defends itself against hostile creatures. Once given an order, the creature continues to follow it until its task is complete. The creature is under your control for 24 hours, after which it stops obeying any command you have given it. To maintain control of the creature for another 24 hours, you must cast this spell on the creature before the current 24-hour period ends. This use of the spell reasserts your control over up to three creatures you have animated with this spell, rather than animating new ones.",
+                         at_higher_levels="When you cast this spell using a 7th-level spell slot, you can animate or reassert control over four ghouls. When you cast this spell using an 8th-level spell slot, you can animate or reassert control over five ghouls or two ghasts or wights. When you cast this spell using a 9th-level spell slot, you can animate or reassert control over six ghouls, three ghasts or wights, or two mummies.")
+
+
+class Creation(spells.Spell):
+    """
+    Creation Spell
+    SRD p. 133
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Creation",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=5,
+                         ritual=False,
+                         school=SpellSchools.Illusion,
+                         spell_range="30 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a tiny piece of matter of the same type of the item you plan to create",
+                         duration="Special",
+                         description="You pull wisps of shadow material from the Shadowfell to create a nonliving object of vegetable matter within range: soft goods, rope, wood, or something similar. You can also use this spell to create mineral objects such as stone, crystal, or metal. The object created must be no larger than a 5- foot cube, and the object must be of a form and material that you have seen before. The duration depends on the object's material. If the object is composed of multiple materials, use the shortest duration. Material Duration Vegetable matter 1 day Stone or crystal 12 hours Precious metals 1 hour Gems 10 minutes Adamantine or mithral 1 minute Using any material created by this spell as another spell's material component causes that spell to fail.",
+                         at_higher_levels="When you cast this spell using a spell slot of 6th level or higher, the cube increases by 5 feet for each slot level above 5th.")
+
+
 class CureWounds(spells.Spell):
     """
     Cure Wounds Spell
@@ -1074,6 +1787,52 @@ class CureWounds(spells.Spell):
                                           "the healing increases by 1d8 for each slot level above 1st.")
 
 
+class DancingLights(spells.Spell):
+    """
+    Dancing Lights Spell
+    SRD p. 134
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Dancing Lights",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=True,
+                         level=0,
+                         ritual=False,
+                         school=SpellSchools.Evocation,
+                         spell_range="120 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a bit of phosphorus or wychwood, or a glowworm",
+                         duration="Concentration, up to 1 minute",
+                         description="You create up to four torch-sized lights within range, making them appear as torches, lanterns, or glowing orbs that hover in the air for the duration. You can also combine the four lights into one glowing vaguely humanoid form of Medium size. Whichever form you choose, each light sheds dim light in a 10- foot radius. As a bonus action on your turn, you can move the lights up to 60 feet to a new spot within range. A light must be within 20 feet of another light created by this spell, and a light winks out if it exceeds the spell's range.",
+                         at_higher_levels="")
+
+
+class Darkness(spells.Spell):
+    """
+    Darkness Spell
+    SRD p. 134
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Darkness",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=True,
+                         level=2,
+                         ritual=False,
+                         school=SpellSchools.Evocation,
+                         spell_range="60 feet",
+                         verbal_components="True",
+                         somatic_components="False",
+                         material_components_list="bat fur and a drop of pitch or piece of coal",
+                         duration="Concentration, up to 10 minutes",
+                         description="Magical darkness spreads from a point you choose within range to fill a 15-foot-radius sphere for the duration. The darkness spreads around corners. A creature with darkvision can't see through this darkness, and nonmagical light can't illuminate it. If the point you choose is on an object you are holding or one that isn't being worn or carried, the darkness emanates from the object and moves with it. Completely covering the source of the darkness with an opaque object, such as a bowl or a helm, blocks the darkness. If any of this spell's area overlaps with an area of light created by a spell of 2nd level or lower, the spell that created the light is dispelled.",
+                         at_higher_levels="")
+
+
 class Darkvision(spells.Spell):
     """
     Darkvision Spell
@@ -1092,6 +1851,121 @@ class Darkvision(spells.Spell):
                          duration="8 hours",
                          description="You touch a willing creature to grant it the ability to see in the dark. For "
                                      "the duration, that creature has darkvision out to a range of 60 feet.")
+
+
+class Daylight(spells.Spell):
+    """
+    Daylight Spell
+    SRD p. 134
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Daylight",
+                         spell_lists=[SpellLists.PRIMAL],
+                         concentration=False,
+                         level=3,
+                         ritual=False,
+                         school=SpellSchools.Evocation,
+                         spell_range="60 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="1 hour",
+                         description="A 60-foot-radius sphere of light spreads out from a point you choose within range. The sphere is bright light and sheds dim light for an additional 60 feet. If you chose a point on an object you are holding or one that isn't being worn or carried, the light shines from the object and moves with it. Completely covering the affected object with an opaque object, such as a bowl or a helm, blocks the light. If any of this spell's area overlaps with an area of darkness created by a spell of 3rd level or lower, the spell that created the darkness is dispelled.",
+                         at_higher_levels="")
+
+
+class DeathWard(spells.Spell):
+    """
+    Death Ward Spell
+    SRD p. 134
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Death Ward",
+                         spell_lists=[SpellLists.DIVINE],
+                         concentration=False,
+                         level=4,
+                         ritual=False,
+                         school=SpellSchools.Abjuration,
+                         spell_range="Touch",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="8 hours",
+                         description="You touch a creature and grant it a measure of protection from death. The first time the target would drop to 0 hit points as a result of taking damage, the target instead drops to 1 hit point, and the spell ends. If the spell is still in effect when the target is subjected to an effect that would kill it instantaneously without dealing damage, that effect is instead negated against the target, and the spell ends.",
+                         at_higher_levels="")
+
+
+class DelayedBlastFireball(spells.Spell):
+    """
+    Delayed Blast Fireball Spell
+    SRD p. 134-135
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Delayed Blast Fireball",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=True,
+                         level=7,
+                         ritual=False,
+                         school=SpellSchools.Evocation,
+                         spell_range="150 feet",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="a tiny ball of bat guano and sulfur",
+                         duration="Concentration, up to 1 minute",
+                         description="A beam of yellow light flashes from your pointing finger, then condenses to linger at a chosen point within range as a glowing bead for the duration. When the spell ends, either because your concentration is broken or because you decide to end it, the bead blossoms with a low roar into an explosion of flame that spreads around corners. Each creature in a 20-foot-radius sphere centered on that point must make a Dexterity saving throw. A creature takes fire damage equal to the total accumulated damage on a failed save, or half as much damage on a successful one. The spell's base damage is 12d6. If at the end of your turn the bead has not yet detonated, the damage increases by 1d6. If the glowing bead is touched before the interval has expired, the creature touching it must make a Dexterity saving throw. On a failed save, the spell ends immediately, causing the bead to erupt in flame. On a successful save, the creature can throw the bead up to 40 feet. When it strikes a creature or a solid object, the spell ends, and the bead explodes. The fire damages objects in the area and ignites flammable objects that aren't being worn or carried.",
+                         at_higher_levels="When you cast this spell using a spell slot of 8th level or higher, the base damage increases by 1d6 for each slot level above 7th.")
+
+
+class Demiplane(spells.Spell):
+    """
+    Demiplane Spell
+    SRD p. 135
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Demiplane",
+                         spell_lists=[SpellLists.ARCANE],
+                         concentration=False,
+                         level=8,
+                         ritual=False,
+                         school=SpellSchools.Conjuration,
+                         spell_range="60 feet",
+                         verbal_components="False",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="1 hour",
+                         description="You create a shadowy door on a flat solid surface that you can see within range. The door is large enough to allow Medium creatures to pass through unhindered. When opened, the door leads to a demiplane that appears to be an empty room 30 feet in each dimension, made of wood or stone. When the spell ends, the door disappears, and any creatures or objects inside the demiplane remain trapped there, as the door also disappears from the other side. Each time you cast this spell, you can create a new demiplane, or have the shadowy door connect to a demiplane you created with a previous casting of this spell. Additionally, if you know the nature and contents of a demiplane created by a casting of this spell by another creature, you can have the shadowy door connect to its demiplane instead.",
+                         at_higher_levels="")
+
+
+class DetectEvilAndGood(spells.Spell):
+    """
+    Detect Evil and Good Spell
+    SRD p. 135
+    Generated
+    """
+
+    def __init__(self):
+        super().__init__(name="Detect Evil and Good",
+                         spell_lists=[SpellLists.DIVINE],
+                         concentration=True,
+                         level=1,
+                         ritual=False,
+                         school=SpellSchools.Divination,
+                         spell_range="Self",
+                         verbal_components="True",
+                         somatic_components="True",
+                         material_components_list="",
+                         duration="Concentration, up to 10 minutes",
+                         description="For the duration, you know if there is an aberration, celestial, elemental, fey, fiend, or undead within 30 feet of you, as well as where the creature is located. Similarly, you know if there is a place or object within 30 feet of you that has been magically consecrated or desecrated. The spell can penetrate most barriers, but it is blocked by 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt.",
+                         at_higher_levels="")
 
 
 class DetectMagic(spells.Spell):
@@ -2200,9 +3074,9 @@ CONTENT = {
         "Arcanist's Magic Aura": ArcanistsMagicAura,
         "Astral Projection": AstralProjection,
         "Augury": Augury,
-        # "Awaken": Awaken,
-        # "Bane": Bane,
-        # "Banishment": Banishment,
+        "Awaken": Awaken,
+        "Bane": Bane,
+        "Banishment": Banishment,
         "Barkskin": "OBSOLETE",
         "Beacon of Hope": BeaconOfHope,
         "Bestow Curse": BestowCurse,
@@ -2220,44 +3094,44 @@ CONTENT = {
         "Chain Lightning": ChainLightning,
         "Charm Person": CharmPerson,
         "Chill Touch": ChillTouch,
-        # "Circle of Death": CircleOfDeath,
-        # "Clairvoyance": Clairvoyance,
-        # "Clone": Clone,
-        # "Cloudkill": Cloudkill,
-        # "Color Spray": ColorSpray,
-        # "Command": Command,
-        # "Commune": Commune,
-        # "Commune with Nature": CommuneWithNature,
-        # "Comprehend Languages": ComprehendLanguages,
-        # "Compulsion": Compulsion,
-        # "Cone of Cold": ConeOfCold,
-        # "Confusion": Confusion,
-        # "Conjure Animals": ConjureAnimals,
-        # "Conjure Celestial": ConjureCelestial,
-        # "Conjure Elemental": ConjureElemental,
-        # "Conjure Fey": ConjureFey,
-        # "Conjure Minor Elementals": ConjureMinorElementals,
-        # "Conjure Woodland Beings": ConjureWoodlandBeings,
-        # "Contact Other Plane": ConjureOtherPlane,
-        # "Contagion": Contagion,
-        # "Contingency": Contingency,
-        # "Continual Flame": ContinualFlame,
-        # "Control Water": ControlWater,
-        # "Control Weather": ControlWeather,
-        # "Counterspell": Counterspell,
-        # "Create Food and Water": CreateFoodAndWater,
+        "Circle of Death": CircleOfDeath,
+        "Clairvoyance": Clairvoyance,
+        "Clone": Clone,
+        "Cloudkill": Cloudkill,
+        "Color Spray": ColorSpray,
+        "Command": Command,
+        "Commune": Commune,
+        "Commune with Nature": CommuneWithNature,
+        "Comprehend Languages": ComprehendLanguages,
+        "Compulsion": Compulsion,
+        "Cone of Cold": ConeOfCold,
+        "Confusion": Confusion,
+        "Conjure Animals": ConjureAnimals,
+        "Conjure Celestial": ConjureCelestial,
+        "Conjure Elemental": ConjureElemental,
+        "Conjure Fey": ConjureFey,
+        "Conjure Minor Elementals": ConjureMinorElementals,
+        "Conjure Woodland Beings": ConjureWoodlandBeings,
+        "Contact Other Plane": ContactOtherPlane,
+        "Contagion": Contagion,
+        "Contingency": Contingency,
+        "Continual Flame": ContinualFlame,
+        "Control Water": ControlWater,
+        "Control Weather": ControlWeather,
+        "Counterspell": Counterspell,
+        "Create Food and Water": CreateFoodAndWater,
         "Create or Destroy Water": CreateOrDestroyWater,
-        # "Create Undead": CreateUndead,
-        # "Creation": Creation,
+        "Create Undead": CreateUndead,
+        "Creation": Creation,
         "Cure Wounds": CureWounds,
-        # "Dancing Lights": DancingLights,
-        # "Darkness": Darkness,
+        "Dancing Lights": DancingLights,
+        "Darkness": Darkness,
         "Darkvision": Darkvision,
-        # "Daylight": Daylight,
-        # "Death Ward": DeathWard,
-        # "Delayed Blast Fireball": DelayedBlastFireball,
-        # "Demiplane": Demiplane,
-        # "Detect Evil and Good": DetectEvilAndGood,
+        "Daylight": Daylight,
+        "Death Ward": DeathWard,
+        "Delayed Blast Fireball": DelayedBlastFireball,
+        "Demiplane": Demiplane,
+        "Detect Evil and Good": DetectEvilAndGood,
         "Detect Magic": DetectMagic,
         "Detect Poison and Disease": DetectPoisonAndDisease,
         "Detect Thoughts": DetectThoughts,
