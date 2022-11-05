@@ -21,7 +21,7 @@ levels = ['1st-level',
           '2nd-level', '3rd-level', 'th-level']
 
 
-def find_next_spell(lines):
+def find_next_spell(lines) -> int:
     levels = ['1st-level',
               '2nd-level', '3rd-level', 'th-level']
 
@@ -55,7 +55,7 @@ def get_level_school(level_type: str) -> tuple[int, str]:
     return level, school
 
 
-def split_into_spell_text(lines: list[str]):
+def split_into_spell_text(lines: list[str]) -> list[str]:
     res = []
     cur = lines
     while (line_num < len(lines)):

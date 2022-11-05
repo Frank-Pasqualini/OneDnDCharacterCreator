@@ -96,8 +96,10 @@ for school in school_abbrs:
         os._exit(1)
 
 
-def parse_single_spell(line: list[str], spell_type: str):
+def parse_single_spell(line: list[str], spell_type: str) -> SpellListInfo:
     level, *name, school, ritual = line.split(' ')
+    if 'Contact' in line:
+        print(line)
     if spell_type == '' or level == '' or school == '' or ritual == '' or name is []:
         print(level)
         print(name)
@@ -133,13 +135,17 @@ def clean_source(raw_txt: str) -> list[str]:
     txt = txt.replace('No ', 'No\n')
     txt = txt.replace('Lvl Spell School Ritual', '')
     txt = txt.replace('/ ', '/')
+    txt = txt.replace('Â©202', '\nÂ©202')
     txt = [x for x in txt.split('\n') if x != '']
+    print('Contact Other' in ''.join(txt))
+    print([x for x in txt if 'Wizards of the' in x])
     txt = [x.strip() for x in txt if not 'Wizards of the Coast' in x]
+    print('Contact Other' in ''.join(txt))
     txt = [x for x in txt if 'Â©202' not in x]
     return txt
 
 
-def parse(lines: list[str]) -> list:
+def parse(lines: list[str]) -> list[SpellListInfo]:
     current_type = ''
     spells = []
     for line in lines:
@@ -150,7 +156,7 @@ def parse(lines: list[str]) -> list:
     return spells
 
 
-def update_or_initialize_spell(ret, field, spell: SpellListInfo):
+def update_or_initialize_spell(ret, field: str, spell: SpellListInfo):
     spellProperty = spell[field]
     if spellProperty not in ret[field]:
         ret[field][spellProperty] = [spell.toJSON()]

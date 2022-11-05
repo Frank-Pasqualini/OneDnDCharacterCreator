@@ -112,7 +112,9 @@ Abjuration No
 ’s Resilient
 Sphere
 Evocation No
-4 Phantasmal Killer Illusion No 4 Polymorph Transmut. No 4 Stone Shape Transmut. No 4 Stoneskin Transmut.* No 4 Wall of Fire Evocation No 5 Animate Objects Transmut. No 5 Bigby’s Hand Evocation No 5 Cloudkill Conjuration No 5 Cone of Cold Evocation No 5 Conjure Elemental Conjuration No 5 Contact Other Plane Divination Yes
+4 Phantasmal Killer Illusion No 4 Polymorph Transmut. No 4 Stone Shape Transmut. No 4 Stoneskin Transmut.* No 4 Wall of Fire Evocation No 5 Animate Objects Transmut. No 5 Bigby’s Hand Evocation No 5 Cloudkill Conjuration No 5 Cone of Cold Evocation No 5 Conjure Elemental Conjuration No 5 Contact Other
+Plane
+Divination Yes
 ©2022 Wizards of the Coast LLC 26
 Lvl Spell School Ritual
 5 Creation Illusion No

@@ -23,7 +23,8 @@ names_map = {
     "Arcanist's Magic Aura": "Nystul's Magic Aura",
     "Telepathic Bond": "Rary's Telepathic Bond",
     "Resilient Sphere": "Otiluke's Resilient Sphere",
-    "Magnificent Mansion": "Mordenkainen's Magnificent Mansion"
+    "Magnificent Mansion": "Mordenkainen's Magnificent Mansion",
+    "Magic Aura": "Arcanist's Magic Aura"
 }
 
 names_map = names_map | {names_map[x]: x for x in names_map}

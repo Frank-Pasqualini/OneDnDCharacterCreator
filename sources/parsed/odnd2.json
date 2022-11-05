@@ -1015,6 +1015,13 @@
         "spell_type": "Arcane"
     },
     {
+        "name": "Contact Other Plane",
+        "level": 5,
+        "school": "Divination",
+        "is_ritual": true,
+        "spell_type": "Arcane"
+    },
+    {
         "name": "Creation",
         "level": 5,
         "school": "Illusion",
