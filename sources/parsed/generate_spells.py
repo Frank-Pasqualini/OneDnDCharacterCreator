@@ -29,19 +29,31 @@ class {class_name}(spells.Spell):
 
     def __init__(self):
         super().__init__(name="{name}",
-                         spell_lists={spells_type},
-                         concentration={concentration},
+                         spell_lists={spells_type},{concentration}{ritual}
                          level={level},
-                         ritual={ritual},
                          school=SpellSchools.{school},
                          spell_range="{range}",
-                         verbal_components="{verbal_components}",
-                         somatic_components="{somatic_components}",
-                         material_components_list="{material_components_list}",
+                         verbal_components={verbal_components},
+                         somatic_components={somatic_components},
+                         material_components_list={material_components_list},
                          duration="{duration}",
                          description="{description}",
                          at_higher_levels="{at_higher_levels}")
 """
+
+
+def concentration(conc: bool) -> str:
+    if conc:
+        return '\n                         concentration=True,'
+    else:
+        return ''
+
+
+def ritual(rit: bool) -> str:
+    if rit:
+        return '\n                         ritual=True,'
+    else:
+        return ''
 
 
 def class_name(name: str) -> str:
@@ -54,15 +66,22 @@ def class_name(name: str) -> str:
 
 
 def spell_list(s: list[str]) -> str:
-    print(s)
     s = ['SpellLists.' + x.upper() for x in s]
-    print(s)
     return '[' + ', '.join(s) + "]"
 
 
 def material_components_list(text: str):
     if text == '':
         return None
+    else:
+        return '"' + text + '"'
+
+
+def duration(text: str) -> str:
+    print(text)
+    if 'Concentration, up to ' in text:
+        print(text)
+        return text.replace('Concentration, up to ', '').strip()
     else:
         return text
 
@@ -79,11 +98,12 @@ def generate_spell(spell_json) -> str:
         pages = str(start) + '-' + str(end)
     return spell_template.format(class_name=class_name(spell_json['name']),
                                  pages=pages,
-                                 concentration='oncentration' in spell_json['duration'],
+                                 concentration=concentration(
+                                     'oncentration' in spell_json['duration']),
                                  name=spell_json['name'],
                                  spells_type=spell_list(
                                      spell_json['spell_list']),
-                                 ritual=spell_json['is_ritual'],
+                                 ritual=ritual(spell_json['is_ritual']),
                                  level=spell_json['level'],
                                  school=spell_json['school'],
                                  range=spell_json['spell_range'],
@@ -91,7 +111,7 @@ def generate_spell(spell_json) -> str:
                                  somatic_components=spell_json['somatic_components'],
                                  material_components_list=material_components_list(
                                      spell_json['material_components_list']),
-                                 duration=spell_json['duration'],
+                                 duration=duration(spell_json['duration']),
                                  description=spell_json['description'],
                                  at_higher_levels=spell_json['at_higher_levels']
                                  )
