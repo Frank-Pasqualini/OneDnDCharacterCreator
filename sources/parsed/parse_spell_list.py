@@ -4,6 +4,7 @@
 
 import os
 import string
+import json
 
 
 class SpellListInfo:
@@ -39,7 +40,8 @@ class SpellListInfo:
         return '(' + self._name + ' ' + str(self._level) + ' ' + self._school + ' ' + str(self._is_ritual) + ' ' + self._spell_type + ')'
 
     def __repr__(self):
-        return self._name + ' ' + self._level + ' ' + self._school
+        return self._name + ' ' + str(self._level)
+        + ' ' + self._school
 
     def __getitem__(self, arg):
         if arg == 'name':
@@ -54,6 +56,15 @@ class SpellListInfo:
             return self._spell_type
         else:
             raise Exception('no attribute for spelllistinfo')
+
+    def toJSON(self):
+        return {
+            'name': self['name'],
+            'level': self['level'],
+            'school': self['school'],
+            'is_ritual': self['is_ritual'],
+            'spell_type': self['spell_type']
+        }
 
 
 schools = ['Abjuration', 'Transmutation', 'Conjuration', 'Divination',
@@ -116,7 +127,7 @@ def parse_single_spell(line: list[str], spell_type: str):
 
 def clean_source(raw_txt: str) -> list[str]:
     txt = raw_txt.replace('\n', ' ')
-    txt = txt.replace('â€™', "'")
+    txt = txt.replace('â€™', "'").replace('’', "'").replace(" '", "'")
     for x in string.digits:
         txt = txt.replace(' ' + x + ' ', '\n' + x + ' ')
     txt = txt.replace('No ', 'No\n')
@@ -139,12 +150,12 @@ def parse(lines: list[str]) -> list:
     return spells
 
 
-def update_or_initialize_spell(ret, field, spell):
-    value = spell[field]
-    if value not in ret[field]:
-        ret[field][value] = []
+def update_or_initialize_spell(ret, field, spell: SpellListInfo):
+    spellProperty = spell[field]
+    if spellProperty not in ret[field]:
+        ret[field][spellProperty] = [spell.toJSON()]
     else:
-        ret[field][value].append(spell)
+        ret[field][spellProperty].append(spell.toJSON())
     return ret
 
 
@@ -164,12 +175,20 @@ def generate_dataset(spells: list[SpellListInfo]):
     return ret
 
 
-txt = open('sources\parsed\odnd2_spell_list.txt').read()
+txt = open('sources/parsed/odnd2_spell_list.txt').read()
 txt = clean_source(txt)
 raw_spell_list = parse(txt)
+
 data = generate_dataset(raw_spell_list)
+
+open('sources/parsed/odnd2.json',
+     'w+').write(json.dumps([x.toJSON() for x in raw_spell_list], indent=4))
 
 for x in data:
     for y in data[x]:
-        for z in data[x][y]:
-            print(x, y, z)
+        if y == 'Acid Arrow':
+            for z in data[x][y]:
+                print(x, y, z)
+
+
+print([x for x in raw_spell_list if 'Acid' in x['name']])

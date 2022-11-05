@@ -112,9 +112,7 @@ Abjuration No
 ’s Resilient
 Sphere
 Evocation No
-4 Phantasmal Killer Illusion No 4 Polymorph Transmut. No 4 Stone Shape Transmut. No 4 Stoneskin Transmut.* No 4 Wall of Fire Evocation No 5 Animate Objects Transmut. No 5 Bigby’s Hand Evocation No 5 Cloudkill Conjuration No 5 Cone of Cold Evocation No 5 Conjure Elemental Conjuration No 5 Contact Other
-Plane
-Divination Yes
+4 Phantasmal Killer Illusion No 4 Polymorph Transmut. No 4 Stone Shape Transmut. No 4 Stoneskin Transmut.* No 4 Wall of Fire Evocation No 5 Animate Objects Transmut. No 5 Bigby’s Hand Evocation No 5 Cloudkill Conjuration No 5 Cone of Cold Evocation No 5 Conjure Elemental Conjuration No 5 Contact Other Plane Divination Yes
 ©2022 Wizards of the Coast LLC 26
 Lvl Spell School Ritual
 5 Creation Illusion No
@@ -422,3 +420,26 @@ Abjuration* No
 6 Conjure Fey Conjuration No
 6 Find the Path Divination No
 6 Heal Abjuration No
+Lvl Spell School Ritual
+6 Move Earth Transmut. No
+6 Sunbeam Evocation No
+6 Transport via
+Plants
+Conjuration No
+6 Wall of Ice Evocation No
+6 Wall of Thorns Conjuration No
+6 Wind Walk Transmut. No
+7 Fire Storm Evocation No
+7 Regenerate Transmut. No
+7 Reverse Gravity Transmut. No
+8 Animal Shapes Transmut. No
+8 Control Weather Transmut. No
+8 Earthquake Transmut.* No
+8 Sunburst Evocation No
+8 Tsunami Conjuration No
+9 Power Word Heal Abjuration* No
+9 Shapechange Transmut. No
+9 Storm of
+Vengeance
+Conjuration No
+9 True Resurrection Necromancy No

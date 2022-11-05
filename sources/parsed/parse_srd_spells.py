@@ -1,10 +1,11 @@
 from msilib.schema import Component
 from msvcrt import kbhit
+import json
 import re
 import string
 from weakref import KeyedRef
 txt = open('sources\parsed\srd_spells.txt', encoding='utf-8').read()
-txt = txt.replace('\t', ' ')
+txt = txt.replace('\t', ' ').replace('’', "'")
 starting_page = 115
 # txt = txt.split('\n')
 # for x in txt[0:150]:
@@ -132,7 +133,7 @@ def get_duration(text: str) -> str:
 
 
 def get_desc_higher_levels(lines: list[str]) -> tuple[str, str]:
-    text = ' '.join(lines).replace('  ', ' ')
+    text = ' '.join(lines).replace('  ', ' ').replace(" '", "'")
     description, *higher_levels = text.split('At Higher Levels.')
     return (description.strip(), ''.join(higher_levels).strip())
 
@@ -213,7 +214,8 @@ raw_spell_texts = split_into_spell_text(lines)
 #print([x for x in raw_spell_texts if 'summoning' in x])
 spell_text_with_range = handle_pages(raw_spell_texts)
 parsed = parse_clean_spell_entries(spell_text_with_range)
-print(parsed[0])
-print(parsed[-1])
 # print(handle_pages(raw_spell_texts)[0])
 # print(handle_pages(raw_spell_texts)[-1])
+
+
+open('sources/parsed/srd.json', 'w+').write(json.dumps(parsed, indent=4))
