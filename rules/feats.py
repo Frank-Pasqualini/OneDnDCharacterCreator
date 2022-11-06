@@ -3,7 +3,6 @@ A feature that defines special rules for a character.
 """
 
 from abc import ABC
-from typing import Callable
 
 from rules import abilities, bonuses, spells
 from rules.common import ordinal, validate_string

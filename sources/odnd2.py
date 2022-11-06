@@ -58,7 +58,7 @@ class LoreBard(classes.Bard):
     UA p. 7
     """
 
-    def _level_up_3(self, content: dict[str, dict[str, any]]):
+    def _level_up_3(self):
         self._features.append(feats.Feat(name="Bonus Proficiencies",
                                          description="You gain three Skill Proficiencies: Arcana, History, "
                                                      "and Nature. If you already have one of these Proficiencies, "
@@ -79,16 +79,6 @@ class LoreBard(classes.Bard):
                                                      "Inspiration, rolling a Bardic Inspiration die and subtracting "
                                                      "the number rolled from the creature's roll, potentially turning "
                                                      "it into a failure."))
-
-        self._known_spells = [spell() for spell in content["Spells"].values() if
-                              spell().get_level() in [0, 1, 2] and
-                              SpellLists.ARCANE in spell().get_spell_lists() and
-                              spell().get_school() in [
-                                  SpellSchools.DIVINATION,
-                                  SpellSchools.ENCHANTMENT,
-                                  SpellSchools.ILLUSION,
-                                  SpellSchools.TRANSMUTATION]
-                              ]
 
     def _level_up_6(self):
         self._features.append(feats.Feat(name="Cunning Inspiration",
@@ -142,11 +132,8 @@ class ThiefRogue(classes.Rogue):
                                          description="You have Advantage on every Dexterity Check (Stealth) you make, "
                                                      "provided you aren't wearing Medium or Heavy Armor."))
 
-    def _level_up_10(self, feat: feats.Feat):
-        if feat.get_level() > 10:
-            raise Exception("Invalid feat level. Must be 10 or lower")
-
-        self._features.append(feat)
+    def _level_up_10(self, **kwargs):
+        super()._level_up_10(**kwargs)
         self._features.append(feats.Feat(name="Use Magic Device",
                                          description="In your treasure hunting,you have learned how to maximize use "
                                                      "of magic items, granting you the following benefits:\n"
@@ -255,8 +242,8 @@ class Athlete(feats.Feat):
                                      "movement.\n"
                                      "Jumping. You have Advantage on any Ability Check you make for the Jump Action.",
                          feat_abilities=abilities.Abilities(
-                             strength=(1 if AbilityNames.STRENGTH ==
-                                       ability else 0),
+                             strength=(
+                                 1 if AbilityNames.STRENGTH == ability else 0),
                              dexterity=(
                                  1 if AbilityNames.DEXTERITY == ability else 0),
                              constitution=(1 if AbilityNames.CONSTITUTION == ability else 0)))
@@ -288,8 +275,8 @@ class Charger(feats.Feat):
                                      "no more than one Size larger than you. You can use this benefit only once on "
                                      "each of your turns.",
                          feat_abilities=abilities.Abilities(
-                             strength=(1 if AbilityNames.STRENGTH ==
-                                       ability else 0),
+                             strength=(
+                                 1 if AbilityNames.STRENGTH == ability else 0),
                              dexterity=(1 if AbilityNames.DEXTERITY == ability else 0)))
 
 
@@ -324,7 +311,7 @@ class DefensiveDuelist(feats.Feat):
         super().__init__(name="Defensive Duelist",
                          level=4,
                          prerequisite="Dexterity 13+",
-                         description="You’ve learned to deftly parry attacks, granting you the following benefits:\n"
+                         description="You've learned to deftly parry attacks, granting you the following benefits:\n"
                                      "Ability Score Increase. Increase your Dexterity score by 1, to a maximum of 20.\n"
                                      "Parry. If you are holding a Finesse Weapon and another creature hits you with a "
                                      "Melee Attack, you can use your Reaction to add your Proficiency Bonus to your "
@@ -354,8 +341,8 @@ class DualWielder(feats.Feat):
                                      "Quick Draw. You can draw or stow two Weapons that lack the Two-Handed property "
                                      "when you would normally be able to draw or stow only one.",
                          feat_abilities=abilities.Abilities(
-                             strength=(1 if AbilityNames.STRENGTH ==
-                                       ability else 0),
+                             strength=(
+                                 1 if AbilityNames.STRENGTH == ability else 0),
                              dexterity=(1 if AbilityNames.DEXTERITY == ability else 0)))
 
 
@@ -408,8 +395,8 @@ class ElementalAdept(feats.Feat):
                          feat_abilities=abilities.Abilities(
                              intelligence=(
                                  1 if AbilityNames.INTELLIGENCE == ability else 0),
-                             wisdom=(1 if AbilityNames.WISDOM ==
-                                     ability else 0),
+                             wisdom=(
+                                 1 if AbilityNames.WISDOM == ability else 0),
                              charisma=(1 if AbilityNames.CHARISMA == ability else 0)))
 
 
@@ -425,6 +412,36 @@ class FightingStyleArchery(feats.FightingStyle):
                          prerequisite="Warrior Group",
                          description="You gain a +2 bonus to Attack Rolls you make with Ranged Weapons.",
                          feat_bonuses=bonuses.Bonuses())  # TODO implement ranged attack bonus
+
+
+class FightingStyleDefense(feats.FightingStyle):
+    """
+    Fighting Style: Defense Feat
+    UA p. 19
+    """
+
+    def __init__(self):
+        super().__init__(name="Fighting Style: Archery",
+                         level=1,
+                         prerequisite="Warrior Group",
+                         description="While you are wearing armor, you gain a +1 bonus to Armor Class.",
+                         feat_bonuses=bonuses.Bonuses())  # TODO implement AC bonus
+
+
+class FightingStyleGreatWeapon(feats.FightingStyle):
+    """
+    Fighting Style: Great Weapon Fighting Feat
+    UA p. 19
+    """
+
+    def __init__(self):
+        super().__init__(name="Fighting Style: Great Weapon Fighting",
+                         level=1,
+                         prerequisite="Warrior Group",
+                         description="When you roll a 1 or 2 on a damage die for an attack you make with a Melee "
+                                     "Weapon that you are wielding with two hands, you can reroll the die, "
+                                     "and you must use the new roll. The Weapon must have the Two-Handed or Versatile "
+                                     "property to gain this benefit.")
 
 
 class Barkskin(spells.Spell):
@@ -508,9 +525,9 @@ CONTENT = {
         # "Epic Boon of Undetectability": EpicBoonUndetectability,
         # "Epic Boon of the Unfettered": EpicBoonUnfettered,
         "Fighting Style: Archery": FightingStyleArchery,
-        # "Fighting Style: Defense": FightingStyleDefense,
+        "Fighting Style: Defense": FightingStyleDefense,
         # "Fighting Style: Dueling": FightingStyleDueling,
-        # "Fighting Style: Great Weapon Fighting": FightingStyleGreatWeapon,
+        "Fighting Style: Great Weapon Fighting": FightingStyleGreatWeapon,
         # "Fighting Style: Protection": FightingStyleProtection,
         # "Fighting Style: Two-Weapon Fighting": FightingStyleTwoWeapon,
         # "Grappler": Grappler,

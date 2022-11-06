@@ -2,9 +2,8 @@
 Content from the Dungeons and Dragons System Reference Document v5.1.
 https://media.wizards.com/2016/downloads/DND/SRD-OGL_V5.1.pdf
 """
-
-from rules import armors, spells, weapons
-from rules.enums import ArmorTraining, DamageTypes, SpellLists, SpellSchools, WeaponTypes
+from rules import armors, bonuses, classes, feats, spells, weapons
+from rules.enums import ArmorTraining, DamageTypes, ProficiencyLevels, Skills, SpellLists, SpellSchools, WeaponTypes
 
 
 class Padded(armors.Armor):
@@ -170,6 +169,139 @@ class Shield(armors.Armor):
                          armor_class=2)
 
 
+class ChampionFighter(classes.Fighter):
+    """
+    Champion subclass for Fighter
+    SRD p. 25
+    """
+
+    def __init__(self, **kwargs):
+        super().__init__(name="Champion Fighter", **kwargs)
+
+    def _level_up_3(self):
+        self._features.append(feats.Feat(name="Improved Critical",
+                                         description="Your weapon attacks score a critical hit on a roll of 19 or 20."))
+
+    def _level_up_7(self):
+        self._features.append(feats.Feat(name="Remarkable Athlete",
+                                         description="You can add half your proficiency bonus (round up) to any "
+                                                     "Strength, Dexterity, or Constitution check you make that "
+                                                     "doesn't already use your proficiency bonus.\n"
+                                                     "In addition, when you make a running long jump, the distance "
+                                                     "you can cover increases by a number of feet equal to your "
+                                                     "Strength modifier.",
+                                         feat_bonuses=bonuses.Bonuses(
+                                             skills={
+                                                 Skills.ACROBATICS: ProficiencyLevels.HALF,
+                                                 Skills.ATHLETICS: ProficiencyLevels.HALF,
+                                                 Skills.SLEIGHT_OF_HAND: ProficiencyLevels.HALF,
+                                                 Skills.STEALTH: ProficiencyLevels.HALF,
+                                             },
+                                             initiative=ProficiencyLevels.HALF)))
+
+    def _level_up_10(self, fighting_style: feats.FightingStyle):
+        if fighting_style.get_level() > 10:
+            raise Exception("Invalid feat level. Must be 10 or lower")
+
+        self._features.append(fighting_style)
+
+    def _level_up_15(self):
+        self._features.append(feats.Feat(name="Superior Critical",
+                                         description="Your weapon attacks score a critical hit on a roll of 18-20."))
+
+    def _level_up_18(self):
+        self._features.append(feats.Feat(name="Survivor",
+                                         description="You attain the pinnacle of resilience in battle. At the start "
+                                                     "of each of your turns, you regain hit points equal to 5 + your "
+                                                     "Constitution modifier if you have no more than half of your hit "
+                                                     "points left. You don’t gain this benefit if you have 0 hit "
+                                                     "points."))
+
+
+class DevotionPaladin(classes.Paladin):
+    """
+    Oath of Devotion subclass for Paladin
+    SRD p. 25
+    """
+
+    def __init__(self, **kwargs):
+        super().__init__(name="Oath of Devotion Paladin", **kwargs)
+
+    def _level_up_3(self, content: dict[str, dict[str, any]]):
+        super()._level_up_3(content)
+        self._features.append(feats.Feat(name="Channel Divinity",
+                                         description="When you use your Channel Divinity, you choose which option to "
+                                                     "use. You must then finish a short or long rest to use your "
+                                                     "Channel Divinity again.\n"
+                                                     "Sacred Weapon. As an action, you can imbue one weapon that you "
+                                                     "are holding with positive energy, using your Channel Divinity. "
+                                                     "For 1 minute, you add your Charisma modifier to attack rolls "
+                                                     "made with that weapon (with a minimum bonus of +1). The weapon "
+                                                     "also emits bright light in a 20-foot radius and dim light 20 "
+                                                     "feet beyond that. If the weapon is not already magical, "
+                                                     "it becomes magical for the duration.\n"
+                                                     "You can end this effect on your turn as part of any other "
+                                                     "action. If you are no longer holding or carrying this weapon, "
+                                                     "or if you fall unconscious, this effect ends.\n"
+                                                     "Turn the Unholy. As an action, you present your holy symbol and "
+                                                     "speak a prayer censuring fiends and undead, using your Channel "
+                                                     "Divinity. Each fiend or undead that can see or hear you within "
+                                                     "30 feet of you must make a Wisdom saving throw. If the creature "
+                                                     "fails its saving throw, it is turned for 1 minute or until it "
+                                                     "takes damage.\n"
+                                                     "A turned creature must spend its turns trying to move as far "
+                                                     "away from you as it can, and it can’t willingly move to a space "
+                                                     "within 30 feet of you. It also can’t take reactions. For its "
+                                                     "action, it can use only the Dash action or try to escape from "
+                                                     "an effect that prevents it from moving. If there’s nowhere to "
+                                                     "move, the creature can use the Dodge action."))
+        self._features.append(feats.Feat(name="Oath Spells",
+                                         description="You gain access to these spells at the levels specified in the "
+                                                     "oath description. Once you gain access to an oath spell, you "
+                                                     "always have it prepared. Oath spells don’t count against the "
+                                                     "number of spells you can prepare each day.",
+                                         feat_spells=[
+                                             content["Spells"]["Protection from Evil and Good"](
+                                             ),
+                                             content["Spells"]["Sanctuary"](),
+                                             content["Spells"]["Lesser Restoration"](
+                                             ),
+                                             content["Spells"]["Zone of Truth"](),
+                                             content["Spells"]["Beacon of Hope"](),
+                                             content["Spells"]["Dispel Magic"](),
+                                             content["Spells"]["Freedom of Movement"](
+                                             ),
+                                             content["Spells"]["Guardian of Faith"](
+                                             ),
+                                             content["Spells"]["Commune"](),
+                                             content["Spells"]["Flame Strike"](),
+                                         ],
+                                         visible=False))
+
+    def _level_up_7(self):
+        self._features.append(feats.Feat(name="Aura of Devotion",
+                                         description="You and friendly creatures within 10 feet of you can’t be "
+                                                     "charmed while you are conscious.\n"
+                                                     "At 18th level, the range of this aura increases to 30 feet."))
+
+    def _level_up_15(self):
+        self._features.append(feats.Feat(name="Purity of Spirit",
+                                         description="You are always under the effects of a protection from evil and "
+                                                     "good spell."))
+
+    def _level_up_20(self):
+        self._features.append(feats.Feat(name="Holy Nimbus",
+                                         description="As an action, you can emanate an aura of sunlight. For 1 minute, "
+                                                     "bright light shines from you in a 30-foot radius, and dim light "
+                                                     "shines 30 feet beyond that.\n"
+                                                     "Whenever an enemy creature starts its turn in the bright light, "
+                                                     "the creature takes 10 radiant damage.\n"
+                                                     "In addition, for the duration, you have advantage on saving "
+                                                     "throws against spells cast by fiends or undead.\n"
+                                                     "Once you use this feature, you can’t use it again until you "
+                                                     "finish a long rest."))
+
+
 class AcidArrow(spells.Spell):
     """
     Acid Arrow Spell
@@ -181,12 +313,11 @@ class AcidArrow(spells.Spell):
         super().__init__(name="Acid Arrow",
                          spell_lists=[SpellLists.ARCANE],
                          level=2,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="90 feet",
                          verbal_components=True,
                          somatic_components=True,
                          material_components_list="powdered rhubarb leaf and an adder's stomach",
-                         duration="Instantaneous",
                          description="A shimmering green arrow streaks toward a target within range " +
                          "and bursts in a spray of acid. Make a ranged spell attack " +
                          "against the target. On a hit, the target takes 4d4 acid damage " +
@@ -210,12 +341,10 @@ class AcidSplash(spells.Spell):
         super().__init__(name="Acid Splash",
                          spell_lists=[SpellLists.ARCANE],
                          level=0,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="You hurl a bubble of acid. Choose one creature within range, " +
                          "or choose two creatures within range that are within 5 feet of " +
                          "each other. A target must succeed on a Dexterity saving throw " +
@@ -236,7 +365,7 @@ class Aid(spells.Spell):
         super().__init__(name="Aid",
                          spell_lists=[SpellLists.DIVINE],
                          level=2,
-                         school=SpellSchools.Abjuration,
+                         school=SpellSchools.ABJURATION,
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -263,7 +392,7 @@ class Alarm(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          ritual=True,
                          level=1,
-                         school=SpellSchools.Abjuration,
+                         school=SpellSchools.ABJURATION,
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -295,11 +424,10 @@ class AlterSelf(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=2,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 hour",
                          description="You assume a different form. When you cast the spell, choose " +
                          "one of the following options, the effects of which last for " +
@@ -339,7 +467,7 @@ class AnimalFriendship(spells.Spell):
         super().__init__(name="Animal Friendship",
                          spell_lists=[SpellLists.PRIMAL],
                          level=1,
-                         school=SpellSchools.Enchantment,
+                         school=SpellSchools.ENCHANTMENT,
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -368,7 +496,7 @@ class AnimalMessenger(spells.Spell):
                          spell_lists=[SpellLists.PRIMAL],
                          ritual=True,
                          level=2,
-                         school=SpellSchools.Enchantment,
+                         school=SpellSchools.ENCHANTMENT,
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -407,11 +535,10 @@ class AnimalShapes(spells.Spell):
                          spell_lists=[SpellLists.PRIMAL],
                          concentration=True,
                          level=8,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="24 hours",
                          description="Your magic turns others into beasts. Choose any number of " +
                          "willing creatures that you can see within range. You transform " +
@@ -449,12 +576,11 @@ class AnimateDead(spells.Spell):
         super().__init__(name="Animate Dead",
                          spell_lists=[SpellLists.ARCANE],
                          level=3,
-                         school=SpellSchools.Necromancy,
+                         school=SpellSchools.NECROMANCY,
                          spell_range="10 feet",
                          verbal_components=True,
                          somatic_components=True,
                          material_components_list="a drop of blood, a piece of flesh, and a pinch of bone dust",
-                         duration="Instantaneous",
                          description="This spell creates an undead servant. Choose a pile of bones " +
                          "or a corpse of a Medium or Small humanoid within range. Your " +
                          "spell imbues the target with a foul mimicry of life, raising " +
@@ -496,11 +622,10 @@ class AnimateObjects(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=5,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="120 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 minute",
                          description="Objects come to life at your command. Choose up to ten " +
                          "nonmagical objects within range that are not being worn or " +
@@ -557,11 +682,10 @@ class AntilifeShell(spells.Spell):
                          spell_lists=[SpellLists.PRIMAL],
                          concentration=True,
                          level=5,
-                         school=SpellSchools.Abjuration,
+                         school=SpellSchools.ABJURATION,
                          spell_range="Self (10-foot radius)",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 hour",
                          description="A shimmering barrier extends out from you in a 10- foot radius " +
                          "and moves with you, remaining centered on you and hedging out " +
@@ -586,7 +710,7 @@ class AntimagicField(spells.Spell):
                          spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
                          concentration=True,
                          level=8,
-                         school=SpellSchools.Abjuration,
+                         school=SpellSchools.ABJURATION,
                          spell_range="Self (10-foot-radius sphere)",
                          verbal_components=True,
                          somatic_components=True,
@@ -650,11 +774,12 @@ class AntipathySympathy(spells.Spell):
         super().__init__(name="Antipathy/Sympathy",
                          spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
                          level=8,
-                         school=SpellSchools.Enchantment,
+                         school=SpellSchools.ENCHANTMENT,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="either a lump of alum soaked in vinegar for the antipathy effect or a drop of honey for the sympathy effect",
+                         material_components_list="either a lump of alum soaked in vinegar for the antipathy effect "
+                                                  "or a drop of honey for the sympathy effect",
                          duration="10 days",
                          description="This spell attracts or repels creatures of your choice. You " +
                          "target something within range, either a Huge or smaller object " +
@@ -709,7 +834,7 @@ class ArcaneEye(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=4,
-                         school=SpellSchools.Divination,
+                         school=SpellSchools.DIVINATION,
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -739,7 +864,7 @@ class ArcaneHand(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=5,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="120 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -799,7 +924,7 @@ class ArcaneLock(spells.Spell):
         super().__init__(name="Arcane Lock",
                          spell_lists=[SpellLists.ARCANE],
                          level=2,
-                         school=SpellSchools.Abjuration,
+                         school=SpellSchools.ABJURATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
@@ -830,11 +955,12 @@ class ArcaneSword(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=7,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a miniature platinum sword with a grip and pommel of copper and zinc, worth 250 gp",
+                         material_components_list="a miniature platinum sword with a grip and pommel of copper and "
+                                                  "zinc, worth 250 gp",
                          duration="1 minute",
                          description="You create a sword-shaped plane of force that hovers within " +
                          "range. It lasts for the duration. When the sword appears, you " +
@@ -858,7 +984,7 @@ class ArcanistsMagicAura(spells.Spell):
         super().__init__(name="Arcanist's Magic Aura",
                          spell_lists=[SpellLists.ARCANE],
                          level=2,
-                         school=SpellSchools.Illusion,
+                         school=SpellSchools.ILLUSION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
@@ -899,11 +1025,13 @@ class AstralProjection(spells.Spell):
         super().__init__(name="Astral Projection",
                          spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
                          level=9,
-                         school=SpellSchools.Necromancy,
+                         school=SpellSchools.NECROMANCY,
                          spell_range="10 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="for each creature you affect with this spell, you must provide one jacinth worth at least 1,000 gp and one ornately carved bar of silver worth at least 100 gp, all of which the spell consumes",
+                         material_components_list="for each creature you affect with this spell, you must provide one "
+                                                  "jacinth worth at least 1,000 gp and one ornately carved bar of "
+                                                  "silver worth at least 100 gp, all of which the spell consumes",
                          duration="Special",
                          description="You and up to eight willing creatures within range project " +
                          "your astral bodies into the Astral Plane (the spell fails and " +
@@ -956,12 +1084,12 @@ class Augury(spells.Spell):
                          spell_lists=[SpellLists.DIVINE, SpellLists.PRIMAL],
                          ritual=True,
                          level=2,
-                         school=SpellSchools.Divination,
+                         school=SpellSchools.DIVINATION,
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="specially marked sticks, bones, or similar tokens worth at least 25 gp",
-                         duration="Instantaneous",
+                         material_components_list="specially marked sticks, bones, or similar tokens worth at least "
+                                                  "25 gp",
                          description="By casting gem-inlaid sticks, rolling dragon bones, laying out " +
                          "ornate cards, or employing some other divining tool, you " +
                          "receive an omen from an otherworldly entity about the results " +
@@ -991,12 +1119,11 @@ class Awaken(spells.Spell):
         super().__init__(name="Awaken",
                          spell_lists=[SpellLists.PRIMAL],
                          level=5,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
                          material_components_list="an agate worth at least 1,000 gp, which the spell consumes",
-                         duration="Instantaneous",
                          description="After spending the casting time tracing magical pathways " +
                          "within a precious gemstone, you touch a Huge or smaller beast " +
                          "or plant. The target must have either no Intelligence score or " +
@@ -1027,7 +1154,7 @@ class Bane(spells.Spell):
                          spell_lists=[SpellLists.DIVINE],
                          concentration=True,
                          level=1,
-                         school=SpellSchools.Enchantment,
+                         school=SpellSchools.ENCHANTMENT,
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -1055,7 +1182,7 @@ class Banishment(spells.Spell):
                          spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
                          concentration=True,
                          level=4,
-                         school=SpellSchools.Abjuration,
+                         school=SpellSchools.ABJURATION,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -1092,7 +1219,7 @@ class Barkskin(spells.Spell):
                          spell_lists=[SpellLists.PRIMAL],
                          concentration=True,
                          level=2,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
@@ -1117,11 +1244,10 @@ class BeaconOfHope(spells.Spell):
                          spell_lists=[SpellLists.DIVINE],
                          concentration=True,
                          level=3,
-                         school=SpellSchools.Abjuration,
+                         school=SpellSchools.ABJURATION,
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 minute",
                          description="This spell bestows hope and vitality. Choose any number of " +
                          "creatures within range. For the duration, each target has " +
@@ -1143,11 +1269,10 @@ class BestowCurse(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=3,
-                         school=SpellSchools.Necromancy,
+                         school=SpellSchools.NECROMANCY,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 minute",
                          description="You touch a creature, and that creature must succeed on a " +
                          "Wisdom saving throw or become cursed for the duration of the " +
@@ -1186,7 +1311,7 @@ class BlackTentacles(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=4,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="90 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -1219,11 +1344,10 @@ class BladeBarrier(spells.Spell):
                          spell_lists=[SpellLists.DIVINE],
                          concentration=True,
                          level=6,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="90 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="10 minutes",
                          description="You create a vertical wall of whirling, razor-sharp blades " +
                          "made of magical energy. The wall appears within range and " +
@@ -1251,7 +1375,7 @@ class Bless(spells.Spell):
                          spell_lists=[SpellLists.DIVINE],
                          concentration=True,
                          level=1,
-                         school=SpellSchools.Enchantment,
+                         school=SpellSchools.ENCHANTMENT,
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -1277,12 +1401,10 @@ class Blight(spells.Spell):
         super().__init__(name="Blight",
                          spell_lists=[SpellLists.ARCANE],
                          level=4,
-                         school=SpellSchools.Necromancy,
+                         school=SpellSchools.NECROMANCY,
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="Necromantic energy washes over a creature of your choice that " +
                          "you can see within range, draining moisture and vitality from " +
                          "it. The target must make a Constitution saving throw. The " +
@@ -1310,11 +1432,9 @@ class BlindnessDeafness(spells.Spell):
         super().__init__(name="Blindness/Deafness",
                          spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
                          level=2,
-                         school=SpellSchools.Necromancy,
+                         school=SpellSchools.NECROMANCY,
                          spell_range="30 feet",
                          verbal_components=True,
-                         somatic_components=False,
-                         material_components_list=None,
                          duration="1 minute",
                          description="You can blind or deafen a foe. Choose one creature that you " +
                          "can see within range to make a Constitution saving throw. If " +
@@ -1338,11 +1458,10 @@ class Blink(spells.Spell):
         super().__init__(name="Blink",
                          spell_lists=[SpellLists.ARCANE],
                          level=3,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 minute",
                          description="Roll a d20 at the end of each of your turns for the duration " +
                          "of the spell. On a roll of 11 or higher, you vanish from your " +
@@ -1376,11 +1495,9 @@ class Blur(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=2,
-                         school=SpellSchools.Illusion,
+                         school=SpellSchools.ILLUSION,
                          spell_range="Self",
                          verbal_components=True,
-                         somatic_components=False,
-                         material_components_list=None,
                          duration="1 minute",
                          description="Your body becomes blurred, shifting and wavering to all who " +
                          "can see you. For the duration, any creature has disadvantage " +
@@ -1402,11 +1519,9 @@ class BrandingSmite(spells.Spell):
                          spell_lists=[SpellLists.DIVINE],
                          concentration=True,
                          level=2,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="Self",
                          verbal_components=True,
-                         somatic_components=False,
-                         material_components_list=None,
                          duration="1 minute",
                          description="The next time you hit a creature with a weapon attack before " +
                          "this spell ends, the weapon gleams with astral radiance as you " +
@@ -1430,12 +1545,10 @@ class BurningHands(spells.Spell):
         super().__init__(name="Burning Hands",
                          spell_lists=[SpellLists.ARCANE],
                          level=1,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="Self (15-foot cone)",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="As you hold your hands with thumbs touching and fingers " +
                          "spread, a thin sheet of flames shoots forth from your " +
                          "outstretched fingertips. Each creature in a 15-foot cone must " +
@@ -1460,11 +1573,10 @@ class CallLightning(spells.Spell):
                          spell_lists=[SpellLists.PRIMAL],
                          concentration=True,
                          level=3,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="120 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="10 minutes",
                          description="A storm cloud appears in the shape of a cylinder that is 10 " +
                          "feet tall with a 60-foot radius, centered on a point you can " +
@@ -1500,11 +1612,10 @@ class CalmEmotions(spells.Spell):
                          spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
                          concentration=True,
                          level=2,
-                         school=SpellSchools.Enchantment,
+                         school=SpellSchools.ENCHANTMENT,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 minute",
                          description="You attempt to suppress strong emotions in a group of people. " +
                          "Each humanoid in a 20-foot-radius sphere centered on a point " +
@@ -1534,12 +1645,12 @@ class ChainLightning(spells.Spell):
         super().__init__(name="Chain Lightning",
                          spell_lists=[SpellLists.ARCANE],
                          level=6,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="150 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a bit of fur; a piece of amber, glass, or a crystal rod; and three silver pins",
-                         duration="Instantaneous",
+                         material_components_list="a bit of fur; a piece of amber, glass, or a crystal rod; and three "
+                                                  "silver pins",
                          description="You create a bolt of lightning that arcs toward a target of " +
                          "your choice that you can see within range. Three bolts then " +
                          "leap from that target to as many as three other targets, each " +
@@ -1564,11 +1675,10 @@ class CharmPerson(spells.Spell):
         super().__init__(name="Charm Person",
                          spell_lists=[SpellLists.ARCANE],
                          level=1,
-                         school=SpellSchools.Enchantment,
+                         school=SpellSchools.ENCHANTMENT,
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 hour",
                          description="You attempt to charm a humanoid you can see within range. It " +
                          "must make a Wisdom saving throw, and does so with advantage if " +
@@ -1594,11 +1704,10 @@ class ChillTouch(spells.Spell):
         super().__init__(name="Chill Touch",
                          spell_lists=[SpellLists.ARCANE],
                          level=0,
-                         school=SpellSchools.Necromancy,
+                         school=SpellSchools.NECROMANCY,
                          spell_range="120 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 round",
                          description="You create a ghostly, skeletal hand in the space of a creature " +
                          "within range. Make a ranged spell attack against the creature " +
@@ -1623,13 +1732,12 @@ class CircleOfDeath(spells.Spell):
         super().__init__(name="Circle of Death",
                          spell_lists=[SpellLists.ARCANE],
                          level=6,
-                         school=SpellSchools.Necromancy,
+                         school=SpellSchools.NECROMANCY,
                          spell_range="150 feet",
                          verbal_components=True,
                          somatic_components=True,
                          material_components_list="the powder of a crushed black pearl worth at least 500 gp",
-                         duration="Instantaneous",
-                         description="A sphere of negative energy ripples out in a 60-footradius " +
+                         description="A sphere of negative energy ripples out in a 60-foot-radius " +
                          "sphere from a point within range. Each creature in that area " +
                          "must make a Constitution saving throw. A target takes 8d6 " +
                          "necrotic damage on a failed save, or half as much damage on a " +
@@ -1651,11 +1759,12 @@ class Clairvoyance(spells.Spell):
                          spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
                          concentration=True,
                          level=3,
-                         school=SpellSchools.Divination,
+                         school=SpellSchools.DIVINATION,
                          spell_range="1 mile",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a focus worth at least 100 gp, either a jeweled horn for hearing or a glass eye for seeing",
+                         material_components_list="a focus worth at least 100 gp, either a jeweled horn for hearing "
+                                                  "or a glass eye for seeing",
                          duration="10 minutes",
                          description="You create an invisible sensor within range in a location " +
                          "familiar to you (a place you have visited or seen before) or " +
@@ -1683,12 +1792,16 @@ class Clone(spells.Spell):
         super().__init__(name="Clone",
                          spell_lists=[SpellLists.ARCANE],
                          level=8,
-                         school=SpellSchools.Necromancy,
+                         school=SpellSchools.NECROMANCY,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a diamond worth at least 1,000 gp and at least 1 cubic inch of flesh of the creature that is to be cloned, which the spell consumes, and a vessel worth at least 2,000 gp that has a sealable lid and is large enough to hold a Medium creature, such as a huge urn, coffin, mudfilled cyst in the ground, or crystal container filled with salt water",
-                         duration="Instantaneous",
+                         material_components_list="a diamond worth at least 1,000 gp and at least 1 cubic inch of "
+                                                  "flesh of the creature that is to be cloned, which the spell "
+                                                  "consumes, and a vessel worth at least 2,000 gp that has a sealable "
+                                                  "lid and is large enough to hold a Medium creature, such as a huge "
+                                                  "urn, coffin, mud-filled cyst in the ground, or crystal container "
+                                                  "filled with salt water",
                          description="This spell grows an inert duplicate of a living creature as a " +
                          "safeguard against death. This clone forms inside a sealed " +
                          "vessel and grows to full size and maturity after 120 days; you " +
@@ -1718,11 +1831,10 @@ class Cloudkill(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=5,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="120 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="10 minutes",
                          description="You create a 20-foot-radius sphere of poisonous, yellow-green " +
                          "fog centered on a point you choose within range. The fog " +
@@ -1754,7 +1866,7 @@ class ColorSpray(spells.Spell):
         super().__init__(name="Color Spray",
                          spell_lists=[SpellLists.ARCANE],
                          level=1,
-                         school=SpellSchools.Illusion,
+                         school=SpellSchools.ILLUSION,
                          spell_range="Self (15-foot cone)",
                          verbal_components=True,
                          somatic_components=True,
@@ -1787,11 +1899,9 @@ class Command(spells.Spell):
         super().__init__(name="Command",
                          spell_lists=[SpellLists.DIVINE],
                          level=1,
-                         school=SpellSchools.Enchantment,
+                         school=SpellSchools.ENCHANTMENT,
                          spell_range="60 feet",
                          verbal_components=True,
-                         somatic_components=False,
-                         material_components_list=None,
                          duration="1 round",
                          description="You speak a one-word command to a creature you can see within " +
                          "range. The target must succeed on a Wisdom saving throw or " +
@@ -1829,7 +1939,7 @@ class Commune(spells.Spell):
                          spell_lists=[SpellLists.DIVINE],
                          ritual=True,
                          level=5,
-                         school=SpellSchools.Divination,
+                         school=SpellSchools.DIVINATION,
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
@@ -1863,12 +1973,10 @@ class CommuneWithNature(spells.Spell):
                          spell_lists=[SpellLists.PRIMAL],
                          ritual=True,
                          level=5,
-                         school=SpellSchools.Divination,
+                         school=SpellSchools.DIVINATION,
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="You briefly become one with nature and gain knowledge of the " +
                          "surrounding territory. In the outdoors, the spell gives you " +
                          "knowledge of the land within 3 miles of you. In caves and " +
@@ -1899,7 +2007,7 @@ class ComprehendLanguages(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          ritual=True,
                          level=1,
-                         school=SpellSchools.Divination,
+                         school=SpellSchools.DIVINATION,
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
@@ -1927,11 +2035,10 @@ class Compulsion(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=4,
-                         school=SpellSchools.Enchantment,
+                         school=SpellSchools.ENCHANTMENT,
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 minute",
                          description="Creatures of your choice that you can see within range and " +
                          "that can hear you must make a Wisdom saving throw. A target " +
@@ -1960,12 +2067,11 @@ class ConeOfCold(spells.Spell):
         super().__init__(name="Cone of Cold",
                          spell_lists=[SpellLists.ARCANE],
                          level=5,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="Self (60-foot cone)",
                          verbal_components=True,
                          somatic_components=True,
                          material_components_list="a small crystal or glass cone",
-                         duration="Instantaneous",
                          description="A blast of cold air erupts from your hands. Each creature in a " +
                          "60-foot cone must make a Constitution saving throw. A creature " +
                          "takes 8d8 cold damage on a failed save, or half as much damage " +
@@ -1988,7 +2094,7 @@ class Confusion(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=4,
-                         school=SpellSchools.Enchantment,
+                         school=SpellSchools.ENCHANTMENT,
                          spell_range="90 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -2029,11 +2135,10 @@ class ConjureAnimals(spells.Spell):
                          spell_lists=[SpellLists.PRIMAL],
                          concentration=True,
                          level=3,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 hour",
                          description="You summon fey spirits that take the form of beasts and appear " +
                          "in unoccupied spaces that you can see within range. Choose one " +
@@ -2068,11 +2173,10 @@ class ConjureCelestial(spells.Spell):
                          spell_lists=[SpellLists.DIVINE],
                          concentration=True,
                          level=7,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="90 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 hour",
                          description="You summon a celestial of challenge rating 4 or lower, which " +
                          "appears in an unoccupied space that you can see within range. " +
@@ -2101,11 +2205,12 @@ class ConjureElemental(spells.Spell):
                          spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
                          concentration=True,
                          level=5,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="90 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="burning incense for air, soft clay for earth, sulfur and phosphorus for fire, or water and sand for water",
+                         material_components_list="burning incense for air, soft clay for earth, sulfur and "
+                                                  "phosphorus for fire, or water and sand for water",
                          duration="1 hour",
                          description="You call forth an elemental servant. Choose an area of air, " +
                          "earth, fire, or water that fills a 10-foot cube within range. " +
@@ -2142,11 +2247,10 @@ class ConjureFey(spells.Spell):
                          spell_lists=[SpellLists.PRIMAL],
                          concentration=True,
                          level=6,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="90 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 hour",
                          description="You summon a fey creature of challenge rating 6 or lower, or a " +
                          "fey spirit that takes the form of a beast of challenge rating " +
@@ -2182,11 +2286,10 @@ class ConjureMinorElementals(spells.Spell):
                          spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
                          concentration=True,
                          level=4,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="90 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 hour",
                          description="You summon elementals that appear in unoccupied spaces that " +
                          "you can see within range. You choose one the following options " +
@@ -2220,7 +2323,7 @@ class ConjureWoodlandBeings(spells.Spell):
                          spell_lists=[SpellLists.PRIMAL],
                          concentration=True,
                          level=4,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -2258,13 +2361,11 @@ class ContactOtherPlane(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          ritual=True,
                          level=5,
-                         school=SpellSchools.Divination,
+                         school=SpellSchools.DIVINATION,
                          spell_range="Self",
                          verbal_components=True,
-                         somatic_components=False,
-                         material_components_list=None,
                          duration="1 minute",
-                         description="You mentally contact a demigod, the spirit of a longdead sage, " +
+                         description="You mentally contact a demigod, the spirit of a long-dead sage, " +
                          "or some other mysterious entity from another plane. Contacting " +
                          "this extraplanar intelligence can strain or even break your " +
                          "mind. When you cast this spell, make a DC 15 Intelligence " +
@@ -2294,11 +2395,10 @@ class Contagion(spells.Spell):
         super().__init__(name="Contagion",
                          spell_lists=[SpellLists.DIVINE],
                          level=5,
-                         school=SpellSchools.Necromancy,
+                         school=SpellSchools.NECROMANCY,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="7 days",
                          description="Your touch inflicts disease. Make a melee spell attack against " +
                          "a creature within your reach. On a hit, you afflict the " +
@@ -2344,11 +2444,12 @@ class Contingency(spells.Spell):
         super().__init__(name="Contingency",
                          spell_lists=[SpellLists.ARCANE],
                          level=6,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a statuette of yourself carved from ivory and decorated with gems worth at least 1,500 gp",
+                         material_components_list="a statuette of yourself carved from ivory and decorated with gems "
+                                                  "worth at least 1,500 gp",
                          duration="10 days",
                          description="Choose a spell of 5th level or lower that you can cast, that " +
                          "has a casting time of 1 action, and that can target you. You " +
@@ -2381,7 +2482,7 @@ class ContinualFlame(spells.Spell):
         super().__init__(name="Continual Flame",
                          spell_lists=[SpellLists.ARCANE],
                          level=2,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
@@ -2407,7 +2508,7 @@ class ControlWater(spells.Spell):
                          spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
                          concentration=True,
                          level=4,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="300 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -2476,7 +2577,7 @@ class ControlWeather(spells.Spell):
                          spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
                          concentration=True,
                          level=8,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="Self (5-mile radius)",
                          verbal_components=True,
                          somatic_components=True,
@@ -2514,12 +2615,9 @@ class Counterspell(spells.Spell):
         super().__init__(name="Counterspell",
                          spell_lists=[SpellLists.ARCANE],
                          level=3,
-                         school=SpellSchools.Abjuration,
+                         school=SpellSchools.ABJURATION,
                          spell_range="60 feet",
-                         verbal_components=False,
                          somatic_components=True,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="You attempt to interrupt a creature in the process of casting " +
                          "a spell. If the creature is casting a spell of 3rd level or " +
                          "lower, its spell fails and has no effect. If it is casting a " +
@@ -2542,12 +2640,10 @@ class CreateFoodAndWater(spells.Spell):
         super().__init__(name="Create Food and Water",
                          spell_lists=[SpellLists.DIVINE],
                          level=3,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="You create 45 pounds of food and 30 gallons of water on the " +
                          "ground or in containers within range, enough to sustain up to " +
                          "fifteen humanoids or five steeds for 24 hours. The food is " +
@@ -2567,12 +2663,12 @@ class CreateUndead(spells.Spell):
         super().__init__(name="Create Undead",
                          spell_lists=[SpellLists.ARCANE],
                          level=6,
-                         school=SpellSchools.Necromancy,
+                         school=SpellSchools.NECROMANCY,
                          spell_range="10 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="one clay pot filled with grave dirt, one clay pot filled with brackish water, and one 150 gp black onyx stone for each corpse",
-                         duration="Instantaneous",
+                         material_components_list="one clay pot filled with grave dirt, one clay pot filled with "
+                                                  "brackish water, and one 150 gp black onyx stone for each corpse",
                          description="You can cast this spell only at night. Choose up to three " +
                          "corpses of Medium or Small humanoids within range. Each corpse " +
                          "becomes a ghoul under your control. (The GM has game " +
@@ -2614,12 +2710,12 @@ class CreateOrDestroyWater(spells.Spell):
         super().__init__(name="Create or Destroy Water",
                          spell_lists=[SpellLists.PRIMAL],
                          level=1,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a drop of water if creating water or a few grains of sand if destroying it",
-                         duration="Instantaneous",
+                         material_components_list="a drop of water if creating water or a few grains of sand if "
+                                                  "destroying it",
                          description="You either create or destroy water. Create Water. You create " +
                          "up to 10 gallons of clean water within range in an open " +
                          "container. Alternatively, the water falls as rain in a 30-foot " +
@@ -2644,11 +2740,12 @@ class Creation(spells.Spell):
         super().__init__(name="Creation",
                          spell_lists=[SpellLists.ARCANE],
                          level=5,
-                         school=SpellSchools.Illusion,
+                         school=SpellSchools.ILLUSION,
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a tiny piece of matter of the same type of the item you plan to create",
+                         material_components_list="a tiny piece of matter of the same type of the item you plan to "
+                                                  "create",
                          duration="Special",
                          description="You pull wisps of shadow material from the Shadowfell to " +
                          "create a nonliving object of vegetable matter within range: " +
@@ -2679,12 +2776,10 @@ class CureWounds(spells.Spell):
         super().__init__(name="Cure Wounds",
                          spell_lists=[SpellLists.DIVINE, SpellLists.PRIMAL],
                          level=1,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="A creature you touch regains a number of hit points equal to " +
                          "1d8 + your spellcasting ability modifier. This spell has no " +
                          "effect on undead or constructs. ",
@@ -2705,7 +2800,7 @@ class DancingLights(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=0,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="120 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -2735,10 +2830,9 @@ class Darkness(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=2,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="60 feet",
                          verbal_components=True,
-                         somatic_components=False,
                          material_components_list="bat fur and a drop of pitch or piece of coal",
                          duration="10 minutes",
                          description="Magical darkness spreads from a point you choose within range " +
@@ -2766,7 +2860,7 @@ class Darkvision(spells.Spell):
         super().__init__(name="Darkvision",
                          spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
                          level=2,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
@@ -2789,11 +2883,10 @@ class Daylight(spells.Spell):
         super().__init__(name="Daylight",
                          spell_lists=[SpellLists.DIVINE, SpellLists.PRIMAL],
                          level=3,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 hour",
                          description="A 60-foot-radius sphere of light spreads out from a point you " +
                          "choose within range. The sphere is bright light and sheds dim " +
@@ -2819,11 +2912,10 @@ class DeathWard(spells.Spell):
         super().__init__(name="Death Ward",
                          spell_lists=[SpellLists.DIVINE],
                          level=4,
-                         school=SpellSchools.Abjuration,
+                         school=SpellSchools.ABJURATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="8 hours",
                          description="You touch a creature and grant it a measure of protection from " +
                          "death. The first time the target would drop to 0 hit points as " +
@@ -2847,7 +2939,7 @@ class DelayedBlastFireball(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=7,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="150 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -2889,11 +2981,9 @@ class Demiplane(spells.Spell):
         super().__init__(name="Demiplane",
                          spell_lists=[SpellLists.ARCANE],
                          level=8,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="60 feet",
-                         verbal_components=False,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 hour",
                          description="You create a shadowy door on a flat solid surface that you can " +
                          "see within range. The door is large enough to allow Medium " +
@@ -2924,11 +3014,10 @@ class DetectEvilAndGood(spells.Spell):
                          spell_lists=[SpellLists.DIVINE],
                          concentration=True,
                          level=1,
-                         school=SpellSchools.Divination,
+                         school=SpellSchools.DIVINATION,
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="10 minutes",
                          description="For the duration, you know if there is an aberration, " +
                          "celestial, elemental, fey, fiend, or undead within 30 feet of " +
@@ -2955,11 +3044,10 @@ class DetectMagic(spells.Spell):
                          concentration=True,
                          ritual=True,
                          level=1,
-                         school=SpellSchools.Divination,
+                         school=SpellSchools.DIVINATION,
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="10 minutes",
                          description="For the duration, you sense the presence of magic within 30 " +
                          "feet of you. If you sense magic in this way, you can use your " +
@@ -2984,7 +3072,7 @@ class DetectPoisonAndDisease(spells.Spell):
                          concentration=True,
                          ritual=True,
                          level=1,
-                         school=SpellSchools.Divination,
+                         school=SpellSchools.DIVINATION,
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
@@ -3011,7 +3099,7 @@ class DetectThoughts(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=2,
-                         school=SpellSchools.Divination,
+                         school=SpellSchools.DIVINATION,
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
@@ -3064,12 +3152,9 @@ class DimensionDoor(spells.Spell):
         super().__init__(name="Dimension Door",
                          spell_lists=[SpellLists.ARCANE],
                          level=4,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="500 feet",
                          verbal_components=True,
-                         somatic_components=False,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="You teleport yourself from your current location to any other " +
                          "spot within range. You arrive at exactly the spot desired. It " +
                          "can be a place you can see, one you can visualize, or one you " +
@@ -3097,11 +3182,10 @@ class DisguiseSelf(spells.Spell):
         super().__init__(name="Disguise Self",
                          spell_lists=[SpellLists.ARCANE],
                          level=1,
-                         school=SpellSchools.Illusion,
+                         school=SpellSchools.ILLUSION,
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 hour",
                          description="You make yourself—including your clothing, armor, weapons, and " +
                          "other belongings on your person— look different until the " +
@@ -3134,12 +3218,11 @@ class Disintegrate(spells.Spell):
         super().__init__(name="Disintegrate",
                          spell_lists=[SpellLists.ARCANE],
                          level=6,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
                          material_components_list="a lodestone and a pinch of dust",
-                         duration="Instantaneous",
                          description="A thin green ray springs from your pointing finger to a target " +
                          "that you can see within range. The target can be a creature, " +
                          "an object, or a creation of magical force, such as the wall " +
@@ -3154,7 +3237,7 @@ class Disintegrate(spells.Spell):
                          "automatically disintegrates a Large or smaller nonmagical " +
                          "object or a creation of magical force. If the target is a Huge " +
                          "or larger object or creation of force, this spell " +
-                         "disintegrates a 10-footcube portion of it. A magic item is " +
+                         "disintegrates a 10-foot-cube portion of it. A magic item is " +
                          "unaffected by this spell. ",
                          at_higher_levels="When you cast this spell using a spell slot of 7th level or " +
                                           "higher, the damage increases by 3d6 for each slot level above " +
@@ -3173,7 +3256,7 @@ class DispelEvilAndGood(spells.Spell):
                          spell_lists=[SpellLists.DIVINE],
                          concentration=True,
                          level=5,
-                         school=SpellSchools.Abjuration,
+                         school=SpellSchools.ABJURATION,
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
@@ -3211,12 +3294,10 @@ class DispelMagic(spells.Spell):
                          spell_lists=[SpellLists.ARCANE,
                                       SpellLists.DIVINE, SpellLists.PRIMAL],
                          level=3,
-                         school=SpellSchools.Abjuration,
+                         school=SpellSchools.ABJURATION,
                          spell_range="120 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="Choose one creature, object, or magical effect within range. " +
                          "Any spell of 3rd level or lower on the target ends. For each " +
                          "spell of 4th level or higher on the target, make an ability " +
@@ -3240,12 +3321,12 @@ class Divination(spells.Spell):
                          spell_lists=[SpellLists.DIVINE],
                          ritual=True,
                          level=4,
-                         school=SpellSchools.Divination,
+                         school=SpellSchools.DIVINATION,
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="incense and a sacrificial offering appropriate to your religion, together worth at least 25 gp, which the spell consumes",
-                         duration="Instantaneous",
+                         material_components_list="incense and a sacrificial offering appropriate to your religion, "
+                                                  "together worth at least 25 gp, which the spell consumes",
                          description="Your magic and an offering put you in contact with a god or a " +
                          "god's servants. You ask a single question concerning a " +
                          "specific goal, event, or activity to occur within 7 days. The " +
@@ -3273,11 +3354,10 @@ class DivineFavor(spells.Spell):
                          spell_lists=[SpellLists.DIVINE],
                          concentration=True,
                          level=1,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 minute",
                          description="Your prayer empowers you with divine radiance. Until the spell " +
                          "ends, your weapon attacks deal an extra 1d4 radiant damage on " +
@@ -3296,12 +3376,9 @@ class DivineWord(spells.Spell):
         super().__init__(name="Divine Word",
                          spell_lists=[SpellLists.DIVINE],
                          level=7,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="30 feet",
                          verbal_components=True,
-                         somatic_components=False,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="You utter a divine word, imbued with the power that shaped the " +
                          "world at the dawn of creation. Choose any number of creatures " +
                          "you can see within range. Each creature that can hear you must " +
@@ -3330,11 +3407,10 @@ class DominateBeast(spells.Spell):
                          spell_lists=[SpellLists.PRIMAL],
                          concentration=True,
                          level=4,
-                         school=SpellSchools.Enchantment,
+                         school=SpellSchools.ENCHANTMENT,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 minute",
                          description="You attempt to beguile a beast that you can see within range. " +
                          "It must succeed on a Wisdom saving throw or be charmed by you " +
@@ -3376,11 +3452,10 @@ class DominateMonster(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=8,
-                         school=SpellSchools.Enchantment,
+                         school=SpellSchools.ENCHANTMENT,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 hour",
                          description="You attempt to beguile a creature that you can see within " +
                          "range. It must succeed on a Wisdom saving throw or be charmed " +
@@ -3419,11 +3494,10 @@ class DominatePerson(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=5,
-                         school=SpellSchools.Enchantment,
+                         school=SpellSchools.ENCHANTMENT,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 minute",
                          description="You attempt to beguile a humanoid that you can see within " +
                          "range. It must succeed on a Wisdom saving throw or be charmed " +
@@ -3464,11 +3538,12 @@ class Dream(spells.Spell):
         super().__init__(name="Dream",
                          spell_lists=[SpellLists.ARCANE],
                          level=5,
-                         school=SpellSchools.Illusion,
+                         school=SpellSchools.ILLUSION,
                          spell_range="Special",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a handful of sand, a dab of ink, and a writing quill plucked from a sleeping bird",
+                         material_components_list="a handful of sand, a dab of ink, and a writing quill plucked from "
+                                                  "a sleeping bird",
                          duration="8 hours",
                          description="This spell shapes a creature's dreams. Choose a creature known " +
                          "to you as the target of this spell. The target must be on the " +
@@ -3512,12 +3587,10 @@ class Druidcraft(spells.Spell):
         super().__init__(name="Druidcraft",
                          spell_lists=[SpellLists.PRIMAL],
                          level=0,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="Whispering to the spirits of nature, you create one of the " +
                          "following effects within range: • You create a tiny, harmless " +
                          "sensory effect that predicts what the weather will be at your " +
@@ -3545,7 +3618,7 @@ class Earthquake(spells.Spell):
                          spell_lists=[SpellLists.PRIMAL],
                          concentration=True,
                          level=8,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="500 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -3601,7 +3674,7 @@ class EnhanceAbility(spells.Spell):
                          spell_lists=[SpellLists.PRIMAL],
                          concentration=True,
                          level=2,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
@@ -3637,7 +3710,7 @@ class EnlargeReduce(spells.Spell):
                          spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
                          concentration=True,
                          level=2,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -3683,11 +3756,10 @@ class Entangle(spells.Spell):
                          spell_lists=[SpellLists.PRIMAL],
                          concentration=True,
                          level=1,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="90 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 minute",
                          description="Grasping weeds and vines sprout from the ground in a 20-foot " +
                          "square starting from a point within range. For the duration, " +
@@ -3712,11 +3784,10 @@ class Enthrall(spells.Spell):
         super().__init__(name="Enthrall",
                          spell_lists=[SpellLists.ARCANE],
                          level=2,
-                         school=SpellSchools.Enchantment,
+                         school=SpellSchools.ENCHANTMENT,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 minute",
                          description="You weave a distracting string of words, causing creatures of " +
                          "your choice that you can see within range and that can hear " +
@@ -3742,11 +3813,10 @@ class Etherealness(spells.Spell):
         super().__init__(name="Etherealness",
                          spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
                          level=7,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="Up to 8 hours",
                          description="You step into the border regions of the Ethereal Plane, in the " +
                          "area where it overlaps with your current plane. You remain in " +
@@ -3789,11 +3859,10 @@ class ExpeditiousRetreat(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=1,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="10 minutes",
                          description="This spell allows you to move at an incredible pace. When you " +
                          "cast this spell, and then as a bonus action on each of your " +
@@ -3813,11 +3882,10 @@ class Eyebite(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=6,
-                         school=SpellSchools.Necromancy,
+                         school=SpellSchools.NECROMANCY,
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 minute",
                          description="For the spell's duration, your eyes become an inky void imbued " +
                          "with dread power. One creature of your choice within 60 feet " +
@@ -3852,12 +3920,10 @@ class Fabricate(spells.Spell):
         super().__init__(name="Fabricate",
                          spell_lists=[SpellLists.ARCANE],
                          level=4,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="120 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="You convert raw materials into products of the same material. " +
                          "For example, you can fabricate a wooden bridge from a clump of " +
                          "trees, a rope from a patch of hemp, and clothes from flax or " +
@@ -3890,11 +3956,9 @@ class FaerieFire(spells.Spell):
                          spell_lists=[SpellLists.PRIMAL],
                          concentration=True,
                          level=1,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="60 feet",
                          verbal_components=True,
-                         somatic_components=False,
-                         material_components_list=None,
                          duration="1 minute",
                          description="Each object in a 20-foot cube within range is outlined in " +
                          "blue, green, or violet light (your choice). Any creature in " +
@@ -3918,7 +3982,7 @@ class FaithfulHound(spells.Spell):
         super().__init__(name="Faithful Hound",
                          spell_lists=[SpellLists.ARCANE],
                          level=4,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -3952,7 +4016,7 @@ class FalseLife(spells.Spell):
         super().__init__(name="False Life",
                          spell_lists=[SpellLists.ARCANE],
                          level=1,
-                         school=SpellSchools.Necromancy,
+                         school=SpellSchools.NECROMANCY,
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
@@ -3977,7 +4041,7 @@ class Fear(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=3,
-                         school=SpellSchools.Illusion,
+                         school=SpellSchools.ILLUSION,
                          spell_range="Self (30-foot cone)",
                          verbal_components=True,
                          somatic_components=True,
@@ -4007,10 +4071,9 @@ class FeatherFall(spells.Spell):
         super().__init__(name="Feather Fall",
                          spell_lists=[SpellLists.ARCANE],
                          level=1,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="60 feet",
                          verbal_components=True,
-                         somatic_components=False,
                          material_components_list="a small feather or piece of down",
                          duration="1 minute",
                          description="Choose up to five falling creatures within range. A falling " +
@@ -4032,12 +4095,11 @@ class Feeblemind(spells.Spell):
         super().__init__(name="Feeblemind",
                          spell_lists=[SpellLists.ARCANE],
                          level=8,
-                         school=SpellSchools.Enchantment,
+                         school=SpellSchools.ENCHANTMENT,
                          spell_range="150 feet",
                          verbal_components=True,
                          somatic_components=True,
                          material_components_list="a handful of clay, crystal, glass, or mineral spheres",
-                         duration="Instantaneous",
                          description="You blast the mind of a creature that you can see within " +
                          "range, attempting to shatter its intellect and personality. " +
                          "The target takes 4d6 psychic damage and must make an " +
@@ -4065,12 +4127,12 @@ class FindFamiliar(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          ritual=True,
                          level=1,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="10 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="10 gp worth of charcoal, incense, and herbs that must be consumed by fire in a brass brazier",
-                         duration="Instantaneous",
+                         material_components_list="10 gp worth of charcoal, incense, and herbs that must be consumed "
+                                                  "by fire in a brass brazier",
                          description="You gain the service of a familiar, a spirit that takes an " +
                          "animal form you choose: bat, cat, crab, frog (toad), hawk, " +
                          "lizard, octopus, owl, poisonous snake, fish (quipper), rat, " +
@@ -4118,12 +4180,10 @@ class FindSteed(spells.Spell):
         super().__init__(name="Find Steed",
                          spell_lists=[SpellLists.DIVINE],
                          level=2,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="You summon a spirit that assumes the form of an unusually " +
                          "intelligent, strong, and loyal steed, creating a long-lasting " +
                          "bond with it. Appearing in an unoccupied space within range, " +
@@ -4162,12 +4222,10 @@ class FindTraps(spells.Spell):
         super().__init__(name="Find Traps",
                          spell_lists=[SpellLists.DIVINE, SpellLists.PRIMAL],
                          level=2,
-                         school=SpellSchools.Divination,
+                         school=SpellSchools.DIVINATION,
                          spell_range="120 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="You sense the presence of any trap within range that is within " +
                          "line of sight. A trap, for the purpose of this spell, includes " +
                          "anything that would inflict a sudden or unexpected effect you " +
@@ -4194,11 +4252,13 @@ class FindThePath(spells.Spell):
                          spell_lists=[SpellLists.DIVINE, SpellLists.PRIMAL],
                          concentration=True,
                          level=6,
-                         school=SpellSchools.Divination,
+                         school=SpellSchools.DIVINATION,
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a set of divinatory tools—such as bones, ivory sticks, cards, teeth, or carved runes—worth 100 gp and an object from the location you wish to find",
+                         material_components_list="a set of divinatory tools—such as bones, ivory sticks, cards, "
+                                                  "teeth, or carved runes—worth 100 gp and an object from the "
+                                                  "location you wish to find",
                          duration="1 day",
                          description="This spell allows you to find the shortest, most direct " +
                          "physical route to a specific fixed location that you are " +
@@ -4227,12 +4287,10 @@ class FingerOfDeath(spells.Spell):
         super().__init__(name="Finger of Death",
                          spell_lists=[SpellLists.ARCANE],
                          level=7,
-                         school=SpellSchools.Necromancy,
+                         school=SpellSchools.NECROMANCY,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="You send negative energy coursing through a creature that you " +
                          "can see within range, causing it searing pain. The target must " +
                          "make a Constitution saving throw. It takes 7d8 + 30 necrotic " +
@@ -4255,12 +4313,10 @@ class FireBolt(spells.Spell):
         super().__init__(name="Fire Bolt",
                          spell_lists=[SpellLists.ARCANE],
                          level=0,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="120 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="You hurl a mote of fire at a creature or object within range. " +
                          "Make a ranged spell attack against the target. On a hit, the " +
                          "target takes 1d10 fire damage. A flammable object hit by this " +
@@ -4281,7 +4337,7 @@ class FireShield(spells.Spell):
         super().__init__(name="Fire Shield",
                          spell_lists=[SpellLists.ARCANE],
                          level=4,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
@@ -4312,12 +4368,10 @@ class FireStorm(spells.Spell):
         super().__init__(name="Fire Storm",
                          spell_lists=[SpellLists.PRIMAL],
                          level=7,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="150 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="A storm made up of sheets of roaring flame appears in a " +
                          "location you choose within range. The area of the storm " +
                          "consists of up to ten 10-foot cubes, which you can arrange as " +
@@ -4342,12 +4396,11 @@ class Fireball(spells.Spell):
         super().__init__(name="Fireball",
                          spell_lists=[SpellLists.ARCANE],
                          level=3,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="150 feet",
                          verbal_components=True,
                          somatic_components=True,
                          material_components_list="a tiny ball of bat guano and sulfur",
-                         duration="Instantaneous",
                          description="A bright streak flashes from your pointing finger to a point " +
                          "you choose within range and then blossoms with a low roar into " +
                          "an explosion of flame. Each creature in a 20-foot-radius " +
@@ -4373,7 +4426,7 @@ class FlameBlade(spells.Spell):
                          spell_lists=[SpellLists.PRIMAL],
                          concentration=True,
                          level=2,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
@@ -4403,12 +4456,11 @@ class FlameStrike(spells.Spell):
         super().__init__(name="Flame Strike",
                          spell_lists=[SpellLists.DIVINE],
                          level=5,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
                          material_components_list="pinch of sulfur",
-                         duration="Instantaneous",
                          description="A vertical column of divine fire roars down from the heavens " +
                          "in a location you specify. Each creature in a 10-foot-radius, " +
                          "40-foot-high cylinder centered on a point within range must " +
@@ -4432,11 +4484,12 @@ class FlamingSphere(spells.Spell):
                          spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
                          concentration=True,
                          level=2,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a bit of tallow, a pinch of brimstone, and a dusting of powdered iron",
+                         material_components_list="a bit of tallow, a pinch of brimstone, and a dusting of powdered "
+                                                  "iron",
                          duration="1 minute",
                          description="A 5-foot-diameter sphere of fire appears in an unoccupied " +
                          "space of your choice within range and lasts for the duration. " +
@@ -4469,7 +4522,7 @@ class FleshToStone(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=6,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -4507,7 +4560,7 @@ class FloatingDisk(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          ritual=True,
                          level=1,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -4544,7 +4597,7 @@ class Fly(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=3,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
@@ -4570,11 +4623,10 @@ class FogCloud(spells.Spell):
                          spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
                          concentration=True,
                          level=1,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="120 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 hour",
                          description="You create a 20-foot-radius sphere of fog centered on a point " +
                          "within range. The sphere spreads around corners, and its area " +
@@ -4598,11 +4650,12 @@ class Forbiddance(spells.Spell):
                          spell_lists=[SpellLists.DIVINE],
                          ritual=True,
                          level=6,
-                         school=SpellSchools.Abjuration,
+                         school=SpellSchools.ABJURATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a sprinkling of holy water, rare incense, and powdered ruby worth at least 1,000 gp",
+                         material_components_list="a sprinkling of holy water, rare incense, and powdered ruby worth "
+                                                  "at least 1,000 gp",
                          duration="1 day",
                          description="You create a ward against magical travel that protects up to " +
                          "40,000 square feet of floor space to a height of 30 feet above " +
@@ -4639,7 +4692,7 @@ class Forcecage(spells.Spell):
         super().__init__(name="Forcecage",
                          spell_lists=[SpellLists.ARCANE],
                          level=7,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="100 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -4680,7 +4733,7 @@ class Foresight(spells.Spell):
         super().__init__(name="Foresight",
                          spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
                          level=9,
-                         school=SpellSchools.Divination,
+                         school=SpellSchools.DIVINATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
@@ -4707,7 +4760,7 @@ class FreedomOfMovement(spells.Spell):
         super().__init__(name="Freedom of Movement",
                          spell_lists=[SpellLists.DIVINE, SpellLists.PRIMAL],
                          level=4,
-                         school=SpellSchools.Abjuration,
+                         school=SpellSchools.ABJURATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
@@ -4735,12 +4788,11 @@ class FreezingSphere(spells.Spell):
         super().__init__(name="Freezing Sphere",
                          spell_lists=[SpellLists.ARCANE],
                          level=6,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="300 feet",
                          verbal_components=True,
                          somatic_components=True,
                          material_components_list="a small crystal sphere",
-                         duration="Instantaneous",
                          description="A frigid globe of cold energy streaks from your fingertips to " +
                          "a point of your choice within range, where it explodes in a " +
                          "60-foot-radius sphere. Each creature within the area must make " +
@@ -4779,7 +4831,7 @@ class GaseousForm(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=3,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
@@ -4817,7 +4869,7 @@ class Gate(spells.Spell):
                          spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
                          concentration=True,
                          level=9,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -4857,11 +4909,9 @@ class Geas(spells.Spell):
         super().__init__(name="Geas",
                          spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
                          level=5,
-                         school=SpellSchools.Enchantment,
+                         school=SpellSchools.ENCHANTMENT,
                          spell_range="60 feet",
                          verbal_components=True,
-                         somatic_components=False,
-                         material_components_list=None,
                          duration="30 days",
                          description="You place a magical command on a creature that you can see " +
                          "within range, forcing it to carry out some service or refrain " +
@@ -4895,11 +4945,12 @@ class GentleRepose(spells.Spell):
                          spell_lists=[SpellLists.DIVINE, SpellLists.PRIMAL],
                          ritual=True,
                          level=2,
-                         school=SpellSchools.Necromancy,
+                         school=SpellSchools.NECROMANCY,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a pinch of salt and one copper piece placed on each of the corpse's eyes, which must remain there for the duration",
+                         material_components_list="a pinch of salt and one copper piece placed on each of the "
+                                                  "corpse's eyes, which must remain there for the duration",
                          duration="10 days",
                          description="You touch a corpse or other remains. For the duration, the " +
                          "target is protected from decay and can't become undead. The " +
@@ -4922,11 +4973,10 @@ class GiantInsect(spells.Spell):
                          spell_lists=[SpellLists.PRIMAL],
                          concentration=True,
                          level=4,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="10 minutes",
                          description="You transform up to ten centipedes, three spiders, five wasps, " +
                          "or one scorpion within range into giant versions of their " +
@@ -4955,11 +5005,9 @@ class Glibness(spells.Spell):
         super().__init__(name="Glibness",
                          spell_lists=[SpellLists.ARCANE],
                          level=8,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="Self",
                          verbal_components=True,
-                         somatic_components=False,
-                         material_components_list=None,
                          duration="1 hour",
                          description="Until the spell ends, when you make a Charisma check, you can " +
                          "replace the number you roll with a 15. Additionally, no matter " +
@@ -4980,7 +5028,7 @@ class GlobeOfInvulnerability(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=6,
-                         school=SpellSchools.Abjuration,
+                         school=SpellSchools.ABJURATION,
                          spell_range="Self (10-foot radius)",
                          verbal_components=True,
                          somatic_components=True,
@@ -5010,11 +5058,12 @@ class GlyphOfWarding(spells.Spell):
         super().__init__(name="Glyph of Warding",
                          spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
                          level=3,
-                         school=SpellSchools.Abjuration,
+                         school=SpellSchools.ABJURATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="incense and powdered diamond worth at least 200 gp, which the spell consumes",
+                         material_components_list="incense and powdered diamond worth at least 200 gp, which the "
+                                                  "spell consumes",
                          duration="Until dispelled or triggered",
                          description="When you cast this spell, you inscribe a glyph that harms " +
                          "other creatures, either upon a surface (such as a table or a " +
@@ -5080,12 +5129,11 @@ class Goodberry(spells.Spell):
         super().__init__(name="Goodberry",
                          spell_lists=[SpellLists.PRIMAL],
                          level=1,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
                          material_components_list="a sprig of mistletoe",
-                         duration="Instantaneous",
                          description="Up to ten berries appear in your hand and are infused with " +
                          "magic for the duration. A creature can use its action to eat " +
                          "one berry. Eating a berry restores 1 hit point, and the berry " +
@@ -5106,7 +5154,7 @@ class Grease(spells.Spell):
         super().__init__(name="Grease",
                          spell_lists=[SpellLists.ARCANE],
                          level=1,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -5133,11 +5181,10 @@ class GreaterInvisibility(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=4,
-                         school=SpellSchools.Illusion,
+                         school=SpellSchools.ILLUSION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 minute",
                          description="You or a creature you touch becomes invisible until the spell " +
                          "ends. Anything the target is wearing or carrying is invisible " +
@@ -5156,12 +5203,11 @@ class GreaterRestoration(spells.Spell):
         super().__init__(name="Greater Restoration",
                          spell_lists=[SpellLists.DIVINE, SpellLists.PRIMAL],
                          level=5,
-                         school=SpellSchools.Abjuration,
+                         school=SpellSchools.ABJURATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
                          material_components_list="diamond dust worth at least 100 gp, which the spell consumes",
-                         duration="Instantaneous",
                          description="You imbue a creature you touch with positive energy to undo a " +
                          "debilitating effect. You can reduce the target's exhaustion " +
                          "level by one, or end one of the following effects on the " +
@@ -5183,11 +5229,9 @@ class GuardianOfFaith(spells.Spell):
         super().__init__(name="Guardian of Faith",
                          spell_lists=[SpellLists.DIVINE],
                          level=4,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="30 feet",
                          verbal_components=True,
-                         somatic_components=False,
-                         material_components_list=None,
                          duration="8 hours",
                          description="A Large spectral guardian appears and hovers for the duration " +
                          "in an unoccupied space of your choice that you can see within " +
@@ -5213,11 +5257,13 @@ class GuardsAndWards(spells.Spell):
         super().__init__(name="Guards and Wards",
                          spell_lists=[SpellLists.ARCANE],
                          level=6,
-                         school=SpellSchools.Abjuration,
+                         school=SpellSchools.ABJURATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="burning incense, a small measure of brimstone and oil, a knotted string, a small amount of umber hulk blood, and a small silver rod worth at least 10 gp",
+                         material_components_list="burning incense, a small measure of brimstone and oil, a knotted "
+                                                  "string, a small amount of umber hulk blood, and a small silver rod"
+                                                  " worth at least 10 gp",
                          duration="24 hours",
                          description="You create a ward that protects up to 2,500 square feet of " +
                          "floor space (an area 50 feet square, or one hundred 5-foot " +
@@ -5274,11 +5320,10 @@ class Guidance(spells.Spell):
                          spell_lists=[SpellLists.DIVINE, SpellLists.PRIMAL],
                          concentration=True,
                          level=0,
-                         school=SpellSchools.Divination,
+                         school=SpellSchools.DIVINATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 minute",
                          description="You touch one willing creature. Once before the spell ends, " +
                          "the target can roll a d4 and add the number rolled to one " +
@@ -5298,11 +5343,10 @@ class GuidingBolt(spells.Spell):
         super().__init__(name="Guiding Bolt",
                          spell_lists=[SpellLists.DIVINE],
                          level=1,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="120 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 round",
                          description="A flash of light streaks toward a creature of your choice " +
                          "within range. Make a ranged spell attack against the target. " +
@@ -5327,7 +5371,7 @@ class GustOfWind(spells.Spell):
                          spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
                          concentration=True,
                          level=2,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="Self (60-foot line)",
                          verbal_components=True,
                          somatic_components=True,
@@ -5360,11 +5404,12 @@ class Hallow(spells.Spell):
         super().__init__(name="Hallow",
                          spell_lists=[SpellLists.DIVINE],
                          level=5,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="herbs, oils, and incense worth at least 1,000 gp, which the spell consumes",
+                         material_components_list="herbs, oils, and incense worth at least 1,000 gp, which the spell "
+                                                  "consumes",
                          duration="Until dispelled",
                          description="You touch a point and infuse an area around it with holy (or " +
                          "unholy) power. The area can have a radius up to 60 feet, and " +
@@ -5420,7 +5465,7 @@ class HallucinatoryTerrain(spells.Spell):
         super().__init__(name="Hallucinatory Terrain",
                          spell_lists=[SpellLists.ARCANE],
                          level=4,
-                         school=SpellSchools.Illusion,
+                         school=SpellSchools.ILLUSION,
                          spell_range="300 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -5455,12 +5500,10 @@ class Harm(spells.Spell):
         super().__init__(name="Harm",
                          spell_lists=[SpellLists.DIVINE],
                          level=6,
-                         school=SpellSchools.Necromancy,
+                         school=SpellSchools.NECROMANCY,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="You unleash a virulent disease on a creature that you can see " +
                          "within range. The target must make a Constitution saving " +
                          "throw. On a failed save, it takes 14d6 necrotic damage, or " +
@@ -5485,7 +5528,7 @@ class Haste(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=3,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -5513,12 +5556,10 @@ class Heal(spells.Spell):
         super().__init__(name="Heal",
                          spell_lists=[SpellLists.DIVINE, SpellLists.PRIMAL],
                          level=6,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="Choose a creature that you can see within range. A surge of " +
                          "positive energy washes through the creature, causing it to " +
                          "regain 70 hit points. This spell also ends blindness, " +
@@ -5540,12 +5581,9 @@ class HealingWord(spells.Spell):
         super().__init__(name="Healing Word",
                          spell_lists=[SpellLists.DIVINE, SpellLists.PRIMAL],
                          level=1,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="60 feet",
                          verbal_components=True,
-                         somatic_components=False,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="A creature of your choice that you can see within range " +
                          "regains hit points equal to 1d4 + your spellcasting ability " +
                          "modifier. This spell has no effect on undead or constructs. ",
@@ -5566,7 +5604,7 @@ class HeatMetal(spells.Spell):
                          spell_lists=[SpellLists.PRIMAL],
                          concentration=True,
                          level=2,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -5599,12 +5637,10 @@ class HellishRebuke(spells.Spell):
         super().__init__(name="Hellish Rebuke",
                          spell_lists=[SpellLists.ARCANE],
                          level=1,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="You point your finger, and the creature that damaged you is " +
                          "momentarily surrounded by hellish flames. The creature must " +
                          "make a Dexterity saving throw. It takes 2d10 fire damage on a " +
@@ -5625,12 +5661,12 @@ class HeroesFeast(spells.Spell):
         super().__init__(name="Heroes' Feast",
                          spell_lists=[SpellLists.DIVINE],
                          level=6,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a gem-encrusted bowl worth at least 1,000 gp, which the spell consumes",
-                         duration="Instantaneous",
+                         material_components_list="a gem-encrusted bowl worth at least 1,000 gp, which the spell "
+                                                  "consumes",
                          description="You bring forth a great feast, including magnificent food and " +
                          "drink. The feast takes 1 hour to consume and disappears at the " +
                          "end of that time, and the beneficial effects don't set in " +
@@ -5656,11 +5692,10 @@ class Heroism(spells.Spell):
                          spell_lists=[SpellLists.DIVINE],
                          concentration=True,
                          level=1,
-                         school=SpellSchools.Enchantment,
+                         school=SpellSchools.ENCHANTMENT,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 minute",
                          description="A willing creature you touch is imbued with bravery. Until the " +
                          "spell ends, the creature is immune to being frightened and " +
@@ -5685,7 +5720,7 @@ class HideousLaughter(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=1,
-                         school=SpellSchools.Enchantment,
+                         school=SpellSchools.ENCHANTMENT,
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -5716,7 +5751,7 @@ class HoldMonster(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=5,
-                         school=SpellSchools.Enchantment,
+                         school=SpellSchools.ENCHANTMENT,
                          spell_range="90 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -5745,7 +5780,7 @@ class HoldPerson(spells.Spell):
                          spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
                          concentration=True,
                          level=2,
-                         school=SpellSchools.Enchantment,
+                         school=SpellSchools.ENCHANTMENT,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -5774,11 +5809,13 @@ class HolyAura(spells.Spell):
                          spell_lists=[SpellLists.DIVINE],
                          concentration=True,
                          level=8,
-                         school=SpellSchools.Abjuration,
+                         school=SpellSchools.ABJURATION,
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a tiny reliquary worth at least 1,000 gp containing a sacred relic, such as a scrap of cloth from a saint's robe or a piece of parchment from a religious text",
+                         material_components_list="a tiny reliquary worth at least 1,000 gp containing a sacred "
+                                                  "relic, such as a scrap of cloth from a saint's robe or a piece of "
+                                                  "parchment from a religious text",
                          duration="1 minute",
                          description="Divine light washes out from you and coalesces in a soft " +
                          "radiance in a 30-foot radius around you. Creatures of your " +
@@ -5804,11 +5841,9 @@ class HuntersMark(spells.Spell):
                          spell_lists=[SpellLists.PRIMAL],
                          concentration=True,
                          level=1,
-                         school=SpellSchools.Divination,
+                         school=SpellSchools.DIVINATION,
                          spell_range="90 feet",
                          verbal_components=True,
-                         somatic_components=False,
-                         material_components_list=None,
                          duration="1 hour",
                          description="You choose a creature you can see within range and mystically " +
                          "mark it as your quarry. Until the spell ends, you deal an " +
@@ -5837,11 +5872,11 @@ class HypnoticPattern(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=3,
-                         school=SpellSchools.Illusion,
+                         school=SpellSchools.ILLUSION,
                          spell_range="120 feet",
-                         verbal_components=False,
                          somatic_components=True,
-                         material_components_list="a glowing stick of incense or a crystal vial filled with phosphorescent material",
+                         material_components_list="a glowing stick of incense or a crystal vial filled with "
+                                                  "phosphorescent material",
                          duration="1 minute",
                          description="You create a twisting pattern of colors that weaves through " +
                          "the air inside a 30-foot cube within range. The pattern " +
@@ -5866,12 +5901,11 @@ class IceStorm(spells.Spell):
         super().__init__(name="Ice Storm",
                          spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
                          level=4,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="300 feet",
                          verbal_components=True,
                          somatic_components=True,
                          material_components_list="a pinch of dust and a few drops of water",
-                         duration="Instantaneous",
                          description="A hail of rock-hard ice pounds to the ground in a 20- " +
                          "foot-radius, 40-foot-high cylinder centered on a point within " +
                          "range. Each creature in the cylinder must make a Dexterity " +
@@ -5896,12 +5930,11 @@ class Identify(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          ritual=True,
                          level=1,
-                         school=SpellSchools.Divination,
+                         school=SpellSchools.DIVINATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
                          material_components_list="a pearl worth at least 100 gp and an owl feather",
-                         duration="Instantaneous",
                          description="You choose one object that you must touch throughout the " +
                          "casting of the spell. If it is a magic item or some other " +
                          "magic-imbued object, you learn its properties and how to use " +
@@ -5926,9 +5959,8 @@ class IllusoryScript(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          ritual=True,
                          level=1,
-                         school=SpellSchools.Illusion,
+                         school=SpellSchools.ILLUSION,
                          spell_range="Touch",
-                         verbal_components=False,
                          somatic_components=True,
                          material_components_list="a lead-based ink worth at least 10 gp, which the spell consumes",
                          duration="10 days",
@@ -5959,11 +5991,14 @@ class Imprisonment(spells.Spell):
         super().__init__(name="Imprisonment",
                          spell_lists=[SpellLists.ARCANE],
                          level=9,
-                         school=SpellSchools.Abjuration,
+                         school=SpellSchools.ABJURATION,
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a vellum depiction or a carved statuette in the likeness of the target, and a special component that varies according to the version of the spell you choose, worth at least 500 gp per Hit Die of the target",
+                         material_components_list="a vellum depiction or a carved statuette in the likeness of the "
+                                                  "target, and a special component that varies according to the "
+                                                  "version of the spell you choose, worth at least 500 gp per Hit Die "
+                                                  "of the target",
                          duration="Until dispelled",
                          description="You create a magical restraint to hold a creature that you can " +
                          "see within range. The target must succeed on a Wisdom saving " +
@@ -6029,13 +6064,12 @@ class IncendiaryCloud(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=8,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="150 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 minute",
-                         description="A swirling cloud of smoke shot through with whitehot embers " +
+                         description="A swirling cloud of smoke shot through with white-hot embers " +
                          "appears in a 20-foot-radius sphere centered on a point within " +
                          "range. The cloud spreads around corners and is heavily " +
                          "obscured. It lasts for the duration or until a wind of " +
@@ -6062,12 +6096,10 @@ class InflictWounds(spells.Spell):
         super().__init__(name="Inflict Wounds",
                          spell_lists=[SpellLists.DIVINE],
                          level=1,
-                         school=SpellSchools.Necromancy,
+                         school=SpellSchools.NECROMANCY,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="Make a melee spell attack against a creature you can reach. On " +
                          "a hit, the target takes 3d10 necrotic damage. ",
                          at_higher_levels="When you cast this spell using a spell slot of 2nd level or " +
@@ -6087,7 +6119,7 @@ class InsectPlague(spells.Spell):
                          spell_lists=[SpellLists.PRIMAL],
                          concentration=True,
                          level=5,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="300 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -6120,7 +6152,7 @@ class InstantSummons(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          ritual=True,
                          level=6,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
@@ -6155,7 +6187,7 @@ class Invisibility(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=2,
-                         school=SpellSchools.Illusion,
+                         school=SpellSchools.ILLUSION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
@@ -6182,11 +6214,9 @@ class IrresistibleDance(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=6,
-                         school=SpellSchools.Enchantment,
+                         school=SpellSchools.ENCHANTMENT,
                          spell_range="30 feet",
                          verbal_components=True,
-                         somatic_components=False,
-                         material_components_list=None,
                          duration="1 minute",
                          description="Choose one creature that you can see within range. The target " +
                          "begins a comic dance in place: shuffling, tapping its feet, " +
@@ -6212,7 +6242,7 @@ class Jump(spells.Spell):
         super().__init__(name="Jump",
                          spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
                          level=1,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
@@ -6234,12 +6264,9 @@ class Knock(spells.Spell):
         super().__init__(name="Knock",
                          spell_lists=[SpellLists.ARCANE],
                          level=2,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="60 feet",
                          verbal_components=True,
-                         somatic_components=False,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="Choose an object that you can see within range. The object can " +
                          "be a door, a box, a chest, a set of manacles, a padlock, or " +
                          "another object that contains a mundane or magical means that " +
@@ -6265,12 +6292,12 @@ class LegendLore(spells.Spell):
         super().__init__(name="Legend Lore",
                          spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
                          level=5,
-                         school=SpellSchools.Divination,
+                         school=SpellSchools.DIVINATION,
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="incense worth at least 250 gp, which the spell consumes, and four ivory strips worth at least 50 gp each",
-                         duration="Instantaneous",
+                         material_components_list="incense worth at least 250 gp, which the spell consumes, and four "
+                                                  "ivory strips worth at least 50 gp each",
                          description="Name or describe a person, place, or object. The spell brings " +
                          "to your mind a brief summary of the significant lore about the " +
                          "thing you named. The lore might consist of current tales, " +
@@ -6300,12 +6327,10 @@ class LesserRestoration(spells.Spell):
         super().__init__(name="Lesser Restoration",
                          spell_lists=[SpellLists.DIVINE, SpellLists.PRIMAL],
                          level=2,
-                         school=SpellSchools.Abjuration,
+                         school=SpellSchools.ABJURATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="You touch a creature and can end either one disease or one " +
                          "condition afflicting it. The condition can be blinded, " +
                          "deafened, paralyzed, or poisoned. ",
@@ -6324,11 +6349,12 @@ class Levitate(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=2,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="either a small leather loop or a piece of golden wire bent into a cup shape with a long shank on one end",
+                         material_components_list="either a small leather loop or a piece of golden wire bent into a "
+                                                  "cup shape with a long shank on one end",
                          duration="10 minutes",
                          description="One creature or object of your choice that you can see within " +
                          "range rises vertically, up to 20 feet, and remains suspended " +
@@ -6358,10 +6384,9 @@ class Light(spells.Spell):
         super().__init__(name="Light",
                          spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
                          level=0,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="Touch",
                          verbal_components=True,
-                         somatic_components=False,
                          material_components_list="a firefly or phosphorescent moss",
                          duration="1 hour",
                          description="You touch one object that is no larger than 10 feet in any " +
@@ -6386,12 +6411,11 @@ class LightningBolt(spells.Spell):
         super().__init__(name="Lightning Bolt",
                          spell_lists=[SpellLists.ARCANE],
                          level=3,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="Self (100-foot line)",
                          verbal_components=True,
                          somatic_components=True,
                          material_components_list="a bit of fur and a rod of amber, crystal, or glass",
-                         duration="Instantaneous",
                          description="A stroke of lightning forming a line 100 feet long and 5 feet " +
                          "wide blasts out from you in a direction you choose. Each " +
                          "creature in the line must make a Dexterity saving throw. A " +
@@ -6416,12 +6440,11 @@ class LocateAnimalsOrPlants(spells.Spell):
                          spell_lists=[SpellLists.PRIMAL],
                          ritual=True,
                          level=2,
-                         school=SpellSchools.Divination,
+                         school=SpellSchools.DIVINATION,
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
                          material_components_list="a bit of fur from a bloodhound",
-                         duration="Instantaneous",
                          description="Describe or name a specific kind of beast or plant. " +
                          "Concentrating on the voice of nature in your surroundings, you " +
                          "learn the direction and distance to the closest creature or " +
@@ -6442,7 +6465,7 @@ class LocateCreature(spells.Spell):
                                       SpellLists.DIVINE, SpellLists.PRIMAL],
                          concentration=True,
                          level=4,
-                         school=SpellSchools.Divination,
+                         school=SpellSchools.DIVINATION,
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
@@ -6476,7 +6499,7 @@ class LocateObject(spells.Spell):
                                       SpellLists.DIVINE, SpellLists.PRIMAL],
                          concentration=True,
                          level=2,
-                         school=SpellSchools.Divination,
+                         school=SpellSchools.DIVINATION,
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
@@ -6507,7 +6530,7 @@ class Longstrider(spells.Spell):
         super().__init__(name="Longstrider",
                          spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
                          level=1,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
@@ -6531,7 +6554,7 @@ class MageArmor(spells.Spell):
         super().__init__(name="Mage Armor",
                          spell_lists=[SpellLists.ARCANE],
                          level=1,
-                         school=SpellSchools.Abjuration,
+                         school=SpellSchools.ABJURATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
@@ -6556,11 +6579,10 @@ class MageHand(spells.Spell):
         super().__init__(name="Mage Hand",
                          spell_lists=[SpellLists.ARCANE],
                          level=0,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 minute",
                          description="A spectral, floating hand appears at a point you choose within " +
                          "range. The hand lasts for the duration or until you dismiss it " +
@@ -6586,11 +6608,12 @@ class MagicCircle(spells.Spell):
         super().__init__(name="Magic Circle",
                          spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
                          level=3,
-                         school=SpellSchools.Abjuration,
+                         school=SpellSchools.ABJURATION,
                          spell_range="10 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="holy water or powdered silver and iron worth at least 100 gp, which the spell consumes",
+                         material_components_list="holy water or powdered silver and iron worth at least 100 gp, "
+                                                  "which the spell consumes",
                          duration="1 hour",
                          description="You create a 10-foot-radius, 20-foot-tall cylinder of magical " +
                          "energy centered on a point on the ground that you can see " +
@@ -6625,11 +6648,12 @@ class MagicJar(spells.Spell):
         super().__init__(name="Magic Jar",
                          spell_lists=[SpellLists.ARCANE],
                          level=6,
-                         school=SpellSchools.Necromancy,
+                         school=SpellSchools.NECROMANCY,
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a gem, crystal, reliquary, or some other ornamental container worth at least 500 gp",
+                         material_components_list="a gem, crystal, reliquary, or some other ornamental container "
+                                                  "worth at least 500 gp",
                          duration="Until dispelled",
                          description="Your body falls into a catatonic state as your soul leaves it " +
                          "and enters the container you used for the spell's material " +
@@ -6683,12 +6707,10 @@ class MagicMissile(spells.Spell):
         super().__init__(name="Magic Missile",
                          spell_lists=[SpellLists.ARCANE],
                          level=1,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="120 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="You create three glowing darts of magical force. Each dart " +
                          "hits a creature of your choice that you can see within range. " +
                          "A dart deals 1d4 + 1 force damage to its target. The darts all " +
@@ -6711,11 +6733,12 @@ class MagicMouth(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          ritual=True,
                          level=2,
-                         school=SpellSchools.Illusion,
+                         school=SpellSchools.ILLUSION,
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a small bit of honeycomb and jade dust worth at least 10 gp, which the spell consumes",
+                         material_components_list="a small bit of honeycomb and jade dust worth at least 10 gp, "
+                                                  "which the spell consumes",
                          duration="Until dispelled",
                          description="You implant a message within an object in range, a message " +
                          "that is uttered when a trigger condition is met. Choose an " +
@@ -6753,11 +6776,10 @@ class MagicWeapon(spells.Spell):
                          spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
                          concentration=True,
                          level=2,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 hour",
                          description="You touch a nonmagical weapon. Until the spell ends, that " +
                          "weapon becomes a magic weapon with a +1 bonus to attack rolls " +
@@ -6778,11 +6800,12 @@ class MagnificentMansion(spells.Spell):
         super().__init__(name="Magnificent Mansion",
                          spell_lists=[SpellLists.ARCANE],
                          level=7,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="300 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a miniature portal carved from ivory, a small piece of polished marble, and a tiny silver spoon, each item worth at least 5 gp",
+                         material_components_list="a miniature portal carved from ivory, a small piece of polished "
+                                                  "marble, and a tiny silver spoon, each item worth at least 5 gp",
                          duration="24 hours",
                          description="You conjure an extradimensional dwelling in range that lasts " +
                          "for the duration. You choose where its one entrance is " +
@@ -6825,7 +6848,7 @@ class MajorImage(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=3,
-                         school=SpellSchools.Illusion,
+                         school=SpellSchools.ILLUSION,
                          spell_range="120 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -6871,12 +6894,10 @@ class MassCureWounds(spells.Spell):
         super().__init__(name="Mass Cure Wounds",
                          spell_lists=[SpellLists.DIVINE, SpellLists.PRIMAL],
                          level=5,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="A wave of healing energy washes out from a point of your " +
                          "choice within range. Choose up to six creatures in a " +
                          "30-foot-radius sphere centered on that point. Each target " +
@@ -6898,12 +6919,10 @@ class MassHeal(spells.Spell):
         super().__init__(name="Mass Heal",
                          spell_lists=[SpellLists.DIVINE],
                          level=9,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="A flood of healing energy flows from you into injured " +
                          "creatures around you. You restore up to 700 hit points, " +
                          "divided as you choose among any number of creatures that you " +
@@ -6924,12 +6943,9 @@ class MassHealingWord(spells.Spell):
         super().__init__(name="Mass Healing Word",
                          spell_lists=[SpellLists.DIVINE, SpellLists.PRIMAL],
                          level=3,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="60 feet",
                          verbal_components=True,
-                         somatic_components=False,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="As you call out words of restoration, up to six creatures of " +
                          "your choice that you can see within range regain hit points " +
                          "equal to 1d4 + your spellcasting ability modifier. This spell " +
@@ -6950,11 +6966,11 @@ class MassSuggestion(spells.Spell):
         super().__init__(name="Mass Suggestion",
                          spell_lists=[SpellLists.ARCANE],
                          level=6,
-                         school=SpellSchools.Enchantment,
+                         school=SpellSchools.ENCHANTMENT,
                          spell_range="60 feet",
                          verbal_components=True,
-                         somatic_components=False,
-                         material_components_list="a snake's tongue and either a bit of honeycomb or a drop of sweet oil",
+                         material_components_list="a snake's tongue and either a bit of honeycomb or a drop of sweet "
+                                                  "oil",
                          duration="24 hours",
                          description="You suggest a course of activity (limited to a sentence or " +
                          "two) and magically influence up to twelve creatures of your " +
@@ -6995,11 +7011,10 @@ class Maze(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=8,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="10 minutes",
                          description="You banish a creature that you can see within range into a " +
                          "labyrinthine demiplane. The target remains there for the " +
@@ -7025,11 +7040,10 @@ class MeldIntoStone(spells.Spell):
                          spell_lists=[SpellLists.PRIMAL],
                          ritual=True,
                          level=3,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="8 hours",
                          description="You step into a stone object or surface large enough to fully " +
                          "contain your body, melding yourself and all the equipment you " +
@@ -7064,12 +7078,11 @@ class Mending(spells.Spell):
         super().__init__(name="Mending",
                          spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
                          level=0,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
                          material_components_list="two lodestones",
-                         duration="Instantaneous",
                          description="This spell repairs a single break or tear in an object you " +
                          "touch, such as a broken chain link, two halves of a broken " +
                          "key, a torn cloak, or a leaking wineskin. As long as the break " +
@@ -7091,7 +7104,7 @@ class Message(spells.Spell):
         super().__init__(name="Message",
                          spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
                          level=0,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="120 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -7120,12 +7133,10 @@ class MeteorSwarm(spells.Spell):
         super().__init__(name="Meteor Swarm",
                          spell_lists=[SpellLists.ARCANE],
                          level=9,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="1 mile",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="Blazing orbs of fire plummet to the ground at four different " +
                          "points you can see within range. Each creature in a " +
                          "40-foot-radius sphere centered on each point you choose must " +
@@ -7150,11 +7161,10 @@ class MindBlank(spells.Spell):
         super().__init__(name="Mind Blank",
                          spell_lists=[SpellLists.ARCANE],
                          level=8,
-                         school=SpellSchools.Abjuration,
+                         school=SpellSchools.ABJURATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="24 hours",
                          description="Until the spell ends, one willing creature you touch is immune " +
                          "to psychic damage, any effect that would sense its emotions or " +
@@ -7176,9 +7186,8 @@ class MinorIllusion(spells.Spell):
         super().__init__(name="Minor Illusion",
                          spell_lists=[SpellLists.ARCANE],
                          level=0,
-                         school=SpellSchools.Illusion,
+                         school=SpellSchools.ILLUSION,
                          spell_range="30 feet",
-                         verbal_components=False,
                          somatic_components=True,
                          material_components_list="a bit of fleece",
                          duration="1 minute",
@@ -7214,11 +7223,10 @@ class MirageArcane(spells.Spell):
         super().__init__(name="Mirage Arcane",
                          spell_lists=[SpellLists.ARCANE],
                          level=7,
-                         school=SpellSchools.Illusion,
+                         school=SpellSchools.ILLUSION,
                          spell_range="Sight",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="10 days",
                          description="You make terrain in an area up to 1 mile square look, sound, " +
                          "smell, and even feel like some other sort of terrain. The " +
@@ -7253,11 +7261,10 @@ class MirrorImage(spells.Spell):
         super().__init__(name="Mirror Image",
                          spell_lists=[SpellLists.ARCANE],
                          level=2,
-                         school=SpellSchools.Illusion,
+                         school=SpellSchools.ILLUSION,
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 minute",
                          description="Three illusory duplicates of yourself appear in your space. " +
                          "Until the spell ends, the duplicates move with you and mimic " +
@@ -7293,11 +7300,9 @@ class Mislead(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=5,
-                         school=SpellSchools.Illusion,
+                         school=SpellSchools.ILLUSION,
                          spell_range="Self",
-                         verbal_components=False,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 hour",
                          description="You become invisible at the same time that an illusory double " +
                          "of you appears where you are standing. The double lasts for " +
@@ -7324,12 +7329,9 @@ class MistyStep(spells.Spell):
         super().__init__(name="Misty Step",
                          spell_lists=[SpellLists.ARCANE],
                          level=2,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="Self",
                          verbal_components=True,
-                         somatic_components=False,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="Briefly surrounded by silvery mist, you teleport up to 30 feet " +
                          "to an unoccupied space that you can see. ",
                          at_higher_levels="")
@@ -7347,11 +7349,10 @@ class ModifyMemory(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=5,
-                         school=SpellSchools.Enchantment,
+                         school=SpellSchools.ENCHANTMENT,
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 minute",
                          description="You attempt to reshape another creature's memories. One " +
                          "creature that you can see must make a Wisdom saving throw. If " +
@@ -7402,13 +7403,14 @@ class Moonbeam(spells.Spell):
                          spell_lists=[SpellLists.PRIMAL],
                          concentration=True,
                          level=2,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="120 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="several seeds of any moonseed plant and a piece of opalescent feldspar",
+                         material_components_list="several seeds of any moonseed plant and a piece of opalescent "
+                                                  "feldspar",
                          duration="1 minute",
-                         description="A silvery beam of pale light shines down in a 5-footradius, " +
+                         description="A silvery beam of pale light shines down in a 5-foot-radius, " +
                          "40-foot-high cylinder centered on a point within range. Until " +
                          "the spell ends, dim light fills the cylinder. When a creature " +
                          "enters the spell's area for the first time on a turn or starts " +
@@ -7438,11 +7440,12 @@ class MoveEarth(spells.Spell):
                          spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
                          concentration=True,
                          level=6,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="120 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="an iron blade and a small bag containing a mixture of soils—clay, loam, and sand",
+                         material_components_list="an iron blade and a small bag containing a mixture of soils—clay, "
+                                                  "loam, and sand",
                          duration="2 hours",
                          description="Choose an area of terrain no larger than 40 feet on a side " +
                          "within range. You can reshape dirt, sand, or clay in the area " +
@@ -7478,11 +7481,12 @@ class Nondetection(spells.Spell):
         super().__init__(name="Nondetection",
                          spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
                          level=3,
-                         school=SpellSchools.Abjuration,
+                         school=SpellSchools.ABJURATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a pinch of diamond dust worth 25 gp sprinkled over the target, which the spell consumes",
+                         material_components_list="a pinch of diamond dust worth 25 gp sprinkled over the target, "
+                                                  "which the spell consumes",
                          duration="8 hours",
                          description="For the duration, you hide a target that you touch from " +
                          "divination magic. The target can be a willing creature or a " +
@@ -7504,7 +7508,7 @@ class PassWithoutTrace(spells.Spell):
                          spell_lists=[SpellLists.PRIMAL],
                          concentration=True,
                          level=2,
-                         school=SpellSchools.Abjuration,
+                         school=SpellSchools.ABJURATION,
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
@@ -7530,7 +7534,7 @@ class Passwall(spells.Spell):
         super().__init__(name="Passwall",
                          spell_lists=[SpellLists.ARCANE],
                          level=5,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -7560,11 +7564,10 @@ class PhantasmalKiller(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=4,
-                         school=SpellSchools.Illusion,
+                         school=SpellSchools.ILLUSION,
                          spell_range="120 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 minute",
                          description="You tap into the nightmares of a creature you can see within " +
                          "range and create an illusory manifestation of its deepest " +
@@ -7591,11 +7594,10 @@ class PhantomSteed(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          ritual=True,
                          level=3,
-                         school=SpellSchools.Illusion,
+                         school=SpellSchools.ILLUSION,
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 hour",
                          description="A Large quasi-real, horselike creature appears on the ground " +
                          "in an unoccupied space of your choice within range. You decide " +
@@ -7623,12 +7625,10 @@ class PlanarAlly(spells.Spell):
         super().__init__(name="Planar Ally",
                          spell_lists=[SpellLists.DIVINE],
                          level=6,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="You beseech an otherworldly entity for aid. The being must be " +
                          "known to you: a god, a primordial, a demon prince, or some " +
                          "other being of cosmic power. That entity sends a celestial, an " +
@@ -7680,7 +7680,7 @@ class PlanarBinding(spells.Spell):
         super().__init__(name="Planar Binding",
                          spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
                          level=5,
-                         school=SpellSchools.Abjuration,
+                         school=SpellSchools.ABJURATION,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -7708,7 +7708,7 @@ class PlanarBinding(spells.Spell):
                          "where you bound it and remains there until the spell ends. ",
                          at_higher_levels="When you cast this spell using a spell slot of a higher level, " +
                                           "the duration increases to 10 days with a 6th-level slot, to 30 " +
-                                          "days with a 7thlevel slot, to 180 days with an 8th-level slot, " +
+                                          "days with a 7th-level slot, to 180 days with an 8th-level slot, " +
                                           "and to a year and a day with a 9th-level spell slot. ")
 
 
@@ -7723,12 +7723,12 @@ class PlaneShift(spells.Spell):
         super().__init__(name="Plane Shift",
                          spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
                          level=7,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a forked, metal rod worth at least 250 gp, attuned to a particular plane of existence",
-                         duration="Instantaneous",
+                         material_components_list="a forked, metal rod worth at least 250 gp, attuned to a particular "
+                                                  "plane of existence",
                          description="You and up to eight willing creatures who link hands in a " +
                          "circle are transported to a different plane of existence. You " +
                          "can specify a target destination in general terms, such as the " +
@@ -7764,12 +7764,10 @@ class PlantGrowth(spells.Spell):
         super().__init__(name="Plant Growth",
                          spell_lists=[SpellLists.PRIMAL],
                          level=3,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="150 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="This spell channels vitality into plants within a specific " +
                          "area. There are two possible uses for the spell, granting " +
                          "either immediate or long-term benefits. If you cast this spell " +
@@ -7796,12 +7794,10 @@ class PoisonSpray(spells.Spell):
         super().__init__(name="Poison Spray",
                          spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
                          level=0,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="10 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="You extend your hand toward a creature you can see within " +
                          "range and project a puff of noxious gas from your palm. The " +
                          "creature must succeed on a Constitution saving throw or take " +
@@ -7823,7 +7819,7 @@ class Polymorph(spells.Spell):
                          spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
                          concentration=True,
                          level=4,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -7866,12 +7862,9 @@ class PowerWordKill(spells.Spell):
         super().__init__(name="Power Word Kill",
                          spell_lists=[SpellLists.ARCANE],
                          level=9,
-                         school=SpellSchools.Enchantment,
+                         school=SpellSchools.ENCHANTMENT,
                          spell_range="60 feet",
                          verbal_components=True,
-                         somatic_components=False,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="You utter a word of power that can compel one creature you can " +
                          "see within range to die instantly. If the creature you choose " +
                          "has 100 hit points or fewer, it dies. Otherwise, the spell has " +
@@ -7890,12 +7883,9 @@ class PowerWordStun(spells.Spell):
         super().__init__(name="Power Word Stun",
                          spell_lists=[SpellLists.ARCANE],
                          level=8,
-                         school=SpellSchools.Enchantment,
+                         school=SpellSchools.ENCHANTMENT,
                          spell_range="60 feet",
                          verbal_components=True,
-                         somatic_components=False,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="You speak a word of power that can overwhelm the mind of one " +
                          "creature you can see within range, leaving it dumbfounded. If " +
                          "the target has 150 hit points or fewer, it is stunned. " +
@@ -7916,12 +7906,9 @@ class PrayerOfHealing(spells.Spell):
         super().__init__(name="Prayer of Healing",
                          spell_lists=[SpellLists.DIVINE],
                          level=2,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="30 feet",
                          verbal_components=True,
-                         somatic_components=False,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="Up to six creatures of your choice that you can see within " +
                          "range each regain hit points equal to 2d8 + your spellcasting " +
                          "ability modifier. This spell has no effect on undead or " +
@@ -7942,11 +7929,10 @@ class Prestidigitation(spells.Spell):
         super().__init__(name="Prestidigitation",
                          spell_lists=[SpellLists.ARCANE],
                          level=0,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="10 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="Up to 1 hour",
                          description="This spell is a minor magical trick that novice spellcasters " +
                          "use for practice. You create one of the following magical " +
@@ -7977,12 +7963,10 @@ class PrismaticSpray(spells.Spell):
         super().__init__(name="Prismatic Spray",
                          spell_lists=[SpellLists.ARCANE],
                          level=7,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="Self (60-foot cone)",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="Eight multicolored rays of light flash from your hand. Each " +
                          "ray is a different color and has a different power and " +
                          "purpose. Each creature in a 60-foot cone must make a Dexterity " +
@@ -8026,11 +8010,10 @@ class PrismaticWall(spells.Spell):
         super().__init__(name="Prismatic Wall",
                          spell_lists=[SpellLists.ARCANE],
                          level=9,
-                         school=SpellSchools.Abjuration,
+                         school=SpellSchools.ABJURATION,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="10 minutes",
                          description="A shimmering, multicolored plane of light forms a vertical " +
                          "opaque wall—up to 90 feet long, 30 feet high, and 1 inch " +
@@ -8110,11 +8093,12 @@ class PrivateSanctum(spells.Spell):
         super().__init__(name="Private Sanctum",
                          spell_lists=[SpellLists.ARCANE],
                          level=4,
-                         school=SpellSchools.Abjuration,
+                         school=SpellSchools.ABJURATION,
                          spell_range="120 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a thin sheet of lead, a piece of opaque glass, a wad of cotton or cloth, and powdered chrysolite",
+                         material_components_list="a thin sheet of lead, a piece of opaque glass, a wad of cotton or "
+                                                  "cloth, and powdered chrysolite",
                          duration="24 hours",
                          description="You make an area within range magically secure. The area is a " +
                          "cube that can be as small as 5 feet to as large as 100 feet on " +
@@ -8149,11 +8133,10 @@ class ProduceFlame(spells.Spell):
         super().__init__(name="Produce Flame",
                          spell_lists=[SpellLists.PRIMAL],
                          level=0,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="10 minutes",
                          description="A flickering flame appears in your hand. The flame remains " +
                          "there for the duration and harms neither you nor your " +
@@ -8180,7 +8163,7 @@ class ProgrammedIllusion(spells.Spell):
         super().__init__(name="Programmed Illusion",
                          spell_lists=[SpellLists.ARCANE],
                          level=6,
-                         school=SpellSchools.Illusion,
+                         school=SpellSchools.ILLUSION,
                          spell_range="120 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -8225,7 +8208,7 @@ class ProjectImage(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=7,
-                         school=SpellSchools.Illusion,
+                         school=SpellSchools.ILLUSION,
                          spell_range="500 miles",
                          verbal_components=True,
                          somatic_components=True,
@@ -8266,11 +8249,10 @@ class ProtectionFromEnergy(spells.Spell):
                          spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
                          concentration=True,
                          level=3,
-                         school=SpellSchools.Abjuration,
+                         school=SpellSchools.ABJURATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 hour",
                          description="For the duration, the willing creature you touch has " +
                          "resistance to one damage type of your choice: acid, cold, " +
@@ -8290,7 +8272,7 @@ class ProtectionFromEvilAndGood(spells.Spell):
                          spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
                          concentration=True,
                          level=1,
-                         school=SpellSchools.Abjuration,
+                         school=SpellSchools.ABJURATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
@@ -8319,11 +8301,10 @@ class ProtectionFromPoison(spells.Spell):
         super().__init__(name="Protection from Poison",
                          spell_lists=[SpellLists.DIVINE, SpellLists.PRIMAL],
                          level=2,
-                         school=SpellSchools.Abjuration,
+                         school=SpellSchools.ABJURATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 hour",
                          description="You touch a creature. If it is poisoned, you neutralize the " +
                          "poison. If more than one poison afflicts the target, you " +
@@ -8346,12 +8327,10 @@ class PurifyFoodAndDrink(spells.Spell):
                          spell_lists=[SpellLists.DIVINE, SpellLists.PRIMAL],
                          ritual=True,
                          level=1,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="10 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="All nonmagical food and drink within a 5-foot-radius sphere " +
                          "centered on a point of your choice within range is purified " +
                          "and rendered free of poison and disease. ",
@@ -8369,12 +8348,11 @@ class RaiseDead(spells.Spell):
         super().__init__(name="Raise Dead",
                          spell_lists=[SpellLists.DIVINE],
                          level=5,
-                         school=SpellSchools.Necromancy,
+                         school=SpellSchools.NECROMANCY,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
                          material_components_list="a diamond worth at least 500 gp, which the spell consumes",
-                         duration="Instantaneous",
                          description="You return a dead creature you touch to life, provided that it " +
                          "has been dead no longer than 10 days. If the creature's soul " +
                          "is both willing and at liberty to rejoin the body, the " +
@@ -8407,11 +8385,10 @@ class RayOfEnfeeblement(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=2,
-                         school=SpellSchools.Necromancy,
+                         school=SpellSchools.NECROMANCY,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 minute",
                          description="A black beam of enervating energy springs from your finger " +
                          "toward a creature within range. Make a ranged spell attack " +
@@ -8434,12 +8411,10 @@ class RayOfFrost(spells.Spell):
         super().__init__(name="Ray of Frost",
                          spell_lists=[SpellLists.ARCANE],
                          level=0,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="A frigid beam of blue-white light streaks toward a creature " +
                          "within range. Make a ranged spell attack against the target. " +
                          "On a hit, it takes 1d8 cold damage, and its speed is reduced " +
@@ -8460,7 +8435,7 @@ class Regenerate(spells.Spell):
         super().__init__(name="Regenerate",
                          spell_lists=[SpellLists.DIVINE, SpellLists.PRIMAL],
                          level=7,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
@@ -8488,12 +8463,12 @@ class Reincarnate(spells.Spell):
         super().__init__(name="Reincarnate",
                          spell_lists=[SpellLists.PRIMAL],
                          level=5,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="rare oils and unguents worth at least 1,000 gp, which the spell consumes",
-                         duration="Instantaneous",
+                         material_components_list="rare oils and unguents worth at least 1,000 gp, which the spell "
+                                                  "consumes",
                          description="You touch a dead humanoid or a piece of a dead humanoid. " +
                          "Provided that the creature has been dead no longer than 10 " +
                          "days, the spell forms a new adult body for it and then calls " +
@@ -8525,12 +8500,10 @@ class RemoveCurse(spells.Spell):
         super().__init__(name="Remove Curse",
                          spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
                          level=3,
-                         school=SpellSchools.Abjuration,
+                         school=SpellSchools.ABJURATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="At your touch, all curses affecting one creature or object " +
                          "end. If the object is a cursed magic item, its curse remains, " +
                          "but the spell breaks its owner's attunement to the object so " +
@@ -8550,11 +8523,12 @@ class ResilientSphere(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=4,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a hemispherical piece of clear crystal and a matching hemispherical piece of gum arabic",
+                         material_components_list="a hemispherical piece of clear crystal and a matching "
+                                                  "hemispherical piece of gum arabic",
                          duration="1 minute",
                          description="A sphere of shimmering force encloses a creature or object of " +
                          "Large size or smaller within range. An unwilling creature must " +
@@ -8587,7 +8561,7 @@ class Resistance(spells.Spell):
                          spell_lists=[SpellLists.DIVINE, SpellLists.PRIMAL],
                          concentration=True,
                          level=0,
-                         school=SpellSchools.Abjuration,
+                         school=SpellSchools.ABJURATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
@@ -8611,12 +8585,11 @@ class Resurrection(spells.Spell):
         super().__init__(name="Resurrection",
                          spell_lists=[SpellLists.DIVINE],
                          level=7,
-                         school=SpellSchools.Necromancy,
+                         school=SpellSchools.NECROMANCY,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
                          material_components_list="a diamond worth at least 1,000 gp, which the spell consumes",
-                         duration="Instantaneous",
                          description="You touch a dead creature that has been dead for no more than " +
                          "a century, that didn't die of old age, and that isn't undead. " +
                          "If its soul is free and willing, the target returns to life " +
@@ -8649,7 +8622,7 @@ class ReverseGravity(spells.Spell):
                          spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
                          concentration=True,
                          level=7,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="100 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -8682,12 +8655,11 @@ class Revivify(spells.Spell):
         super().__init__(name="Revivify",
                          spell_lists=[SpellLists.DIVINE, SpellLists.PRIMAL],
                          level=3,
-                         school=SpellSchools.Necromancy,
+                         school=SpellSchools.NECROMANCY,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
                          material_components_list="diamonds worth 300 gp, which the spell consumes",
-                         duration="Instantaneous",
                          description="You touch a creature that has died within the last minute. " +
                          "That creature returns to life with 1 hit point. This spell " +
                          "can't return to life a creature that has died of old age, nor " +
@@ -8706,7 +8678,7 @@ class RopeTrick(spells.Spell):
         super().__init__(name="Rope Trick",
                          spell_lists=[SpellLists.ARCANE],
                          level=2,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
@@ -8739,12 +8711,10 @@ class SacredFlame(spells.Spell):
         super().__init__(name="Sacred Flame",
                          spell_lists=[SpellLists.DIVINE],
                          level=0,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="Flame-like radiance descends on a creature that you can see " +
                          "within range. The target must succeed on a Dexterity saving " +
                          "throw or take 1d8 radiant damage. The target gains no benefit " +
@@ -8765,7 +8735,7 @@ class Sanctuary(spells.Spell):
         super().__init__(name="Sanctuary",
                          spell_lists=[SpellLists.DIVINE],
                          level=1,
-                         school=SpellSchools.Abjuration,
+                         school=SpellSchools.ABJURATION,
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -8793,12 +8763,10 @@ class ScorchingRay(spells.Spell):
         super().__init__(name="Scorching Ray",
                          spell_lists=[SpellLists.ARCANE],
                          level=2,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="120 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="You create three rays of fire and hurl them at targets within " +
                          "range. You can hurl them at one target or several. Make a " +
                          "ranged spell attack for each ray. On a hit, the target takes " +
@@ -8821,11 +8789,12 @@ class Scrying(spells.Spell):
                                       SpellLists.DIVINE, SpellLists.PRIMAL],
                          concentration=True,
                          level=5,
-                         school=SpellSchools.Divination,
+                         school=SpellSchools.DIVINATION,
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a focus worth at least 1,000 gp, such as a crystal ball, a silver mirror, or a font filled with holy water",
+                         material_components_list="a focus worth at least 1,000 gp, such as a crystal ball, a silver "
+                                                  "mirror, or a font filled with holy water",
                          duration="10 minutes",
                          description="You can see and hear a particular creature you choose that is " +
                          "on the same plane of existence as you. The target must make a " +
@@ -8862,12 +8831,13 @@ class SecretChest(spells.Spell):
         super().__init__(name="Secret Chest",
                          spell_lists=[SpellLists.ARCANE],
                          level=4,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="an exquisite chest, 3 feet by 2 feet by 2 feet, constructed from rare materials worth at least 5,000 gp, and a Tiny replica made from the same materials worth at least 50 gp",
-                         duration="Instantaneous",
+                         material_components_list="an exquisite chest, 3 feet by 2 feet by 2 feet, constructed from "
+                                                  "rare materials worth at least 5,000 gp, and a Tiny replica made "
+                                                  "from the same materials worth at least 50 gp",
                          description="You hide a chest, and all its contents, on the Ethereal Plane. " +
                          "You must touch the chest and the miniature replica that serves " +
                          "as a material component for the spell. The chest can contain " +
@@ -8897,7 +8867,7 @@ class SeeInvisibility(spells.Spell):
         super().__init__(name="See Invisibility",
                          spell_lists=[SpellLists.ARCANE],
                          level=2,
-                         school=SpellSchools.Divination,
+                         school=SpellSchools.DIVINATION,
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
@@ -8920,11 +8890,10 @@ class Seeming(spells.Spell):
         super().__init__(name="Seeming",
                          spell_lists=[SpellLists.ARCANE],
                          level=5,
-                         school=SpellSchools.Illusion,
+                         school=SpellSchools.ILLUSION,
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="8 hours",
                          description="This spell allows you to change the appearance of any number " +
                          "of creatures that you can see within range. You give each " +
@@ -8962,7 +8931,7 @@ class Sending(spells.Spell):
         super().__init__(name="Sending",
                          spell_lists=[SpellLists.ARCANE],
                          level=3,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="Unlimited",
                          verbal_components=True,
                          somatic_components=True,
@@ -8991,11 +8960,12 @@ class Sequester(spells.Spell):
         super().__init__(name="Sequester",
                          spell_lists=[SpellLists.ARCANE],
                          level=7,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a powder composed of diamond, emerald, ruby, and sapphire dust worth at least 5,000 gp, which the spell consumes",
+                         material_components_list="a powder composed of diamond, emerald, ruby, and sapphire dust "
+                                                  "worth at least 5,000 gp, which the spell consumes",
                          duration="Until dispelled",
                          description="By means of this spell, a willing creature or an object can be " +
                          "hidden away, safe from detection for the duration. When you " +
@@ -9024,11 +8994,12 @@ class Shapechange(spells.Spell):
                          spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
                          concentration=True,
                          level=9,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a jade circlet worth at least 1,500 gp, which you must place on your head before you cast the spell",
+                         material_components_list="a jade circlet worth at least 1,500 gp, which you must place on "
+                                                  "your head before you cast the spell",
                          duration="1 hour",
                          description="You assume the form of a different creature for the duration. " +
                          "The new form can be of any creature with a challenge rating " +
@@ -9083,12 +9054,11 @@ class Shatter(spells.Spell):
         super().__init__(name="Shatter",
                          spell_lists=[SpellLists.ARCANE],
                          level=2,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
                          material_components_list="a chip of mica",
-                         duration="Instantaneous",
                          description="A sudden loud ringing noise, painfully intense, erupts from a " +
                          "point of your choice within range. Each creature in a " +
                          "10-foot-radius sphere centered on that point must make a " +
@@ -9114,11 +9084,10 @@ class ShieldSpell(spells.Spell):
         super().__init__(name="Shield",
                          spell_lists=[SpellLists.ARCANE],
                          level=1,
-                         school=SpellSchools.Abjuration,
+                         school=SpellSchools.ABJURATION,
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 round",
                          description="An invisible barrier of magical force appears and protects " +
                          "you. Until the start of your next turn, you have a +5 bonus to " +
@@ -9139,7 +9108,7 @@ class ShieldOfFaith(spells.Spell):
                          spell_lists=[SpellLists.DIVINE],
                          concentration=True,
                          level=1,
-                         school=SpellSchools.Abjuration,
+                         school=SpellSchools.ABJURATION,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -9162,7 +9131,7 @@ class Shillelagh(spells.Spell):
         super().__init__(name="Shillelagh",
                          spell_lists=[SpellLists.PRIMAL],
                          level=0,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
@@ -9189,12 +9158,10 @@ class ShockingGrasp(spells.Spell):
         super().__init__(name="Shocking Grasp",
                          spell_lists=[SpellLists.ARCANE],
                          level=0,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="Lightning springs from your hand to deliver a shock to a " +
                          "creature you try to touch. Make a melee spell attack against " +
                          "the target. You have advantage on the attack roll if the " +
@@ -9219,11 +9186,10 @@ class Silence(spells.Spell):
                          concentration=True,
                          ritual=True,
                          level=2,
-                         school=SpellSchools.Illusion,
+                         school=SpellSchools.ILLUSION,
                          spell_range="120 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="10 minutes",
                          description="For the duration, no sound can be created within or pass " +
                          "through a 20-foot-radius sphere centered on a point you choose " +
@@ -9246,7 +9212,7 @@ class SilentImage(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=1,
-                         school=SpellSchools.Illusion,
+                         school=SpellSchools.ILLUSION,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -9283,11 +9249,15 @@ class Simulacrum(spells.Spell):
         super().__init__(name="Simulacrum",
                          spell_lists=[SpellLists.ARCANE],
                          level=7,
-                         school=SpellSchools.Illusion,
+                         school=SpellSchools.ILLUSION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="snow or ice in quantities sufficient to made a life-size copy of the duplicated creature; some hair, fingernail clippings, or other piece of that creature's body placed inside the snow or ice; and powdered ruby worth 1,500 gp, sprinkled over the duplicate and consumed by the spell",
+                         material_components_list="snow or ice in quantities sufficient to made a life-size copy of "
+                                                  "the duplicated creature; some hair, fingernail clippings, "
+                                                  "or other piece of that creature's body placed inside the snow or "
+                                                  "ice; and powdered ruby worth 1,500 gp, sprinkled over the "
+                                                  "duplicate and consumed by the spell",
                          duration="Until dispelled",
                          description="You shape an illusory duplicate of one beast or humanoid that " +
                          "is within range for the entire casting time of the spell. The " +
@@ -9323,7 +9293,7 @@ class Sleep(spells.Spell):
         super().__init__(name="Sleep",
                          spell_lists=[SpellLists.ARCANE],
                          level=1,
-                         school=SpellSchools.Enchantment,
+                         school=SpellSchools.ENCHANTMENT,
                          spell_range="90 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -9359,7 +9329,7 @@ class SleetStorm(spells.Spell):
                          spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
                          concentration=True,
                          level=3,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="150 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -9391,7 +9361,7 @@ class Slow(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=3,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="120 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -9427,12 +9397,10 @@ class SpareTheDying(spells.Spell):
         super().__init__(name="Spare the Dying",
                          spell_lists=[SpellLists.DIVINE, SpellLists.PRIMAL],
                          level=0,
-                         school=SpellSchools.Necromancy,
+                         school=SpellSchools.NECROMANCY,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="You touch a living creature that has 0 hit points. The " +
                          "creature becomes stable. This spell has no effect on undead or " +
                          "constructs. ",
@@ -9451,11 +9419,10 @@ class SpeakWithAnimals(spells.Spell):
                          spell_lists=[SpellLists.PRIMAL],
                          ritual=True,
                          level=1,
-                         school=SpellSchools.Divination,
+                         school=SpellSchools.DIVINATION,
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="10 minutes",
                          description="You gain the ability to comprehend and verbally communicate " +
                          "with beasts for the duration. The knowledge and awareness of " +
@@ -9479,7 +9446,7 @@ class SpeakWithDead(spells.Spell):
         super().__init__(name="Speak with Dead",
                          spell_lists=[SpellLists.DIVINE],
                          level=3,
-                         school=SpellSchools.Necromancy,
+                         school=SpellSchools.NECROMANCY,
                          spell_range="10 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -9513,11 +9480,10 @@ class SpeakWithPlants(spells.Spell):
         super().__init__(name="Speak with Plants",
                          spell_lists=[SpellLists.PRIMAL],
                          level=3,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="Self (30-foot radius)",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="10 minutes",
                          description="You imbue plants within 30 feet of you with limited sentience " +
                          "and animation, giving them the ability to communicate with you " +
@@ -9553,7 +9519,7 @@ class SpiderClimb(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=2,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
@@ -9578,7 +9544,7 @@ class SpikeGrowth(spells.Spell):
                          spell_lists=[SpellLists.PRIMAL],
                          concentration=True,
                          level=2,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="150 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -9608,7 +9574,7 @@ class SpiritGuardians(spells.Spell):
                          spell_lists=[SpellLists.DIVINE],
                          concentration=True,
                          level=3,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="Self (15-foot radius)",
                          verbal_components=True,
                          somatic_components=True,
@@ -9642,11 +9608,10 @@ class SpiritualWeapon(spells.Spell):
         super().__init__(name="Spiritual Weapon",
                          spell_lists=[SpellLists.DIVINE],
                          level=2,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 minute",
                          description="You create a floating, spectral weapon within range that lasts " +
                          "for the duration or until you cast this spell again. When you " +
@@ -9677,7 +9642,7 @@ class StinkingCloud(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=3,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="90 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -9709,12 +9674,12 @@ class StoneShape(spells.Spell):
         super().__init__(name="Stone Shape",
                          spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
                          level=4,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="soft clay, which must be worked into roughly the desired shape of the stone object",
-                         duration="Instantaneous",
+                         material_components_list="soft clay, which must be worked into roughly the desired shape of "
+                                                  "the stone object",
                          description="You touch a stone object of Medium size or smaller or a " +
                          "section of stone no more than 5 feet in any dimension and form " +
                          "it into any shape that suits your purpose. So, for example, " +
@@ -9739,7 +9704,7 @@ class Stoneskin(spells.Spell):
                          spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
                          concentration=True,
                          level=4,
-                         school=SpellSchools.Abjuration,
+                         school=SpellSchools.ABJURATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
@@ -9763,11 +9728,10 @@ class StormOfVengeance(spells.Spell):
                          spell_lists=[SpellLists.PRIMAL],
                          concentration=True,
                          level=9,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="Sight",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 minute",
                          description="A churning storm cloud forms, centered on a point you can see " +
                          "and spreading to a radius of 360 feet. Lightning flashes in " +
@@ -9810,11 +9774,11 @@ class Suggestion(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=2,
-                         school=SpellSchools.Enchantment,
+                         school=SpellSchools.ENCHANTMENT,
                          spell_range="30 feet",
                          verbal_components=True,
-                         somatic_components=False,
-                         material_components_list="a snake's tongue and either a bit of honeycomb or a drop of sweet oil",
+                         material_components_list="a snake's tongue and either a bit of honeycomb or a drop of sweet "
+                                                  "oil",
                          duration="8 hours",
                          description="You suggest a course of activity (limited to a sentence or " +
                          "two) and magically influence a creature you can see within " +
@@ -9851,7 +9815,7 @@ class Sunbeam(spells.Spell):
                                       SpellLists.DIVINE, SpellLists.PRIMAL],
                          concentration=True,
                          level=6,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="Self (60-foot line)",
                          verbal_components=True,
                          somatic_components=True,
@@ -9883,12 +9847,11 @@ class Sunburst(spells.Spell):
                          spell_lists=[SpellLists.ARCANE,
                                       SpellLists.DIVINE, SpellLists.PRIMAL],
                          level=8,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="150 feet",
                          verbal_components=True,
                          somatic_components=True,
                          material_components_list="fire and a piece of sunstone",
-                         duration="Instantaneous",
                          description="Brilliant sunlight flashes in a 60-foot radius centered on a " +
                          "point you choose within range. Each creature in that light " +
                          "must make a Constitution saving throw. On a failed save, a " +
@@ -9914,11 +9877,12 @@ class Symbol(spells.Spell):
         super().__init__(name="Symbol",
                          spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
                          level=7,
-                         school=SpellSchools.Abjuration,
+                         school=SpellSchools.ABJURATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="mercury, phosphorus, and powdered diamond and opal with a total value of at least 1,000 gp, which the spell consumes",
+                         material_components_list="mercury, phosphorus, and powdered diamond and opal with a total "
+                                                  "value of at least 1,000 gp, which the spell consumes",
                          duration="Until dispelled or triggered",
                          description="When you cast this spell, you inscribe a harmful glyph either " +
                          "on a surface (such as a section of floor, a wall, or a table) " +
@@ -9994,11 +9958,10 @@ class Telekinesis(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=5,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="10 minutes",
                          description="You gain the ability to move or manipulate creatures or " +
                          "objects by thought. When you cast the spell, and as your " +
@@ -10044,7 +10007,7 @@ class TelepathicBond(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          ritual=True,
                          level=5,
-                         school=SpellSchools.Divination,
+                         school=SpellSchools.DIVINATION,
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -10072,12 +10035,9 @@ class Teleport(spells.Spell):
         super().__init__(name="Teleport",
                          spell_lists=[SpellLists.ARCANE],
                          level=7,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="10 feet",
                          verbal_components=True,
-                         somatic_components=False,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="This spell instantly transports you and up to eight willing " +
                          "creatures of your choice that you can see within range, or a " +
                          "single object that you can see within range, to a destination " +
@@ -10147,11 +10107,11 @@ class TeleportationCircle(spells.Spell):
         super().__init__(name="Teleportation Circle",
                          spell_lists=[SpellLists.ARCANE],
                          level=5,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="10 feet",
                          verbal_components=True,
-                         somatic_components=False,
-                         material_components_list="rare chalks and inks infused with precious gems with 50 gp, which the spell consumes",
+                         material_components_list="rare chalks and inks infused with precious gems with 50 gp, "
+                                                  "which the spell consumes",
                          duration="1 round",
                          description="As you cast the spell, you draw a 10-foot-diameter circle on " +
                          "the ground inscribed with sigils that link your location to a " +
@@ -10188,11 +10148,9 @@ class Thaumaturgy(spells.Spell):
         super().__init__(name="Thaumaturgy",
                          spell_lists=[SpellLists.DIVINE],
                          level=0,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="30 feet",
                          verbal_components=True,
-                         somatic_components=False,
-                         material_components_list=None,
                          duration="Up to 1 minute",
                          description="You manifest a minor wonder, a sign of supernatural power, " +
                          "within range. You create one of the following magical effects " +
@@ -10222,12 +10180,10 @@ class Thunderwave(spells.Spell):
         super().__init__(name="Thunderwave",
                          spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
                          level=1,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="Self (15-foot cube)",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="A wave of thunderous force sweeps out from you. Each creature " +
                          "in a 15-foot cube originating from you must make a " +
                          "Constitution saving throw. On a failed save, a creature takes " +
@@ -10253,12 +10209,9 @@ class TimeStop(spells.Spell):
         super().__init__(name="Time Stop",
                          spell_lists=[SpellLists.ARCANE],
                          level=9,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="Self",
                          verbal_components=True,
-                         somatic_components=False,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="You briefly stop the flow of time for everyone but yourself. " +
                          "No time passes for other creatures, while you take 1d4 + 1 " +
                          "turns in a row, during which you can use actions and move as " +
@@ -10283,7 +10236,7 @@ class TinyHut(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          ritual=True,
                          level=3,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="Self (10-foot-radius hemisphere)",
                          verbal_components=True,
                          somatic_components=True,
@@ -10317,10 +10270,9 @@ class Tongues(spells.Spell):
         super().__init__(name="Tongues",
                          spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
                          level=3,
-                         school=SpellSchools.Divination,
+                         school=SpellSchools.DIVINATION,
                          spell_range="Touch",
                          verbal_components=True,
-                         somatic_components=False,
                          material_components_list="a small clay model of a ziggurat",
                          duration="1 hour",
                          description="This spell grants the creature you touch the ability to " +
@@ -10341,11 +10293,10 @@ class TransportViaPlants(spells.Spell):
         super().__init__(name="Transport via Plants",
                          spell_lists=[SpellLists.PRIMAL],
                          level=6,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="10 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 round",
                          description="This spell creates a magical link between a Large or larger " +
                          "inanimate plant within range and another plant, at any " +
@@ -10368,11 +10319,10 @@ class TreeStride(spells.Spell):
                          spell_lists=[SpellLists.PRIMAL],
                          concentration=True,
                          level=5,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 minute",
                          description="You gain the ability to enter a tree and move from inside it " +
                          "to inside another tree of the same kind within 500 feet. Both " +
@@ -10402,7 +10352,7 @@ class TruePolymorph(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=9,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -10466,12 +10416,12 @@ class TrueResurrection(spells.Spell):
         super().__init__(name="True Resurrection",
                          spell_lists=[SpellLists.DIVINE, SpellLists.PRIMAL],
                          level=9,
-                         school=SpellSchools.Necromancy,
+                         school=SpellSchools.NECROMANCY,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a sprinkle of holy water and diamonds worth at least 25,000 gp, which the spell consumes",
-                         duration="Instantaneous",
+                         material_components_list="a sprinkle of holy water and diamonds worth at least 25,000 gp, "
+                                                  "which the spell consumes",
                          description="You touch a creature that has been dead for no longer than 200 " +
                          "years and that died for any reason except old age. If the " +
                          "creature's soul is free and willing, the creature is restored " +
@@ -10497,11 +10447,12 @@ class TrueSeeing(spells.Spell):
         super().__init__(name="True Seeing",
                          spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
                          level=6,
-                         school=SpellSchools.Divination,
+                         school=SpellSchools.DIVINATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="an ointment for the eyes that costs 25 gp; is made from mushroom powder, saffron, and fat; and is consumed by the spell",
+                         material_components_list="an ointment for the eyes that costs 25 gp; is made from mushroom "
+                                                  "powder, saffron, and fat; and is consumed by the spell",
                          duration="1 hour",
                          description="This spell gives the willing creature you touch the ability to " +
                          "see things as they actually are. For the duration, the " +
@@ -10523,11 +10474,9 @@ class TrueStrike(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=0,
-                         school=SpellSchools.Divination,
+                         school=SpellSchools.DIVINATION,
                          spell_range="30 feet",
-                         verbal_components=False,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 round",
                          description="You extend your hand and point a finger at a target in range. " +
                          "Your magic grants you a brief insight into the target's " +
@@ -10549,7 +10498,7 @@ class UnseenServant(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          ritual=True,
                          level=1,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -10585,11 +10534,10 @@ class VampiricTouch(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=3,
-                         school=SpellSchools.Necromancy,
+                         school=SpellSchools.NECROMANCY,
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="1 minute",
                          description="The touch of your shadow-wreathed hand can siphon life force " +
                          "from others to heal your wounds. Make a melee spell attack " +
@@ -10614,12 +10562,9 @@ class ViciousMockery(spells.Spell):
         super().__init__(name="Vicious Mockery",
                          spell_lists=[SpellLists.ARCANE],
                          level=0,
-                         school=SpellSchools.Enchantment,
+                         school=SpellSchools.ENCHANTMENT,
                          spell_range="60 feet",
                          verbal_components=True,
-                         somatic_components=False,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="You unleash a string of insults laced with subtle enchantments " +
                          "at a creature you can see within range. If the target can hear " +
                          "you (though it need not understand you), it must succeed on a " +
@@ -10643,7 +10588,7 @@ class WallOfFire(spells.Spell):
                          spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
                          concentration=True,
                          level=4,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="120 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -10679,7 +10624,7 @@ class WallOfForce(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=5,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="120 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -10716,7 +10661,7 @@ class WallOfIce(spells.Spell):
                          spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
                          concentration=True,
                          level=6,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="120 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -10758,7 +10703,7 @@ class WallOfStone(spells.Spell):
                          spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
                          concentration=True,
                          level=5,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="120 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -10766,7 +10711,7 @@ class WallOfStone(spells.Spell):
                          duration="10 minutes",
                          description="A nonmagical wall of solid stone springs into existence at a " +
                          "point you choose within range. The wall is 6 inches thick and " +
-                         "is composed of ten 10-footby-10-foot panels. Each panel must " +
+                         "is composed of ten 10-foot-by-10-foot panels. Each panel must " +
                          "be contiguous with at least one other panel. Alternatively, " +
                          "you can create 10-foot-by-20-foot panels that are only 3 " +
                          "inches thick. If the wall cuts through a creature's space when " +
@@ -10806,7 +10751,7 @@ class WallOfThorns(spells.Spell):
                          spell_lists=[SpellLists.PRIMAL],
                          concentration=True,
                          level=6,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="120 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -10844,11 +10789,12 @@ class WardingBond(spells.Spell):
         super().__init__(name="Warding Bond",
                          spell_lists=[SpellLists.DIVINE],
                          level=2,
-                         school=SpellSchools.Abjuration,
+                         school=SpellSchools.ABJURATION,
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a pair of platinum rings worth at least 50 gp each, which you and the target must wear for the duration",
+                         material_components_list="a pair of platinum rings worth at least 50 gp each, which you and "
+                                                  "the target must wear for the duration",
                          duration="1 hour",
                          description="This spell wards a willing creature you touch and creates a " +
                          "mystic connection between you and the target until the spell " +
@@ -10875,7 +10821,7 @@ class WaterBreathing(spells.Spell):
                          spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
                          ritual=True,
                          level=3,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -10900,7 +10846,7 @@ class WaterWalk(spells.Spell):
                          spell_lists=[SpellLists.PRIMAL],
                          ritual=True,
                          level=3,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -10929,7 +10875,7 @@ class Web(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=2,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -10967,11 +10913,10 @@ class Weird(spells.Spell):
                          spell_lists=[SpellLists.ARCANE],
                          concentration=True,
                          level=9,
-                         school=SpellSchools.Illusion,
+                         school=SpellSchools.ILLUSION,
                          spell_range="120 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="one minute",
                          description="Drawing on the deepest fears of a group of creatures, you " +
                          "create illusory creatures in their minds, visible only to " +
@@ -10997,7 +10942,7 @@ class WindWalk(spells.Spell):
         super().__init__(name="Wind Walk",
                          spell_lists=[SpellLists.PRIMAL],
                          level=6,
-                         school=SpellSchools.Transmutation,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -11031,7 +10976,7 @@ class WindWall(spells.Spell):
                          spell_lists=[SpellLists.PRIMAL],
                          concentration=True,
                          level=3,
-                         school=SpellSchools.Evocation,
+                         school=SpellSchools.EVOCATION,
                          spell_range="120 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -11067,12 +11012,9 @@ class Wish(spells.Spell):
         super().__init__(name="Wish",
                          spell_lists=[SpellLists.ARCANE],
                          level=9,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="Self",
                          verbal_components=True,
-                         somatic_components=False,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="Wish is the mightiest spell a mortal creature can cast. By " +
                          "simply speaking aloud, you can alter the very foundations of " +
                          "reality in accord with your desires. The basic use of this " +
@@ -11135,12 +11077,9 @@ class WordOfRecall(spells.Spell):
         super().__init__(name="Word of Recall",
                          spell_lists=[SpellLists.DIVINE],
                          level=6,
-                         school=SpellSchools.Conjuration,
+                         school=SpellSchools.CONJURATION,
                          spell_range="5 feet",
                          verbal_components=True,
-                         somatic_components=False,
-                         material_components_list=None,
-                         duration="Instantaneous",
                          description="You and up to five willing creatures within 5 feet of you " +
                          "instantly teleport to a previously designated sanctuary. You " +
                          "and any creatures that teleport with you appear in the nearest " +
@@ -11166,11 +11105,10 @@ class ZoneOfTruth(spells.Spell):
         super().__init__(name="Zone of Truth",
                          spell_lists=[SpellLists.DIVINE],
                          level=2,
-                         school=SpellSchools.Enchantment,
+                         school=SpellSchools.ENCHANTMENT,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list=None,
                          duration="10 minutes",
                          description="You create a magical zone that guards against deception in a " +
                          "15-foot-radius sphere centered on a point of your choice " +
@@ -11205,6 +11143,73 @@ class Dagger(weapons.Weapon):
                          light=True,
                          thrown=True,
                          attack_range=(20, 60),
+                         magical=magical,
+                         damage_bonus=damage_bonus,
+                         attack_bonus=attack_bonus)
+
+
+class Handaxe(weapons.Weapon):
+    """
+    Handaxe Weapon
+    SRD p. 66
+    """
+
+    def __init__(self,
+                 name: str = "Handaxe",
+                 magical: bool = False,
+                 damage_bonus: int = 0,
+                 attack_bonus: int = 0):
+        super().__init__(name=name,
+                         weapon_type=WeaponTypes.SIMPLE,
+                         damage_dice="1d6",
+                         damage_type=DamageTypes.SLASHING,
+                         light=True,
+                         thrown=True,
+                         attack_range=(20, 60),
+                         magical=magical,
+                         damage_bonus=damage_bonus,
+                         attack_bonus=attack_bonus)
+
+
+class Boomerang(weapons.Weapon):
+    """
+    Boomerang Weapon
+    SRD p. ??
+    """
+
+    def __init__(self,
+                 name: str = "Boomerang",
+                 magical: bool = False,
+                 damage_bonus: int = 0,
+                 attack_bonus: int = 0):
+        super().__init__(name=name,
+                         weapon_type=WeaponTypes.SIMPLE,
+                         damage_dice="1d4",
+                         damage_type=DamageTypes.BLUDGEONING,
+                         thrown=True,
+                         attack_range=(60, 120),
+                         magical=magical,
+                         damage_bonus=damage_bonus,
+                         attack_bonus=attack_bonus)
+
+
+class Maul(weapons.Weapon):
+    """
+    Maul Weapon
+    SRD p. 66
+    """
+
+    def __init__(self,
+                 name: str = "Maul",
+                 magical: bool = False,
+                 damage_bonus: int = 0,
+                 attack_bonus: int = 0):
+        super().__init__(name=name,
+                         weapon_type=WeaponTypes.MARTIAL,
+                         damage_dice="2d6",
+                         damage_type=DamageTypes.BLUDGEONING,
+                         heavy=True,
+                         two_handed=True,
                          magical=magical,
                          damage_bonus=damage_bonus,
                          attack_bonus=attack_bonus)
@@ -11301,28 +11306,6 @@ class Longbow(weapons.Weapon):
                          attack_bonus=attack_bonus)
 
 
-class ZoneOfTruth(spells.Spell):
-    """
-    Zone of Truth Spell
-    SRD p. 0
-    """
-
-    def __init__(self):
-        super().__init__(name="Zone of Truth",
-                         spell_lists=[SpellLists.DIVINE],
-                         concentration=False,
-                         level=2,
-                         ritual=False,
-                         school=SpellSchools.Enchantment,
-                         spell_range="60 feet",
-                         verbal_components="True",
-                         somatic_components="True",
-                         material_components_list="",
-                         duration="10 minutes",
-                         description="You create a magical zone that guards against deception in a 15-foot-radius sphere centered on a point of your choice within range. Until the spell ends, a creature that enters the spell's area for the first time on a turn or starts its turn there must make a Charisma saving throw. On a failed save, a creature can't speak a deliberate lie while in the radius. You know whether each creature succeeds or fails on its saving throw. An affected creature is aware of the spell and can thus avoid answering questions to which it would normally respond with a lie. Such a creature can be evasive in its answers as long as it remains within the boundaries of the truth",
-                         at_higher_levels="")
-
-
 CONTENT = {
     "Armors": {
         "Padded": Padded,
@@ -11345,7 +11328,7 @@ CONTENT = {
         "Lore Bard": "OBSOLETE",
         # "Life Cleric": LifeCleric,
         # "Land Druid": LandDruid,
-        # "Champion Fighter": ChampionFighter,
+        "Champion Fighter": ChampionFighter,
         # "Open Hand Monk": OpenHandMonk,
         # "Devotion Paladin": DevotionPaladin,
         "Hunter Ranger": "OBSOLETE",
@@ -11707,7 +11690,7 @@ CONTENT = {
         # "Club": Club,
         "Dagger": Dagger,
         # "Greatclub": Greatclub,
-        # "Handaxe": Handaxe,
+        "Handaxe": Handaxe,
         # "Javelin": Javelin,
         # "Light Hammer": LightHammer,
         # "Mace": Mace,
@@ -11718,6 +11701,7 @@ CONTENT = {
         # "Dart": Dart,
         # "Shortbow": Shortbow,
         # "Sling": Sling,
+        "Boomerang": Boomerang,
         # "Battleaxe": Battleaxe,
         # "Flail": Flail,
         # "Glaive": Glaive,
@@ -11726,7 +11710,7 @@ CONTENT = {
         # "Halberd": Halberd,
         # "Lance": Lance,
         # "Longsword": Longsword,
-        # "Maul": Maul,
+        "Maul": Maul,
         # "Morningstar": Morningstar,
         # "Pike": Pike,
         "Rapier": Rapier,
