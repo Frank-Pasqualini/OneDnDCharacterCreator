@@ -85,6 +85,7 @@ def duration(text: str) -> str:
 
 
 def line_limit(text: str, limit: int, offset: int) -> str:
+    text = text.replace('\n', '\\n')
     if len(text) < limit:
         if text == '':
             return '""'
