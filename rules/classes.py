@@ -622,7 +622,7 @@ class Paladin(CharacterClass, ABC):
                                                     "sense, but not its identity (the vampire Count Strahd von "
                                                     "Zarovich, for instance). Within the same radius, you also detect "
                                                     "the presence of any place or object that has been consecrated or "
-                                                    "desecrated, as with the hallow spell.\n "
+                                                    "desecrated, as with the hallow spell.\n"
                                                     "You can use this feature a number of times equal to 1 + your "
                                                     "Charisma modifier. When you finish a long rest, you regain all "
                                                     "expended uses."),
@@ -675,7 +675,7 @@ class Paladin(CharacterClass, ABC):
                                                      "of prepared spells when you finish a long rest. Preparing a new "
                                                      "list of paladin spells requires time spent in prayer and "
                                                      "meditation: at least 1 minute per spell level for each spell on "
-                                                     "your list.\n "
+                                                     "your list.\n"
                                                      "Your spell slots determine the number of different Spells you "
                                                      "can prepare of each level.\n"
                                                      "Spellcasting Ability. Charisma is your Spellcasting Ability for "
@@ -685,7 +685,7 @@ class Paladin(CharacterClass, ABC):
         self._features.append(feats.Feat(name="Divine Smite",
                                          description="When you hit a creature with a melee weapon attack, you can "
                                                      "expend one spell slot to deal radiant damage to the target, "
-                                                     "in addition to the weapon’s damage. The extra damage is 2d8 for "
+                                                     "in addition to the weapon's damage. The extra damage is 2d8 for "
                                                      "a 1st-level spell slot, plus 1d8 for each spell level higher "
                                                      "than 1st, to a maximum of 5d8. The damage increases by 1d8 if "
                                                      "the target is an undead or a fiend."))
@@ -722,12 +722,12 @@ class Paladin(CharacterClass, ABC):
 
         self._features.append(feat)
 
-    def _level_up_9(self, expertise1: Skills, expertise2: Skills):
+    def _level_up_9(self):
         pass
 
     def _level_up_10(self):
         self._features.append(feats.Feat(name="Aura of Courage",
-                                         description="You and friendly creatures within 10 feet of you can’t be"
+                                         description="You and friendly creatures within 10 feet of you can't be"
                                                      "frightened while you are conscious.\n"
                                                      "At 18th level, the range of this aura increases to 30 feet."))
 
