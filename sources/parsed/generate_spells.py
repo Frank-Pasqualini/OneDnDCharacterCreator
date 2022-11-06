@@ -35,8 +35,7 @@ class {class_name}(spells.Spell):
                          spell_range="{range}",
                          verbal_components={verbal_components},
                          somatic_components={somatic_components},
-                         material_components_list={material_components_list},
-                         duration="{duration}",
+                         material_components_list={material_components_list},{duration}
                          description={description},
                          at_higher_levels={at_higher_levels})
 """
@@ -78,13 +77,23 @@ def material_components_list(text: str):
 
 
 def duration(text: str) -> str:
+    fmt = '\n                         duration="{duration}",'
     if 'Concentration, up to ' in text:
-        return text.replace('Concentration, up to ', '').strip()
+        return fmt.format(duration=text.replace('Concentration, up to ', '').strip())
+    elif text == 'Instantaneous':
+        return ''
     else:
-        return text
+        return fmt.format(duration=text)
 
 
 def line_limit(text: str, limit: int, offset: int) -> str:
+    indices = [i for i, x in enumerate(text) if x == '\n']
+    text = list(text)
+    for index in reversed(indices):
+        if text[index-1] != '.':
+            text[index] = ' '
+
+    text = ''.join(x for x in text if x != 0)
     text = text.replace('\n', '\\n')
     if len(text) < limit:
         if text == '':
@@ -132,7 +141,7 @@ def generate_spell(spell_json) -> str:
                                      spell_json['spell_list']),
                                  ritual=ritual(spell_json['is_ritual']),
                                  level=spell_json['level'],
-                                 school=spell_json['school'],
+                                 school=spell_json['school'].upper(),
                                  range=spell_json['spell_range'],
                                  verbal_components=spell_json['verbal_components'],
                                  somatic_components=spell_json['somatic_components'],
