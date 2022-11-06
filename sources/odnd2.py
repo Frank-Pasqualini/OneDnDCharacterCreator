@@ -132,11 +132,8 @@ class ThiefRogue(classes.Rogue):
                                          description="You have Advantage on every Dexterity Check (Stealth) you make, "
                                                      "provided you aren't wearing Medium or Heavy Armor."))
 
-    def _level_up_10(self, feat: feats.Feat):
-        if feat.get_level() > 10:
-            raise Exception("Invalid feat level. Must be 10 or lower")
-
-        self._features.append(feat)
+    def _level_up_10(self, **kwargs):
+        super()._level_up_10(**kwargs)
         self._features.append(feats.Feat(name="Use Magic Device",
                                          description="In your treasure hunting,you have learned how to maximize use "
                                                      "of magic items, granting you the following benefits:\n"
@@ -417,6 +414,20 @@ class FightingStyleArchery(feats.FightingStyle):
                          feat_bonuses=bonuses.Bonuses())  # TODO implement ranged attack bonus
 
 
+class FightingStyleDefense(feats.FightingStyle):
+    """
+    Fighting Style: Defense Feat
+    UA p. 19
+    """
+
+    def __init__(self):
+        super().__init__(name="Fighting Style: Archery",
+                         level=1,
+                         prerequisite="Warrior Group",
+                         description="While you are wearing armor, you gain a +1 bonus to Armor Class.",
+                         feat_bonuses=bonuses.Bonuses())  # TODO implement AC bonus
+
+
 class FightingStyleGreatWeapon(feats.FightingStyle):
     """
     Fighting Style: Great Weapon Fighting Feat
@@ -514,7 +525,7 @@ CONTENT = {
         # "Epic Boon of Undetectability": EpicBoonUndetectability,
         # "Epic Boon of the Unfettered": EpicBoonUnfettered,
         "Fighting Style: Archery": FightingStyleArchery,
-        # "Fighting Style: Defense": FightingStyleDefense,
+        "Fighting Style: Defense": FightingStyleDefense,
         # "Fighting Style: Dueling": FightingStyleDueling,
         "Fighting Style: Great Weapon Fighting": FightingStyleGreatWeapon,
         # "Fighting Style: Protection": FightingStyleProtection,

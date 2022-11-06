@@ -1723,7 +1723,7 @@ CONTENT = {
         "Lucky": Lucky,
         "Magic Initiate": MagicInitiate,
         "Musician": Musician,
-        "Savage Attacked": SavageAttacker,
+        "Savage Attacker": SavageAttacker,
         "Skilled": Skilled,
         "Tavern Brawler": TavernBrawler,
         "Tough": Tough,

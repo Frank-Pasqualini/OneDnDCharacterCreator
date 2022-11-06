@@ -218,6 +218,90 @@ class ChampionFighter(classes.Fighter):
                                                      "points."))
 
 
+class DevotionPaladin(classes.Paladin):
+    """
+    Oath of Devotion subclass for Paladin
+    SRD p. 25
+    """
+
+    def __init__(self, **kwargs):
+        super().__init__(name="Oath of Devotion Paladin", **kwargs)
+
+    def _level_up_3(self, content: dict[str, dict[str, any]]):
+        super()._level_up_3(content)
+        self._features.append(feats.Feat(name="Channel Divinity",
+                                         description="When you use your Channel Divinity, you choose which option to "
+                                                     "use. You must then finish a short or long rest to use your "
+                                                     "Channel Divinity again.\n"
+                                                     "Sacred Weapon. As an action, you can imbue one weapon that you "
+                                                     "are holding with positive energy, using your Channel Divinity. "
+                                                     "For 1 minute, you add your Charisma modifier to attack rolls "
+                                                     "made with that weapon (with a minimum bonus of +1). The weapon "
+                                                     "also emits bright light in a 20-foot radius and dim light 20 "
+                                                     "feet beyond that. If the weapon is not already magical, "
+                                                     "it becomes magical for the duration.\n"
+                                                     "You can end this effect on your turn as part of any other "
+                                                     "action. If you are no longer holding or carrying this weapon, "
+                                                     "or if you fall unconscious, this effect ends.\n"
+                                                     "Turn the Unholy. As an action, you present your holy symbol and "
+                                                     "speak a prayer censuring fiends and undead, using your Channel "
+                                                     "Divinity. Each fiend or undead that can see or hear you within "
+                                                     "30 feet of you must make a Wisdom saving throw. If the creature "
+                                                     "fails its saving throw, it is turned for 1 minute or until it "
+                                                     "takes damage.\n"
+                                                     "A turned creature must spend its turns trying to move as far "
+                                                     "away from you as it can, and it can’t willingly move to a space "
+                                                     "within 30 feet of you. It also can’t take reactions. For its "
+                                                     "action, it can use only the Dash action or try to escape from "
+                                                     "an effect that prevents it from moving. If there’s nowhere to "
+                                                     "move, the creature can use the Dodge action."))
+        self._features.append(feats.Feat(name="Oath Spells",
+                                         description="You gain access to these spells at the levels specified in the "
+                                                     "oath description. Once you gain access to an oath spell, you "
+                                                     "always have it prepared. Oath spells don’t count against the "
+                                                     "number of spells you can prepare each day.",
+                                         feat_spells=[
+                                             content["Spells"]["Protection from Evil and Good"](
+                                             ),
+                                             content["Spells"]["Sanctuary"](),
+                                             content["Spells"]["Lesser Restoration"](
+                                             ),
+                                             content["Spells"]["Zone of Truth"](),
+                                             content["Spells"]["Beacon of Hope"](),
+                                             content["Spells"]["Dispel Magic"](),
+                                             content["Spells"]["Freedom of Movement"](
+                                             ),
+                                             content["Spells"]["Guardian of Faith"](
+                                             ),
+                                             content["Spells"]["Commune"](),
+                                             content["Spells"]["Flame Strike"](),
+                                         ],
+                                         visible=False))
+
+    def _level_up_7(self):
+        self._features.append(feats.Feat(name="Aura of Devotion",
+                                         description="You and friendly creatures within 10 feet of you can’t be "
+                                                     "charmed while you are conscious.\n"
+                                                     "At 18th level, the range of this aura increases to 30 feet."))
+
+    def _level_up_15(self):
+        self._features.append(feats.Feat(name="Purity of Spirit",
+                                         description="You are always under the effects of a protection from evil and "
+                                                     "good spell."))
+
+    def _level_up_20(self):
+        self._features.append(feats.Feat(name="Holy Nimbus",
+                                         description="As an action, you can emanate an aura of sunlight. For 1 minute, "
+                                                     "bright light shines from you in a 30-foot radius, and dim light "
+                                                     "shines 30 feet beyond that.\n"
+                                                     "Whenever an enemy creature starts its turn in the bright light, "
+                                                     "the creature takes 10 radiant damage.\n"
+                                                     "In addition, for the duration, you have advantage on saving "
+                                                     "throws against spells cast by fiends or undead.\n"
+                                                     "Once you use this feature, you can’t use it again until you "
+                                                     "finish a long rest."))
+
+
 class AnimalFriendship(spells.Spell):
     """
     Animal Friendship Spell
