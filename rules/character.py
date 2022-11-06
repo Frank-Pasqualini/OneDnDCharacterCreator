@@ -3,13 +3,14 @@ All the information about a character.
 """
 import logging
 import math
+from typing import Tuple
 
 import PyPDF2
 from PyPDF2 import PdfReader, PdfWriter
 from PyPDF2.generic import NameObject
 
 from rules import abilities, armors, backgrounds, bonuses, classes, feats, magicitem, races, spells, weapons
-from rules.common import validate_string, mod
+from rules.common import validate_string, mod, WIDTHS
 from rules.enums import AbilityNames, Alignments, ArmorTraining, Languages, Skills
 
 
@@ -136,10 +137,33 @@ class Character:
             feature for features in [character_class.get_features() for character_class in self._classes]
             for feature in features]
 
-    def _get_known_spells(self) -> list[spells.Spell]:
+    def _get_features_and_traits(self) -> Tuple[str, str]:
+        compiled_features = self._get_features()
+
+        feats_and_traits_1 = ""
+        feats_and_traits_1_width = 0.0
+        feats_and_traits_2 = ""
+
+        for feature in compiled_features:
+            if feature.summary() is not None:
+                summary = feature.summary() + "\n\n"
+                size = 0.0
+
+                for char in summary:
+                    size += WIDTHS[char]
+
+                if feats_and_traits_2 == "" and feats_and_traits_1_width + size < 50000:
+                    feats_and_traits_1 += summary
+                    feats_and_traits_1_width += size
+                else:
+                    feats_and_traits_2 += summary
+
+        return feats_and_traits_1, feats_and_traits_2
+
+    def _get_known_spells(self, content: dict[str, dict[str, any]], ) -> list[spells.Spell]:
         spell_list = []
         for character_class in self._classes:
-            spell_list += character_class.get_known_spells()
+            spell_list += character_class.get_known_spells(content)
 
         return sorted(spell_list)
 
@@ -237,9 +261,11 @@ class Character:
     def level_up(self, character_class: int, **kwargs):
         self._classes[character_class].level_up(**kwargs)
 
-    def write_character_sheet(self, filepath: str):
+    def write_character_sheet(self, content: dict[str, dict[str, any]], filepath: str):
         """
         Writes out a 5e character sheet from this character
+        :param content: The content dictionary
+        :type content: dict[str, dict[str, any]]
         :param filepath: The pdf file to write to
         :type filepath: str
         """
@@ -250,7 +276,6 @@ class Character:
         writer.add_page(reader.pages[0])
 
         compiled_abilities = self._get_abilities()
-        compiled_features = self._get_features()
         compiled_bonuses = self._get_bonuses()
         prof_bonus = self._get_proficiency_bonus()
 
@@ -263,6 +288,8 @@ class Character:
 
         skills = compiled_bonuses.get_skills()
         s_throws = compiled_bonuses.get_saving_throws()
+
+        f_and_t_1, f_and_t_2 = self._get_features_and_traits()
 
         writer.update_page_form_field_values(
             writer.pages[0], {
@@ -289,9 +316,7 @@ class Character:
                 "EP": "",
                 "Equipment": "\n".join([self._armor.get_name() if self._armor is not None else ""] + [
                     self._shield.get_name() if self._shield is not None else ""]),
-                "Feat+Traits ": "",  # TODO Implement if first Feat box gets too long
-                "Features and Traits": "\n\n".join(feature.summary() for feature in compiled_features
-                                                   if feature.summary() is not None),
+                "Features and Traits": f_and_t_1,
                 "Flaws": str(self._background.get_flaws()),
                 "GP": "",
                 "HD": "",
@@ -408,7 +433,7 @@ class Character:
                 "CharacterName 2": self._name,
                 "Eyes": self._eyes,
                 "FactionName": self._faction,
-                "Feat+Traits": "",
+                "Feat+Traits": f_and_t_2,
                 "Hair": self._hair,
                 "Height": self._height,
                 "Skin": self._skin,
@@ -436,7 +461,7 @@ class Character:
                 image.getPage(0), scale=0.137, tx=435, ty=530)
 
         prepared_spells = self._get_prepared_spells()
-        known_spells = self._get_known_spells()
+        known_spells = self._get_known_spells(content)
         all_spells = prepared_spells + sorted(
             list(set(known_spells) - set(prepared_spells)))
         if len(all_spells) > 0:

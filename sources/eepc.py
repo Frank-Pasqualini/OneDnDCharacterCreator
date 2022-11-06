@@ -2,9 +2,47 @@
 Content from the Dungeons and Dragons Elemental Evil Player's Companion.
 https://media.wizards.com/2015/downloads/dnd/EE_PlayersCompanion.pdf
 """
+from rules import bonuses, feats, races, spells
+from rules.enums import ProficiencyLevels, Skills, SpellLists, SpellSchools
 
-from rules import spells
-from rules.enums import SpellLists, SpellSchools
+
+class Goliath(races.Race):
+    """
+    Goliath Race
+    EEPC p. 11
+    """
+
+    def __init__(self):
+        super().__init__(name="Goliath",
+                         features=[
+                             feats.Feat(
+                                 name="Natural Athlete",
+                                 description="You have proficiency in the Athletics skill.",
+                                 feat_bonuses=bonuses.Bonuses(
+                                     skills={
+                                         Skills.ATHLETICS: ProficiencyLevels.PROFICIENT}
+                                 ),
+                                 visible=False
+                             ),
+                             feats.Feat(
+                                 name="Stone's Endurance",
+                                 description="You can focus yourself to occasionally shrug off injury. When you take "
+                                             "damage, you can use your reaction to roll a d12. Add your Constitution "
+                                             "modifier to the number rolled, and reduce the damage by that total. "
+                                             "After you use this trait, you can't use it again until you finish a "
+                                             "short or long rest."
+                             ),
+                             feats.Feat(
+                                 name="Powerful Build",
+                                 description="You count as one size larger when determining your carrying capacity "
+                                             "and the weight you can push, drag, or lift."
+                             ),
+                             feats.Feat(
+                                 name="Mountain Born",
+                                 description="You're acclimated to high altitude, including elevations above 20,"
+                                             "000 feet. You're also naturally adapted to cold climates."
+                             ),
+                         ])
 
 
 class AbsorbElements(spells.Spell):
@@ -328,6 +366,20 @@ class Skywrite(spells.Spell):
 
 
 CONTENT = {
+    "Feats": {
+        # TODO
+        # "Svirfneblin Magic": SvirfneblinMagic,
+    },
+    "Races": {
+        # TODO The rest of the races,
+        # "Aaracokra": Aaracokra,
+        # "Deep Gnome": DeepGnome,
+        # "Air Genasi": AirGenasi,
+        # "Earth Genasi": EarthGenasi,
+        # "Fire Genasi": FireGenasi,
+        # "Water Genasi": WaterGenasi,
+        "Goliath": Goliath,
+    },
     "Spells": {
         # TODO The rest of the spells
         # "Abi-Dalzim's Horrid Wilting": HorridWilting,
@@ -374,5 +426,4 @@ CONTENT = {
         # "Watery Sphere": WaterySphere,
         # "Whirlwind": Whirlwind,
     }
-    # TODO The rest of the content
 }

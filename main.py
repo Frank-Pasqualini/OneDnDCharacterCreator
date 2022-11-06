@@ -73,7 +73,7 @@ def main(characters: list[str], sources: list[str]):
         try:
             finished_character = character.create(content)
             finished_character.write_character_sheet(
-                f"output/{finished_character.get_name()}.pdf")
+                content, f"output/{finished_character.get_name()}.pdf")
         except AttributeError as exc:
             logging.error(
                 "%s has not correctly implemented a create() method", character)
