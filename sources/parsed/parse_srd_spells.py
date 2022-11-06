@@ -133,7 +133,8 @@ def get_duration(text: str) -> str:
 
 
 def get_desc_higher_levels(lines: list[str]) -> tuple[str, str]:
-    text = '\n'.join(lines).replace('  ', ' ').replace(" '", "'")
+    text = '\n'.join(lines).replace('\n ', '\n').replace(
+        "\n'", "'").replace(' \n', '\n')
     description, *higher_levels = text.split('At Higher Levels.')
     return (description.strip(), ''.join(higher_levels).strip())
 
