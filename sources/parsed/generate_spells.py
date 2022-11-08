@@ -89,12 +89,13 @@ def duration(text: str) -> str:
 def line_limit(text: str, limit: int, offset: int) -> str:
     indices = [i for i, x in enumerate(text) if x == '\n']
     text = list(text)
+    padding = ' ' * offset
+    # remove formatting newlines
     for index in reversed(indices):
         if text[index-1] != '.':
             text[index] = ' '
 
-    text = ''.join(x for x in text if x != 0)
-    text = text.replace('\n', '\\n')
+    text = ''.join(x for x in text if x != '')
     if len(text) < limit:
         if text == '':
             return '""'
@@ -103,22 +104,32 @@ def line_limit(text: str, limit: int, offset: int) -> str:
     wraps = []
     cur = ''
     text = text.split(' ')
-    print(text)
     for i, word in enumerate(text):
         if len(cur) + len(word) - 3 < limit:
             # can add to cur
-            cur += word + ' '
+            if "\n" in word:
+                first, second = word.split("\n")
+                print(first, second)
+                cur += first + '\n'
+                if len(wraps) != 0:
+                    cur = padding + '"' + cur + '"'
+                wraps.append(cur)
+                cur = second + ''
+            else:
+                cur += word + ' '
         else:
             to_append = '"' + cur + '"'
 
             if len(wraps) != 0:
-                to_append = ' ' * offset + to_append
+                to_append = padding + to_append
             wraps.append(to_append)
             cur = word + ' '
 
         if i == len(text) - 1:
             # print(word)
-            wraps.append(' ' * offset + '"' + cur + '"')
+            wraps.append(padding + '"' + cur + '"')
+    wraps = [x.replace('\n', '\\n') for x in wraps]
+    wraps = [x.replace('.\\n', '.\\n" +\n' + padding + '"') for x in wraps]
     return ' +\n'.join(wraps)
 
 
