@@ -1,23 +1,7 @@
 import json
 
-spell_info = json.loads(open('sources/parsed/odnd2_srd.json').read())
+spell_info = json.loads(open("sources/parsed/odnd2_srd.json").read())
 
-spell_fields = [
-    'name',
-    'spell_lists',
-    'level',
-    'school',
-    'spell_range',
-    'description',
-    'ritual',
-    'casting_time',
-    'verbal_components',
-    'somatic_components',
-    'material_components_list',
-    'concentration',
-    'duration',
-    'at_higher_levels'
-]
 
 spell_template = """
 class {class_name}(spells.Spell):
@@ -42,20 +26,29 @@ class {class_name}(spells.Spell):
 
 
 def concentration(conc: bool) -> str:
+    """
+    format concentration string
+    """
     if conc:
-        return '\n                         concentration=True,'
+        return "\n                         concentration=True,"
     else:
-        return ''
+        return ""
 
 
 def ritual(rit: bool) -> str:
+    """
+    format ritual string 
+    """
     if rit:
-        return '\n                         ritual=True,'
+        return "\n                         ritual=True,"
     else:
         return ''
 
 
 def class_name(name: str) -> str:
+    """
+    format class name string
+    """
     name = name.replace('/', ' ')
     for x in "/\\'":
         name = name.replace(x, '')
@@ -64,12 +57,18 @@ def class_name(name: str) -> str:
     return name
 
 
-def spell_list(s: list[str]) -> str:
-    s = ['SpellLists.' + x.upper() for x in s]
-    return '[' + ', '.join(s) + "]"
+def spell_list(spell_lists: list[str]) -> str:
+    """
+    format spell list text
+    """
+    spell_lists = ['SpellLists.' + x.upper() for x in spell_lists]
+    return '[' + ', '.join(spell_lists) + ']'
 
 
 def material_components_list(text: str):
+    """
+    format material components string
+    """
     if text == '':
         return None
     else:
@@ -77,6 +76,9 @@ def material_components_list(text: str):
 
 
 def duration(text: str) -> str:
+    """
+    format duration string
+    """
     fmt = '\n                         duration="{duration}",'
     if 'Concentration, up to ' in text:
         return fmt.format(duration=text.replace('Concentration, up to ', '').strip())
@@ -87,6 +89,9 @@ def duration(text: str) -> str:
 
 
 def line_limit(text: str, limit: int, offset: int) -> str:
+    """
+    format strings with newlines < limit
+    """
     indices = [i for i, x in enumerate(text) if x == '\n']
     text = list(text)
     padding = ' ' * offset
@@ -107,9 +112,8 @@ def line_limit(text: str, limit: int, offset: int) -> str:
     for i, word in enumerate(text):
         if len(cur) + len(word) - 3 < limit:
             # can add to cur
-            if "\n" in word:
-                first, second = word.split("\n")
-                print(first, second)
+            if '\n' in word:
+                first, second = word.split('\n')
                 cur += first + '\n'
                 if len(wraps) != 0:
                     cur = padding + '"' + cur + '"'
@@ -133,7 +137,10 @@ def line_limit(text: str, limit: int, offset: int) -> str:
     return ' +\n'.join(wraps)
 
 
-def generate_spell(spell_json) -> str:
+def generate_spell_code(spell_json) -> str:
+    """
+    generate and format spell class def using helper functions
+    """
     if 'description' not in spell_json:
         return None
 
@@ -166,7 +173,8 @@ def generate_spell(spell_json) -> str:
                                  )
 
 
-res = [generate_spell(x) for x in sorted(spell_info, key=lambda x: x['name'])]
+res = [generate_spell_code(x)
+       for x in sorted(spell_info, key=lambda x: x['name'])]
 
 open('sources/parsed/generated_spells.py', 'w+',
      encoding='utf-8').write('\n'.join([x for x in res if x != None]))
