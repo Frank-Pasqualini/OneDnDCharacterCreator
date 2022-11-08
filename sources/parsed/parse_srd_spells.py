@@ -1,10 +1,10 @@
-from msilib.schema import Component
-from msvcrt import kbhit
+"""
+Author: Bret Barkley
+"""
 import json
-import re
 import string
-from weakref import KeyedRef
-txt = open('sources\parsed\srd_spells.txt', encoding='utf-8').read()
+
+txt = open('sources/parsed/srd_spells.txt', encoding='utf-8').read()
 txt = txt.replace('\t', ' ').replace('’', "'")
 starting_page = 115
 # txt = txt.split('\n')
@@ -12,41 +12,45 @@ starting_page = 115
 #    print(x)
 
 
-lines = txt.split('\n')
-line_num = 0
+LINES = txt.split('\n')
+LINE_NUM = 0
 
-schools = ['Abjuration', 'Transmutation', 'Conjuration', 'Divination',
+SCHOOLS = ['Abjuration', 'Transmutation', 'Conjuration', 'Divination',
            'Enchantment', 'Illusion', 'Evocation', 'Necromancy']
-levels = ['1st-level',
+LEVELS = ['1st-level',
           '2nd-level', '3rd-level', 'th-level']
 
 
 def find_next_spell(lines) -> int:
-    levels = ['1st-level',
-              '2nd-level', '3rd-level', 'th-level']
+    """
+    Returns index in string of start of next spell in text
+    """
 
-    splits = [x + ' ' + y.lower() for x in levels for y in schools]
-    splits += [x + ' cantrip' for x in schools]
+    splits = [x + ' ' + y.lower() for x in LEVELS for y in SCHOOLS]
+    splits += [x + ' cantrip' for x in SCHOOLS]
 
-    for i, x in enumerate(lines):
-        if any(kw in x for kw in splits) and lines[i-1][0].isupper():
+    for i, line in enumerate(lines):
+        if any(kw in line for kw in splits) and lines[i-1][0].isupper():
             return i + 1
     return -1
 
 
 def get_level_school(level_type: str) -> tuple[int, str]:
+    """
+    returns level and school from text
+    """
     level = -1
     school = ''
-    for x in string.digits:
-        if level_type.startswith(x):
-            level = int(x)
+    for digit in string.digits:
+        if level_type.startswith(digit):
+            level = int(digit)
             break
     if 'Cantrip' in level_type or 'cantrip' in level_type:
         level = 0
 
-    for s in schools:
-        if s in level_type or s.lower() in level_type:
-            school = s.title()
+    for school in SCHOOLS:
+        if school in level_type or school.lower() in level_type:
+            school = school.title()
             break
 
     if level == -1 or school == '':
@@ -58,7 +62,7 @@ def get_level_school(level_type: str) -> tuple[int, str]:
 def split_into_spell_text(lines: list[str]) -> list[str]:
     res = []
     cur = lines
-    while (line_num < len(lines)):
+    while (True):
         next_spell_index = find_next_spell(cur[2:])
         if next_spell_index <= 0:
             res.append('\n'.join(cur))
@@ -175,7 +179,7 @@ def nudge_newlines(text: str) -> str:
     return my_text
 
 
-def split_spell_entry(text: str, pages: tuple[int, int]):
+def parse_spell(text: str, pages: tuple[int, int]):
     text = text.split('\n')
     name = text[0]
     level, school = get_level_school(text[1])
@@ -205,20 +209,23 @@ def split_spell_entry(text: str, pages: tuple[int, int]):
 
 
 def parse_clean_spell_entries(cleaned: list[tuple]):
+    """
+    take cleaned spell text and pages, return json object list
+    """
     ret = []
     for pages, spell_text in cleaned:
-        x = nudge_newlines(spell_text)
-        x = split_spell_entry(x, pages)
-        ret.append(x)
+        ret.append(parse_spell(nudge_newlines(spell_text), pages))
     return ret
 
 
-raw_spell_texts = split_into_spell_text(lines)
-#print([x for x in raw_spell_texts if 'summoning' in x])
-spell_text_with_range = handle_pages(raw_spell_texts)
-parsed = parse_clean_spell_entries(spell_text_with_range)
-# print(handle_pages(raw_spell_texts)[0])
-# print(handle_pages(raw_spell_texts)[-1])
+def parse_srd_spells():
+    """
+    parse the spells using helper functions
+    """
+    raw_spell_texts = split_into_spell_text(LINES)
+    spell_text_with_range = handle_pages(raw_spell_texts)
+    parsed = parse_clean_spell_entries(spell_text_with_range)
+    open('sources/parsed/srd.json', 'w+', encoding='utf-8').write(json.dumps(parsed, indent=4))
 
 
-open('sources/parsed/srd.json', 'w+').write(json.dumps(parsed, indent=4))
+parse_srd_spells()
