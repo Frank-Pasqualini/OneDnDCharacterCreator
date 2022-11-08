@@ -1,6 +1,6 @@
 import json
 
-spell_info = json.loads(open("sources/parsed/odnd2_srd.json").read())
+spell_info = json.loads(open('sources/parsed/odnd2_srd.json').read())
 
 
 spell_template = """
@@ -30,9 +30,9 @@ def concentration(conc: bool) -> str:
     format concentration string
     """
     if conc:
-        return "\n                         concentration=True,"
+        return '\n                         concentration=True,'
     else:
-        return ""
+        return ''
 
 
 def ritual(rit: bool) -> str:
@@ -40,7 +40,7 @@ def ritual(rit: bool) -> str:
     format ritual string 
     """
     if rit:
-        return "\n                         ritual=True,"
+        return '\n                         ritual=True,'
     else:
         return ''
 
@@ -177,4 +177,4 @@ res = [generate_spell_code(x)
        for x in sorted(spell_info, key=lambda x: x['name'])]
 
 open('sources/parsed/generated_spells.py', 'w+',
-     encoding='utf-8').write('\n'.join([x for x in res if x != None]))
+     encoding='utf-8').write('\n'.join([x for x in res if x is not None]))
