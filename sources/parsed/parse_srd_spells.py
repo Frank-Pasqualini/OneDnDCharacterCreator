@@ -1,12 +1,12 @@
 """
-Author: Bret Barkley
+Code to parse srd spells into json for use in later code generation
 """
 import json
 import string
 
 txt = open('sources/parsed/srd_spells.txt', encoding='utf-8').read()
 txt = txt.replace('\t', ' ').replace('’', "'")
-starting_page = 115
+STARTING_PAGE = 115
 # txt = txt.split('\n')
 # for x in txt[0:150]:
 #    print(x)
@@ -60,6 +60,9 @@ def get_level_school(level_type: str) -> tuple[int, str]:
 
 
 def split_into_spell_text(lines: list[str]) -> list[str]:
+    """
+    splits arbitrary nonsense text into spell text
+    """
     res = []
     cur = lines
     while (True):
@@ -75,6 +78,9 @@ def split_into_spell_text(lines: list[str]) -> list[str]:
 
 
 def handle_pages(raw_spell_texts):
+    """
+    Takes text with page footers, then returns page range object with text
+    """
     res = []
     current_page = 115
     for raw_spell_text in raw_spell_texts:
@@ -94,14 +100,10 @@ def handle_pages(raw_spell_texts):
     return res
 
 
-def get_valid_range(line: str) -> str:
-    if 'Range: ' not in line:
-        print(line)
-        raise Exception('get range fail' + line)
-    return line.replace('Range: ', '').strip()
-
-
 def get_casting_time(text: str) -> str:
+    """
+    method to sanity check casting time line
+    """
     if 'Casting Time:' not in text:
         print(text)
         raise Exception('Casting time not in text')
@@ -109,6 +111,9 @@ def get_casting_time(text: str) -> str:
 
 
 def get_range(text: str) -> str:
+    """
+    method to sanity check the range line
+    """
     if 'Range:' not in text:
         print('=====')
         print(text)
@@ -118,6 +123,9 @@ def get_range(text: str) -> str:
 
 
 def get_components(text: str) -> tuple[bool, bool, str]:
+    """
+    sanity check and parse line into tuple of results
+    """
     if 'Component' not in text:
         print(text)
         raise Exception('Component not in text')
@@ -130,6 +138,9 @@ def get_components(text: str) -> tuple[bool, bool, str]:
 
 
 def get_duration(text: str) -> str:
+    """
+    Sanity check for duration line
+    """
     if 'Duration' not in text:
         print(text)
         raise Exception('Duration not in text')
@@ -137,6 +148,9 @@ def get_duration(text: str) -> str:
 
 
 def get_desc_higher_levels(lines: list[str]) -> tuple[str, str]:
+    """
+    Sanity check and parse description and at_higher_levels
+    """
     text = '\n'.join(lines).replace('\n ', '\n').replace(
         "\n'", "'").replace(' \n', '\n')
     description, *higher_levels = text.split('At Higher Levels.')
@@ -144,6 +158,10 @@ def get_desc_higher_levels(lines: list[str]) -> tuple[str, str]:
 
 
 def merge_markers(text: str, start: str, end: str) -> str:
+    """
+    Method to detect newlines between Range, Duration, Casting Time, etc.
+    removes them
+    """
     lines = text.split('\n')
     start_index = -1
     end_index = -1
@@ -167,6 +185,9 @@ def merge_markers(text: str, start: str, end: str) -> str:
 
 
 def nudge_newlines(text: str) -> str:
+    """
+    Fix some of the newline nonsense in the original text
+    """
     #print(' in nudge newlines ')
     splits = ['Casting Time', 'Range', 'Component', 'Duration']
     my_text = text
@@ -180,6 +201,9 @@ def nudge_newlines(text: str) -> str:
 
 
 def parse_spell(text: str, pages: tuple[int, int]):
+    """
+    Turn the text into a dict using helper methods
+    """
     text = text.split('\n')
     name = text[0]
     level, school = get_level_school(text[1])
@@ -225,7 +249,8 @@ def parse_srd_spells():
     raw_spell_texts = split_into_spell_text(LINES)
     spell_text_with_range = handle_pages(raw_spell_texts)
     parsed = parse_clean_spell_entries(spell_text_with_range)
-    open('sources/parsed/srd.json', 'w+', encoding='utf-8').write(json.dumps(parsed, indent=4))
+    open('sources/parsed/srd.json', 'w+',
+         encoding='utf-8').write(json.dumps(parsed, indent=4))
 
 
 parse_srd_spells()

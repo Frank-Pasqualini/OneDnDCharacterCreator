@@ -1,5 +1,5 @@
 """
-    parse that source bb
+Parse the odnd2 spell list into json
 """
 
 import string
@@ -144,6 +144,9 @@ def clean_source(raw_txt: str) -> list[str]:
 
 
 def parse(lines: list[str]) -> list[SpellListInfo]:
+    """
+    Outermost parsing loop. Tracks list type and calls helpers
+    """
     current_type = ''
     spells = []
     for line in lines:
@@ -155,15 +158,21 @@ def parse(lines: list[str]) -> list[SpellListInfo]:
 
 
 def update_or_initialize_spell(ret, field: str, spell: SpellListInfo):
-    spellProperty = spell[field]
-    if spellProperty not in ret[field]:
-        ret[field][spellProperty] = [spell.toJSON()]
+    """
+    helper to deal with potentially empty dict
+    """
+    spell_property = spell[field]
+    if spell_property not in ret[field]:
+        ret[field][spell_property] = [spell.toJSON()]
     else:
-        ret[field][spellProperty].append(spell.toJSON())
+        ret[field][spell_property].append(spell.toJSON())
     return ret
 
 
 def generate_dataset(spells: list[SpellListInfo]):
+    """
+    generates useful ways of indexing spell list
+    """
     ret = {
         'name': {},
         'is_ritual': {},
@@ -179,7 +188,10 @@ def generate_dataset(spells: list[SpellListInfo]):
     return ret
 
 
-def generate_json():
+def generate_odnd2_spells():
+    """
+    Generate the odnd2 spell json
+    """
     txt = open('sources/parsed/odnd2_spell_list.txt',
                'r', encoding='utf-8').read()
     txt = clean_source(txt)
@@ -203,4 +215,4 @@ def generate_json():
          'w+', encoding='utf-8').write(json.dumps([data['name'][x] for x in data['name']], indent=4))
 
 
-generate_json()
+generate_odnd2_spells()

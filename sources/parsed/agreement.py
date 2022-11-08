@@ -1,3 +1,9 @@
+"""
+Merges sources and checks agreement between them
+This can probably be refactored out
+"""
+
+
 import json
 
 odnd2 = json.loads(open("sources/parsed/odnd2.json", encoding="utf-8").read())
@@ -58,4 +64,5 @@ def merge_sources():
 
 
 r = merge_sources()
-open("sources/parsed/odnd2_srd.json", "w+").write(json.dumps(r, indent=4))
+open("sources/parsed/odnd2_srd.json", "w+",
+     encoding="utf-8").write(json.dumps(r, indent=4))

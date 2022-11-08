@@ -1,9 +1,13 @@
+"""
+Code to generate the class definitions from the json files
+"""
 import json
 
-spell_info = json.loads(open('sources/parsed/odnd2_srd.json').read())
+spell_info = json.loads(
+    open('sources/parsed/odnd2_srd.json', 'r', encoding='utf-8').read())
 
 
-spell_template = """
+SPELL_TEMPLATE = """
 class {class_name}(spells.Spell):
     \"""
     {name} Spell
@@ -150,7 +154,7 @@ def generate_spell_code(spell_json) -> str:
         pages = str(start)
     else:
         pages = str(start) + '-' + str(end)
-    return spell_template.format(class_name=class_name(spell_json['name']),
+    return SPELL_TEMPLATE.format(class_name=class_name(spell_json['name']),
                                  pages=pages,
                                  concentration=concentration(
                                      'oncentration' in spell_json['duration']),
