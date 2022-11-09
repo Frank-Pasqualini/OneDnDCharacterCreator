@@ -6,8 +6,11 @@ This can probably be refactored out
 
 import json
 
-odnd2 = json.loads(open("sources/parsed/odnd2.json", encoding="utf-8").read())
-srd = json.loads(open("sources/parsed/srd.json", encoding="utf-8").read())
+with open("sources/parsed/odnd2.json", encoding="utf-8") as f:
+    odnd2 = json.loads(f.read())
+
+with open("sources/parsed/srd.json", encoding="utf-8") as f:
+    srd = json.loads(f.read())
 
 odnd2_names = {x["name"] for x in odnd2}
 srd_names = {x["namer"] for x in srd}
@@ -64,5 +67,5 @@ def merge_sources():
 
 
 r = merge_sources()
-open("sources/parsed/odnd2_srd.json", "w+",
-     encoding="utf-8").write(json.dumps(r, indent=4))
+with open("sources/parsed/odnd2_srd.json", "w+", encoding="utf-8") as f:
+    f.write(json.dumps(r, indent=4))

@@ -84,18 +84,20 @@ school_abbrs = {
     'Necromancy*': 'Necromancy'
 }
 
-for school in schools:
-    school_abbrs[school] = school
 
-# Validation
-for school in school_abbrs:
-    failed = False
-    if school_abbrs[school] not in schools:
-        print(school)
-        failed = True
+def generate_school_abbrs():
+    for school in schools:
+        school_abbrs[school] = school
 
-    if failed:
-        exit(1)
+    # Validation
+    for school in school_abbrs:
+        failed = False
+        if school_abbrs[school] not in schools:
+            print(school)
+            failed = True
+
+        if failed:
+            exit(1)
 
 
 def parse_single_spell(line: list[str], spell_list: str) -> SpellListInfo:
@@ -211,8 +213,9 @@ def generate_odnd2_spells():
             spell['spell_list'] = [spell['spell_list']]
             data['name'][spell_name] = spell
 
-    open('sources/parsed/odnd2.json',
-         'w+', encoding='utf-8').write(json.dumps([data['name'][x] for x in data['name']], indent=4))
+    with open('sources/parsed/odnd2.json', 'w+', encoding='utf-8') as f:
+        f.write(json.dumps([data['name'][x] for x in data['name']], indent=4))
 
 
+generate_school_abbrs()
 generate_odnd2_spells()
