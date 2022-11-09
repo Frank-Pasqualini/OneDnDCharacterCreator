@@ -174,7 +174,7 @@ def merge_markers(text: str, start: str, end: str) -> str:
         if end in line and end_index == -1:
             end_index = i
 
-    if start_index > -1 and end_index > -1 and end_index > start_index:
+    if end_index > start_index > -1:
         lines[start_index:end_index] = [
             ''.join(lines[start_index:end_index])]
         return '\n'.join(x for x in lines if x != '')
@@ -193,9 +193,9 @@ def nudge_newlines(text: str) -> str:
     #print(' in nudge newlines ')
     splits = ['Casting Time', 'Range', 'Component', 'Duration']
     my_text = text
-    for x in splits:
-        if x in my_text:
-            my_text = my_text.replace(x, '\n' + x)
+    for split in splits:
+        if split in my_text:
+            my_text = my_text.replace(split, '\n' + split)
     my_text = merge_markers(my_text, 'Casting Time', 'Range')
     my_text = merge_markers(my_text, 'Range', 'Component')
     my_text = merge_markers(my_text, 'Component', 'Duration')
