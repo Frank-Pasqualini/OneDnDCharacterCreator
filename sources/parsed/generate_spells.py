@@ -110,8 +110,8 @@ def line_limit(text: str, limit: int, offset: int) -> str:
     if len(text) < limit:
         if text == '':
             return '""'
-        else:
-            return text
+
+        return text
 
     wraps = []
     cur = ''

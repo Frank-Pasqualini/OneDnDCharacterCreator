@@ -48,18 +48,18 @@ class SpellListInfo:
     def __getitem__(self, arg):
         if arg == 'name':
             return self._name
-        elif arg == 'level':
+        if arg == 'level':
             return self._level
-        elif arg == 'school':
+        if arg == 'school':
             return self._school
-        elif arg == 'is_ritual':
+        if arg == 'is_ritual':
             return self._is_ritual
-        elif arg == 'spell_list':
+        if arg == 'spell_list':
             return self._spell_list
         else:
             raise Exception('no attribute for spelllistinfo')
 
-    def toJSON(self):
+    def to_json(self):
         return {
             'name': self['name'],
             'level': self['level'],
@@ -91,20 +91,19 @@ def generate_school_abbrs():
 
     # Validation
     for school in school_abbrs:
-        failed = False
         if school_abbrs[school] not in schools:
             print(school)
-            failed = True
-
-        if failed:
             exit(1)
 
 
 def parse_single_spell(line: list[str], spell_list: str) -> SpellListInfo:
+    """
+    Parses spell into object
+    """
     level, *name, school, ritual = line.split(' ')
     if 'Contact' in line:
         print(line)
-    if spell_list == '' or level == '' or school == '' or ritual == '' or name is []:
+    if spell_list == '' or level == '' or school == '' or ritual == '' or name == []:
         print(level)
         print(name)
         print(school)
@@ -115,23 +114,25 @@ def parse_single_spell(line: list[str], spell_list: str) -> SpellListInfo:
         level = int(level)
         name = ' '.join(name)
         school = school_abbrs[school]
-        isRitual = (ritual == 'Yes')
+        is_ritual = (ritual == 'Yes')
     except Exception:
         if school == 'Antipathy/Sympathy':
             print('what a funky little edge case :)')
             return SpellListInfo('Antipathy/Sympathy', level, 'Enchantment', False, spell_list)
 
-        else:
-            exit(1)
+        exit(1)
 
-    return SpellListInfo(name, level, school, isRitual, spell_list)
+    return SpellListInfo(name, level, school, is_ritual, spell_list)
 
 
 def clean_source(raw_txt: str) -> list[str]:
+    """
+    lots of preprocess
+    """
     txt = raw_txt.replace('\n', ' ')
     txt = txt.replace('â€™', "'").replace('’', "'").replace(" '", "'")
-    for x in string.digits:
-        txt = txt.replace(' ' + x + ' ', '\n' + x + ' ')
+    for digit in string.digits:
+        txt = txt.replace(' ' + digit + ' ', '\n' + digit + ' ')
     txt = txt.replace('No ', 'No\n')
     txt = txt.replace('Lvl Spell School Ritual', '')
     txt = txt.replace('/ ', '/')
@@ -165,9 +166,9 @@ def update_or_initialize_spell(ret, field: str, spell: SpellListInfo):
     """
     spell_property = spell[field]
     if spell_property not in ret[field]:
-        ret[field][spell_property] = [spell.toJSON()]
+        ret[field][spell_property] = [spell.to_json()]
     else:
-        ret[field][spell_property].append(spell.toJSON())
+        ret[field][spell_property].append(spell.to_json())
     return ret
 
 
@@ -194,8 +195,9 @@ def generate_odnd2_spells():
     """
     Generate the odnd2 spell json
     """
-    txt = open('sources/parsed/odnd2_spell_list.txt',
-               'r', encoding='utf-8').read()
+    with open('sources/parsed/odnd2_spell_list.txt', 'r', encoding='utf-8') as f:
+        txt = f.read()
+
     txt = clean_source(txt)
     raw_spell_list = parse(txt)
 

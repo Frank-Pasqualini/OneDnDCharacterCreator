@@ -4,7 +4,9 @@ Code to parse srd spells into json for use in later code generation
 import json
 import string
 
-txt = open('sources/parsed/srd_spells.txt', encoding='utf-8').read()
+with open('sources/parsed/srd_spells.txt', encoding='utf-8') as f:
+    txt = f.read()
+
 txt = txt.replace('\t', ' ').replace('’', "'")
 STARTING_PAGE = 115
 # txt = txt.split('\n')
@@ -65,7 +67,7 @@ def split_into_spell_text(lines: list[str]) -> list[str]:
     """
     res = []
     cur = lines
-    while (True):
+    while True:
         next_spell_index = find_next_spell(cur[2:])
         if next_spell_index <= 0:
             res.append('\n'.join(cur))
@@ -249,8 +251,8 @@ def parse_srd_spells():
     raw_spell_texts = split_into_spell_text(LINES)
     spell_text_with_range = handle_pages(raw_spell_texts)
     parsed = parse_clean_spell_entries(spell_text_with_range)
-    open('sources/parsed/srd.json', 'w+',
-         encoding='utf-8').write(json.dumps(parsed, indent=4))
+    with open('sources/parsed/srd.json', 'w+', encoding='utf-8') as f_1:
+        f_1.write(json.dumps(parsed, indent=4))
 
 
 parse_srd_spells()
