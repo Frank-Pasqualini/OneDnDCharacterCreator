@@ -3,8 +3,9 @@ Code to generate the class definitions from the json files
 """
 import json
 
-spell_info = json.loads(
-    open('sources/parsed/odnd2_srd.json', 'r', encoding='utf-8').read())
+
+with open('sources/parsed/odnd2_srd.json', 'r', encoding='utf-8') as f:
+    spell_info = json.loads(f.read())
 
 
 SPELL_TEMPLATE = """
@@ -35,8 +36,8 @@ def concentration(conc: bool) -> str:
     """
     if conc:
         return '\n                         concentration=True,'
-    else:
-        return ''
+
+    return ''
 
 
 def ritual(rit: bool) -> str:
@@ -45,8 +46,8 @@ def ritual(rit: bool) -> str:
     """
     if rit:
         return '\n                         ritual=True,'
-    else:
-        return ''
+
+    return ''
 
 
 def class_name(name: str) -> str:
@@ -54,8 +55,8 @@ def class_name(name: str) -> str:
     format class name string
     """
     name = name.replace('/', ' ')
-    for x in "/\\'":
-        name = name.replace(x, '')
+    for char in "/\\'":
+        name = name.replace(char, '')
     name = name.title()
     name = name.replace(' ', '')
     return name
@@ -75,8 +76,8 @@ def material_components_list(text: str):
     """
     if text == '':
         return None
-    else:
-        return '"' + text + '"'
+
+    return '"' + text + '"'
 
 
 def duration(text: str) -> str:
@@ -86,10 +87,11 @@ def duration(text: str) -> str:
     fmt = '\n                         duration="{duration}",'
     if 'Concentration, up to ' in text:
         return fmt.format(duration=text.replace('Concentration, up to ', '').strip())
-    elif text == 'Instantaneous':
+
+    if text == 'Instantaneous':
         return ''
-    else:
-        return fmt.format(duration=text)
+
+    return fmt.format(duration=text)
 
 
 def line_limit(text: str, limit: int, offset: int) -> str:
@@ -110,6 +112,7 @@ def line_limit(text: str, limit: int, offset: int) -> str:
             return '""'
         else:
             return text
+
     wraps = []
     cur = ''
     text = text.split('\n')
@@ -130,10 +133,8 @@ def line_limit(text: str, limit: int, offset: int) -> str:
     wraps = ['"' + x + '"' for x in wraps]
     if len(wraps) > 1:
         wraps[1:] = [padding + x for x in wraps[1:]]
-        wraps[:-1] = [x for x in wraps[:-1]]
 
     wraps = [x.replace('\n', '\\n') for x in wraps]
-    #wraps = [x.replace('.\\n', '.\\n" +\n' + padding + '"') for x in wraps]
     return ' +\n'.join(wraps)
 
 
@@ -176,5 +177,5 @@ def generate_spell_code(spell_json) -> str:
 res = [generate_spell_code(x)
        for x in sorted(spell_info, key=lambda x: x['name'])]
 
-open('sources/parsed/generated_spells.py.txt', 'w+',
-     encoding='utf-8').write('\n'.join([x for x in res if x is not None]))
+with open('sources/parsed/generated_spells.py.txt', 'w+', encoding='utf-8') as f:
+    f.write('\n'.join([x for x in res if x is not None]))
