@@ -577,7 +577,7 @@
         "school": "Divination",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -586,7 +586,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
         ]
     },
@@ -596,7 +596,7 @@
         "school": "Enchantment",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -605,7 +605,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
         ]
     },
@@ -615,7 +615,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
         ]
     },
@@ -625,7 +625,7 @@
         "school": "Enchantment",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Divine"
         ]
     },
@@ -635,7 +635,7 @@
         "school": "Illusion",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -644,7 +644,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -653,7 +653,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -662,7 +662,7 @@
         "school": "Divination",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Divine",
             "Primal"
         ]
@@ -673,7 +673,7 @@
         "school": "Illusion",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -682,7 +682,7 @@
         "school": "Illusion",
         "is_ritual": true,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -691,7 +691,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Divine"
         ]
     },
@@ -701,7 +701,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -710,7 +710,7 @@
         "school": "Illusion",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -719,7 +719,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -728,7 +728,7 @@
         "school": "Illusion",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -737,7 +737,7 @@
         "school": "Necromancy",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -746,7 +746,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -755,7 +755,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -764,7 +764,7 @@
         "school": "Divination",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -773,7 +773,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -782,7 +782,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -791,7 +791,7 @@
         "school": "Enchantment",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -800,7 +800,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -809,7 +809,7 @@
         "school": "Necromancy",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -818,7 +818,7 @@
         "school": "Necromancy",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -827,7 +827,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -836,7 +836,7 @@
         "school": "Divination",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Divine"
         ]
     },
@@ -846,7 +846,7 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -855,7 +855,7 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Divine",
             "Primal"
         ]
@@ -866,7 +866,7 @@
         "school": "Illusion",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -875,7 +875,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -884,7 +884,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -893,7 +893,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -902,7 +902,7 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Divine"
         ]
     },
@@ -912,7 +912,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -921,7 +921,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -930,7 +930,7 @@
         "school": "Illusion",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -939,7 +939,7 @@
         "school": "Evocation",
         "is_ritual": true,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -948,7 +948,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -957,7 +957,7 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Divine"
         ]
     },
@@ -967,7 +967,7 @@
         "school": "Illusion",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -976,7 +976,7 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
         ]
     },
@@ -986,7 +986,7 @@
         "school": "Illusion",
         "is_ritual": true,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -995,7 +995,7 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
         ]
     },
@@ -1005,7 +1005,7 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Divine"
         ]
     },
@@ -1015,7 +1015,7 @@
         "school": "Divination",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1024,7 +1024,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
         ]
     },
@@ -1034,7 +1034,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1043,7 +1043,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1052,7 +1052,7 @@
         "school": "Divination",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Divine"
         ]
     },
@@ -1062,7 +1062,7 @@
         "school": "Necromancy",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1071,7 +1071,7 @@
         "school": "Transmutation",
         "is_ritual": true,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
         ]
     },
@@ -1081,7 +1081,7 @@
         "school": "Divination",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1090,7 +1090,7 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Divine"
         ]
     },
@@ -1100,7 +1100,7 @@
         "school": "Necromancy",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1109,7 +1109,7 @@
         "school": "Enchantment",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1118,7 +1118,7 @@
         "school": "Enchantment",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1127,7 +1127,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
         ]
     },
@@ -1137,7 +1137,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
         ]
     },
@@ -1147,7 +1147,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1156,7 +1156,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1165,7 +1165,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1174,7 +1174,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1183,7 +1183,7 @@
         "school": "Illusion",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1192,7 +1192,7 @@
         "school": "Illusion",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1201,7 +1201,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
         ]
     },
@@ -1211,7 +1211,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1220,7 +1220,7 @@
         "school": "Divination",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Divine",
             "Primal"
         ]
@@ -1231,7 +1231,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1240,7 +1240,7 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1249,7 +1249,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1258,7 +1258,7 @@
         "school": "Illusion",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1267,7 +1267,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
         ]
     },
@@ -1277,7 +1277,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
         ]
     },
@@ -1287,7 +1287,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
         ]
     },
@@ -1297,7 +1297,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
         ]
     },
@@ -1307,7 +1307,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1316,7 +1316,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1325,7 +1325,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1334,7 +1334,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1343,17 +1343,8 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
-        ]
-    },
-    {
-        "name": "Contact Other Plane",
-        "level": 5,
-        "school": "Divination",
-        "is_ritual": true,
-        "spell_list": [
-            "Arcane"
         ]
     },
     {
@@ -1362,7 +1353,7 @@
         "school": "Illusion",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1371,7 +1362,7 @@
         "school": "Enchantment",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1380,7 +1371,7 @@
         "school": "Illusion",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1389,7 +1380,7 @@
         "school": "Enchantment",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Divine"
         ]
     },
@@ -1399,7 +1390,7 @@
         "school": "Enchantment",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1408,7 +1399,7 @@
         "school": "Divination",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Divine"
         ]
     },
@@ -1418,7 +1409,7 @@
         "school": "Illusion",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1427,7 +1418,7 @@
         "school": "Enchantment",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1436,7 +1427,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1445,7 +1436,7 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Divine"
         ]
     },
@@ -1455,7 +1446,7 @@
         "school": "Divination",
         "is_ritual": true,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1464,7 +1455,7 @@
         "school": "Divination",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Divine",
             "Primal"
         ]
@@ -1475,7 +1466,7 @@
         "school": "Illusion",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1484,7 +1475,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1493,7 +1484,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1502,7 +1493,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1511,7 +1502,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
         ]
     },
@@ -1521,7 +1512,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1530,7 +1521,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1539,7 +1530,7 @@
         "school": "Necromancy",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1548,7 +1539,7 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1557,7 +1548,7 @@
         "school": "Necromancy",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1566,7 +1557,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1575,7 +1566,7 @@
         "school": "Necromancy",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1584,7 +1575,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1593,7 +1584,7 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1602,7 +1593,7 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1611,7 +1602,7 @@
         "school": "Conjuration",
         "is_ritual": true,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1620,7 +1611,7 @@
         "school": "Necromancy",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1629,7 +1620,7 @@
         "school": "Enchantment",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1638,7 +1629,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
         ]
     },
@@ -1648,7 +1639,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1657,7 +1648,7 @@
         "school": "Enchantment",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1666,7 +1657,7 @@
         "school": "Illusion",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1675,8 +1666,8 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
-            "Divine",
+            "\u00a9202",
+            "\u00a9202",
             "Primal"
         ]
     },
@@ -1686,8 +1677,8 @@
         "school": "Divination",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
-            "Divine"
+            "\u00a9202",
+            "\u00a9202"
         ]
     },
     {
@@ -1696,7 +1687,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
         ]
     },
@@ -1706,7 +1697,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1715,8 +1706,8 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
-            "Divine"
+            "\u00a9202",
+            "\u00a9202"
         ]
     },
     {
@@ -1725,7 +1716,7 @@
         "school": "Necromancy",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1734,7 +1725,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1743,7 +1734,7 @@
         "school": "Illusion",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1752,7 +1743,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1761,7 +1752,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1770,8 +1761,8 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
-            "Divine"
+            "\u00a9202",
+            "\u00a9202"
         ]
     },
     {
@@ -1780,7 +1771,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1789,7 +1780,7 @@
         "school": "Illusion",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1798,7 +1789,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
         ]
     },
@@ -1808,7 +1799,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1817,7 +1808,7 @@
         "school": "Illusion",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1826,8 +1817,8 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
-            "Divine"
+            "\u00a9202",
+            "\u00a9202"
         ]
     },
     {
@@ -1836,7 +1827,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1845,8 +1836,8 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
-            "Divine"
+            "\u00a9202",
+            "\u00a9202"
         ]
     },
     {
@@ -1855,8 +1846,8 @@
         "school": "Enchantment",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
-            "Divine"
+            "\u00a9202",
+            "\u00a9202"
         ]
     },
     {
@@ -1865,7 +1856,7 @@
         "school": "Necromancy",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1874,7 +1865,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
         ]
     },
@@ -1884,7 +1875,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1893,7 +1884,7 @@
         "school": "Enchantment",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1902,7 +1893,7 @@
         "school": "Enchantment",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1911,7 +1902,7 @@
         "school": "Enchantment",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1920,7 +1911,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1929,7 +1920,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1938,7 +1929,7 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1947,7 +1938,7 @@
         "school": "Enchantment",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1956,8 +1947,8 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
-            "Divine",
+            "\u00a9202",
+            "\u00a9202",
             "Primal"
         ]
     },
@@ -1967,7 +1958,7 @@
         "school": "Divination",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1976,8 +1967,8 @@
         "school": "Necromancy",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
-            "Divine"
+            "\u00a9202",
+            "\u00a9202"
         ]
     },
     {
@@ -1986,8 +1977,8 @@
         "school": "Divination",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
-            "Divine"
+            "\u00a9202",
+            "\u00a9202"
         ]
     },
     {
@@ -1996,8 +1987,8 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
-            "Divine"
+            "\u00a9202",
+            "\u00a9202"
         ]
     },
     {
@@ -2006,7 +1997,7 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -2015,7 +2006,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -2024,7 +2015,7 @@
         "school": "Enchantment",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -2033,7 +2024,7 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -2042,7 +2033,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
         ]
     },
@@ -2052,7 +2043,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -2061,7 +2052,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -2070,7 +2061,7 @@
         "school": "Illusion",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -2079,7 +2070,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -2712,7 +2703,7 @@
         "school": "Abjuration",
         "is_ritual": true,
         "spell_list": [
-            "Divine"
+            "\u00a9202"
         ]
     },
     {
@@ -2721,7 +2712,7 @@
         "school": "Necromancy",
         "is_ritual": false,
         "spell_list": [
-            "Divine"
+            "\u00a9202"
         ]
     },
     {
@@ -2730,7 +2721,7 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Divine",
+            "\u00a9202",
             "Primal"
         ]
     },
@@ -2740,7 +2731,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Divine"
+            "\u00a9202"
         ]
     },
     {
@@ -2749,7 +2740,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Divine"
+            "\u00a9202"
         ]
     },
     {
@@ -2758,7 +2749,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Divine"
+            "\u00a9202"
         ]
     },
     {
@@ -2767,7 +2758,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Divine"
+            "\u00a9202"
         ]
     },
     {
@@ -2776,7 +2767,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Divine"
+            "\u00a9202"
         ]
     },
     {
@@ -2785,7 +2776,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Divine",
+            "\u00a9202",
             "Primal"
         ]
     },
@@ -2795,7 +2786,7 @@
         "school": "Necromancy",
         "is_ritual": false,
         "spell_list": [
-            "Divine"
+            "\u00a9202"
         ]
     },
     {
@@ -2804,7 +2795,7 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Divine"
+            "\u00a9202"
         ]
     },
     {
@@ -2813,7 +2804,7 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Divine"
+            "\u00a9202"
         ]
     },
     {
@@ -2822,7 +2813,7 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Divine",
+            "\u00a9202",
             "Primal"
         ]
     },
@@ -2832,7 +2823,7 @@
         "school": "Necromancy",
         "is_ritual": false,
         "spell_list": [
-            "Divine",
+            "\u00a9202",
             "Primal"
         ]
     },

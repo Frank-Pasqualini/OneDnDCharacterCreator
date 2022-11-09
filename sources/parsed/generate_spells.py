@@ -41,7 +41,7 @@ def concentration(conc: bool) -> str:
 
 def ritual(rit: bool) -> str:
     """
-    format ritual string 
+    format ritual string
     """
     if rit:
         return '\n                         ritual=True,'
@@ -102,6 +102,7 @@ def line_limit(text: str, limit: int, offset: int) -> str:
     # remove formatting newlines
     for index in reversed(indices):
         if text[index-1] != '.':
+            pass
             text[index] = ' '
 
     text = ''.join(x for x in text if x != '')
@@ -112,32 +113,28 @@ def line_limit(text: str, limit: int, offset: int) -> str:
             return text
     wraps = []
     cur = ''
-    text = text.split(' ')
-    for i, word in enumerate(text):
-        if len(cur) + len(word) - 3 < limit:
-            # can add to cur
-            if '\n' in word:
-                first, second = word.split('\n')
-                cur += first + '\n'
-                if len(wraps) != 0:
-                    cur = padding + '"' + cur + '"'
-                wraps.append(cur)
-                cur = second + ''
+    text = text.split('\n')
+    strings = [(x + " \n").split(' ') for x in text]
+    for string in strings:
+        for i, word in enumerate(string):
+            if len(cur) + len(word) - 3 < limit:
+                if '\n' in word:
+                    cur += word
+                    wraps.append(cur)
+                    cur = ''
+                else:
+                    cur += word + ' '
             else:
-                cur += word + ' '
-        else:
-            to_append = '"' + cur + '"'
+                wraps.append(cur)
+                cur = word + ' '
 
-            if len(wraps) != 0:
-                to_append = padding + to_append
-            wraps.append(to_append)
-            cur = word + ' '
+    wraps = ['"' + x + '"' for x in wraps]
+    if len(wraps) > 1:
+        wraps[1:] = [padding + x for x in wraps[1:]]
+        wraps[:-1] = [x for x in wraps[:-1]]
 
-        if i == len(text) - 1:
-            # print(word)
-            wraps.append(padding + '"' + cur + '"')
     wraps = [x.replace('\n', '\\n') for x in wraps]
-    wraps = [x.replace('.\\n', '.\\n" +\n' + padding + '"') for x in wraps]
+    #wraps = [x.replace('.\\n', '.\\n" +\n' + padding + '"') for x in wraps]
     return ' +\n'.join(wraps)
 
 
