@@ -118,11 +118,10 @@ def parse_single_spell(line: list[str], spell_list: str) -> SpellListInfo:
         name = ' '.join(name)
         school = school_abbrs[school]
         is_ritual = (ritual == 'Yes')
-    except Exception:
+    except Exception as ex:
         if school == 'Antipathy/Sympathy':
-            print('what a funky little edge case :)')
             return SpellListInfo('Antipathy/Sympathy', level, 'Enchantment', False, spell_list)
-
+        print(ex)
         sys.exit(1)
 
     return SpellListInfo(name, level, school, is_ritual, spell_list)
@@ -219,7 +218,8 @@ def generate_odnd2_spells():
             data['name'][spell_name] = spell
 
     with open('sources/parsed/odnd2.json', 'w+', encoding='utf-8') as fil:
-        fil.write(json.dumps([data['name'][x] for x in data['name']], indent=4))
+        fil.write(json.dumps([data['name'][x]
+                  for x in data['name']], indent=4))
 
 
 generate_school_abbrs()

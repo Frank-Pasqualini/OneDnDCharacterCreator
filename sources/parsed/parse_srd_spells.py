@@ -178,12 +178,12 @@ def merge_markers(text: str, start: str, end: str) -> str:
         lines[start_index:end_index] = [
             ''.join(lines[start_index:end_index])]
         return '\n'.join(x for x in lines if x != '')
-    else:
-        print('-----')
-        print(lines)
-        print((start, end))
-        print(start_index, end_index)
-        raise Exception('start and end not in text')
+
+    print('-----')
+    print(lines)
+    print((start, end))
+    print(start_index, end_index)
+    raise Exception('start and end not in text')
 
 
 def nudge_newlines(text: str) -> str:
