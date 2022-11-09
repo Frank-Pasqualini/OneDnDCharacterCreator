@@ -177,5 +177,5 @@ def generate_spell_code(spell_json) -> str:
 res = [generate_spell_code(x)
        for x in sorted(spell_info, key=lambda x: x['name'])]
 
-open('sources/parsed/generated_spells.py', 'w+',
+open('sources/parsed/generated_spells.py.txt', 'w+',
      encoding='utf-8').write('\n'.join([x for x in res if x is not None]))
