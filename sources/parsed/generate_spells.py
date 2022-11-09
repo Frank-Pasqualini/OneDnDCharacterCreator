@@ -102,7 +102,6 @@ def line_limit(text: str, limit: int, offset: int) -> str:
     # remove formatting newlines
     for index in reversed(indices):
         if text[index-1] != '.':
-            pass
             text[index] = ' '
 
     text = ''.join(x for x in text if x != '')
@@ -114,7 +113,7 @@ def line_limit(text: str, limit: int, offset: int) -> str:
     wraps = []
     cur = ''
     text = text.split('\n')
-    strings = [(x + " \n").split(' ') for x in text]
+    strings = [(x + ' \n').split(' ') for x in text]
     for string in strings:
         for i, word in enumerate(string):
             if len(cur) + len(word) - 3 < limit:
