@@ -93,8 +93,8 @@ def generate_school_abbrs():
         school_abbrs[school] = school
 
     # Validation
-    for school in school_abbrs:
-        if school_abbrs[school] not in schools:
+    for school, maps_to in school_abbrs.items():
+        if maps_to not in schools:
             print(school)
             sys.exit(1)
 
