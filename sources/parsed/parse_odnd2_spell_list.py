@@ -146,7 +146,7 @@ def clean_source(raw_txt: str) -> list[str]:
     print([x for x in txt if 'Wizards of the' in x])
     txt = [x.strip() for x in txt if not 'Wizards of the Coast' in x]
     print('Contact Other' in ''.join(txt))
-    txt = [x for x in txt if 'Â©202' not in x]
+    txt = [x for x in txt if '©202' not in x]
     return txt
 
 
@@ -161,6 +161,9 @@ def parse(lines: list[str]) -> list[SpellListInfo]:
             spells.append(parse_single_spell(line, current_type))
         else:
             current_type = line.replace('SPELLS', '').strip().title()
+            if current_type.upper() not in ['ARCANE', 'PRIMAL', 'DIVINE']:
+                print(current_type)
+                raise Exception()
     return spells
 
 
