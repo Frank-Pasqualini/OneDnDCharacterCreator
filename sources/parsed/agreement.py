@@ -36,7 +36,7 @@ names_map = {
     "Magic Aura": "Arcanist's Magic Aura"
 }
 
-names_map = names_map | {names_map[x]: x for x in names_map}
+names_map = names_map | {val: key for key, val in names_map.items()}
 
 odnd2_exclusive = [
     x for x in odnd2_names if x not in srd_names and x not in names_map]

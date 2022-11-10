@@ -4,6 +4,7 @@ Parse the odnd2 spell list into json
 
 import string
 import json
+import sys
 
 
 class SpellListInfo:
@@ -95,7 +96,7 @@ def generate_school_abbrs():
     for school in school_abbrs:
         if school_abbrs[school] not in schools:
             print(school)
-            exit(1)
+            sys.exit(1)
 
 
 def parse_single_spell(line: list[str], spell_list: str) -> SpellListInfo:
@@ -123,7 +124,7 @@ def parse_single_spell(line: list[str], spell_list: str) -> SpellListInfo:
             print(repr(ex))
             return SpellListInfo('Antipathy/Sympathy', level, 'Enchantment', False, spell_list)
 
-        exit(1)
+        sys.exit(1)
 
     return SpellListInfo(name, level, school, is_ritual, spell_list)
 
@@ -198,8 +199,8 @@ def generate_odnd2_spells():
     """
     Generate the odnd2 spell json
     """
-    with open('sources/parsed/odnd2_spell_list.txt', 'r', encoding='utf-8') as f:
-        txt = f.read()
+    with open('sources/parsed/odnd2_spell_list.txt', 'r', encoding='utf-8') as fil:
+        txt = fil.read()
 
     txt = clean_source(txt)
     raw_spell_list = parse(txt)
@@ -218,8 +219,9 @@ def generate_odnd2_spells():
             spell['spell_list'] = [spell['spell_list']]
             data['name'][spell_name] = spell
 
-    with open('sources/parsed/odnd2.json', 'w+', encoding='utf-8') as f:
-        f.write(json.dumps([data['name'][x] for x in data['name']], indent=4))
+    with open('sources/parsed/odnd2.json', 'w+', encoding='utf-8') as fil:
+        fil.write(json.dumps([data['name'][x]
+                  for x in data['name']], indent=4))
 
 
 generate_school_abbrs()
