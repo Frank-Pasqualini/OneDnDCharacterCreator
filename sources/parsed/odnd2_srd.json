@@ -1240,7 +1240,7 @@
         "school": "Divination",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "Self",
@@ -1262,7 +1262,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
         ],
         "casting_time": "1 action",
@@ -1285,7 +1285,7 @@
         "school": "Enchantment",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "60 feet",
@@ -1307,7 +1307,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
         ],
         "casting_time": "1 action",
@@ -1330,7 +1330,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
         ],
         "casting_time": "1 action",
@@ -1353,7 +1353,7 @@
         "school": "Enchantment",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Divine"
         ],
         "casting_time": "1 action",
@@ -1376,7 +1376,7 @@
         "school": "Illusion",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "Touch",
@@ -1398,7 +1398,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "60 feet",
@@ -1420,7 +1420,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "60 feet",
@@ -1442,7 +1442,7 @@
         "school": "Divination",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Divine",
             "Primal"
         ],
@@ -1466,7 +1466,7 @@
         "school": "Illusion",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "Touch",
@@ -1488,7 +1488,7 @@
         "school": "Illusion",
         "is_ritual": true,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 minute",
         "spell_range": "30 feet",
@@ -1510,7 +1510,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Divine"
         ],
         "casting_time": "1 bonus action",
@@ -1533,7 +1533,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "90 feet",
@@ -1555,7 +1555,7 @@
         "school": "Illusion",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "Self",
@@ -1577,7 +1577,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 bonus action",
         "spell_range": "Self",
@@ -1599,7 +1599,7 @@
         "school": "Illusion",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -1608,7 +1608,7 @@
         "school": "Necromancy",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "60 feet",
@@ -1630,7 +1630,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "Touch",
@@ -1652,7 +1652,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "120 feet",
@@ -1674,7 +1674,7 @@
         "school": "Divination",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "Self",
@@ -1696,7 +1696,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "60 feet",
@@ -1718,7 +1718,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "Touch",
@@ -1740,7 +1740,7 @@
         "school": "Enchantment",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "30 feet",
@@ -1762,7 +1762,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "60 feet",
@@ -1784,7 +1784,7 @@
         "school": "Necromancy",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 minute",
         "spell_range": "10 feet",
@@ -1806,7 +1806,7 @@
         "school": "Necromancy",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "Touch",
@@ -1828,7 +1828,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "Self",
@@ -1850,7 +1850,7 @@
         "school": "Divination",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Divine"
         ],
         "casting_time": "10 minutes",
@@ -1873,7 +1873,7 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 reaction, which you take when you see a creature within 60 feet of you casting a spell",
         "spell_range": "60 feet",
@@ -1895,7 +1895,7 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Divine",
             "Primal"
         ],
@@ -1919,7 +1919,7 @@
         "school": "Illusion",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "Self (30-foot cone)",
@@ -1941,7 +1941,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "150 feet",
@@ -1963,7 +1963,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "Touch",
@@ -1985,7 +1985,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "Touch",
@@ -2007,7 +2007,7 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Divine"
         ],
         "casting_time": "1 hour",
@@ -2030,7 +2030,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "30 feet",
@@ -2052,7 +2052,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -2061,7 +2061,7 @@
         "school": "Illusion",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "120 feet",
@@ -2083,7 +2083,7 @@
         "school": "Evocation",
         "is_ritual": true,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 minute",
         "spell_range": "Self (10-foot-radius hemisphere)",
@@ -2105,7 +2105,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "Self (100-foot line)",
@@ -2127,7 +2127,7 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Divine"
         ],
         "casting_time": "1 minute",
@@ -2150,7 +2150,7 @@
         "school": "Illusion",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "120 feet",
@@ -2172,7 +2172,7 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
         ],
         "casting_time": "1 action",
@@ -2195,7 +2195,7 @@
         "school": "Illusion",
         "is_ritual": true,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 minute",
         "spell_range": "30 feet",
@@ -2217,7 +2217,7 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
         ],
         "casting_time": "1 action",
@@ -2240,7 +2240,7 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Divine"
         ],
         "casting_time": "1 action",
@@ -2263,7 +2263,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "Unlimited",
@@ -2285,7 +2285,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
         ],
         "casting_time": "1 action",
@@ -2308,7 +2308,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "120 feet",
@@ -2330,7 +2330,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "90 feet",
@@ -2352,7 +2352,7 @@
         "school": "Divination",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Divine"
         ],
         "casting_time": "1 action",
@@ -2375,7 +2375,7 @@
         "school": "Necromancy",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "Self",
@@ -2397,7 +2397,7 @@
         "school": "Transmutation",
         "is_ritual": true,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
         ],
         "casting_time": "1 action",
@@ -2420,7 +2420,7 @@
         "school": "Divination",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "30 feet",
@@ -2442,7 +2442,7 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Divine"
         ],
         "casting_time": "1 action",
@@ -2465,7 +2465,7 @@
         "school": "Necromancy",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "30 feet",
@@ -2487,7 +2487,7 @@
         "school": "Enchantment",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "30 feet",
@@ -2509,7 +2509,7 @@
         "school": "Enchantment",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "90 feet",
@@ -2531,7 +2531,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
         ],
         "casting_time": "1 minute",
@@ -2554,7 +2554,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
         ],
         "casting_time": "1 action",
@@ -2577,7 +2577,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "500 feet",
@@ -2599,7 +2599,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "90 feet",
@@ -2621,7 +2621,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "10 minutes",
         "spell_range": "120 feet",
@@ -2643,7 +2643,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "Self",
@@ -2665,7 +2665,7 @@
         "school": "Illusion",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "Touch",
@@ -2687,7 +2687,7 @@
         "school": "Illusion",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "10 minutes",
         "spell_range": "300 feet",
@@ -2709,7 +2709,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
         ],
         "casting_time": "1 action",
@@ -2732,7 +2732,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "Touch",
@@ -2754,7 +2754,7 @@
         "school": "Divination",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Divine",
             "Primal"
         ],
@@ -2778,7 +2778,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "30 feet",
@@ -2800,7 +2800,7 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "10 minutes",
         "spell_range": "120 feet",
@@ -2822,7 +2822,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "30 feet",
@@ -2844,7 +2844,7 @@
         "school": "Illusion",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "120 feet",
@@ -2866,7 +2866,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
         ],
         "casting_time": "1 action",
@@ -2889,7 +2889,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
         ],
         "casting_time": "1 action",
@@ -2912,7 +2912,7 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
         ],
         "casting_time": "1 action",
@@ -2935,7 +2935,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
         ],
         "casting_time": "1 action",
@@ -2958,7 +2958,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "120 feet",
@@ -2980,7 +2980,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "120 feet",
@@ -3002,7 +3002,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "120 feet",
@@ -3024,7 +3024,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "Self (60-foot cone)",
@@ -3046,7 +3046,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
         ],
         "casting_time": "1 minute",
@@ -3064,34 +3064,12 @@
         ]
     },
     {
-        "name": "Contact Other Plane",
-        "level": 5,
-        "school": "Divination",
-        "is_ritual": true,
-        "spell_list": [
-            "Arcane"
-        ],
-        "casting_time": "1 minute",
-        "spell_range": "Self",
-        "verbal_components": true,
-        "somatic_components": false,
-        "material_components_list": "",
-        "duration": "1 minute",
-        "concentration": false,
-        "description": "You mentally contact a demigod, the spirit of a longdead sage, or some other mysterious entity from\nanother plane. Contacting this extraplanar\nintelligence can strain or even break your mind.\nWhen you cast this spell, make a DC 15 Intelligence\nsaving throw. On a failure, you take 6d6 psychic\ndamage and are insane until you finish a long rest.\nWhile insane, you can't take actions, can't\nunderstand what other creatures say, can't read, and\nspeak only in gibberish. A greater restoration spell\ncast on you ends this effect.\nOn a successful save, you can ask the entity up to\nfive questions. You must ask your questions before\nthe spell ends. The GM answers each question with\none word, such as \u201cyes,\u201d \u201cno,\u201d \u201cmaybe,\u201d \u201cnever,\u201d\n\u201cirrelevant,\u201d or \u201cunclear\u201d (if the entity doesn't know\nthe answer to the question). If a one-word answer\nwould be misleading, the GM might instead offer a\nshort phrase as an answer.",
-        "at_higher_levels": "",
-        "pages": [
-            130,
-            130
-        ]
-    },
-    {
         "name": "Creation",
         "level": 5,
         "school": "Illusion",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 minute",
         "spell_range": "30 feet",
@@ -3113,7 +3091,7 @@
         "school": "Enchantment",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "60 feet",
@@ -3135,7 +3113,7 @@
         "school": "Illusion",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 minute",
         "spell_range": "Special",
@@ -3157,7 +3135,7 @@
         "school": "Enchantment",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Divine"
         ],
         "casting_time": "1 minute",
@@ -3180,7 +3158,7 @@
         "school": "Enchantment",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "90 feet",
@@ -3202,7 +3180,7 @@
         "school": "Divination",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Divine"
         ],
         "casting_time": "10 minutes",
@@ -3225,7 +3203,7 @@
         "school": "Illusion",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "Self",
@@ -3247,7 +3225,7 @@
         "school": "Enchantment",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "30 feet",
@@ -3269,7 +3247,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "30 feet",
@@ -3291,7 +3269,7 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Divine"
         ],
         "casting_time": "1 hour",
@@ -3314,7 +3292,7 @@
         "school": "Divination",
         "is_ritual": true,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "30 feet",
@@ -3336,7 +3314,7 @@
         "school": "Divination",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Divine",
             "Primal"
         ],
@@ -3360,7 +3338,7 @@
         "school": "Illusion",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "30 feet",
@@ -3382,7 +3360,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "60 feet",
@@ -3404,7 +3382,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 minute",
         "spell_range": "10 feet",
@@ -3426,7 +3404,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "120 feet",
@@ -3448,7 +3426,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
         ],
         "casting_time": "1 action",
@@ -3471,7 +3449,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -3480,7 +3458,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "150 feet",
@@ -3502,7 +3480,7 @@
         "school": "Necromancy",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "150 feet",
@@ -3524,7 +3502,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "10 minutes",
         "spell_range": "Self",
@@ -3546,7 +3524,7 @@
         "school": "Necromancy",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 minute",
         "spell_range": "10 feet",
@@ -3568,7 +3546,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "60 feet",
@@ -3590,7 +3568,7 @@
         "school": "Necromancy",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "Self",
@@ -3612,7 +3590,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "60 feet",
@@ -3634,7 +3612,7 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "Self (10-foot radius)",
@@ -3656,7 +3634,7 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "10 minutes",
         "spell_range": "Touch",
@@ -3678,7 +3656,7 @@
         "school": "Conjuration",
         "is_ritual": true,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 minute",
         "spell_range": "Touch",
@@ -3700,7 +3678,7 @@
         "school": "Necromancy",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 minute",
         "spell_range": "Self",
@@ -3722,7 +3700,7 @@
         "school": "Enchantment",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "60 feet",
@@ -3744,7 +3722,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
         ],
         "casting_time": "1 action",
@@ -3767,7 +3745,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "300 feet",
@@ -3789,7 +3767,7 @@
         "school": "Enchantment",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "30 feet",
@@ -3811,7 +3789,7 @@
         "school": "Illusion",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "120 feet",
@@ -3833,8 +3811,8 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
-            "Divine",
+            "\u00a9202",
+            "\u00a9202",
             "Primal"
         ],
         "casting_time": "1 action",
@@ -3857,8 +3835,8 @@
         "school": "Divination",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
-            "Divine"
+            "\u00a9202",
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "Touch",
@@ -3880,7 +3858,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
         ],
         "casting_time": "1 action",
@@ -3903,7 +3881,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "150 feet",
@@ -3925,8 +3903,8 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
-            "Divine"
+            "\u00a9202",
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "Self",
@@ -3948,7 +3926,7 @@
         "school": "Necromancy",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "60 feet",
@@ -3970,7 +3948,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "100 feet",
@@ -3992,7 +3970,7 @@
         "school": "Illusion",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "10 minutes",
         "spell_range": "Sight",
@@ -4014,7 +3992,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 minute",
         "spell_range": "300 feet",
@@ -4036,7 +4014,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "60 feet",
@@ -4058,8 +4036,8 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
-            "Divine"
+            "\u00a9202",
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "Touch",
@@ -4081,7 +4059,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "Self (60-foot cone)",
@@ -4103,7 +4081,7 @@
         "school": "Illusion",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "500 miles",
@@ -4125,7 +4103,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
         ],
         "casting_time": "1 action",
@@ -4148,7 +4126,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "Touch",
@@ -4170,7 +4148,7 @@
         "school": "Illusion",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "12 hours",
         "spell_range": "Touch",
@@ -4192,8 +4170,8 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
-            "Divine"
+            "\u00a9202",
+            "\u00a9202"
         ],
         "casting_time": "1 minute",
         "spell_range": "Touch",
@@ -4215,7 +4193,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "10 feet",
@@ -4237,8 +4215,8 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
-            "Divine"
+            "\u00a9202",
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "Self (10-foot-radius sphere)",
@@ -4260,8 +4238,8 @@
         "school": "Enchantment",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
-            "Divine"
+            "\u00a9202",
+            "\u00a9202"
         ],
         "casting_time": "1 hour",
         "spell_range": "60 feet",
@@ -4283,7 +4261,7 @@
         "school": "Necromancy",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 hour",
         "spell_range": "Touch",
@@ -4305,7 +4283,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
         ],
         "casting_time": "10 minutes",
@@ -4328,7 +4306,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "60 feet",
@@ -4350,7 +4328,7 @@
         "school": "Enchantment",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "60 feet",
@@ -4372,7 +4350,7 @@
         "school": "Enchantment",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "150 feet",
@@ -4394,7 +4372,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "Self",
@@ -4416,7 +4394,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "150 feet",
@@ -4438,7 +4416,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "60 feet",
@@ -4460,7 +4438,7 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "Touch",
@@ -4482,7 +4460,7 @@
         "school": "Enchantment",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "60 feet",
@@ -4504,8 +4482,8 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
-            "Divine",
+            "\u00a9202",
+            "\u00a9202",
             "Primal"
         ],
         "casting_time": "1 action",
@@ -4528,7 +4506,7 @@
         "school": "Divination",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ]
     },
     {
@@ -4537,8 +4515,8 @@
         "school": "Necromancy",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
-            "Divine"
+            "\u00a9202",
+            "\u00a9202"
         ],
         "casting_time": "1 hour",
         "spell_range": "10 feet",
@@ -4560,8 +4538,8 @@
         "school": "Divination",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
-            "Divine"
+            "\u00a9202",
+            "\u00a9202"
         ],
         "casting_time": "1 minute",
         "spell_range": "Touch",
@@ -4583,8 +4561,8 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
-            "Divine"
+            "\u00a9202",
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "60 feet",
@@ -4606,7 +4584,7 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 minute",
         "spell_range": "30 feet",
@@ -4628,7 +4606,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "1 mile",
@@ -4650,7 +4628,7 @@
         "school": "Enchantment",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "60 feet",
@@ -4672,7 +4650,7 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "60 feet",
@@ -4694,7 +4672,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane",
+            "\u00a9202",
             "Primal"
         ],
         "casting_time": "1 action",
@@ -4717,7 +4695,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "Self",
@@ -4739,7 +4717,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "30 feet",
@@ -4761,7 +4739,7 @@
         "school": "Illusion",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "120 feet",
@@ -4783,7 +4761,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Arcane"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "Self",
@@ -6118,7 +6096,7 @@
         "school": "Abjuration",
         "is_ritual": true,
         "spell_list": [
-            "Divine"
+            "\u00a9202"
         ],
         "casting_time": "10 minutes",
         "spell_range": "Touch",
@@ -6140,7 +6118,7 @@
         "school": "Necromancy",
         "is_ritual": false,
         "spell_list": [
-            "Divine"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "60 feet",
@@ -6162,7 +6140,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Divine",
+            "\u00a9202",
             "Primal"
         ],
         "casting_time": "1 action",
@@ -6185,7 +6163,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Divine"
+            "\u00a9202"
         ],
         "casting_time": "10 minutes",
         "spell_range": "30 feet",
@@ -6207,7 +6185,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Divine"
+            "\u00a9202"
         ],
         "casting_time": "10 minutes",
         "spell_range": "60 feet",
@@ -6229,7 +6207,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Divine"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "5 feet",
@@ -6251,7 +6229,7 @@
         "school": "Conjuration",
         "is_ritual": false,
         "spell_list": [
-            "Divine"
+            "\u00a9202"
         ],
         "casting_time": "1 minute",
         "spell_range": "90 feet",
@@ -6273,7 +6251,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Divine"
+            "\u00a9202"
         ],
         "casting_time": "1 bonus action",
         "spell_range": "30 feet",
@@ -6295,7 +6273,7 @@
         "school": "Transmutation",
         "is_ritual": false,
         "spell_list": [
-            "Divine",
+            "\u00a9202",
             "Primal"
         ],
         "casting_time": "1 minute",
@@ -6318,7 +6296,7 @@
         "school": "Necromancy",
         "is_ritual": false,
         "spell_list": [
-            "Divine"
+            "\u00a9202"
         ],
         "casting_time": "1 hour",
         "spell_range": "Touch",
@@ -6340,7 +6318,7 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Divine"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "Self",
@@ -6362,7 +6340,7 @@
         "school": "Evocation",
         "is_ritual": false,
         "spell_list": [
-            "Divine"
+            "\u00a9202"
         ],
         "casting_time": "1 action",
         "spell_range": "60 feet",
@@ -6384,7 +6362,7 @@
         "school": "Abjuration",
         "is_ritual": false,
         "spell_list": [
-            "Divine",
+            "\u00a9202",
             "Primal"
         ]
     },
@@ -6394,7 +6372,7 @@
         "school": "Necromancy",
         "is_ritual": false,
         "spell_list": [
-            "Divine",
+            "\u00a9202",
             "Primal"
         ],
         "casting_time": "1 hour",

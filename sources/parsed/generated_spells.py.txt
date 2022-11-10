@@ -8,7 +8,7 @@ class AcidArrow(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Acid Arrow",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=2,
                          school=SpellSchools.EVOCATION,
                          spell_range="90 feet",
@@ -280,7 +280,7 @@ class AnimateDead(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Animate Dead",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=3,
                          school=SpellSchools.NECROMANCY,
                          spell_range="10 feet",
@@ -327,7 +327,7 @@ class AnimateObjects(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Animate Objects",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=5,
                          school=SpellSchools.TRANSMUTATION,
@@ -419,7 +419,7 @@ class AntimagicField(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Antimagic Field",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
+                         spell_lists=[SpellLists.©202, SpellLists.©202],
                          concentration=True,
                          level=8,
                          school=SpellSchools.ABJURATION,
@@ -488,7 +488,7 @@ class AntipathySympathy(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Antipathy/Sympathy",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
+                         spell_lists=[SpellLists.©202, SpellLists.©202],
                          level=8,
                          school=SpellSchools.ENCHANTMENT,
                          spell_range="60 feet",
@@ -550,7 +550,7 @@ class ArcaneEye(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Arcane Eye",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=4,
                          school=SpellSchools.DIVINATION,
@@ -581,7 +581,7 @@ class ArcaneHand(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Arcane Hand",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=5,
                          school=SpellSchools.EVOCATION,
@@ -678,7 +678,7 @@ class ArcaneSword(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Arcane Sword",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=7,
                          school=SpellSchools.EVOCATION,
@@ -707,7 +707,7 @@ class ArcanistsMagicAura(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Arcanist's Magic Aura",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=2,
                          school=SpellSchools.ILLUSION,
                          spell_range="Touch",
@@ -750,7 +750,7 @@ class AstralProjection(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Astral Projection",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
+                         spell_lists=[SpellLists.©202, SpellLists.©202],
                          level=9,
                          school=SpellSchools.NECROMANCY,
                          spell_range="10 feet",
@@ -907,7 +907,7 @@ class Banishment(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Banishment",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
+                         spell_lists=[SpellLists.©202, SpellLists.DIVINE],
                          concentration=True,
                          level=4,
                          school=SpellSchools.ABJURATION,
@@ -996,7 +996,7 @@ class BestowCurse(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Bestow Curse",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=3,
                          school=SpellSchools.NECROMANCY,
@@ -1041,7 +1041,7 @@ class BlackTentacles(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Black Tentacles",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=4,
                          school=SpellSchools.CONJURATION,
@@ -1134,7 +1134,7 @@ class Blight(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Blight",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=4,
                          school=SpellSchools.NECROMANCY,
                          spell_range="30 feet",
@@ -1195,7 +1195,7 @@ class Blink(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Blink",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=3,
                          school=SpellSchools.TRANSMUTATION,
                          spell_range="Self",
@@ -1397,7 +1397,7 @@ class ChainLightning(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Chain Lightning",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=6,
                          school=SpellSchools.EVOCATION,
                          spell_range="150 feet",
@@ -1487,7 +1487,7 @@ class CircleOfDeath(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Circle of Death",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=6,
                          school=SpellSchools.NECROMANCY,
                          spell_range="150 feet",
@@ -1513,7 +1513,7 @@ class Clairvoyance(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Clairvoyance",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
+                         spell_lists=[SpellLists.©202, SpellLists.DIVINE],
                          concentration=True,
                          level=3,
                          school=SpellSchools.DIVINATION,
@@ -1547,7 +1547,7 @@ class Clone(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Clone",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=8,
                          school=SpellSchools.NECROMANCY,
                          spell_range="Touch",
@@ -1581,7 +1581,7 @@ class Cloudkill(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Cloudkill",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=5,
                          school=SpellSchools.CONJURATION,
@@ -1796,7 +1796,7 @@ class Compulsion(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Compulsion",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=4,
                          school=SpellSchools.ENCHANTMENT,
@@ -1831,7 +1831,7 @@ class ConeOfCold(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Cone of Cold",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=5,
                          school=SpellSchools.EVOCATION,
                          spell_range="Self (60-foot cone)",
@@ -1858,7 +1858,7 @@ class Confusion(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Confusion",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=4,
                          school=SpellSchools.ENCHANTMENT,
@@ -1942,7 +1942,7 @@ class ConjureCelestial(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Conjure Celestial",
-                         spell_lists=[SpellLists.DIVINE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=7,
                          school=SpellSchools.CONJURATION,
@@ -1976,7 +1976,7 @@ class ConjureElemental(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Conjure Elemental",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
+                         spell_lists=[SpellLists.©202, SpellLists.PRIMAL],
                          concentration=True,
                          level=5,
                          school=SpellSchools.CONJURATION,
@@ -2060,7 +2060,7 @@ class ConjureMinorElementals(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Conjure Minor Elementals",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
+                         spell_lists=[SpellLists.©202, SpellLists.PRIMAL],
                          concentration=True,
                          level=4,
                          school=SpellSchools.CONJURATION,
@@ -2130,44 +2130,6 @@ class ConjureWoodlandBeings(spells.Spell):
                                           "three times as many with an 8th-level slot. \n")
 
 
-class ContactOtherPlane(spells.Spell):
-    """
-    Contact Other Plane Spell
-    SRD p. 130
-    Generated
-    """
-
-    def __init__(self):
-        super().__init__(name="Contact Other Plane",
-                         spell_lists=[SpellLists.ARCANE],
-                         ritual=True,
-                         level=5,
-                         school=SpellSchools.DIVINATION,
-                         spell_range="Self",
-                         verbal_components=True,
-                         somatic_components=False,
-                         material_components_list=None,
-                         duration="1 minute",
-                         description="You mentally contact a demigod, the spirit of a longdead sage, " +
-                                    "or some other mysterious entity from another plane. Contacting " +
-                                    "this extraplanar intelligence can strain or even break your " +
-                                    "mind. \n" +
-                                    "When you cast this spell, make a DC 15 Intelligence saving " +
-                                    "throw. On a failure, you take 6d6 psychic damage and are " +
-                                    "insane until you finish a long rest. \n" +
-                                    "While insane, you can't take actions, can't understand what " +
-                                    "other creatures say, can't read, and speak only in gibberish. " +
-                                    "A greater restoration spell cast on you ends this effect. \n" +
-                                    "On a successful save, you can ask the entity up to five " +
-                                    "questions. You must ask your questions before the spell ends. " +
-                                    "The GM answers each question with one word, such as “yes,” " +
-                                    "“no,” “maybe,” “never,” “irrelevant,” or “unclear” (if the " +
-                                    "entity doesn't know the answer to the question). If a one-word " +
-                                    "answer would be misleading, the GM might instead offer a short " +
-                                    "phrase as an answer. \n",
-                         at_higher_levels="")
-
-
 class Contagion(spells.Spell):
     """
     Contagion Spell
@@ -2231,7 +2193,7 @@ class Contingency(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Contingency",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=6,
                          school=SpellSchools.EVOCATION,
                          spell_range="Self",
@@ -2295,7 +2257,7 @@ class ControlWater(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Control Water",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
+                         spell_lists=[SpellLists.©202, SpellLists.PRIMAL],
                          concentration=True,
                          level=4,
                          school=SpellSchools.TRANSMUTATION,
@@ -2370,7 +2332,7 @@ class ControlWeather(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Control Weather",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
+                         spell_lists=[SpellLists.©202, SpellLists.PRIMAL],
                          concentration=True,
                          level=8,
                          school=SpellSchools.TRANSMUTATION,
@@ -2412,7 +2374,7 @@ class Counterspell(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Counterspell",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=3,
                          school=SpellSchools.ABJURATION,
                          spell_range="60 feet",
@@ -2463,7 +2425,7 @@ class CreateUndead(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Create Undead",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=6,
                          school=SpellSchools.NECROMANCY,
                          spell_range="10 feet",
@@ -2540,7 +2502,7 @@ class Creation(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Creation",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=5,
                          school=SpellSchools.ILLUSION,
                          spell_range="30 feet",
@@ -2747,7 +2709,7 @@ class DelayedBlastFireball(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Delayed Blast Fireball",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=7,
                          school=SpellSchools.EVOCATION,
@@ -2792,7 +2754,7 @@ class Demiplane(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Demiplane",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=8,
                          school=SpellSchools.CONJURATION,
                          spell_range="60 feet",
@@ -2914,7 +2876,7 @@ class DetectThoughts(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Detect Thoughts",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=2,
                          school=SpellSchools.DIVINATION,
@@ -2970,7 +2932,7 @@ class DimensionDoor(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Dimension Door",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=4,
                          school=SpellSchools.CONJURATION,
                          spell_range="500 feet",
@@ -3039,7 +3001,7 @@ class Disintegrate(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Disintegrate",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=6,
                          school=SpellSchools.TRANSMUTATION,
                          spell_range="60 feet",
@@ -3116,7 +3078,7 @@ class DispelMagic(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Dispel Magic",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE, SpellLists.PRIMAL],
+                         spell_lists=[SpellLists.©202, SpellLists.DIVINE, SpellLists.PRIMAL],
                          level=3,
                          school=SpellSchools.ABJURATION,
                          spell_range="120 feet",
@@ -3199,7 +3161,7 @@ class DivineWord(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Divine Word",
-                         spell_lists=[SpellLists.DIVINE],
+                         spell_lists=[SpellLists.©202],
                          level=7,
                          school=SpellSchools.EVOCATION,
                          spell_range="30 feet",
@@ -3280,7 +3242,7 @@ class DominateMonster(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Dominate Monster",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=8,
                          school=SpellSchools.ENCHANTMENT,
@@ -3325,7 +3287,7 @@ class DominatePerson(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Dominate Person",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=5,
                          school=SpellSchools.ENCHANTMENT,
@@ -3373,7 +3335,7 @@ class Dream(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Dream",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=5,
                          school=SpellSchools.ILLUSION,
                          spell_range="Special",
@@ -3554,7 +3516,7 @@ class EnlargeReduce(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Enlarge/Reduce",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
+                         spell_lists=[SpellLists.©202, SpellLists.PRIMAL],
                          concentration=True,
                          level=2,
                          school=SpellSchools.TRANSMUTATION,
@@ -3634,7 +3596,7 @@ class Enthrall(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Enthrall",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=2,
                          school=SpellSchools.ENCHANTMENT,
                          spell_range="60 feet",
@@ -3664,7 +3626,7 @@ class Etherealness(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Etherealness",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
+                         spell_lists=[SpellLists.©202, SpellLists.©202],
                          level=7,
                          school=SpellSchools.TRANSMUTATION,
                          spell_range="Self",
@@ -3737,7 +3699,7 @@ class Eyebite(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Eyebite",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=6,
                          school=SpellSchools.NECROMANCY,
@@ -3778,7 +3740,7 @@ class Fabricate(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Fabricate",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=4,
                          school=SpellSchools.TRANSMUTATION,
                          spell_range="120 feet",
@@ -3845,7 +3807,7 @@ class FaithfulHound(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Faithful Hound",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=4,
                          school=SpellSchools.CONJURATION,
                          spell_range="30 feet",
@@ -3904,7 +3866,7 @@ class Fear(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Fear",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=3,
                          school=SpellSchools.ILLUSION,
@@ -3960,7 +3922,7 @@ class Feeblemind(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Feeblemind",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=8,
                          school=SpellSchools.ENCHANTMENT,
                          spell_range="150 feet",
@@ -4158,7 +4120,7 @@ class FingerOfDeath(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Finger of Death",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=7,
                          school=SpellSchools.NECROMANCY,
                          spell_range="60 feet",
@@ -4211,7 +4173,7 @@ class FireShield(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Fire Shield",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=4,
                          school=SpellSchools.EVOCATION,
                          spell_range="Self",
@@ -4274,7 +4236,7 @@ class Fireball(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Fireball",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=3,
                          school=SpellSchools.EVOCATION,
                          spell_range="150 feet",
@@ -4361,7 +4323,7 @@ class FlamingSphere(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Flaming Sphere",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
+                         spell_lists=[SpellLists.©202, SpellLists.PRIMAL],
                          concentration=True,
                          level=2,
                          school=SpellSchools.CONJURATION,
@@ -4399,7 +4361,7 @@ class FleshToStone(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Flesh to Stone",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=6,
                          school=SpellSchools.TRANSMUTATION,
@@ -4476,7 +4438,7 @@ class Fly(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Fly",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=3,
                          school=SpellSchools.TRANSMUTATION,
@@ -4530,7 +4492,7 @@ class Forbiddance(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Forbiddance",
-                         spell_lists=[SpellLists.DIVINE],
+                         spell_lists=[SpellLists.©202],
                          ritual=True,
                          level=6,
                          school=SpellSchools.ABJURATION,
@@ -4573,7 +4535,7 @@ class Forcecage(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Forcecage",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=7,
                          school=SpellSchools.EVOCATION,
                          spell_range="100 feet",
@@ -4616,7 +4578,7 @@ class Foresight(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Foresight",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
+                         spell_lists=[SpellLists.©202, SpellLists.©202],
                          level=9,
                          school=SpellSchools.DIVINATION,
                          spell_range="Touch",
@@ -4673,7 +4635,7 @@ class FreezingSphere(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Freezing Sphere",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=6,
                          school=SpellSchools.EVOCATION,
                          spell_range="300 feet",
@@ -4716,7 +4678,7 @@ class GaseousForm(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Gaseous Form",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=3,
                          school=SpellSchools.TRANSMUTATION,
@@ -4754,7 +4716,7 @@ class Gate(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Gate",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
+                         spell_lists=[SpellLists.©202, SpellLists.©202],
                          concentration=True,
                          level=9,
                          school=SpellSchools.CONJURATION,
@@ -4796,7 +4758,7 @@ class Geas(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Geas",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
+                         spell_lists=[SpellLists.©202, SpellLists.DIVINE],
                          level=5,
                          school=SpellSchools.ENCHANTMENT,
                          spell_range="60 feet",
@@ -4897,7 +4859,7 @@ class Glibness(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Glibness",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=8,
                          school=SpellSchools.TRANSMUTATION,
                          spell_range="Self",
@@ -4922,7 +4884,7 @@ class GlobeOfInvulnerability(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Globe of Invulnerability",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=6,
                          school=SpellSchools.ABJURATION,
@@ -4954,7 +4916,7 @@ class GlyphOfWarding(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Glyph of Warding",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
+                         spell_lists=[SpellLists.©202, SpellLists.DIVINE],
                          level=3,
                          school=SpellSchools.ABJURATION,
                          spell_range="Touch",
@@ -5079,7 +5041,7 @@ class GreaterInvisibility(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Greater Invisibility",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=4,
                          school=SpellSchools.ILLUSION,
@@ -5160,7 +5122,7 @@ class GuardsAndWards(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Guards and Wards",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=6,
                          school=SpellSchools.ABJURATION,
                          spell_range="Touch",
@@ -5277,7 +5239,7 @@ class GustOfWind(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Gust of Wind",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
+                         spell_lists=[SpellLists.©202, SpellLists.PRIMAL],
                          concentration=True,
                          level=2,
                          school=SpellSchools.EVOCATION,
@@ -5379,7 +5341,7 @@ class HallucinatoryTerrain(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Hallucinatory Terrain",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=4,
                          school=SpellSchools.ILLUSION,
                          spell_range="300 feet",
@@ -5414,7 +5376,7 @@ class Harm(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Harm",
-                         spell_lists=[SpellLists.DIVINE],
+                         spell_lists=[SpellLists.©202],
                          level=6,
                          school=SpellSchools.NECROMANCY,
                          spell_range="60 feet",
@@ -5442,7 +5404,7 @@ class Haste(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Haste",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=3,
                          school=SpellSchools.TRANSMUTATION,
@@ -5472,7 +5434,7 @@ class Heal(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Heal",
-                         spell_lists=[SpellLists.DIVINE, SpellLists.PRIMAL],
+                         spell_lists=[SpellLists.©202, SpellLists.PRIMAL],
                          level=6,
                          school=SpellSchools.EVOCATION,
                          spell_range="60 feet",
@@ -5582,7 +5544,7 @@ class HeroesFeast(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Heroes' Feast",
-                         spell_lists=[SpellLists.DIVINE],
+                         spell_lists=[SpellLists.©202],
                          level=6,
                          school=SpellSchools.CONJURATION,
                          spell_range="30 feet",
@@ -5672,7 +5634,7 @@ class HoldMonster(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Hold Monster",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=5,
                          school=SpellSchools.ENCHANTMENT,
@@ -5701,7 +5663,7 @@ class HoldPerson(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Hold Person",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
+                         spell_lists=[SpellLists.©202, SpellLists.DIVINE],
                          concentration=True,
                          level=2,
                          school=SpellSchools.ENCHANTMENT,
@@ -5731,7 +5693,7 @@ class HolyAura(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Holy Aura",
-                         spell_lists=[SpellLists.DIVINE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=8,
                          school=SpellSchools.ABJURATION,
@@ -5795,7 +5757,7 @@ class HypnoticPattern(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Hypnotic Pattern",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=3,
                          school=SpellSchools.ILLUSION,
@@ -5826,7 +5788,7 @@ class IceStorm(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Ice Storm",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
+                         spell_lists=[SpellLists.©202, SpellLists.PRIMAL],
                          level=4,
                          school=SpellSchools.EVOCATION,
                          spell_range="300 feet",
@@ -5919,7 +5881,7 @@ class Imprisonment(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Imprisonment",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=9,
                          school=SpellSchools.ABJURATION,
                          spell_range="30 feet",
@@ -5996,7 +5958,7 @@ class IncendiaryCloud(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Incendiary Cloud",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=8,
                          school=SpellSchools.CONJURATION,
@@ -6087,7 +6049,7 @@ class InstantSummons(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Instant Summons",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          ritual=True,
                          level=6,
                          school=SpellSchools.CONJURATION,
@@ -6123,7 +6085,7 @@ class Invisibility(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Invisibility",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=2,
                          school=SpellSchools.ILLUSION,
@@ -6150,7 +6112,7 @@ class IrresistibleDance(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Irresistible Dance",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=6,
                          school=SpellSchools.ENCHANTMENT,
@@ -6205,7 +6167,7 @@ class Knock(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Knock",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=2,
                          school=SpellSchools.TRANSMUTATION,
                          spell_range="60 feet",
@@ -6236,7 +6198,7 @@ class LegendLore(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Legend Lore",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
+                         spell_lists=[SpellLists.©202, SpellLists.DIVINE],
                          level=5,
                          school=SpellSchools.DIVINATION,
                          spell_range="Self",
@@ -6294,7 +6256,7 @@ class Levitate(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Levitate",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=2,
                          school=SpellSchools.TRANSMUTATION,
@@ -6359,7 +6321,7 @@ class LightningBolt(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Lightning Bolt",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=3,
                          school=SpellSchools.EVOCATION,
                          spell_range="Self (100-foot line)",
@@ -6411,7 +6373,7 @@ class LocateCreature(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Locate Creature",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE, SpellLists.PRIMAL],
+                         spell_lists=[SpellLists.©202, SpellLists.DIVINE, SpellLists.PRIMAL],
                          concentration=True,
                          level=4,
                          school=SpellSchools.DIVINATION,
@@ -6446,7 +6408,7 @@ class LocateObject(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Locate Object",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE, SpellLists.PRIMAL],
+                         spell_lists=[SpellLists.©202, SpellLists.DIVINE, SpellLists.PRIMAL],
                          concentration=True,
                          level=2,
                          school=SpellSchools.DIVINATION,
@@ -6559,7 +6521,7 @@ class MagicCircle(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Magic Circle",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
+                         spell_lists=[SpellLists.©202, SpellLists.DIVINE],
                          level=3,
                          school=SpellSchools.ABJURATION,
                          spell_range="10 feet",
@@ -6600,7 +6562,7 @@ class MagicJar(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Magic Jar",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=6,
                          school=SpellSchools.NECROMANCY,
                          spell_range="Self",
@@ -6686,7 +6648,7 @@ class MagicMouth(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Magic Mouth",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          ritual=True,
                          level=2,
                          school=SpellSchools.ILLUSION,
@@ -6729,7 +6691,7 @@ class MagicWeapon(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Magic Weapon",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
+                         spell_lists=[SpellLists.©202, SpellLists.DIVINE],
                          concentration=True,
                          level=2,
                          school=SpellSchools.TRANSMUTATION,
@@ -6755,7 +6717,7 @@ class MagnificentMansion(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Magnificent Mansion",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=7,
                          school=SpellSchools.CONJURATION,
                          spell_range="300 feet",
@@ -6803,7 +6765,7 @@ class MajorImage(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Major Image",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=3,
                          school=SpellSchools.ILLUSION,
@@ -6880,7 +6842,7 @@ class MassHeal(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Mass Heal",
-                         spell_lists=[SpellLists.DIVINE],
+                         spell_lists=[SpellLists.©202],
                          level=9,
                          school=SpellSchools.EVOCATION,
                          spell_range="60 feet",
@@ -6930,7 +6892,7 @@ class MassSuggestion(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Mass Suggestion",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=6,
                          school=SpellSchools.ENCHANTMENT,
                          spell_range="60 feet",
@@ -6977,7 +6939,7 @@ class Maze(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Maze",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=8,
                          school=SpellSchools.CONJURATION,
@@ -7105,7 +7067,7 @@ class MeteorSwarm(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Meteor Swarm",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=9,
                          school=SpellSchools.EVOCATION,
                          spell_range="1 mile",
@@ -7134,7 +7096,7 @@ class MindBlank(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Mind Blank",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=8,
                          school=SpellSchools.ABJURATION,
                          spell_range="Touch",
@@ -7199,7 +7161,7 @@ class MirageArcane(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Mirage Arcane",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=7,
                          school=SpellSchools.ILLUSION,
                          spell_range="Sight",
@@ -7239,7 +7201,7 @@ class MirrorImage(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Mirror Image",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=2,
                          school=SpellSchools.ILLUSION,
                          spell_range="Self",
@@ -7279,7 +7241,7 @@ class Mislead(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Mislead",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=5,
                          school=SpellSchools.ILLUSION,
@@ -7313,7 +7275,7 @@ class MistyStep(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Misty Step",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=2,
                          school=SpellSchools.CONJURATION,
                          spell_range="Self",
@@ -7334,7 +7296,7 @@ class ModifyMemory(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Modify Memory",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=5,
                          school=SpellSchools.ENCHANTMENT,
@@ -7429,7 +7391,7 @@ class MoveEarth(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Move Earth",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
+                         spell_lists=[SpellLists.©202, SpellLists.PRIMAL],
                          concentration=True,
                          level=6,
                          school=SpellSchools.TRANSMUTATION,
@@ -7471,7 +7433,7 @@ class Nondetection(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Nondetection",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
+                         spell_lists=[SpellLists.©202, SpellLists.PRIMAL],
                          level=3,
                          school=SpellSchools.ABJURATION,
                          spell_range="Touch",
@@ -7524,7 +7486,7 @@ class Passwall(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Passwall",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=5,
                          school=SpellSchools.TRANSMUTATION,
                          spell_range="30 feet",
@@ -7554,7 +7516,7 @@ class PhantasmalKiller(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Phantasmal Killer",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=4,
                          school=SpellSchools.ILLUSION,
@@ -7585,7 +7547,7 @@ class PhantomSteed(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Phantom Steed",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          ritual=True,
                          level=3,
                          school=SpellSchools.ILLUSION,
@@ -7619,7 +7581,7 @@ class PlanarAlly(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Planar Ally",
-                         spell_lists=[SpellLists.DIVINE],
+                         spell_lists=[SpellLists.©202],
                          level=6,
                          school=SpellSchools.CONJURATION,
                          spell_range="60 feet",
@@ -7678,7 +7640,7 @@ class PlanarBinding(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Planar Binding",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
+                         spell_lists=[SpellLists.©202, SpellLists.DIVINE],
                          level=5,
                          school=SpellSchools.ABJURATION,
                          spell_range="60 feet",
@@ -7722,7 +7684,7 @@ class PlaneShift(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Plane Shift",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
+                         spell_lists=[SpellLists.©202, SpellLists.©202],
                          level=7,
                          school=SpellSchools.CONJURATION,
                          spell_range="Touch",
@@ -7821,7 +7783,7 @@ class Polymorph(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Polymorph",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
+                         spell_lists=[SpellLists.©202, SpellLists.PRIMAL],
                          concentration=True,
                          level=4,
                          school=SpellSchools.TRANSMUTATION,
@@ -7866,7 +7828,7 @@ class PowerWordKill(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Power Word Kill",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=9,
                          school=SpellSchools.ENCHANTMENT,
                          spell_range="60 feet",
@@ -7889,7 +7851,7 @@ class PowerWordStun(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Power Word Stun",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=8,
                          school=SpellSchools.ENCHANTMENT,
                          spell_range="60 feet",
@@ -7979,7 +7941,7 @@ class PrismaticSpray(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Prismatic Spray",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=7,
                          school=SpellSchools.EVOCATION,
                          spell_range="Self (60-foot cone)",
@@ -8029,7 +7991,7 @@ class PrismaticWall(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Prismatic Wall",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=9,
                          school=SpellSchools.ABJURATION,
                          spell_range="60 feet",
@@ -8116,7 +8078,7 @@ class PrivateSanctum(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Private Sanctum",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=4,
                          school=SpellSchools.ABJURATION,
                          spell_range="120 feet",
@@ -8190,7 +8152,7 @@ class ProgrammedIllusion(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Programmed Illusion",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=6,
                          school=SpellSchools.ILLUSION,
                          spell_range="120 feet",
@@ -8235,7 +8197,7 @@ class ProjectImage(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Project Image",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=7,
                          school=SpellSchools.ILLUSION,
@@ -8277,7 +8239,7 @@ class ProtectionFromEnergy(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Protection from Energy",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
+                         spell_lists=[SpellLists.©202, SpellLists.PRIMAL],
                          concentration=True,
                          level=3,
                          school=SpellSchools.ABJURATION,
@@ -8418,7 +8380,7 @@ class RayOfEnfeeblement(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Ray of Enfeeblement",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=2,
                          school=SpellSchools.NECROMANCY,
@@ -8472,7 +8434,7 @@ class Regenerate(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Regenerate",
-                         spell_lists=[SpellLists.DIVINE, SpellLists.PRIMAL],
+                         spell_lists=[SpellLists.©202, SpellLists.PRIMAL],
                          level=7,
                          school=SpellSchools.TRANSMUTATION,
                          spell_range="Touch",
@@ -8538,7 +8500,7 @@ class RemoveCurse(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Remove Curse",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
+                         spell_lists=[SpellLists.©202, SpellLists.DIVINE],
                          level=3,
                          school=SpellSchools.ABJURATION,
                          spell_range="Touch",
@@ -8561,7 +8523,7 @@ class ResilientSphere(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Resilient Sphere",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=4,
                          school=SpellSchools.EVOCATION,
@@ -8625,7 +8587,7 @@ class Resurrection(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Resurrection",
-                         spell_lists=[SpellLists.DIVINE],
+                         spell_lists=[SpellLists.©202],
                          level=7,
                          school=SpellSchools.NECROMANCY,
                          spell_range="Touch",
@@ -8664,7 +8626,7 @@ class ReverseGravity(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Reverse Gravity",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
+                         spell_lists=[SpellLists.©202, SpellLists.PRIMAL],
                          concentration=True,
                          level=7,
                          school=SpellSchools.TRANSMUTATION,
@@ -8723,7 +8685,7 @@ class RopeTrick(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Rope Trick",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=2,
                          school=SpellSchools.TRANSMUTATION,
                          spell_range="Touch",
@@ -8812,7 +8774,7 @@ class ScorchingRay(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Scorching Ray",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=2,
                          school=SpellSchools.EVOCATION,
                          spell_range="120 feet",
@@ -8837,7 +8799,7 @@ class Scrying(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Scrying",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE, SpellLists.PRIMAL],
+                         spell_lists=[SpellLists.©202, SpellLists.DIVINE, SpellLists.PRIMAL],
                          concentration=True,
                          level=5,
                          school=SpellSchools.DIVINATION,
@@ -8881,7 +8843,7 @@ class SecretChest(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Secret Chest",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=4,
                          school=SpellSchools.CONJURATION,
                          spell_range="Touch",
@@ -8916,7 +8878,7 @@ class SeeInvisibility(spells.Spell):
 
     def __init__(self):
         super().__init__(name="See Invisibility",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=2,
                          school=SpellSchools.DIVINATION,
                          spell_range="Self",
@@ -8939,7 +8901,7 @@ class Seeming(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Seeming",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=5,
                          school=SpellSchools.ILLUSION,
                          spell_range="30 feet",
@@ -8982,7 +8944,7 @@ class Sending(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Sending",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=3,
                          school=SpellSchools.EVOCATION,
                          spell_range="Unlimited",
@@ -9012,7 +8974,7 @@ class Sequester(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Sequester",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=7,
                          school=SpellSchools.TRANSMUTATION,
                          spell_range="Touch",
@@ -9045,7 +9007,7 @@ class Shapechange(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Shapechange",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
+                         spell_lists=[SpellLists.©202, SpellLists.PRIMAL],
                          concentration=True,
                          level=9,
                          school=SpellSchools.TRANSMUTATION,
@@ -9109,7 +9071,7 @@ class Shatter(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Shatter",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=2,
                          school=SpellSchools.EVOCATION,
                          spell_range="60 feet",
@@ -9308,7 +9270,7 @@ class Simulacrum(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Simulacrum",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=7,
                          school=SpellSchools.ILLUSION,
                          spell_range="Touch",
@@ -9385,7 +9347,7 @@ class SleetStorm(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Sleet Storm",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
+                         spell_lists=[SpellLists.©202, SpellLists.PRIMAL],
                          concentration=True,
                          level=3,
                          school=SpellSchools.CONJURATION,
@@ -9418,7 +9380,7 @@ class Slow(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Slow",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=3,
                          school=SpellSchools.TRANSMUTATION,
@@ -9584,7 +9546,7 @@ class SpiderClimb(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Spider Climb",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=2,
                          school=SpellSchools.TRANSMUTATION,
@@ -9710,7 +9672,7 @@ class StinkingCloud(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Stinking Cloud",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=3,
                          school=SpellSchools.CONJURATION,
@@ -9744,7 +9706,7 @@ class StoneShape(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Stone Shape",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
+                         spell_lists=[SpellLists.©202, SpellLists.PRIMAL],
                          level=4,
                          school=SpellSchools.TRANSMUTATION,
                          spell_range="Touch",
@@ -9772,7 +9734,7 @@ class Stoneskin(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Stoneskin",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
+                         spell_lists=[SpellLists.©202, SpellLists.PRIMAL],
                          concentration=True,
                          level=4,
                          school=SpellSchools.ABJURATION,
@@ -9845,7 +9807,7 @@ class Suggestion(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Suggestion",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=2,
                          school=SpellSchools.ENCHANTMENT,
@@ -9888,7 +9850,7 @@ class Sunbeam(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Sunbeam",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE, SpellLists.PRIMAL],
+                         spell_lists=[SpellLists.©202, SpellLists.©202, SpellLists.PRIMAL],
                          concentration=True,
                          level=6,
                          school=SpellSchools.EVOCATION,
@@ -9921,7 +9883,7 @@ class Sunburst(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Sunburst",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE, SpellLists.PRIMAL],
+                         spell_lists=[SpellLists.©202, SpellLists.©202, SpellLists.PRIMAL],
                          level=8,
                          school=SpellSchools.EVOCATION,
                          spell_range="150 feet",
@@ -9952,7 +9914,7 @@ class Symbol(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Symbol",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
+                         spell_lists=[SpellLists.©202, SpellLists.©202],
                          level=7,
                          school=SpellSchools.ABJURATION,
                          spell_range="Touch",
@@ -10036,7 +9998,7 @@ class Telekinesis(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Telekinesis",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=5,
                          school=SpellSchools.TRANSMUTATION,
@@ -10089,7 +10051,7 @@ class TelepathicBond(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Telepathic Bond",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          ritual=True,
                          level=5,
                          school=SpellSchools.DIVINATION,
@@ -10119,7 +10081,7 @@ class Teleport(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Teleport",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=7,
                          school=SpellSchools.CONJURATION,
                          spell_range="10 feet",
@@ -10199,7 +10161,7 @@ class TeleportationCircle(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Teleportation Circle",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=5,
                          school=SpellSchools.CONJURATION,
                          spell_range="10 feet",
@@ -10308,7 +10270,7 @@ class TimeStop(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Time Stop",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=9,
                          school=SpellSchools.TRANSMUTATION,
                          spell_range="Self",
@@ -10337,7 +10299,7 @@ class TinyHut(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Tiny Hut",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          ritual=True,
                          level=3,
                          school=SpellSchools.EVOCATION,
@@ -10374,7 +10336,7 @@ class Tongues(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Tongues",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
+                         spell_lists=[SpellLists.©202, SpellLists.DIVINE],
                          level=3,
                          school=SpellSchools.DIVINATION,
                          spell_range="Touch",
@@ -10459,7 +10421,7 @@ class TruePolymorph(spells.Spell):
 
     def __init__(self):
         super().__init__(name="True Polymorph",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=9,
                          school=SpellSchools.TRANSMUTATION,
@@ -10527,7 +10489,7 @@ class TrueResurrection(spells.Spell):
 
     def __init__(self):
         super().__init__(name="True Resurrection",
-                         spell_lists=[SpellLists.DIVINE, SpellLists.PRIMAL],
+                         spell_lists=[SpellLists.©202, SpellLists.PRIMAL],
                          level=9,
                          school=SpellSchools.NECROMANCY,
                          spell_range="Touch",
@@ -10558,7 +10520,7 @@ class TrueSeeing(spells.Spell):
 
     def __init__(self):
         super().__init__(name="True Seeing",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
+                         spell_lists=[SpellLists.©202, SpellLists.©202],
                          level=6,
                          school=SpellSchools.DIVINATION,
                          spell_range="Touch",
@@ -10647,7 +10609,7 @@ class VampiricTouch(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Vampiric Touch",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=3,
                          school=SpellSchools.NECROMANCY,
@@ -10704,7 +10666,7 @@ class WallOfFire(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Wall of Fire",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
+                         spell_lists=[SpellLists.©202, SpellLists.PRIMAL],
                          concentration=True,
                          level=4,
                          school=SpellSchools.EVOCATION,
@@ -10741,7 +10703,7 @@ class WallOfForce(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Wall of Force",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=5,
                          school=SpellSchools.EVOCATION,
@@ -10778,7 +10740,7 @@ class WallOfIce(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Wall of Ice",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
+                         spell_lists=[SpellLists.©202, SpellLists.PRIMAL],
                          concentration=True,
                          level=6,
                          school=SpellSchools.EVOCATION,
@@ -10822,7 +10784,7 @@ class WallOfStone(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Wall of Stone",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
+                         spell_lists=[SpellLists.©202, SpellLists.PRIMAL],
                          concentration=True,
                          level=5,
                          school=SpellSchools.EVOCATION,
@@ -10944,7 +10906,7 @@ class WaterBreathing(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Water Breathing",
-                         spell_lists=[SpellLists.ARCANE, SpellLists.PRIMAL],
+                         spell_lists=[SpellLists.©202, SpellLists.PRIMAL],
                          ritual=True,
                          level=3,
                          school=SpellSchools.TRANSMUTATION,
@@ -10999,7 +10961,7 @@ class Web(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Web",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=2,
                          school=SpellSchools.CONJURATION,
@@ -11039,7 +11001,7 @@ class Weird(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Weird",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          concentration=True,
                          level=9,
                          school=SpellSchools.ILLUSION,
@@ -11143,7 +11105,7 @@ class Wish(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Wish",
-                         spell_lists=[SpellLists.ARCANE],
+                         spell_lists=[SpellLists.©202],
                          level=9,
                          school=SpellSchools.CONJURATION,
                          spell_range="Self",
@@ -11216,7 +11178,7 @@ class WordOfRecall(spells.Spell):
 
     def __init__(self):
         super().__init__(name="Word of Recall",
-                         spell_lists=[SpellLists.DIVINE],
+                         spell_lists=[SpellLists.©202],
                          level=6,
                          school=SpellSchools.CONJURATION,
                          spell_range="5 feet",

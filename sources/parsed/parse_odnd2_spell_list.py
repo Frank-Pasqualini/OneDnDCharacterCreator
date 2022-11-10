@@ -2,7 +2,6 @@
 Parse the odnd2 spell list into json
 """
 
-import sys
 import string
 import json
 
@@ -93,10 +92,10 @@ def generate_school_abbrs():
         school_abbrs[school] = school
 
     # Validation
-    for school, map_to in school_abbrs.items():
-        if map_to not in schools:
+    for school in school_abbrs:
+        if school_abbrs[school] not in schools:
             print(school)
-            sys.exit(1)
+            exit(1)
 
 
 def parse_single_spell(line: list[str], spell_list: str) -> SpellListInfo:
@@ -112,17 +111,19 @@ def parse_single_spell(line: list[str], spell_list: str) -> SpellListInfo:
         print(school)
         print(school)
         print(ritual)
-        raise Exception('field cannot be empty')
+        print(line)
     try:
         level = int(level)
         name = ' '.join(name)
         school = school_abbrs[school]
         is_ritual = (ritual == 'Yes')
-    except Exception as ex:
+    except KeyError as ex:
         if school == 'Antipathy/Sympathy':
+            print('what a funky little edge case :)')
+            print(repr(ex))
             return SpellListInfo('Antipathy/Sympathy', level, 'Enchantment', False, spell_list)
-        print(ex)
-        sys.exit(1)
+
+        exit(1)
 
     return SpellListInfo(name, level, school, is_ritual, spell_list)
 
@@ -197,8 +198,8 @@ def generate_odnd2_spells():
     """
     Generate the odnd2 spell json
     """
-    with open('sources/parsed/odnd2_spell_list.txt', 'r', encoding='utf-8') as fil:
-        txt = fil.read()
+    with open('sources/parsed/odnd2_spell_list.txt', 'r', encoding='utf-8') as f:
+        txt = f.read()
 
     txt = clean_source(txt)
     raw_spell_list = parse(txt)
@@ -217,9 +218,8 @@ def generate_odnd2_spells():
             spell['spell_list'] = [spell['spell_list']]
             data['name'][spell_name] = spell
 
-    with open('sources/parsed/odnd2.json', 'w+', encoding='utf-8') as fil:
-        fil.write(json.dumps([data['name'][x]
-                  for x in data['name']], indent=4))
+    with open('sources/parsed/odnd2.json', 'w+', encoding='utf-8') as f:
+        f.write(json.dumps([data['name'][x] for x in data['name']], indent=4))
 
 
 generate_school_abbrs()

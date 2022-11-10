@@ -13,7 +13,7 @@ with open("sources/parsed/srd.json", encoding="utf-8") as f:
     srd = json.loads(f.read())
 
 odnd2_names = {x["name"] for x in odnd2}
-srd_names = {x["namer"] for x in srd}
+srd_names = {x["name"] for x in srd}
 
 
 names_map = {
@@ -36,7 +36,7 @@ names_map = {
     "Magic Aura": "Arcanist's Magic Aura"
 }
 
-names_map = names_map | names_map.items()
+names_map = names_map | {names_map[x]: x for x in names_map}
 
 odnd2_exclusive = [
     x for x in odnd2_names if x not in srd_names and x not in names_map]
