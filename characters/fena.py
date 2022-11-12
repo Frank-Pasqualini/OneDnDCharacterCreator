@@ -2,7 +2,7 @@
 Fena. From the Baldur's Gate: Descent into Avernus campaign that I am running with my family.
 """
 
-from rules import abilities, character, bonuses
+from rules import abilities, character, bonuses, magicitem
 from rules.enums import AbilityNames, Alignments, ArtisansTools, Languages, ProficiencyLevels, Skills
 
 
@@ -71,18 +71,42 @@ def create(content: dict[str, dict[str, any]]) -> character.Character:
         eyes="Turquoise",
         skin="Copper",
         hair="None",
-        appearance_image="characters/images/cuzmo.pdf",  # TODO
+        faction="Elturel",
+        appearance_image="characters/images/fena.pdf",
+        faction_image="characters/images/elturel.pdf",
     )
 
-    fena.level_up(
-        0, hit_roll=6, fighting_style=content["Feats"]["Fighting Style: Defense"]())
-    fena.level_up(0, hit_roll=6, content=content)  # TODO
+    fena.level_up(0, hit_roll=7, fighting_style=content["Feats"]["Fighting Style: Defense"]())
+    fena.level_up(0, hit_roll=7, content=content)
+    fena.level_up(0, hit_roll=7, feat=content["Feats"]["Ability Score Improvement"](ability1=AbilityNames.CHARISMA,
+                                                                                    ability2=AbilityNames.CHARISMA))
+    fena.level_up(0, hit_roll=7)
+    fena.level_up(0, hit_roll=7)
+    fena.level_up(0, hit_roll=7)
+    fena.level_up(0, hit_roll=6, feat=content["Feats"]["Ability Score Improvement"](ability1=AbilityNames.CONSTITUTION,
+                                                                                    ability2=AbilityNames.CONSTITUTION))
     fena.level_up(0, hit_roll=6)
     fena.level_up(0, hit_roll=6)
-    fena.level_up(0, hit_roll=6)
-    fena.level_up(0, hit_roll=6)
-    fena.level_up(0, hit_roll=6)
-    fena.level_up(0, hit_roll=6)
-    fena.level_up(0, hit_roll=6)
+
+    fena.set_armor(content["Armors"]["Splint"]())
+    fena.set_shield(content["Armors"]["Shield"]())
+    fena.set_weapons([
+        content["Weapons"]["Longsword"](name="Dragon Slayer Longsword", attack_bonus=1, damage_bonus=1, magical=True),
+        content["Weapons"]["Longsword"](name="Hellfire Longsword", magical=True),
+    ])
+
+    fena.set_magic_items([  # TODO better magic items
+        magicitem.MagicItem(name="Hellfire Weapon",
+                            description="This weapon is fashioned from infernal iron and traced with veins of "
+                                        "hellfire that shed dim light in a 5-foot-radius.\n"
+                                        "Any humanoid killed by an attack made with this weapon has its soul "
+                                        "funneled into the River Styx, where it's reborn instantly as a lemure "
+                                        "devil."),
+        magicitem.MagicItem(name="Dragon Slayer Sword",
+                            description="You gain a +1 bonus to attack and damage rolls made with this magic weapon.\n"
+                                        "When you hit a dragon with this weapon, the dragon takes an extra 3d6 damage. "
+                                        "For the purpose of this weapon, \"dragon\" refers to any creature with the "
+                                        "dragon type, including dragon turtles and wyverns.")
+    ])
 
     return fena

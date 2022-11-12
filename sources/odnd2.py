@@ -294,7 +294,7 @@ class CrossbowExpert(feats.Feat):
                                      "Ability Score Increase. Increase your Dexterity score by 1, to a maximum of 20.\n"
                                      "Ignore Loading. You ignore the Loading property of crossbows.\n"
                                      "Firing in Melee. Being within 5 feet of an enemy doesn't impose Disadvantage on "
-                                     "your Attack Rolls with crossbows.\n "
+                                     "your Attack Rolls with crossbows.\n"
                                      "Dual Wielding. When you make the extra attack of the Light weapon property,"
                                      "you can add your Ability Modifier to the damage of the extra attack if that "
                                      "attack is with a crossbow that has the Light property.",
@@ -337,7 +337,7 @@ class DualWielder(feats.Feat):
                                      "of 20.\n"
                                      "Enhanced Dual Wielding. When you are holding a Weapon with the Light property "
                                      "in one hand, you can treat a non-Light Weapon in your other hand as if it had "
-                                     "the Light property, provided that Weapon lacks the Two-Handed property.\n "
+                                     "the Light property, provided that Weapon lacks the Two-Handed property.\n"
                                      "Quick Draw. You can draw or stow two Weapons that lack the Two-Handed property "
                                      "when you would normally be able to draw or stow only one.",
                          feat_abilities=abilities.Abilities(
