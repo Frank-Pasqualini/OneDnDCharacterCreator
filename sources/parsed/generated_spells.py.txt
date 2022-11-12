@@ -14,7 +14,8 @@ class AcidArrow(spells.Spell):
                          spell_range="90 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="powdered rhubarb leaf and an adder's stomach",
+                         material_components_list="powdered rhubarb leaf and an adder's " +
+                                                                 "stomach \n",
                          description="A shimmering green arrow streaks toward a target within range " +
                                     "and bursts in a spray of acid. Make a ranged spell attack " +
                                     "against the target. On a hit, the target takes 4d4 acid damage " +
@@ -94,7 +95,8 @@ class Alarm(spells.Spell):
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a tiny bell and a piece of fine silver wire",
+                         material_components_list="a tiny bell and a piece of fine silver " +
+                                                                 "wire \n",
                          duration="8 hours",
                          description="You set an alarm against unwanted intrusion. \n" +
                                     "Choose a door, a window, or an area within range that is no " +
@@ -286,7 +288,8 @@ class AnimateDead(spells.Spell):
                          spell_range="10 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a drop of blood, a piece of flesh, and a pinch of bone dust",
+                         material_components_list="a drop of blood, a piece of flesh, and a " +
+                                                                 "pinch of bone dust \n",
                          description="This spell creates an undead servant. Choose a pile of bones " +
                                     "or a corpse of a Medium or Small humanoid within range. Your " +
                                     "spell imbues the target with a foul mimicry of life, raising " +
@@ -426,7 +429,7 @@ class AntimagicField(spells.Spell):
                          spell_range="Self (10-foot-radius sphere)",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a pinch of powdered iron or iron filings",
+                         material_components_list="a pinch of powdered iron or iron filings \n",
                          duration="1 hour",
                          description="A 10-foot-radius invisible sphere of antimagic surrounds you. " +
                                     "This area is divorced from the magical energy that suffuses " +
@@ -494,7 +497,9 @@ class AntipathySympathy(spells.Spell):
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="either a lump of alum soaked in vinegar for the antipathy effect or a drop of honey for the sympathy effect",
+                         material_components_list="either a lump of alum soaked in vinegar " +
+                                                                 "for the antipathy effect or a drop of " +
+                                                                 "honey for the sympathy effect \n",
                          duration="10 days",
                          description="This spell attracts or repels creatures of your choice. \n" +
                                     "You target something within range, either a Huge or smaller " +
@@ -652,7 +657,8 @@ class ArcaneLock(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="gold dust worth at least 25 gp, which the spell consumes",
+                         material_components_list="gold dust worth at least 25 gp, which the " +
+                                                                 "spell consumes \n",
                          duration="Until dispelled",
                          description="You touch a closed door, window, gate, chest, or other " +
                                     "entryway, and it becomes locked for the duration. You and the " +
@@ -685,7 +691,8 @@ class ArcaneSword(spells.Spell):
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a miniature platinum sword with a grip and pommel of copper and zinc, worth 250 gp",
+                         material_components_list="a miniature platinum sword with a grip and " +
+                                                                 "pommel of copper and zinc, worth 250 gp \n",
                          duration="1 minute",
                          description="You create a sword-shaped plane of force that hovers within " +
                                     "range. It lasts for the duration. \n" +
@@ -756,7 +763,11 @@ class AstralProjection(spells.Spell):
                          spell_range="10 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="for each creature you affect with this spell, you must provide one jacinth worth at least 1,000 gp and one ornately carved bar of silver worth at least 100 gp, all of which the spell consumes",
+                         material_components_list="for each creature you affect with this " +
+                                                                 "spell, you must provide one jacinth worth " +
+                                                                 "at least 1,000 gp and one ornately carved " +
+                                                                 "bar of silver worth at least 100 gp, all " +
+                                                                 "of which the spell consumes \n",
                          duration="Special",
                          description="You and up to eight willing creatures within range project " +
                                     "your astral bodies into the Astral Plane (the spell fails and " +
@@ -816,7 +827,8 @@ class Augury(spells.Spell):
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="specially marked sticks, bones, or similar tokens worth at least 25 gp",
+                         material_components_list="specially marked sticks, bones, or similar " +
+                                                                 "tokens worth at least 25 gp \n",
                          description="By casting gem-inlaid sticks, rolling dragon bones, laying out " +
                                     "ornate cards, or employing some other divining tool, you " +
                                     "receive an omen from an otherworldly entity about the results " +
@@ -850,7 +862,8 @@ class Awaken(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="an agate worth at least 1,000 gp, which the spell consumes",
+                         material_components_list="an agate worth at least 1,000 gp, which " +
+                                                                 "the spell consumes \n",
                          description="After spending the casting time tracing magical pathways " +
                                     "within a precious gemstone, you touch a Huge or smaller beast " +
                                     "or plant. The target must have either no Intelligence score or " +
@@ -1048,7 +1061,8 @@ class BlackTentacles(spells.Spell):
                          spell_range="90 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a piece of tentacle from a giant octopus or a giant squid",
+                         material_components_list="a piece of tentacle from a giant octopus " +
+                                                                 "or a giant squid \n",
                          duration="1 minute",
                          description="Squirming, ebony tentacles fill a 20-foot square on ground " +
                                     "that you can see within range. For the duration, these " +
@@ -1403,7 +1417,8 @@ class ChainLightning(spells.Spell):
                          spell_range="150 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a bit of fur; a piece of amber, glass, or a crystal rod; and three silver pins",
+                         material_components_list="a bit of fur; a piece of amber, glass, or " +
+                                                                 "a crystal rod; and three silver pins \n",
                          description="You create a bolt of lightning that arcs toward a target of " +
                                     "your choice that you can see within range. \n" +
                                     "Three bolts then leap from that target to as many as three " +
@@ -1493,7 +1508,8 @@ class CircleOfDeath(spells.Spell):
                          spell_range="150 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="the powder of a crushed black pearl worth at least 500 gp",
+                         material_components_list="the powder of a crushed black pearl worth " +
+                                                                 "at least 500 gp \n",
                          description="A sphere of negative energy ripples out in a 60-footradius " +
                                     "sphere from a point within range. Each creature in that area " +
                                     "must make a Constitution saving throw. A target takes 8d6 " +
@@ -1520,7 +1536,9 @@ class Clairvoyance(spells.Spell):
                          spell_range="1 mile",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a focus worth at least 100 gp, either a jeweled horn for hearing or a glass eye for seeing",
+                         material_components_list="a focus worth at least 100 gp, either a " +
+                                                                 "jeweled horn for hearing or a glass eye " +
+                                                                 "for seeing \n",
                          duration="10 minutes",
                          description="You create an invisible sensor within range in a location " +
                                     "familiar to you (a place you have visited or seen before) or " +
@@ -1553,7 +1571,15 @@ class Clone(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a diamond worth at least 1,000 gp and at least 1 cubic inch of flesh of the creature that is to be cloned, which the spell consumes, and a vessel worth at least 2,000 gp that has a sealable lid and is large enough to hold a Medium creature, such as a huge urn, coffin, mudfilled cyst in the ground, or crystal container filled with salt water",
+                         material_components_list="a diamond worth at least 1,000 gp and at " +
+                                                                 "least 1 cubic inch of flesh of the " +
+                                                                 "creature that is to be cloned, which the " +
+                                                                 "spell consumes, and a vessel worth at " +
+                                                                 "least 2,000 gp that has a sealable lid and " +
+                                                                 "is large enough to hold a Medium creature, " +
+                                                                 "such as a huge urn, coffin, mudfilled cyst " +
+                                                                 "in the ground, or crystal container filled " +
+                                                                 "with salt water \n",
                          description="This spell grows an inert duplicate of a living creature as a " +
                                     "safeguard against death. This clone forms inside a sealed " +
                                     "vessel and grows to full size and maturity after 120 days; you " +
@@ -1626,7 +1652,8 @@ class ColorSpray(spells.Spell):
                          spell_range="Self (15-foot cone)",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a pinch of powder or sand that is colored red, yellow, and blue",
+                         material_components_list="a pinch of powder or sand that is colored " +
+                                                                 "red, yellow, and blue \n",
                          duration="1 round",
                          description="A dazzling array of flashing, colored light springs from your " +
                                     "hand. Roll 6d10; the total is how many hit points of creatures " +
@@ -1704,7 +1731,7 @@ class Commune(spells.Spell):
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="incense and a vial of holy or unholy water",
+                         material_components_list="incense and a vial of holy or unholy water ",
                          duration="1 minute",
                          description="You contact your deity or a divine proxy and ask up to three " +
                                     "questions that can be answered with a yes or no. You must ask " +
@@ -1983,7 +2010,9 @@ class ConjureElemental(spells.Spell):
                          spell_range="90 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="burning incense for air, soft clay for earth, sulfur and phosphorus for fire, or water and sand for water",
+                         material_components_list="burning incense for air, soft clay for " +
+                                                                 "earth, sulfur and phosphorus for fire, or " +
+                                                                 "water and sand for water \n",
                          duration="1 hour",
                          description="You call forth an elemental servant. Choose an area of air, " +
                                     "earth, fire, or water that fills a 10-foot cube within range. " +
@@ -2199,7 +2228,9 @@ class Contingency(spells.Spell):
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a statuette of yourself carved from ivory and decorated with gems worth at least 1,500 gp",
+                         material_components_list="a statuette of yourself carved from ivory " +
+                                                                 "and decorated with gems worth at least " +
+                                                                 "1,500 gp \n",
                          duration="10 days",
                          description="Choose a spell of 5th level or lower that you can cast, that " +
                                     "has a casting time of 1 action, and that can target you. You " +
@@ -2238,7 +2269,8 @@ class ContinualFlame(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="ruby dust worth 50 gp, which the spell consumes",
+                         material_components_list="ruby dust worth 50 gp, which the spell " +
+                                                                 "consumes \n",
                          duration="Until dispelled",
                          description="A flame, equivalent in brightness to a torch, springs forth " +
                                     "from an object that you touch. The effect looks like a regular " +
@@ -2339,7 +2371,8 @@ class ControlWeather(spells.Spell):
                          spell_range="Self (5-mile radius)",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="burning incense and bits of earth and wood mixed in water",
+                         material_components_list="burning incense and bits of earth and wood " +
+                                                                 "mixed in water \n",
                          duration="8 hours",
                          description="You take control of the weather within 5 miles of you for the " +
                                     "duration. You must be outdoors to cast this spell. Moving to a " +
@@ -2431,7 +2464,10 @@ class CreateUndead(spells.Spell):
                          spell_range="10 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="one clay pot filled with grave dirt, one clay pot filled with brackish water, and one 150 gp black onyx stone for each corpse",
+                         material_components_list="one clay pot filled with grave dirt, one " +
+                                                                 "clay pot filled with brackish water, and " +
+                                                                 "one 150 gp black onyx stone for each " +
+                                                                 "corpse \n",
                          description="You can cast this spell only at night. Choose up to three " +
                                     "corpses of Medium or Small humanoids within range. Each corpse " +
                                     "becomes a ghoul under your control. (The GM has game " +
@@ -2478,7 +2514,8 @@ class CreateOrDestroyWater(spells.Spell):
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a drop of water if creating water or a few grains of sand if destroying it",
+                         material_components_list="a drop of water if creating water or a few " +
+                                                                 "grains of sand if destroying it \n",
                          description="You either create or destroy water. \n" +
                                     "Create Water. You create up to 10 gallons of clean water " +
                                     "within range in an open container. \n" +
@@ -2508,7 +2545,8 @@ class Creation(spells.Spell):
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a tiny piece of matter of the same type of the item you plan to create",
+                         material_components_list="a tiny piece of matter of the same type of " +
+                                                                 "the item you plan to create \n",
                          duration="Special",
                          description="You pull wisps of shadow material from the Shadowfell to " +
                                     "create a nonliving object of vegetable matter within range: " +
@@ -2568,7 +2606,8 @@ class DancingLights(spells.Spell):
                          spell_range="120 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a bit of phosphorus or wychwood, or a glowworm",
+                         material_components_list="a bit of phosphorus or wychwood, or a " +
+                                                                 "glowworm \n",
                          duration="1 minute",
                          description="You create up to four torch-sized lights within range, making " +
                                     "them appear as torches, lanterns, or glowing orbs that hover " +
@@ -2599,7 +2638,8 @@ class Darkness(spells.Spell):
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=False,
-                         material_components_list="bat fur and a drop of pitch or piece of coal",
+                         material_components_list="bat fur and a drop of pitch or piece of " +
+                                                                 "coal \n",
                          duration="10 minutes",
                          description="Magical darkness spreads from a point you choose within range " +
                                     "to fill a 15-foot-radius sphere for the duration. The darkness " +
@@ -2632,7 +2672,7 @@ class Darkvision(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="either a pinch of dried carrot or an agate",
+                         material_components_list="either a pinch of dried carrot or an agate ",
                          duration="8 hours",
                          description="You touch a willing creature to grant it the ability to see in " +
                                     "the dark. For the duration, that creature has darkvision out " +
@@ -3112,7 +3152,10 @@ class Divination(spells.Spell):
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="incense and a sacrificial offering appropriate to your religion, together worth at least 25 gp, which the spell consumes",
+                         material_components_list="incense and a sacrificial offering " +
+                                                                 "appropriate to your religion, together " +
+                                                                 "worth at least 25 gp, which the spell " +
+                                                                 "consumes \n",
                          description="Your magic and an offering put you in contact with a god or a " +
                                     "god's servants. You ask a single question concerning a " +
                                     "specific goal, event, or activity to occur within 7 days. The " +
@@ -3341,7 +3384,8 @@ class Dream(spells.Spell):
                          spell_range="Special",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a handful of sand, a dab of ink, and a writing quill plucked from a sleeping bird",
+                         material_components_list="a handful of sand, a dab of ink, and a " +
+                                                                 "writing quill plucked from a sleeping bird ",
                          duration="8 hours",
                          description="This spell shapes a creature's dreams. Choose a creature known " +
                                     "to you as the target of this spell. The target must be on the " +
@@ -3426,7 +3470,8 @@ class Earthquake(spells.Spell):
                          spell_range="500 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a pinch of dirt, a piece of rock, and a lump of clay",
+                         material_components_list="a pinch of dirt, a piece of rock, and a " +
+                                                                 "lump of clay \n",
                          duration="1 minute",
                          description="You create a seismic disturbance at a point on the ground that " +
                                     "you can see within range. For the duration, an intense tremor " +
@@ -3813,7 +3858,8 @@ class FaithfulHound(spells.Spell):
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a tiny silver whistle, a piece of bone, and a thread",
+                         material_components_list="a tiny silver whistle, a piece of bone, " +
+                                                                 "and a thread \n",
                          duration="8 hours",
                          description="You conjure a phantom watchdog in an unoccupied space that you " +
                                     "can see within range, where it remains for the duration, until " +
@@ -3848,7 +3894,8 @@ class FalseLife(spells.Spell):
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a small amount of alcohol or distilled spirits",
+                         material_components_list="a small amount of alcohol or distilled " +
+                                                                 "spirits \n",
                          duration="1 hour",
                          description="Bolstering yourself with a necromantic facsimile of life, you " +
                                     "gain 1d4 + 4 temporary hit points for the duration. \n",
@@ -3928,7 +3975,8 @@ class Feeblemind(spells.Spell):
                          spell_range="150 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a handful of clay, crystal, glass, or mineral spheres",
+                         material_components_list="a handful of clay, crystal, glass, or " +
+                                                                 "mineral spheres \n",
                          description="You blast the mind of a creature that you can see within " +
                                     "range, attempting to shatter its intellect and personality. " +
                                     "The target takes 4d6 psychic damage and must make an " +
@@ -3962,7 +4010,9 @@ class FindFamiliar(spells.Spell):
                          spell_range="10 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="10 gp worth of charcoal, incense, and herbs that must be consumed by fire in a brass brazier",
+                         material_components_list="10 gp worth of charcoal, incense, and " +
+                                                                 "herbs that must be consumed by fire in a " +
+                                                                 "brass brazier \n",
                          description="You gain the service of a familiar, a spirit that takes an " +
                                     "animal form you choose: bat, cat, crab, frog (toad), hawk, " +
                                     "lizard, octopus, owl, poisonous snake, fish (quipper), rat, " +
@@ -4093,7 +4143,10 @@ class FindThePath(spells.Spell):
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a set of divinatory tools—such as bones, ivory sticks, cards, teeth, or carved runes—worth 100 gp and an object from the location you wish to find",
+                         material_components_list="a set of divinatory tools—such as bones, " +
+                                                                 "ivory sticks, cards, teeth, or carved " +
+                                                                 "runes—worth 100 gp and an object from the " +
+                                                                 "location you wish to find \n",
                          duration="1 day",
                          description="This spell allows you to find the shortest, most direct " +
                                     "physical route to a specific fixed location that you are " +
@@ -4330,7 +4383,8 @@ class FlamingSphere(spells.Spell):
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a bit of tallow, a pinch of brimstone, and a dusting of powdered iron",
+                         material_components_list="a bit of tallow, a pinch of brimstone, and " +
+                                                                 "a dusting of powdered iron \n",
                          duration="1 minute",
                          description="A 5-foot-diameter sphere of fire appears in an unoccupied " +
                                     "space of your choice within range and lasts for the duration. " +
@@ -4499,7 +4553,8 @@ class Forbiddance(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a sprinkling of holy water, rare incense, and powdered ruby worth at least 1,000 gp",
+                         material_components_list="a sprinkling of holy water, rare incense, " +
+                                                                 "and powdered ruby worth at least 1,000 gp ",
                          duration="1 day",
                          description="You create a ward against magical travel that protects up to " +
                                     "40,000 square feet of floor space to a height of 30 feet above " +
@@ -4612,7 +4667,8 @@ class FreedomOfMovement(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a leather strap, bound around the arm or a similar appendage",
+                         material_components_list="a leather strap, bound around the arm or a " +
+                                                                 "similar appendage \n",
                          duration="1 hour",
                          description="You touch a willing creature. For the duration, the target's " +
                                     "movement is unaffected by difficult terrain, and spells and " +
@@ -4804,7 +4860,9 @@ class GentleRepose(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a pinch of salt and one copper piece placed on each of the corpse's eyes, which must remain there for the duration",
+                         material_components_list="a pinch of salt and one copper piece " +
+                                                                 "placed on each of the corpse's eyes, which " +
+                                                                 "must remain there for the duration \n",
                          duration="10 days",
                          description="You touch a corpse or other remains. For the duration, the " +
                                     "target is protected from decay and can't become undead. \n" +
@@ -4891,7 +4949,8 @@ class GlobeOfInvulnerability(spells.Spell):
                          spell_range="Self (10-foot radius)",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a glass or crystal bead that shatters when the spell ends",
+                         material_components_list="a glass or crystal bead that shatters when " +
+                                                                 "the spell ends \n",
                          duration="1 minute",
                          description="An immobile, faintly shimmering barrier springs into existence " +
                                     "in a 10-foot radius around you and remains for the duration. \n" +
@@ -4922,7 +4981,8 @@ class GlyphOfWarding(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="incense and powdered diamond worth at least 200 gp, which the spell consumes",
+                         material_components_list="incense and powdered diamond worth at " +
+                                                                 "least 200 gp, which the spell consumes \n",
                          duration="Until dispelled or triggered",
                          description="When you cast this spell, you inscribe a glyph that harms " +
                                     "other creatures, either upon a surface (such as a table or a " +
@@ -5071,7 +5131,8 @@ class GreaterRestoration(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="diamond dust worth at least 100 gp, which the spell consumes",
+                         material_components_list="diamond dust worth at least 100 gp, which " +
+                                                                 "the spell consumes \n",
                          description="You imbue a creature you touch with positive energy to undo a " +
                                     "debilitating effect. You can reduce the target's exhaustion " +
                                     "level by one, or end one of the following effects on the " +
@@ -5128,7 +5189,10 @@ class GuardsAndWards(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="burning incense, a small measure of brimstone and oil, a knotted string, a small amount of umber hulk blood, and a small silver rod worth at least 10 gp",
+                         material_components_list="burning incense, a small measure of " +
+                                                                 "brimstone and oil, a knotted string, a " +
+                                                                 "small amount of umber hulk blood, and a " +
+                                                                 "small silver rod worth at least 10 gp \n",
                          duration="24 hours",
                          description="You create a ward that protects up to 2,500 square feet of " +
                                     "floor space (an area 50 feet square, or one hundred 5-foot " +
@@ -5280,7 +5344,8 @@ class Hallow(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="herbs, oils, and incense worth at least 1,000 gp, which the spell consumes",
+                         material_components_list="herbs, oils, and incense worth at least " +
+                                                                 "1,000 gp, which the spell consumes \n",
                          duration="Until dispelled",
                          description="You touch a point and infuse an area around it with holy (or " +
                                     "unholy) power. The area can have a radius up to 60 feet, and " +
@@ -5347,7 +5412,7 @@ class HallucinatoryTerrain(spells.Spell):
                          spell_range="300 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a stone, a twig, and a bit of green plant",
+                         material_components_list="a stone, a twig, and a bit of green plant ",
                          duration="24 hours",
                          description="You make natural terrain in a 150-foot cube in range look, " +
                                     "sound, and smell like some other sort of natural terrain. " +
@@ -5550,7 +5615,8 @@ class HeroesFeast(spells.Spell):
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a gem-encrusted bowl worth at least 1,000 gp, which the spell consumes",
+                         material_components_list="a gem-encrusted bowl worth at least 1,000 " +
+                                                                 "gp, which the spell consumes \n",
                          description="You bring forth a great feast, including magnificent food and " +
                                     "drink. The feast takes 1 hour to consume and disappears at the " +
                                     "end of that time, and the beneficial effects don't set in " +
@@ -5610,7 +5676,8 @@ class HideousLaughter(spells.Spell):
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="tiny tarts and a feather that is waved in the air",
+                         material_components_list="tiny tarts and a feather that is waved in " +
+                                                                 "the air \n",
                          duration="1 minute",
                          description="A creature of your choice that you can see within range " +
                                     "perceives everything as hilariously funny and falls into fits " +
@@ -5700,7 +5767,10 @@ class HolyAura(spells.Spell):
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a tiny reliquary worth at least 1,000 gp containing a sacred relic, such as a scrap of cloth from a saint's robe or a piece of parchment from a religious text",
+                         material_components_list="a tiny reliquary worth at least 1,000 gp " +
+                                                                 "containing a sacred relic, such as a scrap " +
+                                                                 "of cloth from a saint's robe or a piece of " +
+                                                                 "parchment from a religious text \n",
                          duration="1 minute",
                          description="Divine light washes out from you and coalesces in a soft " +
                                     "radiance in a 30-foot radius around you. \n" +
@@ -5764,7 +5834,8 @@ class HypnoticPattern(spells.Spell):
                          spell_range="120 feet",
                          verbal_components=False,
                          somatic_components=True,
-                         material_components_list="a glowing stick of incense or a crystal vial filled with phosphorescent material",
+                         material_components_list="a glowing stick of incense or a crystal " +
+                                                                 "vial filled with phosphorescent material \n",
                          duration="1 minute",
                          description="You create a twisting pattern of colors that weaves through " +
                                     "the air inside a 30-foot cube within range. \n" +
@@ -5794,7 +5865,7 @@ class IceStorm(spells.Spell):
                          spell_range="300 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a pinch of dust and a few drops of water",
+                         material_components_list="a pinch of dust and a few drops of water \n",
                          description="A hail of rock-hard ice pounds to the ground in a 20- " +
                                     "foot-radius, 40-foot-high cylinder centered on a point within " +
                                     "range. Each creature in the cylinder must make a Dexterity " +
@@ -5824,7 +5895,8 @@ class Identify(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a pearl worth at least 100 gp and an owl feather",
+                         material_components_list="a pearl worth at least 100 gp and an owl " +
+                                                                 "feather \n",
                          description="You choose one object that you must touch throughout the " +
                                     "casting of the spell. If it is a magic item or some other " +
                                     "magic-imbued object, you learn its properties and how to use " +
@@ -5853,7 +5925,8 @@ class IllusoryScript(spells.Spell):
                          spell_range="Touch",
                          verbal_components=False,
                          somatic_components=True,
-                         material_components_list="a lead-based ink worth at least 10 gp, which the spell consumes",
+                         material_components_list="a lead-based ink worth at least 10 gp, " +
+                                                                 "which the spell consumes \n",
                          duration="10 days",
                          description="You write on parchment, paper, or some other suitable writing " +
                                     "material and imbue it with a potent illusion that lasts for " +
@@ -5887,7 +5960,11 @@ class Imprisonment(spells.Spell):
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a vellum depiction or a carved statuette in the likeness of the target, and a special component that varies according to the version of the spell you choose, worth at least 500 gp per Hit Die of the target",
+                         material_components_list="a vellum depiction or a carved statuette " +
+                                                                 "in the likeness of the target, and a " +
+                                                                 "special component that varies according to " +
+                                                                 "the version of the spell you choose, worth " +
+                                                                 "at least 500 gp per Hit Die of the target ",
                          duration="Until dispelled",
                          description="You create a magical restraint to hold a creature that you can " +
                                     "see within range. The target must succeed on a Wisdom saving " +
@@ -6023,7 +6100,8 @@ class InsectPlague(spells.Spell):
                          spell_range="300 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a few grains of sugar, some kernels of grain, and a smear of fat",
+                         material_components_list="a few grains of sugar, some kernels of " +
+                                                                 "grain, and a smear of fat \n",
                          duration="10 minutes",
                          description="Swarming, biting locusts fill a 20-foot-radius sphere centered " +
                                     "on a point you choose within range. The sphere spreads around " +
@@ -6204,7 +6282,9 @@ class LegendLore(spells.Spell):
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="incense worth at least 250 gp, which the spell consumes, and four ivory strips worth at least 50 gp each",
+                         material_components_list="incense worth at least 250 gp, which the " +
+                                                                 "spell consumes, and four ivory strips " +
+                                                                 "worth at least 50 gp each \n",
                          description="Name or describe a person, place, or object. The spell brings " +
                                     "to your mind a brief summary of the significant lore about the " +
                                     "thing you named. The lore might consist of current tales, " +
@@ -6263,7 +6343,9 @@ class Levitate(spells.Spell):
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="either a small leather loop or a piece of golden wire bent into a cup shape with a long shank on one end",
+                         material_components_list="either a small leather loop or a piece of " +
+                                                                 "golden wire bent into a cup shape with a " +
+                                                                 "long shank on one end \n",
                          duration="10 minutes",
                          description="One creature or object of your choice that you can see within " +
                                     "range rises vertically, up to 20 feet, and remains suspended " +
@@ -6327,7 +6409,8 @@ class LightningBolt(spells.Spell):
                          spell_range="Self (100-foot line)",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a bit of fur and a rod of amber, crystal, or glass",
+                         material_components_list="a bit of fur and a rod of amber, crystal, " +
+                                                                 "or glass \n",
                          description="A stroke of lightning forming a line 100 feet long and 5 feet " +
                                     "wide blasts out from you in a direction you choose. Each " +
                                     "creature in the line must make a Dexterity saving throw. A " +
@@ -6527,7 +6610,9 @@ class MagicCircle(spells.Spell):
                          spell_range="10 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="holy water or powdered silver and iron worth at least 100 gp, which the spell consumes",
+                         material_components_list="holy water or powdered silver and iron " +
+                                                                 "worth at least 100 gp, which the spell " +
+                                                                 "consumes \n",
                          duration="1 hour",
                          description="You create a 10-foot-radius, 20-foot-tall cylinder of magical " +
                                     "energy centered on a point on the ground that you can see " +
@@ -6568,7 +6653,8 @@ class MagicJar(spells.Spell):
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a gem, crystal, reliquary, or some other ornamental container worth at least 500 gp",
+                         material_components_list="a gem, crystal, reliquary, or some other " +
+                                                                 "ornamental container worth at least 500 gp ",
                          duration="Until dispelled",
                          description="Your body falls into a catatonic state as your soul leaves it " +
                                     "and enters the container you used for the spell's material " +
@@ -6655,7 +6741,9 @@ class MagicMouth(spells.Spell):
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a small bit of honeycomb and jade dust worth at least 10 gp, which the spell consumes",
+                         material_components_list="a small bit of honeycomb and jade dust " +
+                                                                 "worth at least 10 gp, which the spell " +
+                                                                 "consumes \n",
                          duration="Until dispelled",
                          description="You implant a message within an object in range, a message " +
                                     "that is uttered when a trigger condition is met. Choose an " +
@@ -6723,7 +6811,10 @@ class MagnificentMansion(spells.Spell):
                          spell_range="300 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a miniature portal carved from ivory, a small piece of polished marble, and a tiny silver spoon, each item worth at least 5 gp",
+                         material_components_list="a miniature portal carved from ivory, a " +
+                                                                 "small piece of polished marble, and a tiny " +
+                                                                 "silver spoon, each item worth at least 5 " +
+                                                                 "gp \n",
                          duration="24 hours",
                          description="You conjure an extradimensional dwelling in range that lasts " +
                                     "for the duration. You choose where its one entrance is " +
@@ -6898,7 +6989,8 @@ class MassSuggestion(spells.Spell):
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=False,
-                         material_components_list="a snake's tongue and either a bit of honeycomb or a drop of sweet oil",
+                         material_components_list="a snake's tongue and either a bit of " +
+                                                                 "honeycomb or a drop of sweet oil \n",
                          duration="24 hours",
                          description="You suggest a course of activity (limited to a sentence or " +
                                     "two) and magically influence up to twelve creatures of your " +
@@ -7361,7 +7453,8 @@ class Moonbeam(spells.Spell):
                          spell_range="120 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="several seeds of any moonseed plant and a piece of opalescent feldspar",
+                         material_components_list="several seeds of any moonseed plant and a " +
+                                                                 "piece of opalescent feldspar \n",
                          duration="1 minute",
                          description="A silvery beam of pale light shines down in a 5-footradius, " +
                                     "40-foot-high cylinder centered on a point within range. Until " +
@@ -7398,7 +7491,8 @@ class MoveEarth(spells.Spell):
                          spell_range="120 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="an iron blade and a small bag containing a mixture of soils—clay, loam, and sand",
+                         material_components_list="an iron blade and a small bag containing a " +
+                                                                 "mixture of soils—clay, loam, and sand \n",
                          duration="2 hours",
                          description="Choose an area of terrain no larger than 40 feet on a side " +
                                     "within range. You can reshape dirt, sand, or clay in the area " +
@@ -7439,7 +7533,9 @@ class Nondetection(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a pinch of diamond dust worth 25 gp sprinkled over the target, which the spell consumes",
+                         material_components_list="a pinch of diamond dust worth 25 gp " +
+                                                                 "sprinkled over the target, which the spell " +
+                                                                 "consumes \n",
                          duration="8 hours",
                          description="For the duration, you hide a target that you touch from " +
                                     "divination magic. The target can be a willing creature or a " +
@@ -7465,7 +7561,8 @@ class PassWithoutTrace(spells.Spell):
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="ashes from a burned leaf of mistletoe and a sprig of spruce",
+                         material_components_list="ashes from a burned leaf of mistletoe and " +
+                                                                 "a sprig of spruce \n",
                          duration="1 hour",
                          description="A veil of shadows and silence radiates from you, masking you " +
                                     "and your companions from detection. \n" +
@@ -7646,7 +7743,8 @@ class PlanarBinding(spells.Spell):
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a jewel worth at least 1,000 gp, which the spell consumes",
+                         material_components_list="a jewel worth at least 1,000 gp, which the " +
+                                                                 "spell consumes \n",
                          duration="24 hours",
                          description="With this spell, you attempt to bind a celestial, an " +
                                     "elemental, a fey, or a fiend to your service. The creature " +
@@ -7690,7 +7788,8 @@ class PlaneShift(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a forked, metal rod worth at least 250 gp, attuned to a particular plane of existence",
+                         material_components_list="a forked, metal rod worth at least 250 gp, " +
+                                                                 "attuned to a particular plane of existence ",
                          description="You and up to eight willing creatures who link hands in a " +
                                     "circle are transported to a different plane of existence. You " +
                                     "can specify a target destination in general terms, such as the " +
@@ -8084,7 +8183,9 @@ class PrivateSanctum(spells.Spell):
                          spell_range="120 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a thin sheet of lead, a piece of opaque glass, a wad of cotton or cloth, and powdered chrysolite",
+                         material_components_list="a thin sheet of lead, a piece of opaque " +
+                                                                 "glass, a wad of cotton or cloth, and " +
+                                                                 "powdered chrysolite \n",
                          duration="24 hours",
                          description="You make an area within range magically secure. \n" +
                                     "The area is a cube that can be as small as 5 feet to as large " +
@@ -8158,7 +8259,8 @@ class ProgrammedIllusion(spells.Spell):
                          spell_range="120 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a bit of fleece and jade dust worth at least 25 gp",
+                         material_components_list="a bit of fleece and jade dust worth at " +
+                                                                 "least 25 gp \n",
                          duration="Until dispelled",
                          description="You create an illusion of an object, a creature, or some other " +
                                     "visible phenomenon within range that activates when a specific " +
@@ -8204,7 +8306,8 @@ class ProjectImage(spells.Spell):
                          spell_range="500 miles",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a small replica of you made from materials worth at least 5 gp",
+                         material_components_list="a small replica of you made from materials " +
+                                                                 "worth at least 5 gp \n",
                          duration="1 day",
                          description="You create an illusory copy of yourself that lasts for the " +
                                     "duration. The copy can appear at any location within range " +
@@ -8270,7 +8373,8 @@ class ProtectionFromEvilAndGood(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="holy water or powdered silver and iron, which the spell consumes",
+                         material_components_list="holy water or powdered silver and iron, " +
+                                                                 "which the spell consumes \n",
                          duration="Concentration up to 10 minutes",
                          description="Until the spell ends, one willing creature you touch is " +
                                     "protected against certain types of creatures: aberrations, " +
@@ -8349,7 +8453,8 @@ class RaiseDead(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a diamond worth at least 500 gp, which the spell consumes",
+                         material_components_list="a diamond worth at least 500 gp, which the " +
+                                                                 "spell consumes \n",
                          description="You return a dead creature you touch to life, provided that it " +
                                     "has been dead no longer than 10 days. If the creature's soul " +
                                     "is both willing and at liberty to rejoin the body, the " +
@@ -8468,7 +8573,8 @@ class Reincarnate(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="rare oils and unguents worth at least 1,000 gp, which the spell consumes",
+                         material_components_list="rare oils and unguents worth at least " +
+                                                                 "1,000 gp, which the spell consumes \n",
                          description="You touch a dead humanoid or a piece of a dead humanoid. " +
                                     "Provided that the creature has been dead no longer than 10 " +
                                     "days, the spell forms a new adult body for it and then calls " +
@@ -8530,7 +8636,9 @@ class ResilientSphere(spells.Spell):
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a hemispherical piece of clear crystal and a matching hemispherical piece of gum arabic",
+                         material_components_list="a hemispherical piece of clear crystal and " +
+                                                                 "a matching hemispherical piece of gum " +
+                                                                 "arabic \n",
                          duration="1 minute",
                          description="A sphere of shimmering force encloses a creature or object of " +
                                     "Large size or smaller within range. An unwilling creature must " +
@@ -8593,7 +8701,8 @@ class Resurrection(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a diamond worth at least 1,000 gp, which the spell consumes",
+                         material_components_list="a diamond worth at least 1,000 gp, which " +
+                                                                 "the spell consumes \n",
                          description="You touch a dead creature that has been dead for no more than " +
                                     "a century, that didn't die of old age, and that isn't undead. " +
                                     "If its soul is free and willing, the target returns to life " +
@@ -8668,7 +8777,8 @@ class Revivify(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="diamonds worth 300 gp, which the spell consumes",
+                         material_components_list="diamonds worth 300 gp, which the spell " +
+                                                                 "consumes \n",
                          description="You touch a creature that has died within the last minute. " +
                                     "That creature returns to life with 1 hit point. \n" +
                                     "This spell can't return to life a creature that has died of " +
@@ -8691,7 +8801,8 @@ class RopeTrick(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="powdered corn extract and a twisted loop of parchment",
+                         material_components_list="powdered corn extract and a twisted loop " +
+                                                                 "of parchment \n",
                          duration="1 hour",
                          description="You touch a length of rope that is up to 60 feet long. \n" +
                                     "One end of the rope then rises into the air until the whole " +
@@ -8806,7 +8917,9 @@ class Scrying(spells.Spell):
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a focus worth at least 1,000 gp, such as a crystal ball, a silver mirror, or a font filled with holy water",
+                         material_components_list="a focus worth at least 1,000 gp, such as a " +
+                                                                 "crystal ball, a silver mirror, or a font " +
+                                                                 "filled with holy water \n",
                          duration="10 minutes",
                          description="You can see and hear a particular creature you choose that is " +
                                     "on the same plane of existence as you. \n" +
@@ -8849,7 +8962,11 @@ class SecretChest(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="an exquisite chest, 3 feet by 2 feet by 2 feet, constructed from rare materials worth at least 5,000 gp, and a Tiny replica made from the same materials worth at least 50 gp",
+                         material_components_list="an exquisite chest, 3 feet by 2 feet by 2 " +
+                                                                 "feet, constructed from rare materials " +
+                                                                 "worth at least 5,000 gp, and a Tiny " +
+                                                                 "replica made from the same materials worth " +
+                                                                 "at least 50 gp \n",
                          description="You hide a chest, and all its contents, on the Ethereal Plane. " +
                                     "You must touch the chest and the miniature replica that serves " +
                                     "as a material component for the spell. The chest can contain " +
@@ -8884,7 +9001,8 @@ class SeeInvisibility(spells.Spell):
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a pinch of talc and a small sprinkling of powdered silver",
+                         material_components_list="a pinch of talc and a small sprinkling of " +
+                                                                 "powdered silver \n",
                          duration="1 hour",
                          description="For the duration, you see invisible creatures and objects as " +
                                     "if they were visible, and you can see into the Ethereal Plane. " +
@@ -8980,7 +9098,9 @@ class Sequester(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a powder composed of diamond, emerald, ruby, and sapphire dust worth at least 5,000 gp, which the spell consumes",
+                         material_components_list="a powder composed of diamond, emerald, " +
+                                                                 "ruby, and sapphire dust worth at least " +
+                                                                 "5,000 gp, which the spell consumes \n",
                          duration="Until dispelled",
                          description="By means of this spell, a willing creature or an object can be " +
                                     "hidden away, safe from detection for the duration. When you " +
@@ -9014,7 +9134,9 @@ class Shapechange(spells.Spell):
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a jade circlet worth at least 1,500 gp, which you must place on your head before you cast the spell",
+                         material_components_list="a jade circlet worth at least 1,500 gp, " +
+                                                                 "which you must place on your head before " +
+                                                                 "you cast the spell \n",
                          duration="1 hour",
                          description="You assume the form of a different creature for the duration. " +
                                     "The new form can be of any creature with a challenge rating " +
@@ -9133,7 +9255,8 @@ class ShieldOfFaith(spells.Spell):
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a small parchment with a bit of holy text written on it",
+                         material_components_list="a small parchment with a bit of holy text " +
+                                                                 "written on it \n",
                          duration="10 minutes",
                          description="A shimmering field appears and surrounds a creature of your " +
                                     "choice within range, granting it a +2 bonus to AC for the " +
@@ -9156,7 +9279,8 @@ class Shillelagh(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="mistletoe, a shamrock leaf, and a club or quarterstaff",
+                         material_components_list="mistletoe, a shamrock leaf, and a club or " +
+                                                                 "quarterstaff \n",
                          duration="1 minute",
                          description="The wood of a club or quarterstaff you are holding is imbued " +
                                     "with nature's power. For the duration, you can use your " +
@@ -9276,7 +9400,14 @@ class Simulacrum(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="snow or ice in quantities sufficient to made a life-size copy of the duplicated creature; some hair, fingernail clippings, or other piece of that creature's body placed inside the snow or ice; and powdered ruby worth 1,500 gp, sprinkled over the duplicate and consumed by the spell",
+                         material_components_list="snow or ice in quantities sufficient to " +
+                                                                 "made a life-size copy of the duplicated " +
+                                                                 "creature; some hair, fingernail clippings, " +
+                                                                 "or other piece of that creature's body " +
+                                                                 "placed inside the snow or ice; and " +
+                                                                 "powdered ruby worth 1,500 gp, sprinkled " +
+                                                                 "over the duplicate and consumed by the " +
+                                                                 "spell \n",
                          duration="Until dispelled",
                          description="You shape an illusory duplicate of one beast or humanoid that " +
                                     "is within range for the entire casting time of the spell. The " +
@@ -9317,7 +9448,8 @@ class Sleep(spells.Spell):
                          spell_range="90 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a pinch of fine sand, rose petals, or a cricket",
+                         material_components_list="a pinch of fine sand, rose petals, or a " +
+                                                                 "cricket \n",
                          duration="1 minute",
                          description="This spell sends creatures into a magical slumber. \n" +
                                     "Roll 5d8; the total is how many hit points of creatures this " +
@@ -9354,7 +9486,7 @@ class SleetStorm(spells.Spell):
                          spell_range="150 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a pinch of dust and a few drops of water",
+                         material_components_list="a pinch of dust and a few drops of water \n",
                          duration="1 minute",
                          description="Until the spell ends, freezing rain and sleet fall in a " +
                                     "20-foot-tall cylinder with a 40-foot radius centered on a " +
@@ -9578,7 +9710,8 @@ class SpikeGrowth(spells.Spell):
                          spell_range="150 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="seven sharp thorns or seven small twigs, each sharpened to a point",
+                         material_components_list="seven sharp thorns or seven small twigs, " +
+                                                                 "each sharpened to a point \n",
                          duration="10 minutes",
                          description="The ground in a 20-foot radius centered on a point within " +
                                     "range twists and sprouts hard spikes and thorns. The area " +
@@ -9679,7 +9812,8 @@ class StinkingCloud(spells.Spell):
                          spell_range="90 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a rotten egg or several skunk cabbage leaves",
+                         material_components_list="a rotten egg or several skunk cabbage " +
+                                                                 "leaves \n",
                          duration="1 minute",
                          description="You create a 20-foot-radius sphere of yellow, nauseating gas " +
                                     "centered on a point within range. The cloud spreads around " +
@@ -9712,7 +9846,9 @@ class StoneShape(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="soft clay, which must be worked into roughly the desired shape of the stone object",
+                         material_components_list="soft clay, which must be worked into " +
+                                                                 "roughly the desired shape of the stone " +
+                                                                 "object \n",
                          description="You touch a stone object of Medium size or smaller or a " +
                                     "section of stone no more than 5 feet in any dimension and form " +
                                     "it into any shape that suits your purpose. So, for example, " +
@@ -9741,7 +9877,8 @@ class Stoneskin(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="diamond dust worth 100 gp, which the spell consumes",
+                         material_components_list="diamond dust worth 100 gp, which the spell " +
+                                                                 "consumes \n",
                          duration="1 hour",
                          description="This spell turns the flesh of a willing creature you touch as " +
                                     "hard as stone. Until the spell ends, the target has resistance " +
@@ -9814,7 +9951,8 @@ class Suggestion(spells.Spell):
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=False,
-                         material_components_list="a snake's tongue and either a bit of honeycomb or a drop of sweet oil",
+                         material_components_list="a snake's tongue and either a bit of " +
+                                                                 "honeycomb or a drop of sweet oil \n",
                          duration="8 hours",
                          description="You suggest a course of activity (limited to a sentence or " +
                                     "two) and magically influence a creature you can see within " +
@@ -9920,7 +10058,9 @@ class Symbol(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="mercury, phosphorus, and powdered diamond and opal with a total value of at least 1,000 gp, which the spell consumes",
+                         material_components_list="mercury, phosphorus, and powdered diamond " +
+                                                                 "and opal with a total value of at least " +
+                                                                 "1,000 gp, which the spell consumes \n",
                          duration="Until dispelled or triggered",
                          description="When you cast this spell, you inscribe a harmful glyph either " +
                                     "on a surface (such as a section of floor, a wall, or a table) " +
@@ -10058,7 +10198,8 @@ class TelepathicBond(spells.Spell):
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="pieces of eggshell from two different kinds of creatures",
+                         material_components_list="pieces of eggshell from two different " +
+                                                                 "kinds of creatures \n",
                          duration="1 hour",
                          description="You forge a telepathic link among up to eight willing " +
                                     "creatures of your choice within range, psychically linking " +
@@ -10167,7 +10308,8 @@ class TeleportationCircle(spells.Spell):
                          spell_range="10 feet",
                          verbal_components=True,
                          somatic_components=False,
-                         material_components_list="rare chalks and inks infused with precious gems with 50 gp, which the spell consumes",
+                         material_components_list="rare chalks and inks infused with precious " +
+                                                                 "gems with 50 gp, which the spell consumes ",
                          duration="1 round",
                          description="As you cast the spell, you draw a 10-foot-diameter circle on " +
                                     "the ground inscribed with sigils that link your location to a " +
@@ -10428,7 +10570,8 @@ class TruePolymorph(spells.Spell):
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a drop of mercury, a dollop of gum arabic, and a wisp of smoke",
+                         material_components_list="a drop of mercury, a dollop of gum arabic, " +
+                                                                 "and a wisp of smoke \n",
                          duration="1 hour",
                          description="Choose one creature or nonmagical object that you can see " +
                                     "within range. You transform the creature into a different " +
@@ -10495,7 +10638,9 @@ class TrueResurrection(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a sprinkle of holy water and diamonds worth at least 25,000 gp, which the spell consumes",
+                         material_components_list="a sprinkle of holy water and diamonds " +
+                                                                 "worth at least 25,000 gp, which the spell " +
+                                                                 "consumes \n",
                          description="You touch a creature that has been dead for no longer than 200 " +
                                     "years and that died for any reason except old age. If the " +
                                     "creature's soul is free and willing, the creature is restored " +
@@ -10526,7 +10671,9 @@ class TrueSeeing(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="an ointment for the eyes that costs 25 gp; is made from mushroom powder, saffron, and fat; and is consumed by the spell",
+                         material_components_list="an ointment for the eyes that costs 25 gp; " +
+                                                                 "is made from mushroom powder, saffron, and " +
+                                                                 "fat; and is consumed by the spell \n",
                          duration="1 hour",
                          description="This spell gives the willing creature you touch the ability to " +
                                     "see things as they actually are. For the duration, the " +
@@ -10710,7 +10857,8 @@ class WallOfForce(spells.Spell):
                          spell_range="120 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a pinch of powder made by crushing a clear gemstone",
+                         material_components_list="a pinch of powder made by crushing a clear " +
+                                                                 "gemstone \n",
                          duration="10 minutes",
                          description="An invisible wall of force springs into existence at a point " +
                                     "you choose within range. The wall appears in any orientation " +
@@ -10882,7 +11030,9 @@ class WardingBond(spells.Spell):
                          spell_range="Touch",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a pair of platinum rings worth at least 50 gp each, which you and the target must wear for the duration",
+                         material_components_list="a pair of platinum rings worth at least 50 " +
+                                                                 "gp each, which you and the target must " +
+                                                                 "wear for the duration \n",
                          duration="1 hour",
                          description="This spell wards a willing creature you touch and creates a " +
                                     "mystic connection between you and the target until the spell " +
@@ -11073,7 +11223,7 @@ class WindWall(spells.Spell):
                          spell_range="120 feet",
                          verbal_components=True,
                          somatic_components=True,
-                         material_components_list="a tiny fan and a feather of exotic origin",
+                         material_components_list="a tiny fan and a feather of exotic origin ",
                          duration="1 minute",
                          description="A wall of strong wind rises from the ground at a point you " +
                                     "choose within range. You can make the wall up to 50 feet long, " +

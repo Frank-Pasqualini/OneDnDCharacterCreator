@@ -77,7 +77,7 @@ def material_components_list(text: str):
     if text == '':
         return None
 
-    return '"' + text + '"'
+    return line_limit(text, 40, 65)
 
 
 def duration(text: str) -> str:
@@ -111,7 +111,7 @@ def line_limit(text: str, limit: int, offset: int) -> str:
         if text == '':
             return '""'
 
-        return text
+        return '"' + text + '"'
 
     wraps = []
     cur = ''
