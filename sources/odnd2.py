@@ -421,11 +421,26 @@ class FightingStyleDefense(feats.FightingStyle):
     """
 
     def __init__(self):
-        super().__init__(name="Fighting Style: Archery",
+        super().__init__(name="Fighting Style: Defense",
                          level=1,
                          prerequisite="Warrior Group",
                          description="While you are wearing armor, you gain a +1 bonus to Armor Class.",
                          feat_bonuses=bonuses.Bonuses())  # TODO implement AC bonus
+
+
+class FightingStyleDueling(feats.FightingStyle):
+    """
+    Fighting Style: Dueling Feat
+    UA p. 19
+    """
+
+    def __init__(self):
+        super().__init__(name="Fighting Style: Dueling",
+                         level=1,
+                         prerequisite="Warrior Group",
+                         description="When you are wielding a Melee Weapon in one hand and no other Weapons,you gain "
+                                     "a +2 bonus to damage rolls with that Melee Weapon.",
+                         feat_bonuses=bonuses.Bonuses())  # TODO implement melee bonus
 
 
 class FightingStyleGreatWeapon(feats.FightingStyle):
@@ -526,7 +541,7 @@ CONTENT = {
         # "Epic Boon of the Unfettered": EpicBoonUnfettered,
         "Fighting Style: Archery": FightingStyleArchery,
         "Fighting Style: Defense": FightingStyleDefense,
-        # "Fighting Style: Dueling": FightingStyleDueling,
+        "Fighting Style: Dueling": FightingStyleDueling,
         "Fighting Style: Great Weapon Fighting": FightingStyleGreatWeapon,
         # "Fighting Style: Protection": FightingStyleProtection,
         # "Fighting Style: Two-Weapon Fighting": FightingStyleTwoWeapon,

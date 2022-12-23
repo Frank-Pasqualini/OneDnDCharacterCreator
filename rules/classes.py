@@ -662,9 +662,6 @@ class Paladin(CharacterClass, ABC):
         if fighting_style.get_level() > 2:
             raise Exception("Invalid fighting style level. Must be 2 or lower")
 
-        if "Fighting Style" not in fighting_style.get_name():
-            raise Exception("This is not a fighting style")
-
         self._features.append(fighting_style)
         self._features.append(feats.Feat(name="Spellcasting",
                                          description="Spell Preparation. You prepare the list of paladin spells that "
@@ -963,9 +960,6 @@ class Ranger(CharacterClass, ABC):
     def _level_up_2(self, fighting_style: feats.FightingStyle):
         if fighting_style.get_level() > 2:
             raise Exception("Invalid fighting style level. Must be 2 or lower")
-
-        if "Fighting Style" not in fighting_style.get_name():
-            raise Exception("This is not a fighting style")
 
         self._features.append(fighting_style)
 

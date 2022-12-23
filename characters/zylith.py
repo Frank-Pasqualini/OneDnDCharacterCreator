@@ -49,7 +49,7 @@ def create(content: dict[str, dict[str, any]]) -> character.Character:
                     "Worked 2 jobs.\n"
                     "Lost sentimental dragon scale oin an adventure.\n"
                     "Went on an adventure and was poisoned by a monster, but recovered.",
-        personality_traits="The first thing I do in a new place is note the locations of everything valuable—or where "
+        personality_traits="The first thing I do in a new place is note the locations of everything valuable-or where "
                            "such things could be hidden.\n"
                            "The best way to get me to do something is to tell me I can't do it.",
         ideals="Freedom. Chains are meant to be broken, as are those who would forge them. (Chaotic)",
@@ -66,7 +66,7 @@ def create(content: dict[str, dict[str, any]]) -> character.Character:
                                                                 expertise1=Skills.INSIGHT,
                                                                 expertise2=Skills.SLEIGHT_OF_HAND,
                                                                 language=Languages.COMMON_SIGN_LANGUAGE),
-        race=content["Races"]["Chthonic Tiefling"](
+        character_species=content["Species"]["Chthonic Tiefling"](
             content, ability=AbilityNames.CHARISMA),
         background=custom_background,
         starting_abilities={

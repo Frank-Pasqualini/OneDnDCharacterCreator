@@ -9,7 +9,7 @@ import PyPDF2
 from PyPDF2 import PdfReader, PdfWriter
 from PyPDF2.generic import NameObject
 
-from rules import abilities, armors, backgrounds, bonuses, classes, feats, magicitem, races, spells, weapons
+from rules import abilities, armors, backgrounds, bonuses, classes, feats, magicitem, species, spells, weapons
 from rules.common import validate_string, mod, WIDTHS
 from rules.enums import AbilityNames, Alignments, ArmorTraining, Languages, Skills
 
@@ -23,7 +23,7 @@ class Character:
     _player_name: str
     _alignment: Alignments
     _classes: list[classes.CharacterClass]
-    _race: races.Race
+    _species: species.Species
     _background: backgrounds.Background
     _abilities: abilities.Abilities
     _language: Languages
@@ -47,7 +47,7 @@ class Character:
     def __init__(self,
                  name: str,
                  character_class: classes.CharacterClass,
-                 race: races.Race,
+                 character_species: species.Species,
                  background: backgrounds.Background,
                  starting_abilities: dict[AbilityNames, int],
                  alignment: Alignments,
@@ -69,7 +69,7 @@ class Character:
         self._alignment = alignment
 
         self._classes = [character_class]
-        self._race = race
+        self._species = character_species
         self._background = background
         self._abilities = abilities.Abilities(
             strength=starting_abilities.get(AbilityNames.STRENGTH, 0),
@@ -133,7 +133,7 @@ class Character:
         return ", ".join([str(character_class) for character_class in self._classes])
 
     def _get_features(self) -> list[feats.Feat]:
-        return self._race.get_features() + [self._background.get_feat()] + [
+        return self._species.get_features() + [self._background.get_feat()] + [
             feature for features in [character_class.get_features() for character_class in self._classes]
             for feature in features]
 
@@ -158,7 +158,7 @@ class Character:
                 else:
                     feats_and_traits_2 += summary
 
-        return feats_and_traits_1, feats_and_traits_2
+        return feats_and_traits_1, feats_and_traits_2  # TODO even more overflow
 
     def _get_known_spells(self, content: dict[str, dict[str, any]], ) -> list[spells.Spell]:
         spell_list = []
@@ -187,7 +187,7 @@ class Character:
         return math.ceil(self._get_character_level() / 4) + 1
 
     def _get_speed(self) -> int:
-        return self._race.get_speed()
+        return self._species.get_speed()
 
     def _get_spell_slots(self) -> list[int]:
         spellcasting_level = math.ceil(
@@ -344,7 +344,7 @@ class Character:
                 "PP": "",
                 "ProfBonus": mod(prof_bonus),
                 "ProficienciesLang": compiled_bonuses.summary(),
-                "Race ": str(self._race.get_name()),
+                "Race ": str(self._species.get_name()),
                 "Religion": mod(int_mod + (skills.get(Skills.RELIGION, 0) * prof_bonus)),
                 "SleightofHand": mod(dex_mod + (skills.get(Skills.SLEIGHT_OF_HAND, 0) * prof_bonus)),
                 "SP": "",

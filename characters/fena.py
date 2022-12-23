@@ -40,7 +40,7 @@ def create(content: dict[str, dict[str, any]]) -> character.Character:
                     "most knightly orders in Faerûn don't restrict their membership to such individuals. The goals "
                     "and philosophies of the order are more important than the gear and fighting style of its "
                     "members, and so most of these orders aren't limited to fighting types, but are open to all sorts "
-                    "of folk who are willing to battle and die for the order's cause.\n",
+                    "of folk who are willing to battle and die for the order's cause.",
         personality_traits="I'm always polite and respectful.\n"
                            "I've lost too many friends, and I'm slow to make new ones.",
         ideals="Live and Let Live. Ideals aren't worth killing over or going to war for. (Neutral)",
@@ -52,7 +52,7 @@ def create(content: dict[str, dict[str, any]]) -> character.Character:
         name="Fena",
         character_class=content["Classes"]["Oath of the Watchers Paladin"](skill1=Skills.ATHLETICS,
                                                                            skill2=Skills.INTIMIDATION),
-        race=content["Races"]["Copper Dragonborn"](),
+        character_species=content["Species"]["Copper Dragonborn"](),
         background=custom_background,
         starting_abilities={
             AbilityNames.STRENGTH: 16,
@@ -76,7 +76,8 @@ def create(content: dict[str, dict[str, any]]) -> character.Character:
         faction_image="characters/images/elturel.pdf",
     )
 
-    fena.level_up(0, hit_roll=7, fighting_style=content["Feats"]["Fighting Style: Defense"]())
+    fena.level_up(
+        0, hit_roll=7, fighting_style=content["Feats"]["Fighting Style: Defense"]())
     fena.level_up(0, hit_roll=7, content=content)
     fena.level_up(0, hit_roll=7, feat=content["Feats"]["Ability Score Improvement"](ability1=AbilityNames.CHARISMA,
                                                                                     ability2=AbilityNames.CHARISMA))
@@ -91,8 +92,10 @@ def create(content: dict[str, dict[str, any]]) -> character.Character:
     fena.set_armor(content["Armors"]["Splint"]())
     fena.set_shield(content["Armors"]["Shield"]())
     fena.set_weapons([
-        content["Weapons"]["Longsword"](name="Dragon Slayer Longsword", attack_bonus=1, damage_bonus=1, magical=True),
-        content["Weapons"]["Longsword"](name="Hellfire Longsword", magical=True),
+        content["Weapons"]["Longsword"](
+            name="Dragon Slayer Longsword", attack_bonus=1, damage_bonus=1, magical=True),
+        content["Weapons"]["Longsword"](
+            name="Hellfire Longsword", magical=True),
     ])
 
     fena.set_magic_items([  # TODO better magic items

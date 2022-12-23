@@ -43,7 +43,7 @@ def create(content: dict[str, dict[str, any]]) -> character.Character:
                            "a hungry owlbear.",
         ideals="Glory. I must earn glory in battle, for myself and my clan.",
         bonds="I will bring terrible wrath down on the evildoers who destroyed my homeland.",
-        flaws="I am slow to trust members of other races, tribes, and societies.")
+        flaws="I am slow to trust members of other species, tribes, and societies.")
 
     cuzmo = character.Character(
         name="Cuzmo Mountainbeast Elanithino",
@@ -51,7 +51,7 @@ def create(content: dict[str, dict[str, any]]) -> character.Character:
                                                                skill2=Skills.SURVIVAL,
                                                                fighting_style=content["Feats"][
                                                                    "Fighting Style: Great Weapon Fighting"]()),
-        race=content["Races"]["Goliath"](),
+        character_species=content["Species"]["Goliath"](),
         background=custom_background,
         starting_abilities={
             AbilityNames.STRENGTH: 15,

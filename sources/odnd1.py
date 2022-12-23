@@ -3,7 +3,7 @@ Content from the Dungeons and Dragons OneD&D Character Origins Unearthed Arcana.
 https://media.dndbeyond.com/compendium-images/one-dnd/character-origins/CSWCVV0M4B6vX6E1/UA2022-CharacterOrigins.pdf
 """
 
-from rules import abilities, backgrounds, bonuses, feats, races, spells
+from rules import abilities, backgrounds, bonuses, feats, species, spells
 from rules.enums import AbilityNames, ArtisansTools, DamageTypes, GamingSets, Languages, MusicalInstruments
 from rules.enums import ProficiencyLevels, Sizes, Skills, SpellLists, Tools
 
@@ -114,7 +114,7 @@ class Charlatan(backgrounds.Background):
                          description="Soon after you were old enough to order an ale, you already had a favorite "
                                      "stool in every tavern within ten miles of where you were born. As you traveled "
                                      "the circuit from public house to watering hole, you learned to prey on the "
-                                     "unfortunates who were in the market for a comforting lie or two—perhaps a sham "
+                                     "unfortunates who were in the market for a comforting lie or two-perhaps a sham "
                                      "potion or a forged “treasure map.” You are fluent in Infernal,the ancient "
                                      "language of deception.")
 
@@ -269,8 +269,8 @@ class Gladiator(backgrounds.Background):
                                      "scar was a lesson that taught you how to best your opponents and curry favor "
                                      "with the crowds your brawls entertained. Your time in the pits left you with a "
                                      "strong hand and a strong heart. You'll forever share a remarkable bond with the "
-                                     "other pit fighters in your stable—humans, dragonborn, dwarves, "
-                                     "and orcs—hardened warriors all.")
+                                     "other pit fighters in your stable-humans, dragonborn, dwarves, "
+                                     "and orcs-hardened warriors all.")
 
 
 class Guard(backgrounds.Background):
@@ -334,9 +334,9 @@ class Guide(backgrounds.Background):
                                             spell=spell,
                                             ability=ability),
                          description="You came of age in the outdoors, far from settled lands. Your home? Any where "
-                                     "you chose to unfurl your bedroll. There are wonders on the frontier—strange "
+                                     "you chose to unfurl your bedroll. There are wonders on the frontier-strange "
                                      "monsters, pristine forests and streams, overgrown ruins of great halls once "
-                                     "trod by giants—and you learned to fend for yourself as you explored them. From "
+                                     "trod by giants-and you learned to fend for yourself as you explored them. From "
                                      "time to time, you traveled with a pair of friendly druids who were kind enough "
                                      "to instruct you in the fundamentals of channeling the magic of the wild.")
 
@@ -434,7 +434,7 @@ class Noble(backgrounds.Background):
                              languages=[Languages.DRACONIC],
                          ),
                          feat=Skilled(skill1, skill2, skill3),
-                         description="You were raised in a castle as a creature of wealth, power, and privilege—none "
+                         description="You were raised in a castle as a creature of wealth, power, and privilege-none "
                                      "of it earned. Your family are minor aristocrats who saw to it that you received "
                                      "a first-class education, some of which you appreciated and some of which you "
                                      "resented. (Was it truly necessary to read all those ancient histories in their "
@@ -464,7 +464,7 @@ class Pilgrim(backgrounds.Background):
                              languages=[Languages.HALFLING],
                          ),
                          feat=Healer(),
-                         description="You and a group of like-minded believers—mostly humans and halflings—once "
+                         description="You and a group of like-minded believers-mostly humans and halflings-once "
                                      "endeavored to walk a thousand miles of road to reach a faraway shrine. Priests "
                                      "counseled at the outset that, long after your journey was complete, you'd come "
                                      "to realize that you found the key to your salvation not at your destination, "
@@ -504,8 +504,8 @@ class Sage(backgrounds.Background):
                          description="You spent your formative years traveling between manors and monasteries, "
                                      "performing various odd jobs and services in exchange for access to their "
                                      "libraries. You wiled away many a long evening with your nose buried in books "
-                                     "and scrolls, learning the lore of the multiverse—even the rudiments of "
-                                     "magic—and your mind only yearns for more.")
+                                     "and scrolls, learning the lore of the multiverse-even the rudiments of "
+                                     "magic-and your mind only yearns for more.")
 
 
 class Sailor(backgrounds.Background):
@@ -826,9 +826,9 @@ class Tough(feats.Feat):
                          feat_bonuses=bonuses.Bonuses(hp_bonus=True))
 
 
-class Human(races.Race):
+class Human(species.Species):
     """
-    Human Race
+    Human Species
     UA p. 2-3
     """
 
@@ -859,9 +859,9 @@ class Human(races.Race):
                          life_span=80)
 
 
-class Ardling(races.Race):
+class Ardling(species.Species):
     """
-    Ardling Race
+    Ardling Species
     UA p. 3-4
     """
 
@@ -900,7 +900,7 @@ class Ardling(races.Race):
 
 class ExaltedArdling(Ardling):
     """
-    Ardling Race
+    Ardling Species
     UA p. 3-4
     """
 
@@ -932,7 +932,7 @@ class ExaltedArdling(Ardling):
 
 class HeavenlyArdling(Ardling):
     """
-    Ardling Race
+    Ardling Species
     UA p. 3-4
     """
 
@@ -964,7 +964,7 @@ class HeavenlyArdling(Ardling):
 
 class IdyllicArdling(Ardling):
     """
-    Ardling Race
+    Ardling Species
     UA p. 3-4
     """
 
@@ -994,9 +994,9 @@ class IdyllicArdling(Ardling):
                          ability=ability)
 
 
-class Dragonborn(races.Race):
+class Dragonborn(species.Species):
     """
-    Dragonborn Race
+    Dragonborn Species
     UA p. 4-5
     """
 
@@ -1041,7 +1041,7 @@ class Dragonborn(races.Race):
 
 class BlackDragonborn(Dragonborn):
     """
-    Dragonborn Race
+    Dragonborn Species
     UA p. 4-5
     """
 
@@ -1057,7 +1057,7 @@ class BlackDragonborn(Dragonborn):
 
 class BlueDragonborn(Dragonborn):
     """
-    Dragonborn Race
+    Dragonborn Species
     UA p. 4-5
     """
 
@@ -1073,7 +1073,7 @@ class BlueDragonborn(Dragonborn):
 
 class BrassDragonborn(Dragonborn):
     """
-    Dragonborn Race
+    Dragonborn Species
     UA p. 4-5
     """
 
@@ -1089,7 +1089,7 @@ class BrassDragonborn(Dragonborn):
 
 class BronzeDragonborn(Dragonborn):
     """
-    Dragonborn Race
+    Dragonborn Species
     UA p. 4-5
     """
 
@@ -1105,7 +1105,7 @@ class BronzeDragonborn(Dragonborn):
 
 class CopperDragonborn(Dragonborn):
     """
-    Dragonborn Race
+    Dragonborn Species
     UA p. 4-5
     """
 
@@ -1121,7 +1121,7 @@ class CopperDragonborn(Dragonborn):
 
 class GoldDragonborn(Dragonborn):
     """
-    Dragonborn Race
+    Dragonborn Species
     UA p. 4-5
     """
 
@@ -1137,7 +1137,7 @@ class GoldDragonborn(Dragonborn):
 
 class GreenDragonborn(Dragonborn):
     """
-    Dragonborn Race
+    Dragonborn Species
     UA p. 4-5
     """
 
@@ -1153,7 +1153,7 @@ class GreenDragonborn(Dragonborn):
 
 class RedDragonborn(Dragonborn):
     """
-    Dragonborn Race
+    Dragonborn Species
     UA p. 4-5
     """
 
@@ -1169,7 +1169,7 @@ class RedDragonborn(Dragonborn):
 
 class SilverDragonborn(Dragonborn):
     """
-    Dragonborn Race
+    Dragonborn Species
     UA p. 4-5
     """
 
@@ -1185,7 +1185,7 @@ class SilverDragonborn(Dragonborn):
 
 class WhiteDragonborn(Dragonborn):
     """
-    Dragonborn Race
+    Dragonborn Species
     UA p. 4-5
     """
 
@@ -1199,9 +1199,9 @@ class WhiteDragonborn(Dragonborn):
                          damage_type=DamageTypes.COLD)
 
 
-class Dwarf(races.Race):
+class Dwarf(species.Species):
     """
-    Dwarf Race
+    Dwarf Species
     UA p. 5-6
     """
 
@@ -1248,9 +1248,9 @@ class Dwarf(races.Race):
                          life_span=350)
 
 
-class Elf(races.Race):
+class Elf(species.Species):
     """
-    Elf Race
+    Elf Species
     UA p. 6-7
     """
 
@@ -1296,7 +1296,7 @@ class Elf(races.Race):
 
 class Drow(Elf):
     """
-    Elf Race
+    Elf Species
     UA p. 6-7
     """
 
@@ -1329,7 +1329,7 @@ class Drow(Elf):
 
 class HighElf(Elf):
     """
-    Elf Race
+    Elf Species
     UA p. 6-7
     """
 
@@ -1361,7 +1361,7 @@ class HighElf(Elf):
 
 class WoodElf(Elf):
     """
-    Elf Race
+    Elf Species
     UA p. 6-7
     """
 
@@ -1389,9 +1389,9 @@ class WoodElf(Elf):
                          ability=ability)
 
 
-class Gnome(races.Race):
+class Gnome(species.Species):
     """
-    Gnome Race
+    Gnome Species
     UA p. 7-8
     """
 
@@ -1421,7 +1421,7 @@ class Gnome(races.Race):
 
 class ForestGnome(Gnome):
     """
-    Gnome Race
+    Gnome Species
     UA p. 7-8
     """
 
@@ -1447,7 +1447,7 @@ class ForestGnome(Gnome):
 
 class RockGnome(Gnome):
     """
-    Gnome Race
+    Gnome Species
     UA p. 7-8
     """
 
@@ -1483,9 +1483,9 @@ class RockGnome(Gnome):
                          ability=ability)
 
 
-class Halfling(races.Race):
+class Halfling(species.Species):
     """
-    Halfling Race
+    Halfling Species
     UA p. 8-9
     """
 
@@ -1519,9 +1519,9 @@ class Halfling(races.Race):
                          life_span=150)
 
 
-class Orc(races.Race):
+class Orc(species.Species):
     """
-    Orc Race
+    Orc Species
     UA p. 9
     """
 
@@ -1554,9 +1554,9 @@ class Orc(races.Race):
                          life_span=80)
 
 
-class Tiefling(races.Race):
+class Tiefling(species.Species):
     """
-    Tiefling Race
+    Tiefling Species
     UA p. 9-10
     """
 
@@ -1594,7 +1594,7 @@ class Tiefling(races.Race):
 
 class AbyssalTiefling(Tiefling):
     """
-    Tiefling Race
+    Tiefling Species
     UA p. 9-10
     """
 
@@ -1628,7 +1628,7 @@ class AbyssalTiefling(Tiefling):
 
 class ChthonicTiefling(Tiefling):
     """
-    Tiefling Race
+    Tiefling Species
     UA p. 9-10
     """
 
@@ -1662,7 +1662,7 @@ class ChthonicTiefling(Tiefling):
 
 class InfernalTiefling(Tiefling):
     """
-    Tiefling Race
+    Tiefling Species
     UA p. 9-10
     """
 
@@ -1728,7 +1728,7 @@ CONTENT = {
         "Tavern Brawler": TavernBrawler,
         "Tough": Tough,
     },
-    "Races": {
+    "Species": {
         "Human": Human,
         "Exalted Ardling": ExaltedArdling,
         "Heavenly Ardling": HeavenlyArdling,

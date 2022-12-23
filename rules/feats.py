@@ -36,7 +36,7 @@ class Feat(ABC):
                  feat_spells: list[spells.Spell] = None,
                  spellcasting_ability: AbilityNames = None,
                  visible: bool = True):
-        if level not in [None, 1, 4, 20]:
+        if level is not None and level not in range(1, 20):
             raise Exception("Invalid Feat level")
 
         if feat_spells is not None and spellcasting_ability is None:

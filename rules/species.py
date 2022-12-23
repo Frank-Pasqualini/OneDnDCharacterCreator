@@ -1,5 +1,5 @@
 """
-A Race for a character.
+A Species for a character.
 """
 
 from __future__ import annotations
@@ -11,9 +11,9 @@ from rules.common import validate_string
 from rules.enums import CreatureTypes, Sizes
 
 
-class Race(ABC):
+class Species(ABC):
     """
-    A Race for a character.
+    A Species for a character.
     """
 
     _name: str
@@ -31,10 +31,10 @@ class Race(ABC):
                  speed: int = 30,
                  life_span: int = 100):
         if speed < 0:
-            raise Exception("A Race cannot have a negative speed")
+            raise Exception("A Species cannot have a negative speed")
 
         if life_span < 0:
-            raise Exception("A Race cannot have a negative life span")
+            raise Exception("A Species cannot have a negative life span")
 
         self._name = validate_string(name)
         self._creature_type = creature_type
@@ -52,13 +52,13 @@ class Race(ABC):
     def get_speed(self) -> int:
         return self._speed
 
-    def half_race(self, name: str, other_life_span: int) -> Race:
-        return Race(name=name,
-                    features=self._features,
-                    creature_type=self._creature_type,
-                    size=self._size,
-                    speed=self._speed,
-                    life_span=int((self._life_span + other_life_span) // 2))
+    def half_species(self, name: str, other_life_span: int) -> Species:
+        return Species(name=name,
+                       features=self._features,
+                       creature_type=self._creature_type,
+                       size=self._size,
+                       speed=self._speed,
+                       life_span=int((self._life_span + other_life_span) // 2))
 
     def __str__(self) -> str:
         output = f"{self._name} Traits\n"

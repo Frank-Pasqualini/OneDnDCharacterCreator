@@ -36,7 +36,7 @@ def create(content: dict[str, dict[str, any]]) -> character.Character:
                     "were part of a small gang of like-minded wrongdoers, who looked out for each other. Or maybe you "
                     "were a lone wolf, fending for yourself against the local thieves' guild and older, more fearsome "
                     "lawbreakers.",
-        personality_traits="The first thing I do in a new place is note the locations of everything valuable—or where "
+        personality_traits="The first thing I do in a new place is note the locations of everything valuable-or where "
                            "such things could be hidden.\n"
                            "The best way to get me to do something is to tell me I can't do it.",
         ideals="Redemption. There's a spark of good in everyone. (Good)",
@@ -52,8 +52,8 @@ def create(content: dict[str, dict[str, any]]) -> character.Character:
                                                           expertise1=Skills.INVESTIGATION,
                                                           expertise2=Skills.SLEIGHT_OF_HAND,
                                                           language=Languages.COMMON_SIGN_LANGUAGE),
-        race=content["Races"]["Human"](skill=Skills.HISTORY,
-                                       versatile=content["Feats"]["Lucky"]()),
+        character_species=content["Species"]["Human"](skill=Skills.HISTORY,
+                                                      versatile=content["Feats"]["Lucky"]()),
         background=custom_background,
         starting_abilities={
             AbilityNames.STRENGTH: 11,

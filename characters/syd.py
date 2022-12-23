@@ -41,7 +41,7 @@ def create(content: dict[str, dict[str, any]]) -> character.Character:
         personality_traits="Flattery is my preferred trick for getting what I want.\n"
                            "I fall in and out of love easily, and am always pursuing someone.",
         ideals="Creativity. I never run the same con twice.",
-        bonds="I owe everything to my mentor—a horrible person who's probably rotting in jail somewhere.",
+        bonds="I owe everything to my mentor-a horrible person who's probably rotting in jail somewhere.",
         flaws="I'm convinced that no one could ever fool me the way I fool others.")
 
     syd = character.Character(
@@ -52,8 +52,8 @@ def create(content: dict[str, dict[str, any]]) -> character.Character:
                                                             skill3=Skills.INVESTIGATION,
                                                             expertise1=Skills.INVESTIGATION,
                                                             expertise2=Skills.PERCEPTION),
-        race=content["Races"]["Wood Elf"](
-            content, ability=AbilityNames.WISDOM).half_race("Half-Elf", 80),
+        character_species=content["Species"]["Wood Elf"](
+            content, ability=AbilityNames.WISDOM).half_species("Half-Elf", 80),
         background=custom_background,
         starting_abilities={
             AbilityNames.STRENGTH: 9,

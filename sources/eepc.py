@@ -2,13 +2,13 @@
 Content from the Dungeons and Dragons Elemental Evil Player's Companion.
 https://media.wizards.com/2015/downloads/dnd/EE_PlayersCompanion.pdf
 """
-from rules import bonuses, feats, races, spells
+from rules import bonuses, feats, species, spells
 from rules.enums import ProficiencyLevels, Skills, SpellLists, SpellSchools
 
 
-class Goliath(races.Race):
+class Goliath(species.Species):
     """
-    Goliath Race
+    Goliath Species
     EEPC p. 11
     """
 
@@ -118,8 +118,8 @@ class ControlFlames(spells.Spell):
                                      "• You instantaneously extinguish the flames within the cube.\n"
                                      "• You double or halve the area of bright light and dim light cast by the flame, "
                                      "change its color, or both. The change lasts for 1 hour.\n"
-                                     "• You cause simple shapes—such as the vague form of a creature, an inanimate "
-                                     "object, or a location—to appear within the flames and animate as you like. The "
+                                     "• You cause simple shapes-such as the vague form of a creature, an inanimate "
+                                     "object, or a location-to appear within the flames and animate as you like. The "
                                      "shapes last for 1 hour.\n"
                                      "If you cast this spell multiple times, you can have up to three of its "
                                      "non-instantaneous effects active at a time, and you can dismiss such an effect "
@@ -370,8 +370,8 @@ CONTENT = {
         # TODO
         # "Svirfneblin Magic": SvirfneblinMagic,
     },
-    "Races": {
-        # TODO The rest of the races,
+    "Species": {
+        # TODO The rest of the species,
         # "Aaracokra": Aaracokra,
         # "Deep Gnome": DeepGnome,
         # "Air Genasi": AirGenasi,
