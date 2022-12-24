@@ -90,6 +90,12 @@ def create(content: dict[str, dict[str, any]]) -> character.Character:
     cuzmo.level_up(0, hit_roll=6)
     cuzmo.level_up(
         0, hit_roll=7, fighting_style=content["Feats"]["Fighting Style: Blind Fighting"]())
+    cuzmo.level_up(0, hit_roll=4)
+    # cuzmo.level_up(0, feat=content["Feats"]["Ability Score Improvement"](
+    #     ability1=AbilityNames.CONSTITUTION,
+    #     ability2=AbilityNames.CONSTITUTION
+    # ))
+    # cuzmo.level_up(0)
 
     cuzmo.set_armor(content["Armors"]["Splint"]())
     cuzmo.set_weapons([

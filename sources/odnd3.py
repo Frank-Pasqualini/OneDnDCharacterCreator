@@ -3,8 +3,77 @@ Content from the Dungeons and Dragons OneD&D Character Origins Unearthed Arcana.
 https://media.dndbeyond.com/compendium-images/one-dnd/cleric-and-revised-species/tr8jAj5cc33uQixi/UA-2022-ClericandSpecies.pdf
 """
 
-from rules import abilities, feats, species, spells
-from rules.enums import AbilityNames, DamageTypes, SpellSchools, SpellLists
+from rules import abilities, bonuses, classes, feats, species, spells
+from rules.enums import AbilityNames, ArmorTraining, DamageTypes, ProficiencyLevels, Skills, SpellSchools, SpellLists
+from rules.enums import WeaponTypes
+
+
+class LifeCleric(classes.Cleric):
+    """
+    Life subclass for Cleric
+    SRD p. 25
+    """
+
+    def __init__(self, **kwargs):
+        super().__init__(name="Life Cleric", **kwargs)
+
+    def _level_up_3(self, content: dict[str, dict[str, any]]):
+        self._features.append(feats.Feat(name="Domain Spells",
+                                         description="Your connection to this divine domain ensures you always have "
+                                                     "certain Spells ready. When you reach a Cleric level specified "
+                                                     "in the Life Domain Spells table, you thereafter always have the "
+                                                     "listed Spells prepared. These Spells don't count against the "
+                                                     "number of Spells you can prepare, and they follow the rules of "
+                                                     "this Class's Spellcasting feature.",
+                                         feat_spells=[
+                                             content["Spells"]["Lesser Restoration"](
+                                             ),
+                                             content["Spells"]["Prayer of Healing"](
+                                             ),
+                                             content["Spells"]["Mass Healing Word"](
+                                             ),
+                                             content["Spells"]["Revivify"](),
+                                             content["Spells"]["Aura of Life"](),
+                                             content["Spells"]["Death Ward"](),
+                                             content["Spells"]["Greater Restoration"](
+                                             ),
+                                             content["Spells"]["Mass Cure Wounds"](),
+                                         ],
+                                         spellcasting_ability=AbilityNames.WISDOM,
+                                         visible=False))
+        self._features.append(feats.Feat(name="Disciple of Life",
+                                         description="Your healing Spells are empowered by life itself. When a Spell "
+                                                     "you cast with a Spell Slot restores Hit Points to a creature, "
+                                                     "that creature regains additional Hit Points on the turn you "
+                                                     "cast the Spell. The additional Hit Points equal 2 plus the "
+                                                     "Spell's level."))
+
+    def _level_up_6(self):
+        self._features.append(feats.Feat(name="Preserve Life",
+                                         description="You can use your Channel Divinity to heal a group of the "
+                                                     "critically injured. As an Action, you expend one use of your "
+                                                     "Channel Divinity and present your Holy Symbol, restoring a "
+                                                     "number of Hit Points equal to 5 times your Cleric level. Choose "
+                                                     "any creatures within 30 feet of yourself (you can choose "
+                                                     "yourself), and divide those Hit Points among the chosen "
+                                                     "creatures. This feature can bring a creature's current Hit "
+                                                     "Points to no more than half its Hit Point Maximum."))
+
+    def _level_up_10(self):
+        self._features.append(feats.Feat(name="Blessed Healer",
+                                         description="The healing spells you cast on others heal you as well. When "
+                                                     "you cast a spell with a Spell Slot on another creature that "
+                                                     "restores Hit Points to it, you regain Hit Points equal to 2 "
+                                                     "plus the Spell's level on the turn you cast the Spell."))
+
+    def _level_up_14(self):
+        self._features.append(feats.Feat(name="Supreme Healing",
+                                         description="When you would normally roll one or more dice to restore Hit "
+                                                     "Points to a creature with a Spell that you cast with a Spell "
+                                                     "Slot, don't roll those dice for the healing; instead use the "
+                                                     "highest number possible for each die. For example, instead of "
+                                                     "restoring 2d6 Hit Points to a creature with a Spell, "
+                                                     "you restore 12."))
 
 
 class AbilityScoreImprovement(feats.Feat):
@@ -46,6 +115,56 @@ class AbilityScoreImprovement(feats.Feat):
                                      ability1, ability2] else 0),
                                  charisma=(1 if AbilityNames.CHARISMA in [ability1, ability2] else 0)),
                              visible=False)
+
+
+class HolyOrderProtector(feats.HolyOrder):
+    """
+    Holy Order Protector
+    """
+
+    def __init__(self):
+        super().__init__(name="Holy Order: Protector",
+                         description="Trained for battle, you gain Martial Weapon Proficiency and Heavy Armor "
+                                     "Training.",
+                         feat_bonuses=bonuses.Bonuses(weapon_types=[WeaponTypes.MARTIAL],
+                                                      armor_training=[ArmorTraining.HEAVY]),
+                         visible=False)
+
+
+class HolyOrderScholar(feats.HolyOrder):
+    """
+    Holy Order Scholar
+    """
+
+    def __init__(self, skill1: Skills, skill2: Skills):
+        allowable_skills = [Skills.ARCANA, Skills.HISTORY,
+                            Skills.NATURE, Skills.PERSUASION, Skills.RELIGION]
+
+        if (skill1 not in allowable_skills) or (skill2 not in allowable_skills):
+            raise Exception("All skills must be in the approved skill list")
+
+        if skill1 == skill2:
+            raise Exception("Both skills must be unique")
+
+        super().__init__(name="Holy Order: Scholar",
+                         description="Studying and teaching about lore of the gods and the multiverse, you gain "
+                                     f"Proficiency in {skill1.value} and {skill2.value}. Whenever you make an Ability "
+                                     "Check using either Skill, you gain a bonus to the check equal to your Wisdom "
+                                     "Modifier.",  # TODO
+                         feat_bonuses=bonuses.Bonuses(skills={skill1: ProficiencyLevels.PROFICIENT,
+                                                              skill2: ProficiencyLevels.PROFICIENT}))
+
+
+class HolyOrderThaumaturge(feats.HolyOrder):
+    """
+    Holy Order Thaumaturge
+    """
+
+    def __init__(self):
+        super().__init__(name="Holy Order: Thaumaturge",
+                         description="Delving deeper into your divine magical abilities, you can prepare one extra "
+                                     "0-level Spell from the Divine Spell list. In addition, you regain one expended "
+                                     "use of your Channel Divinity whenever you finish a Short Rest.")
 
 
 class Dragonborn(species.Species):
@@ -541,8 +660,7 @@ class SpiritualWeapon(spells.Spell):
 
 CONTENT = {
     "Classes": {
-        # TODO
-        # "Life Cleric": LifeCleric,
+        "Life Cleric": LifeCleric,
     },
     "Feats": {
         # TODO The rest of the feats
@@ -550,6 +668,11 @@ CONTENT = {
         # "Epic Boon of Fate": EpicBoonFate,
         # "Epic Boon of Spell Recall": EpicBoonSpellRecall,
         # "Epic Boon of Truesight": EpicBoonTruesight,
+    },
+    "Holy Orders": {
+        "Holy Order: Protector": HolyOrderProtector,
+        "Holy Order: Scholar": HolyOrderScholar,
+        "Holy Order: Thaumaturge": HolyOrderThaumaturge,
     },
     "Species": {
         # TODO The rest of the species

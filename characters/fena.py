@@ -88,6 +88,12 @@ def create(content: dict[str, dict[str, any]]) -> character.Character:
                                                                                     ability2=AbilityNames.CONSTITUTION))
     fena.level_up(0, hit_roll=6)
     fena.level_up(0, hit_roll=6)
+    fena.level_up(0, hit_roll=9)
+    # fena.level_up(0, feat=content["Feats"]["Ability Score Improvement"](
+    #     ability1=AbilityNames.CONSTITUTION,
+    #     ability2=AbilityNames.CONSTITUTION
+    # ))
+    # fena.level_up(0)
 
     fena.set_armor(content["Armors"]["Splint"]())
     fena.set_shield(content["Armors"]["Shield"]())

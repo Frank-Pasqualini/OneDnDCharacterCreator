@@ -99,6 +99,13 @@ def create(content: dict[str, dict[str, any]]) -> character.Character:
     tarquin.level_up(0, hit_roll=6)
     tarquin.level_up(
         0, hit_roll=6, blood_curse=content["Blood Curses"]["Blood Curse of the Fallen Puppet"]())
+    tarquin.level_up(
+        0, hit_roll=10, mutagen=content["Mutagens"]["Mutagen: Reconstruction"]())
+    # tarquin.level_up(0, feat=content["Feats"]["Ability Score Improvement"](
+    #     ability1=AbilityNames.CONSTITUTION,
+    #     ability2=AbilityNames.CONSTITUTION
+    # ))
+    # tarquin.level_up(0)
 
     tarquin.set_armor(content["Armors"]["Studded Leather"]())
     tarquin.set_shield(content["Armors"]["Shield"]())

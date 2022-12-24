@@ -168,7 +168,7 @@ class CharacterClass(ABC):
         if hit_roll < 1 or hit_roll > self._hit_die:
             if hit_roll != -1:
                 logging.warning("Invalid hit roll entered")
-            hit_roll = (self._hit_die + 2) / 2
+            hit_roll = int((self._hit_die + 2) / 2)
 
         level_up_n = {
             1: self._level_up_2,
@@ -255,9 +255,9 @@ class Bard(CharacterClass, ABC):
                                                     "an Arcane Spell, and it must be from one of the following "
                                                     "Schools of Magic: Divination, Enchantment, Illusion,"
                                                     "or Transmutation.\n"
-                                                    "Whenever you finish a Long Rest,you can practice your bardic "
+                                                    "Whenever you finish a Long Rest, you can practice your bardic "
                                                     "arts and replace any Spell you have prepared for this Class with "
-                                                    "another Arcane Spell of the same level,abiding by the school "
+                                                    "another Arcane Spell of the same level, abiding by the school "
                                                     "restriction above.\n"
                                                     "Your spell slots determine the number of different Spells you "
                                                     "can prepare of each level.\n"
@@ -432,7 +432,7 @@ class Bard(CharacterClass, ABC):
 
     def get_known_spells(self, content: dict[str, dict[str, any]]) -> list[spells.Spell]:
         return [spell() for spell in content["Spells"].values() if
-                spell().get_level() in range(0, math.ceil(self._level / 2)) and
+                spell().get_level() in range(0, math.ceil(self._level / 2) + 1) and
                 SpellLists.ARCANE in spell().get_spell_lists() and
                 spell().get_school() in [
                     SpellSchools.DIVINATION,
@@ -443,6 +443,186 @@ class Bard(CharacterClass, ABC):
 
     def get_spellcasting_class(self) -> str | None:
         return "Bard"
+
+    def get_spellcasting_level(self) -> float:
+        return self._level
+
+
+class Cleric(CharacterClass, ABC):
+    """
+    The Cleric class.
+    """
+
+    def __init__(self,
+                 name: str,
+                 skill1: Skills,
+                 skill2: Skills):
+        allowable_skills = [Skills.HISTORY, Skills.INSIGHT,
+                            Skills.MEDICINE, Skills.PERSUASION, Skills.RELIGION]
+
+        if (skill1 not in allowable_skills) or (skill2 not in allowable_skills):
+            raise Exception(
+                "All skills must be in the approved skill list")
+
+        if skill1 == skill2:
+            raise Exception("Both skills must be unique")
+
+        super().__init__(name=name,
+                         class_group=ClassGroups.PRIEST,
+                         primary_abilities=[AbilityNames.WISDOM],
+                         features=[
+                             feats.Feat(name="Channel Divinity",
+                                        description="You gain the ability to channel divine energy directly from the "
+                                                    "Outer Planes, using that energy to fuel magical effects. You "
+                                                    "start with two such effects: Divine Spark and Turn Undead, "
+                                                    "each of which is described below. Each time you use your Channel "
+                                                    "Divinity, you choose which effect to create, and you gain "
+                                                    "additional effect options at higher levels in this Class.\n"
+                                                    "You can use your Channel Divinity a number of times equal to "
+                                                    "your Proficiency Bonus, and you regain all expended uses when "
+                                                    "you finish a Long Rest.\n"
+                                                    "Some Channel Divinity effects require Saving Throws. When you "
+                                                    "use such an effect from this Class, the DC equals the Spell Save "
+                                                    "DC from this Class's Spellcasting feature.\n"
+                                                    "Divine Spark. As a Magic Action, you point your Holy Symbol at "
+                                                    "another creature you can see within 30 feet of yourself and "
+                                                    "focus divine energy at them. Roll a number of d8s equal to your "
+                                                    "Proficiency Bonus and add the rolls together. You either restore "
+                                                    "Hit Points to the creature equal to that total or force the "
+                                                    "creature to make a Constitution Saving Throw. On a failed save, "
+                                                    "the creature takes Radiant Damage equal to the total, "
+                                                    "and on a successful save, the creature takes half as much damage "
+                                                    "(rounded down).\n"
+                                                    "Turn Undead. As a Magic Action, you present your Holy Symbol and "
+                                                    "speak a prayer censuring Undead creatures. Each Undead within 30 "
+                                                    "feet of you must make a Wisdom Saving Throw. If the creature "
+                                                    "fails its Saving Throw, it is Dazed for 1 minute or until it "
+                                                    "takes any damage or you are Incapacitated or die. While Dazed in "
+                                                    "this way, the only Action the creature can take is the Dash "
+                                                    "Action, and if it Moves, it must end that Move farther from you "
+                                                    "than where it started."),
+                             feats.Feat(name="Spellcasting",
+                                        description="Spell Preparation. Any Spell you prepare for this Class must be "
+                                                    "a Divine Spell.\n"
+                                                    "Whenever you finish a Long Rest, you can pray or meditate and "
+                                                    "replace any Spell you have prepared for this Class with "
+                                                    "another Divine Spell of the same level.\n"
+                                                    "Your spell slots determine the number of different Spells you "
+                                                    "can prepare of each level.\n"
+                                                    "Spellcasting Ability. Wisdom is your Spellcasting Ability for "
+                                                    "your Cleric Spells.\n"
+                                                    "Spellcasting Focus. You can use a Holy Symbol as a "
+                                                    "Spellcasting Focus for the Spells you prepare for this Class. "
+                                        )
+                         ],
+                         hit_die=8,
+                         class_bonuses=bonuses.Bonuses(
+                             saving_throws={
+                                 AbilityNames.WISDOM: ProficiencyLevels.PROFICIENT,
+                                 AbilityNames.CHARISMA: ProficiencyLevels.PROFICIENT,
+                             },
+                             skills={
+                                 skill1: ProficiencyLevels.PROFICIENT,
+                                 skill2: ProficiencyLevels.PROFICIENT,
+                             },
+                             armor_training=[
+                                 ArmorTraining.LIGHT, ArmorTraining.MEDIUM, ArmorTraining.SHIELD],
+                             weapon_types=[WeaponTypes.SIMPLE]
+                         ),
+                         spellcasting_ability=AbilityNames.WISDOM)
+
+    def _level_up_2(self, holy_order: feats.HolyOrder):
+        self._features.append(holy_order)
+
+    def _level_up_4(self, feat: feats.Feat):
+        if feat.get_level() > 4:
+            raise Exception("Invalid feat level. Must be 4 or lower")
+
+        self._features.append(feat)
+
+    def _level_up_5(self):
+        self._features.append(feats.Feat(name="Smite Undead",
+                                         description="You can cause your Turn Undead feature to smite the undying; "
+                                                     "whenever you use Turn Undead, you can roll a number of d8s "
+                                                     "equal to your Proficiency Bonus and add the rolls together. "
+                                                     "Each Undead that fails its Saving Throw against that use of "
+                                                     "Turn Undead takes Radiant Damage equal to the roll's total."))
+
+    def _level_up_7(self):
+        self._features.append(feats.Feat(
+            name="Blessed Strikes",
+            description="Divine power infuses you in battle. When a creature takes damage from one of your 0-level "
+                        "Spells or your attacks with Weapons, you can also deal 1d8 Radiant Damage to that creature. "
+                        "Once you deal this damage, you can't use this feature again until the start of your next "
+                        "turn."))
+
+    def _level_up_8(self, feat: feats.Feat):
+        if feat.get_level() > 8:
+            raise Exception("Invalid feat level. Must be 8 or lower")
+
+        self._features.append(feat)
+
+    def _level_up_9(self, holy_order: feats.HolyOrder):
+        self._features.append(holy_order)
+
+    def _level_up_11(self):
+        self._features.append(feats.Feat(name="Divine Intervention",
+                                         description="You can call on your deity or pantheon to intervene on your "
+                                                     "behalf when your need is great. As an Action, describe the "
+                                                     "assistance you seek, and roll percentile dice. If you roll a "
+                                                     "number equal to or lower than your Cleric level, the divine "
+                                                     "power intervenes. The DM chooses the nature of the "
+                                                     "intervention; the effect of any Divine Spell is appropriate. If "
+                                                     "the intervention occurs, you can't use this feature again for "
+                                                     "2d6 days. Otherwise, you can use it again after you finish a "
+                                                     "Long Rest."))
+
+    def _level_up_12(self, feat: feats.Feat):
+        if feat.get_level() > 12:
+            raise Exception("Invalid feat level. Must be 12 or lower")
+
+        self._features.append(feat)
+
+    def _level_up_13(self):
+        pass
+
+    def _level_up_15(self):
+        pass
+
+    def _level_up_16(self, feat: feats.Feat):
+        if feat.get_level() > 16:
+            raise Exception("Invalid feat level. Must be 16 or lower")
+
+        self._features.append(feat)
+
+    def _level_up_17(self):
+        pass
+
+    def _level_up_18(self):
+        self._features.append(feats.Feat(name="Greater Divine Intervention",
+                                         description="When you use your Divine Intervention feature, it succeeds "
+                                                     "automatically-no roll required-and you can use it again after "
+                                                     "2d4 days."))
+
+    def _level_up_19(self, feat: feats.Feat):
+        if feat.get_level() > 19:
+            raise Exception("Invalid feat level. Must be 19 or lower")
+
+        self._features.append(feat)
+
+    def _level_up_20(self, feat: feats.Feat):
+        if feat.get_level() > 20:
+            raise Exception("Invalid feat level. Must be 20 or lower")
+
+        self._features.append(feat)
+
+    def get_known_spells(self, content: dict[str, dict[str, any]]) -> list[spells.Spell]:
+        return [spell() for spell in content["Spells"].values() if
+                spell().get_level() in range(0, math.ceil(self._level / 2) + 1) and
+                SpellLists.DIVINE in spell().get_spell_lists()]
+
+    def get_spellcasting_class(self) -> str | None:
+        return "Cleric"
 
     def get_spellcasting_level(self) -> float:
         return self._level
@@ -1002,10 +1182,10 @@ class Ranger(CharacterClass, ABC):
                                          description="Primal forces now help fuel you on your journeys,granting you "
                                                      "the following benefits:\n"
                                                      "Temporary Hit Points. Whenever you finish a Short Rest or a "
-                                                     "Long Rest,you can give yourself a number of Temporary Hit "
+                                                     "Long Rest, you can give yourself a number of Temporary Hit "
                                                      "Points equal to 1d8 plus your Proficiency Bonus.\n"
                                                      "Decrease Exhaustion. If you are Exhausted when you finish a "
-                                                     "Short Rest,your level of exhaustion decreases by 1."))
+                                                     "Short Rest, your level of exhaustion decreases by 1."))
 
     def _level_up_12(self, feat: feats.Feat):
         if feat.get_level() > 12:
@@ -1052,7 +1232,7 @@ class Ranger(CharacterClass, ABC):
 
     def get_known_spells(self, content: dict[str, dict[str, any]]) -> list[spells.Spell]:
         return [spell() for spell in content["Spells"].values() if
-                spell().get_level() in range(0, math.ceil(self._level / 4)) and
+                spell().get_level() in range(0, math.ceil(self._level / 4) + 1) and
                 SpellLists.PRIMAL in spell().get_spell_lists() and
                 spell().get_school() != SpellSchools.EVOCATION]
 
