@@ -157,47 +157,6 @@ class ThiefRogue(classes.Rogue):
                                                      "and you regain all expended uses when you finish a Long Rest."))
 
 
-class AbilityScoreImprovement(feats.Feat):
-    """
-    Ability Score Improvement Feat
-    UA p. 16
-    """
-
-    def __init__(self, ability1: AbilityNames, ability2: AbilityNames):
-        if ability1 == ability2:
-            super().__init__(name="Ability Score Improvement",
-                             description=f"You increase {ability1.value} by 2.",
-                             level=4,
-                             repeatable="Yes",
-                             feat_abilities=abilities.Abilities(
-                                 strength=2 if ability1 == AbilityNames.STRENGTH else 0,
-                                 dexterity=2 if ability1 == AbilityNames.DEXTERITY else 0,
-                                 constitution=2 if ability1 == AbilityNames.CONSTITUTION else 0,
-                                 intelligence=2 if ability1 == AbilityNames.INTELLIGENCE else 0,
-                                 wisdom=2 if ability1 == AbilityNames.WISDOM else 0,
-                                 charisma=2 if ability1 == AbilityNames.CHARISMA else 0,
-                             ),
-                             visible=False)
-        else:
-            super().__init__(name="Ability Score Improvement",
-                             description=f"You increase {ability1.value} and {ability2.value} by 1.",
-                             level=4,
-                             repeatable="Yes",
-                             feat_abilities=abilities.Abilities(
-                                 strength=(1 if AbilityNames.STRENGTH in [
-                                     ability1, ability2] else 0),
-                                 dexterity=(1 if AbilityNames.DEXTERITY in [
-                                     ability1, ability2] else 0),
-                                 constitution=(1 if AbilityNames.CONSTITUTION in [
-                                     ability1, ability2] else 0),
-                                 intelligence=(1 if AbilityNames.INTELLIGENCE in [
-                                     ability1, ability2] else 0),
-                                 wisdom=(1 if AbilityNames.WISDOM in [
-                                     ability1, ability2] else 0),
-                                 charisma=(1 if AbilityNames.CHARISMA in [ability1, ability2] else 0)),
-                             visible=False)
-
-
 class Actor(feats.Feat):
     """
     Actor Feat
@@ -486,29 +445,6 @@ class Barkskin(spells.Spell):
                                           "2nd.")
 
 
-class Guidance(spells.Spell):
-    """
-    Guidance Spell
-    UA p. 32-33
-    """
-
-    def __init__(self):
-        super().__init__(name="Guidance",
-                         spell_lists=[SpellLists.DIVINE, SpellLists.PRIMAL],
-                         level=0,
-                         school=SpellSchools.DIVINATION,
-                         casting_time="Reaction, which you take in response to you or an ally within 30 feet of you "
-                                      "failing an Ability Check",
-                         spell_range="30 feet",
-                         verbal_components=True,
-                         somatic_components=True,
-                         description="You channel magical insight to the creature who failed the Ability Check. That "
-                                     "creature can roll a d4 and add the number rolled to the check, potentially "
-                                     "turning it into a success.\n"
-                                     "Once a creature rolls the die for this Spell, that creature can't benefit from "
-                                     "the Spell again until the creature finishes a Long Rest.")
-
-
 CONTENT = {
     "Classes": {
         "Hunter Ranger": HunterRanger,
@@ -517,7 +453,7 @@ CONTENT = {
     },
     "Feats": {
         # TODO The rest of the feats
-        "Ability Score Improvement": AbilityScoreImprovement,
+        "Ability Score Improvement": "OBSOLETE",
         "Actor": Actor,
         "Athlete": Athlete,
         "Charger": Charger,
@@ -570,6 +506,6 @@ CONTENT = {
     },
     "Spells": {
         "Barkskin": Barkskin,
-        "Guidance": Guidance,
+        "Guidance": "OBSOLETE",
     },
 }

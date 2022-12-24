@@ -89,7 +89,7 @@ if __name__ == "__main__":
                         help="A list of character python files to generate sheets for.")
     parser.add_argument("--sources", type=str, nargs="+",
                         help="A list of source python files to load content from. Order matters, as some sources "
-                             "override other sources.", default=["srd", "odnd1", "odnd2"])
+                             "override other sources.", default=["srd", "odnd1", "odnd2", "odnd3"])
 
     args = parser.parse_args()
     main(**vars(args))

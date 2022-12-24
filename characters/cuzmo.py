@@ -51,7 +51,7 @@ def create(content: dict[str, dict[str, any]]) -> character.Character:
                                                                skill2=Skills.SURVIVAL,
                                                                fighting_style=content["Feats"][
                                                                    "Fighting Style: Great Weapon Fighting"]()),
-        character_species=content["Species"]["Goliath"](),
+        character_species=content["Species"]["Stone Goliath"](),
         background=custom_background,
         starting_abilities={
             AbilityNames.STRENGTH: 15,

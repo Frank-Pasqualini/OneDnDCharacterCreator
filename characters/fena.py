@@ -50,8 +50,8 @@ def create(content: dict[str, dict[str, any]]) -> character.Character:
 
     fena = character.Character(
         name="Fena",
-        character_class=content["Classes"]["Oath of the Watchers Paladin"](skill1=Skills.ATHLETICS,
-                                                                           skill2=Skills.INTIMIDATION),
+        character_class=content["Classes"]["Watchers Paladin"](skill1=Skills.ATHLETICS,
+                                                               skill2=Skills.INTIMIDATION),
         character_species=content["Species"]["Copper Dragonborn"](),
         background=custom_background,
         starting_abilities={

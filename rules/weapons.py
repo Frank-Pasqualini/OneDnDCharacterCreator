@@ -27,8 +27,10 @@ class Weapon(ABC):
     _thrown: bool
     _two_handed: bool
     _versatile: str | None
+    _special: str | None
     _attack_bonus: int
     _damage_bonus: int
+    _silvered: bool
     _magical: bool
 
     def __init__(self,
@@ -46,8 +48,10 @@ class Weapon(ABC):
                  thrown: bool = False,
                  two_handed: bool = False,
                  versatile: str = None,
+                 special: str = None,
                  attack_bonus: int = 0,
                  damage_bonus: int = 0,
+                 silvered: bool = False,
                  magical: bool = False):
         if thrown and attack_range == (0, 0):
             raise Exception("A thrown weapon must have a range")
@@ -69,8 +73,10 @@ class Weapon(ABC):
         self._thrown = thrown
         self._two_handed = two_handed
         self._versatile = versatile
+        self._special = special
         self._attack_bonus = attack_bonus
         self._damage_bonus = damage_bonus
+        self._silvered = silvered
         self._magical = magical
 
     def get_attack_bonus(self, str_mod: int, dex_mod: int, prof_mod: int, weapon_profs: list[WeaponTypes]) -> int:
@@ -128,7 +134,7 @@ class Weapon(ABC):
         """
 
         output = f"{self._name}. {self._damage_dice}{mod(self._damage_bonus) if self._damage_bonus != 0 else ''}"
-        output += f" {'' if not self._magical else 'Magical '}{self._damage_type.value}"
+        output += f" {'Magical ' if self._magical else 'Silvered ' if self._silvered else ''}{self._damage_type.value}"
         output += f"{' ' + mod(self._attack_bonus) + ' to hit' if self._attack_bonus != 0 else ''}"
 
         properties = []
@@ -170,6 +176,9 @@ class Weapon(ABC):
 
         if self._range != (0, 0) and not self._ammunition and not self._thrown:
             properties.append(f"(range {self._range[0]}/{self._range[1]})")
+
+        if self._special:
+            properties.append(self._special)
 
         if len(properties) > 0:
             output += ": " + ", ".join(properties)
