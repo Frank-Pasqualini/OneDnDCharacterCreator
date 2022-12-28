@@ -1,0 +1,482 @@
+Alarm
+1st-Level Abjuration Spell (Arcane) (ritual)
+Casting Time: 1 action
+Range: 30 feet
+Component: V, S, M (a tiny bell and a piece of fine silver wire)
+Duration: 8 hours
+You set an alarm against unwanted intrusion.
+Choose a door, a window, or an area within range that is no larger than a 20-foot cube. Until the spell ends, an alarm alerts you whenever a Tiny or larger creature touches or enters the warded area. When you cast the spell, you can designate creatures that won't set off the alarm. You also choose whether the alarm is mental or audible.
+A mental alarm alerts you with a ping in your mind if you are within 1 mile of the warded area.
+This ping awakens you if you are sleeping.
+An audible alarm produces the sound of a hand bell for 10 seconds within 60 feet.
+
+Detect Magic
+1st-Level Divination Spell (Arcane, Divine, Primal) (ritual)
+Casting Time: 1 action
+Range: Self
+Component: V, S
+Duration: Concentration, up to 10 minutes
+For the duration, you sense the presence of magic within 30 feet of you. If you sense magic in this way, you can use your action to see a faint aura around any visible creature or object in the area that bears magic, and you learn its school of magic, if any.
+The spell can penetrate most barriers, but it is blocked by 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt.
+
+Bless
+1st-Level Enchantment Spell (Divine)
+Casting Time: 1 action
+Range: 30 feet
+Component: V, S, M (a sprinkling of holy water)
+Duration: Concentration, up to 1 minute
+You bless up to three creatures of your choice within range. Whenever a target makes an attack roll or a saving throw before the spell ends, the target can roll a d4 and add the number rolled to the attack roll or saving throw.
+At Higher Levels. When you cast this spell using a spell slot of 2nd level or higher, you can target one additional creature for each slot level above 1st.
+
+Ceremony
+1st-Level Abjuration Spell (Divine) (ritual)
+Casting Time: 1 action
+Range: Touch
+Component: V, S, M (25 gp worth of powdered silver, which the spell consumes)
+Duration: Concentration, up to 1 minute
+You perform a special religious ceremony that is infused with magic. When you cast the spell, choose one of the following rites, the target of which must be within 10 feet of you throughout the casting.
+Atonement. You touch one willing creature whose alignment has changed, and you make a DC 20 Wisdom (Insight) check. On a successful check, you restore the target to its original alignment.
+Bless Water. You touch one vial of water and cause it to become holy water.
+Coming of Age. You touch one humanoid who is a young adult. For the next 24 hours, whenever the target makes an ability check, it can roll a d4 and add the number rolled to the ability check. A creature can benefit from this rite only once.
+Dedication. You touch one humanoid who wishes to be dedicated to your god's service. For the next 24 hours, whenever the target makes a saving throw, it can roll a d4 and add the number rolled to the save. A creature can benefit from this rite only once.
+Funeral Rite. You touch one corpse, and for the next 7 days, the target can't become undead by any means short of a wish spell.
+Wedding. You touch adult humanoids willing to be bonded together in marriage. For the next 7 days, each target gains a +2 bonus to AC while they are within 30 feet of each other. A creature can benefit from this rite again only if widowed.
+
+Command
+1st-Level Enchantment Spell (Divine)
+Casting Time: 1 action
+Range: 60 feet
+Component: V
+Duration: 1 round
+You speak a one-word command to a creature you can see within range. The target must succeed on a Wisdom saving throw or follow the command on its next turn. The spell has no effect if the target is undead, if it doesn't understand your language, or if your command is directly harmful to it.
+Some typical commands and their effects follow.
+You might issue a command other than one described here. If you do so, the GM determines how the target behaves. If the target can't follow your command, the spell ends.
+Approach. The target moves toward you by the shortest and most direct route, ending its turn if it moves within 5 feet of you.
+Drop. The target drops whatever it is holding and then ends its turn.
+Flee. The target spends its turn moving away from you by the fastest available means.
+Grovel. The target falls prone and then ends its turn.
+Halt. The target doesn't move and takes no actions.
+A flying creature stays aloft, provided that it is able to do so. If it must move to stay aloft, it flies the minimum distance needed to remain in the air.
+At Higher Levels. When you cast this spell using a spell slot of 2nd level or higher, you can affect one additional creature for each slot level above 1st. The creatures must be within 30 feet of each other when you target them.
+
+Compelled Duel
+1st-Level Enchantment Spell (Divine)
+Casting Time: 1 bonus action
+Range: 30 feet
+Component: V
+Duration: Concentration, up to 1 minute
+You attempt to compel a creature into a duel. One creature that you can see within range must make a Wisdom saving throw. On a failed save, the creature is drawn to you, compelled by your divine demand. For the duration, it has disadvantage on attack rolls against creatures other than you, and must make a Wisdom saving throw each time it attempts to move to a space that is more than 30 feet away from you; if it succeeds on this saving throw, this spell doesn't restrict the target's movement for that turn.
+The spell ends if you attack any other creature, if you cast a spell that targets a hostile creature other than the target, if a creature friendly to you damages the target or casts a harmful spell on it, or if you end your turn more than 30 feet away from the target.
+
+Cure Wounds
+1st-Level Abjuration Spell (Divine, Primal)
+Casting Time: 1 action
+Range: Touch
+Component: V, S
+Duration: Instantaneous
+A creature you touch regains a number of hit points equal to 1d8 your spellcasting ability modifier.
+This spell has no effect on undead or constructs.
+At Higher Levels. When you cast this spell using a spell slot of 2nd level or higher, the healing increases by 1d8 for each slot level above 1st.
+
+Detect Evil and Good
+1st-Level Divination Spell (Divine)
+Casting Time: 1 action
+Range: Self
+Component: V, S
+Duration: Concentration, up to 10 minutes
+For the duration, you know if there is an aberration, celestial, elemental, fey, fiend, or undead within 30 feet of you, as well as where the creature is located.
+Similarly, you know if there is a place or object within 30 feet of you that has been magically consecrated or desecrated. 
+The spell can penetrate most barriers, but it is blocked by 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt.
+
+Detect Poison and Disease
+1st-Level Divination Spell (Divine, Primal) (ritual)
+Casting Time: 1 action
+Range: Self
+Component: V, S, M (a yew leaf)
+Duration: Concentration, up to 10 minutes
+For the duration, you can sense the presence and location of poisons, poisonous creatures, and diseases within 30 feet of you. You also identify the kind of poison, poisonous creature, or disease in each case.
+The spell can penetrate most barriers, but it is blocked by 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt.
+
+Divine Favor
+1st-Level Evocation Spell (Divine)
+Casting Time: 1 action
+Range: Self
+Component: V, S
+Duration: Concentration, up to 1 minute
+Your prayer empowers you with divine radiance.
+Until the spell ends, your weapon attacks deal an extra 1d4 radiant damage on a hit.
+
+Heroism
+1st-Level Enchantment Spell (Divine)
+Casting Time: 1 action
+Range: Touch
+Component: V, S
+Duration: Concentration, up to 1 minute
+A willing creature you touch is imbued with bravery.
+Until the spell ends, the creature is immune to being frightened and gains temporary hit points equal to your spellcasting ability modifier at the start of each of its turns. When the spell ends, the target loses any remaining temporary hit points from this spell.
+At Higher Levels. When you cast this spell using a spell slot of 2nd level or higher, you can target one additional creature for each slot level above 1st.
+
+Protection from Evil and Good
+1st-Level Abjuration Spell (Arcane, Divine)
+Casting Time: 1 action
+Range: Touch
+Component: V, S, M (holy water or powdered silver and iron, which the spell consumes)
+Duration: Concentration, up to Concentration up to 10 minutes
+Until the spell ends, one willing creature you touch is protected against certain types of creatures: aberrations, celestials, elementals, fey, fiends, and undead.
+The protection grants several benefits. Creatures of those types have disadvantage on attack rolls against the target. The target also can't be charmed, frightened, or possessed by them. If the target is already charmed, frightened, or possessed by such a creature, the target has advantage on any new saving throw against the relevant effect.
+
+Purify Food and Drink
+1st-Level Transmutation Spell (Divine, Primal) (ritual)
+Casting Time: 1 action
+Range: 10 feet
+Component: V, S
+Duration: Instantaneous
+All nonmagical food and drink within a 5-foot-radius sphere centered on a point of your choice within range is purified and rendered free of poison and disease.
+
+Shield of Faith
+1st-Level Abjuration Spell (Divine)
+Casting Time: 1 action
+Range: 60 feet
+Component: V, S, M (a small parchment with a bit of holy text written on it)
+Duration: Concentration, up to 10 minutes
+A shimmering field appears and surrounds a creature of your choice within range, granting it a2 bonus to AC for the duration.
+
+Thunderous Smite
+1st-Level Evocation Spell (Divine)
+Casting Time: 1 bonus action
+Range: Self
+Component: V
+Duration: Concentration, up to 1 minute
+The first time you hit with a melee weapon attack during this spell's duration, your weapon rings with thunder that is audible within 300 feet of you, and the attack deals an extra 2d6 thunder damage to the target. Additionally, if the target is a creature, it must succeed on a Strength saving throw or be pushed 10 feet away from you and knocked prone.
+
+Wrathful Smite
+1st-Level Evocation Spell (Divine)
+Casting Time: 1 bonus action
+Range: Self
+Component: V
+Duration: Concentration, up to 1 minute
+The next time you hit with a melee weapon attack during this spell's duration, your attack deals an extra 1d6 psychic damage. Additionally, if the target is a creature, it must make a Wisdom saving throw or be frightened of you until the spell ends. As an action, the creature can make a Wisdom check against your spell save DC to steel its resolve and end this spell.
+
+Moonbeam
+2nd-Level Evocation Spell (Primal)
+Casting Time: 1 action
+Range: 120 feet
+Component: V, S, M (several seeds of any moonseed plant and a piece of opalescent feldspar)
+Duration: Concentration, up to 1 minute
+A silvery beam of pale light shines down in a 5-foot-radius, 40-foot-high cylinder centered on a point within range. Until the spell ends, dim light fills the cylinder.
+When a creature enters the spell's area for the first time on a turn or starts its turn there, it is engulfed in ghostly flames that cause searing pain, and it must make a Constitution saving throw. It takes 2d10 radiant damage on a failed save, or half as much damage on a successful one.
+A shapechanger makes its saving throw with disadvantage. If it fails, it also instantly reverts to its original form and can't assume a different form until it leaves the spell's light.
+On each of your turns after you cast this spell, you can use an action to move the beam 60 feet in any direction.
+At Higher Levels. When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d10 for each slot level above 2nd.
+
+See Invisibility
+2nd-Level Divination Spell (Arcane)
+Casting Time: 1 action
+Range: Self
+Component: V, S, M (a pinch of talc and a small sprinkling of powdered silver)
+Duration: 1 hour
+For the duration, you see invisible creatures and objects as if they were visible, and you can see into the Ethereal Plane. Ethereal creatures and objects appear ghostly and translucent. 
+
+Aid
+2nd-Level Abjuration Spell (Divine)
+Casting Time: 1 action
+Range: 30 feet
+Component: V, S, M (a tiny strip of white cloth)
+Duration: Instantaneous
+Your spell bolsters creatures, filling them with resolve. Choose up to six creatures within range. Each target gains 5 Temporary Hit Points.
+At Higher Levels. When you cast this spell using a spell slot of 3rd level or higher, the number of Temporary Hit Points increases by 5 for each slot level above 2nd.
+
+Branding Smite
+2nd-Level Evocation Spell (Divine)
+Casting Time: 1 action
+Range: Self
+Component: V
+Duration: Concentration, up to 1 minute
+The next time you hit a creature with a weapon attack before this spell ends, the weapon gleams with astral radiance as you strike. The attack deals an extra 2d6 radiant damage to the target, which becomes visible if it's invisible, and the target sheds dim light in a 5-foot radius and can't become invisible until the spell ends.
+At Higher Levels. When you cast this spell using a spell slot of 3rd level or higher, the extra damage increases by 1d6 for each slot level above 2nd.
+
+Find Steed
+2nd-Level Conjuration Spell (Divine)
+Casting Time: 1 action
+Range: 30 feet
+Component: V, S
+Duration: Instantaneous
+You summon a spirit that assumes the form of an unusually intelligent, strong, and loyal steed, creating a long-lasting bond with it. Appearing in an unoccupied space within range, the steed takes on a form that you choose: a warhorse, a pony, a camel, an elk, or a mastiff. (Your GM might allow other animals to be summoned as steeds.) The steed has the statistics of the chosen form, though it is a celestial, fey, or fiend (your choice) instead of its normal type. Additionally, if your steed has an Intelligence of 5 or less, its Intelligence becomes 6, and it gains the ability to understand one language of your choice that you speak.
+Your steed serves you as a mount, both in combat and out, and you have an instinctive bond with it that allows you to fight as a seamless unit. While mounted on your steed, you can make any spell you cast that targets only you also target your steed.
+When the steed drops to 0 hit points, it disappears, leaving behind no physical form. You can also dismiss your steed at any time as an action, causing it to disappear. In either case, casting this spell again summons the same steed, restored to its hit point maximum.
+While your steed is within 1 mile of you, you can communicate with it telepathically.
+You can't have more than one steed bonded by this spell at a time. As an action, you can release the steed from its bond at any time, causing it to disappear.
+
+Gentle Repose
+2nd-Level Necromancy Spell (Divine, Primal) (ritual)
+Casting Time: 1 action
+Range: Touch
+Component: V, S, M (a pinch of salt and one copper piece placed on each of the corpse's eyes, which must remain there for the duration)
+Duration: 10 days
+You touch a corpse or other remains. For the duration, the target is protected from decay and can't become undead.
+The spell also effectively extends the time limit on raising the target from the dead, since days spent under the influence of this spell don't count against the time limit of spells such as raise dead.
+
+Lesser Restoration
+2nd-Level Abjuration Spell (Divine, Primal)
+Casting Time: 1 action
+Range: Touch
+Component: V, S
+Duration: Instantaneous
+You touch a creature and can end either one disease or one condition afflicting it. The condition can be blinded, deafened, paralyzed, or poisoned.
+
+Locate Object
+2nd-Level Divination Spell (Arcane, Divine, Primal)
+Casting Time: 1 action
+Range: Self
+Component: V, S, M (a forked twig)
+Duration: Concentration, up to 10 minutes
+Describe or name an object that is familiar to you.
+You sense the direction to the object's location, as long as that object is within 1,000 feet of you. If the object is in motion, you know the direction of its movement.
+The spell can locate a specific object known to you, as long as you have seen it up close-within 30 feet-at least once. Alternatively, the spell can locate the nearest object of a particular kind, such as a certain kind of apparel, jewelry, furniture, tool, or weapon.
+This spell can't locate an object if any thickness of lead, even a thin sheet, blocks a direct path between you and the object.
+
+Magic Weapon
+2nd-Level Transmutation Spell (Arcane, Divine)
+Casting Time: 1 action
+Range: Touch
+Component: V, S
+Duration: Concentration, up to 1 hour
+You touch a nonmagical weapon. Until the spell ends, that weapon becomes a magic weapon with a1 bonus to attack rolls and damage rolls.
+At Higher Levels. When you cast this spell using a spell slot of 4th level or higher, the bonus increases to2. When you use a spell slot of 6th level or higher, the bonus increases to3.
+
+Prayer of Healing
+2nd-Level Abjuration Spell (Divine)
+Casting Time: 10 minutes
+Range: 30 feet
+Component: V
+Duration: Instantaneous
+You utter an extended prayer of restoration. Choose a number of willing creatures equal to your Spellcasting Ability Modifier (minimum of 1). Each of those creatures who remains within range for the Spell's entire casting gains the benefits of a Short Rest and also regains 2d8 Hit Points, and a creature can't be affected by this Spell again until that creature finishes a Long Rest.
+At Higher Levels. When you cast this Spell using a Spell Slot of 3rd level or higher, the healing increases by 1d8 for each slot above 2nd.
+
+Protection from Poison
+2nd-Level Abjuration Spell (Divine, Primal)
+Casting Time: 1 action
+Range: Touch
+Component: V, S
+Duration: 1 hour
+You touch a creature. If it is poisoned, you neutralize the poison. If more than one poison afflicts the target, you neutralize one poison that you know is present, or you neutralize one at random.
+For the duration, the target has advantage on saving throws against being poisoned, and it has resistance to poison damage.
+
+Warding Bond
+2nd-Level Abjuration Spell (Divine)
+Casting Time: 1 action
+Range: Touch
+Component: V, S, M (a pair of platinum rings worth at least 50 gp each, which you and the target must wear for the duration)
+Duration: 1 hour
+This spell wards a willing creature you touch and creates a mystic connection between you and the target until the spell ends. While the target is within 60 feet of you, it gains a1 bonus to AC and saving throws, and it has resistance to all damage. Also, each time it takes damage, you take the same amount of damage.
+The spell ends if you drop to 0 hit points or if you and the target become separated by more than 60 feet. It also ends if the spell is cast again on either of the connected creatures. You can also dismiss the spell as an action.
+
+Zone of Truth
+2nd-Level Enchantment Spell (Divine)
+Casting Time: 1 action
+Range: 60 feet
+Component: V, S
+Duration: 10 minutes
+You create a magical zone that guards against deception in a 15-foot-radius sphere centered on a point of your choice within range. Until the spell ends, a creature that enters the spell's area for the first time on a turn or starts its turn there must make a Charisma saving throw. On a failed save, a creature can't speak a deliberate lie while in the radius. You know whether each creature succeeds or fails on its saving throw.
+An affected creature is aware of the spell and can thus avoid answering questions to which it would normally respond with a lie. Such a creature can be evasive in its answers as long as it remains within the boundaries of the truth
+
+Counterspell
+3rd-Level Abjuration Spell (Arcane)
+Casting Time: 1 action
+Range: 60 feet
+Component: S
+Duration: Instantaneous
+You attempt to interrupt a creature in the process of casting a spell. If the creature is casting a spell of 3rd level or lower, its spell fails and has no effect. If it is casting a spell of 4th level or higher, make an ability check using your spellcasting ability. The DC equals 10 the spell's level. On a success, the creature's spell fails and has no effect.
+At Higher Levels. When you cast this spell using a spell slot of 4th level or higher, the interrupted spell has no effect if its level is less than or equal to the level of the spell slot you used.
+
+Nondetection
+3rd-Level Abjuration Spell (Arcane, Primal)
+Casting Time: 1 action
+Range: Touch
+Component: V, S, M (a pinch of diamond dust worth 25 gp sprinkled over the target, which the spell consumes)
+Duration: 8 hours
+For the duration, you hide a target that you touch from divination magic. The target can be a willing creature or a place or an object no larger than 10 feet in any dimension. The target can't be targeted by any divination magic or perceived through magical scrying sensors.
+
+Blinding Smite
+3rd-Level Evocation Spell (Divine)
+Casting Time: 1 bonus action
+Range: Self
+Component: V
+Duration: Concentration, up to 1 minute
+The next time you hit a creature with a melee weapon attack during this spell's duration, you weapon flares with a bright light, and the attack deals an extra 3d8 radiant damage to the target. Additionally, the target must succeed on a Constitution saving throw or be blinded until the spell ends.
+A creature blinded by this spell makes another Constitution saving throw at the end of each of its turns. On a successful save, it is no longer blinded.
+
+Create Food and Water
+3rd-Level Conjuration Spell (Divine)
+Casting Time: 1 action
+Range: 30 feet
+Component: V, S
+Duration: Instantaneous
+You create 45 pounds of food and 30 gallons of water on the ground or in containers within range, enough to sustain up to fifteen humanoids or five steeds for 24 hours. The food is bland but nourishing, and spoils if uneaten after 24 hours. The water is clean and doesn't go bad.
+
+Crusader's Mantle
+3rd-Level Evocation Spell (Divine)
+Casting Time: 1 action
+Range: Self
+Component: V
+Duration: Concentration, up to 1 minute
+Holy power radiates from you in an aura with a 30-foot radius, awakening boldness in friendly creatures. Until the spell ends, the aura moves with you, centered on you. While in the aura, each nonhostile creature in the aura (including you) deals an extra 1d4 radiant damage when it hits with a weapon attack.
+
+Daylight
+3rd-Level Evocation Spell (Divine, Primal)
+Casting Time: 1 action
+Range: 60 feet
+Component: V, S
+Duration: 1 hour
+A 60-foot-radius sphere of light spreads out from a point you choose within range. The sphere is bright light and sheds dim light for an additional 60 feet.
+If you chose a point on an object you are holding or one that isn't being worn or carried, the light shines from the object and moves with it. Completely covering the affected object with an opaque object, such as a bowl or a helm, blocks the light.
+If any of this spell's area overlaps with an area of darkness created by a spell of 3rd level or lower, the spell that created the darkness is dispelled.
+
+Dispel Magic
+3rd-Level Abjuration Spell (Arcane, Divine, Primal)
+Casting Time: 1 action
+Range: 120 feet
+Component: V, S
+Duration: Instantaneous
+Choose one creature, object, or magical effect within range. Any spell of 3rd level or lower on the target ends. For each spell of 4th level or higher on the target, make an ability check using your spellcasting ability. The DC equals 10 the spell's level. On a successful check, the spell ends.
+At Higher Levels. When you cast this spell using a spell slot of 4th level or higher, you automatically end the effects of a spell on the target if the spell's level is equal to or less than the level of the spell slot you used.
+
+Elemental Weapon
+3rd-Level Transmutation Spell (Primal)
+Casting Time: 1 action
+Range: Touch
+Component: V, S
+Duration: Concentration, up to 1 hour
+A nonmagical weapon you touch becomes a magic weapon.  Choose one of the following damage types: acid, cold, fire, lightning, or thunder. For the duration, the weapon has a +1 bonus to attack rolls and deals an extra 1d4 damage of the chosen type when it hits.
+At Higher Levels. When you cast this spell using a spell slot of 5th or 6th level, the bonus to attack rolls increases to +2 and the extra damage increases to 2d4. When you use a spell slot of 7th level or higher, the bonus increases to +3 and the extra damage increases to 3d4.
+
+Magic Circle
+3rd-Level Abjuration Spell (Arcane, Divine)
+Casting Time: 1 action
+Range: 10 feet
+Component: V, S, M (holy water or powdered silver and iron worth at least 100 gp, which the spell consumes)
+Duration: 1 hour
+You create a 10-foot-radius, 20-foot-tall cylinder of magical energy centered on a point on the ground that you can see within range. Glowing runes appear wherever the cylinder intersects with the floor or other surface.
+Choose one or more of the following types of creatures: celestials, elementals, fey, fiends, or undead. The circle affects a creature of the chosen type in the following ways:
+• The creature can't willingly enter the cylinder by nonmagical means. If the creature tries to use teleportation or interplanar travel to do so, it must first succeed on a Charisma saving throw.
+• The creature has disadvantage on attack rolls against targets within the cylinder.
+• Targets within the cylinder can't be charmed, frightened, or possessed by the creature.
+When you cast this spell, you can elect to cause its magic to operate in the reverse direction, preventing a creature of the specified type from leaving the cylinder and protecting targets outside it.
+At Higher Levels. When you cast this spell using a spell slot of 4th level or higher, the duration increases by 1 hour for each slot level above 3rd.
+
+Remove Curse
+3rd-Level Abjuration Spell (Arcane, Divine)
+Casting Time: 1 action
+Range: Touch
+Component: V, S
+Duration: Instantaneous
+At your touch, all curses affecting one creature or object end. If the object is a cursed magic item, its curse remains, but the spell breaks its owner's attunement to the object so it can be removed or discarded.
+
+Revivify
+3rd-Level Necromancy Spell (Divine, Primal)
+Casting Time: 1 action
+Range: Touch
+Component: V, S, M (diamonds worth 300 gp, which the spell consumes)
+Duration: Instantaneous
+You touch a creature that has died within the last minute. That creature returns to life with 1 hit point.
+This spell can't return to life a creature that has died of old age, nor can it restore any missing body parts.
+
+Spirit Shroud
+3rd-Level Necromancy Spell (Arcane, Divine)
+Casting Time: 1 action
+Range: Self
+Component: V, S
+Duration: Concentration, up to 1 minute
+You call forth spirits of the dead, which flit around you for the spell's duration. The spirits are intangible and invulnerable.
+Until the spell ends, any attack you make deals 1d8 extra damage when you hit a creature within 10 feet of you. This damage is radiant, necrotic, or cold (your choice when you cast the spell). Any creature that takes this damage can't regain hit points until the start of your next turn.
+In addition, any creature of your choice that you can see that starts its turn within 10 feet of you has its speed reduced by 10 feet until the start of your next turn.
+At Higher Levels. When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d8 for every two slot levels above 3rd.
+
+Aura of Purity
+4th-Level Abjuration Spell (Divine)
+Casting Time: 1 action
+Range: Self (30-foot radius)
+Component: V
+Duration: Concentration, up to 10 minutes
+Purifying energy radiates from you in an aura with a 30-foot radius. Until the spell ends, the aura moves with you, centered on you. Each nonhostile creature in the aura (including you) can't become diseased, has resistance to poison damage, and has advantage on saving throws against effects that cause any of the following conditions: blinded, charmed, deafened, frightened, paralyzed, poisoned, and stunned.
+
+Banishment
+4th-Level Abjuration Spell (Arcane, Divine)
+Casting Time: 1 action
+Range: 30 feet
+Component: V, S, M (an item distasteful to the target)
+Duration: Concentration, up to 1 minute
+You attempt to send one creature that you can see within range to another plane of existence. The target must succeed on a Charisma Saving Throw or be transported to a harmless demiplane for the duration. The target can willingly fail the save.
+While in the demiplane, the target is Incapacitated. At the end of each of its turns, the target can repeat the save, ending the Spell on itself on a success. When the Spell ends on the target, it reappears in the space it left or in the nearest unoccupied space if that space is occupied.
+If the Spell lasts on the target for 1 minute and the target is an Aberration, a Celestial, an Elemental, a Fey, or a Fiend, the target doesn't return. It is instead transported to a random location on a plane associated with its Creature Type.
+At Higher Levels. When you cast this Spell using a Spell Slot of 5th level or higher, you can target one additional creature for each slot level above 4th.
+
+Aura of Life
+4th-Level Abjuration Spell (Divine)
+Casting Time: 1 action
+Range: Self (30-foot radius)
+Component: V
+Duration: Concentration, up to 10 minutes
+Life-preserving energy radiates from you in an aura with a 30-foot radius.  Until the spell ends, the aura moves with you, centered on you. Each nonhostile creature in the aura (including you) has resistance to necrotic damage, and its hit point maximum can't be reduced. In addition, a nonhostile, living creature regains 1 hit point when it starts its turn in the aura with 0 hit points.
+
+Death Ward
+4th-Level Abjuration Spell (Divine)
+Casting Time: 1 action
+Range: Touch
+Component: V, S
+Duration: 8 hours
+You touch a creature and grant it a measure of protection from death.
+The first time the target would drop to 0 hit points as a result of taking damage, the target instead drops to 1 hit point, and the spell ends.
+If the spell is still in effect when the target is subjected to an effect that would kill it instantaneously without dealing damage, that effect is instead negated against the target, and the spell ends.
+
+Find Greater Steed
+4th-Level Conjuration Spell (Divine)
+Casting Time: 10 minutes
+Range: 30 feet
+Component: V, S
+Duration: Instantaneous
+You summon a spirit that assumes the form of a loyal, majestic mount. Appearing in an unoccupied space within range, the spirit takes on a form you choose: a griffon, a pegasus, a peryton, a dire wolf, a rhinoceros, or a saber-toothed tiger. The creature has the statistics provided in the Monster Manual for the chosen form, though it is a celestial, a fey, or a fiend (your choice) instead of its normal creature type. Additionally, if it has an Intelligence score of 5 or lower, its Intelligence becomes 6, and it gains the ability to understand one language of your choice that you speak.
+You control the mount in combat. While the mount is within 1 mile of you, you can communicate with it telepathically. While mounted on it, you can make any spell you cast that targets only you also target the mount.
+The mount disappears temporarily when it drops to 0 hit points or when you dismiss it as an action. Casting this spell again re-summons the bonded mount, with all its hit points restored and any conditions removed.
+You can't have more than one mount bonded by this spell or find steed at the same time. As an action, you can release a mount from its bond, causing it to disappear permanently.
+Whenever the mount disappears, it leaves behind any objects it was wearing or carrying.
+
+Locate Creature
+4th-Level Divination Spell (Arcane, Divine, Primal)
+Casting Time: 1 action
+Range: Self
+Component: V, S, M (a bit of fur from a bloodhound)
+Duration: Concentration, up to 1 hour
+Describe or name a creature that is familiar to you.
+You sense the direction to the creature's location, as long as that creature is within 1,000 feet of you. If the creature is moving, you know the direction of its movement.
+The spell can locate a specific creature known to you, or the nearest creature of a specific kind (such as a human or a unicorn), so long as you have seen such a creature up close-within 30 feet-at least once. If the creature you described or named is in a different form, such as being under the effects of a polymorph spell, this spell doesn't locate the creature.
+This spell can't locate a creature if running water at least 10 feet wide blocks a direct path between you and the creature.
+
+Searing Smite
+4th-Level Evocation Spell (Divine)
+Casting Time: 1 bonus action
+Range: Self
+Component: V
+Duration: Concentration, up to 1 minute
+The next time you hit a creature with a melee weapon attack during this spell's duration, your weapon pierces both body and mind, and the attack deals an extra 4d6 psychic damage to the target. The target must make a Wisdom saving throw. On a failed save, it has disadvantage on attack rolls and ability checks, and can't take reactions, until the end of its next turn.
+
+Hold Monster
+5th-Level Enchantment Spell (Arcane)
+Casting Time: 1 action
+Range: 90 feet
+Component: V, S, M (a small, straight piece of iron)
+Duration: Concentration, up to 1 minute
+Choose a creature that you can see within range. The target must succeed on a Wisdom saving throw or be paralyzed for the duration. This spell has no effect on undead. At the end of each of its turns, the target can make another Wisdom saving throw. On a success, the spell ends on the target.
+At Higher Levels. When you cast this spell using a spell slot of 6th level or higher, you can target one additional creature for each slot level above 5th. The creatures must be within 30 feet of each other when you target them.
+
+Scrying
+5th-Level Divination Spell (Arcane, Divine, Primal)
+Casting Time: 1 action
+Range: Self
+Component: V, S, M (a focus worth at least 1,000 gp, such as a crystal ball, a silver mirror, or a font filled with holy water)
+Duration: Concentration, up to 10 minutes
+You can see and hear a particular creature you choose that is on the same plane of existence as you.
+The target must make a Wisdom saving throw, which is modified by how well you know the target and the sort of physical connection you have to it. If a target knows you're casting this spell, it can fail the saving throw voluntarily if it wants to be observed.
+Knowledge Save Modifier Secondhand (you have heard of the target)5 Firsthand (you have met the target)0 Familiar (you know the target well) -5 Connection Save Modifier Likeness or picture -2 Possession or garment -4 Body part, lock of hair, bit of nail, or the like -10 On a successful save, the target isn't affected, and you can't use this spell against it again for 24 hours.
+On a failed save, the spell creates an invisible sensor within 10 feet of the target. You can see and hear through the sensor as if you were there. The sensor moves with the target, remaining within 10 feet of it for the duration. A creature that can see invisible objects sees the sensor as a luminous orb about the size of your fist.
+Instead of targeting a creature, you can choose a location you have seen before as the target of this spell. When you do, the sensor appears at that location and doesn't move.

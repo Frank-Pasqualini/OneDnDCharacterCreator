@@ -418,6 +418,33 @@ class FightingStyleGreatWeapon(feats.FightingStyle):
                                      "property to gain this benefit.")
 
 
+class InspiringLeader(feats.FightingStyle):
+    """
+    Inspiring Leader Feat
+    UA p. 20
+    """
+
+    def __init__(self, ability: AbilityNames):
+        if ability not in [AbilityNames.WISDOM, AbilityNames.CHARISMA,]:
+            raise Exception("Ability must be Wisdom or Charisma")
+
+        super().__init__(name="Inspiring Leader",
+                         level=4,
+                         prerequisite="Wisdom or Charisma 13+",
+                         description="You are adept at encouraging others, granting you the following benefits:\n"
+                                     f"Ability Score Increase. Increase your {ability.value} score by 1, to a maximum "
+                                     "of 20.\n"
+                                     "Encouraging Performance. At the end of a Short Rest or a Long Rest, you can "
+                                     "give an inspiring performance: a speech, a song, or a dance. When you do so, "
+                                     "choose up to six friendly creatures (which can include yourself) within 30 feet "
+                                     "of you who witness the performance. The chosen creatures each gain Temporary "
+                                     "Hit Points equal to 2d4 + your Proficiency Bonus.",
+                         feat_abilities=abilities.Abilities(
+                             wisdom=(
+                                 1 if AbilityNames.WISDOM == ability else 0),
+                             charisma=(1 if AbilityNames.CHARISMA == ability else 0)))
+
+
 class Barkskin(spells.Spell):
     """
     Barkskin Spell
@@ -485,7 +512,7 @@ CONTENT = {
         # "Great Weapon Master": GreatWeaponMaster,
         # "Heavily Armored": HeavilyArmored,
         # "Heavy Armor Master": HeavyArmorMaster,
-        # "Inspiring Leader": InspiringLeader,
+        "Inspiring Leader": InspiringLeader,
         # "Keen Mind": KeenMind,
         # "Lightly Armored": LightlyArmored,
         # "Mage Slayer": MageSlayer,

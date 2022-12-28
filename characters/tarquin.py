@@ -56,7 +56,7 @@ def create(content: dict[str, dict[str, any]]) -> character.Character:
             blood_curse=content["Blood Curses"]["Blood Curse of Binding"]()
         ),
         character_species=content["Species"]["Drow"](
-            content, AbilityNames.INTELLIGENCE),
+            content, AbilityNames.CHARISMA),
         background=custom_background,
         starting_abilities={
             AbilityNames.STRENGTH: 15,
@@ -101,27 +101,30 @@ def create(content: dict[str, dict[str, any]]) -> character.Character:
         0, hit_roll=6, blood_curse=content["Blood Curses"]["Blood Curse of the Fallen Puppet"]())
     tarquin.level_up(
         0, hit_roll=10, mutagen=content["Mutagens"]["Mutagen: Reconstruction"]())
-    # tarquin.level_up(0, feat=content["Feats"]["Ability Score Improvement"](
-    #     ability1=AbilityNames.CONSTITUTION,
-    #     ability2=AbilityNames.CONSTITUTION
-    # ))
-    # tarquin.level_up(0)
+    tarquin.level_up(0, hit_roll=4, feat=content["Feats"]["Drow High Magic"](content=content))
+    tarquin.level_up(0, hit_roll=3)
 
     tarquin.set_armor(content["Armors"]["Studded Leather"]())
     tarquin.set_shield(content["Armors"]["Shield"]())
     tarquin.set_weapons([
-        content["Weapons"]["Scimitar"](
-            name="Scimitar of Warning", magical=True),
+        content["Weapons"]["Shortsword"](
+            name="Hellfire Shortsword", magical=True),
+        content["Weapons"]["Scimitar"](),
     ])
 
     tarquin.set_magic_items([  # TODO better magic items
-        magicitem.MagicItem(name="Scimitar of Warning",
-                            description="This magic weapon warns you of danger. While the weapon is on your person, "
-                                        "you have advantage on initiative rolls. In addition, you and any of your "
-                                        "companions within 30 feet of you can't be surprised, except when "
-                                        "incapacitated by something other than nonmagical sleep. The weapon magically "
-                                        "awakens you and your companions within range if any of you are sleeping "
-                                        "naturally when combat begins."),
+        magicitem.MagicItem(name="Hellfire Weapon",
+                            description="This weapon is fashioned from infernal iron and traced with veins of "
+                                        "hellfire that shed dim light in a 5-foot-radius.\n"
+                                        "Any humanoid killed by an attack made with this weapon has its soul "
+                                        "funneled into the River Styx, where it's reborn instantly as a lemure "
+                                        "devil."),
+        magicitem.MagicItem(name="Horn of Valhalla",
+                            description="You can use an Action to blow this horn. In response, 3d4 + 3 Warrior "
+                                        "spirits from the Valhalla appear within 60 feet of you. They use the "
+                                        "Statistics of a Berserker. They Return to Valhalla after 1 hour or when they "
+                                        "drop to 0 Hit Points. Once you use the horn, it can't be used again until 7 "
+                                        "days have passed."),
     ])
 
     return tarquin

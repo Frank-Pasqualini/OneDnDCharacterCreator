@@ -88,8 +88,8 @@ def create(content: dict[str, dict[str, any]]) -> character.Character:
     syd.set_shield(content["Armors"]["Shield"]())
     syd.set_weapons([
         content["Weapons"]["Longbow"](),
-        content["Weapons"]["Shortsword"](name="Silvered Shortsword"),
-        content["Weapons"]["Dagger"](name="Silvered Dagger"),
+        content["Weapons"]["Shortsword"](silvered=True),
+        content["Weapons"]["Dagger"](silvered=True),
     ])
 
     return syd

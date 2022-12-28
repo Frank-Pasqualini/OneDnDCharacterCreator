@@ -80,8 +80,10 @@ def create(content: dict[str, dict[str, any]]) -> character.Character:
         ability2=AbilityNames.CONSTITUTION
     ))
     cuzmo.level_up(0, hit_roll=6)
-    cuzmo.level_up(0, hit_roll=6, feat=content["Feats"]["Ability Score Improvement"](ability1=AbilityNames.STRENGTH,
-                                                                                     ability2=AbilityNames.STRENGTH))
+    cuzmo.level_up(0, hit_roll=6, feat=content["Feats"]["Ability Score Improvement"](
+        ability1=AbilityNames.STRENGTH,
+        ability2=AbilityNames.STRENGTH
+    ))
     cuzmo.level_up(0, hit_roll=6)
     cuzmo.level_up(0, hit_roll=6, feat=content["Feats"]["Ability Score Improvement"](
         ability1=AbilityNames.CONSTITUTION,
@@ -91,18 +93,17 @@ def create(content: dict[str, dict[str, any]]) -> character.Character:
     cuzmo.level_up(
         0, hit_roll=7, fighting_style=content["Feats"]["Fighting Style: Blind Fighting"]())
     cuzmo.level_up(0, hit_roll=4)
-    # cuzmo.level_up(0, feat=content["Feats"]["Ability Score Improvement"](
-    #     ability1=AbilityNames.CONSTITUTION,
-    #     ability2=AbilityNames.CONSTITUTION
-    # ))
-    # cuzmo.level_up(0)
+    cuzmo.level_up(0, hit_roll=6, feat=content["Feats"]["Ability Score Improvement"](
+        ability1=AbilityNames.CONSTITUTION,
+        ability2=AbilityNames.CONSTITUTION
+    ))
+    cuzmo.level_up(0, hit_roll=3)
 
     cuzmo.set_armor(content["Armors"]["Splint"]())
     cuzmo.set_weapons([
-        content["Weapons"]["Maul"](
-            name="+1 Maul", attack_bonus=1, damage_bonus=1, magical=True),
-        content["Weapons"]["Boomerang"](name="Silvered Boomerang"),
-        content["Weapons"]["Handaxe"](name="Silvered Handaxe"),
+        content["Weapons"]["Maul"](attack_bonus=1, damage_bonus=1, magical=True),
+        content["Weapons"]["Boomerang"](silvered=True),
+        content["Weapons"]["Handaxe"](silvered=True),
     ])
 
     return cuzmo

@@ -101,8 +101,8 @@ def create(content: dict[str, dict[str, any]]) -> character.Character:
     zylith.set_armor(content["Armors"]["Studded Leather"]())
     zylith.set_weapons([
         content["Weapons"]["Rapier"](),
-        content["Weapons"]["Hand Crossbow"](name="Hand Crossbow"),
-        content["Weapons"]["Dagger"](name="Silvered Dagger"),
+        content["Weapons"]["Hand Crossbow"](),
+        content["Weapons"]["Dagger"](silvered=True),
     ])
     zylith.set_magic_items(magic_items=[  # TODO better magic items
         magicitem.MagicItem(name="Gloves of Thievery",

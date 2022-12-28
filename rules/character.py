@@ -783,10 +783,12 @@ class Character:
                             NameObject("/AS"): NameObject(value)
                         })
 
-            # TODO spellbook pages
-            # spell_descriptions = [str(spell) for spell in cantrips + first_level + second_level + third_level +
-            #                       fourth_level + fifth_level + sixth_level + seventh_level + eighth_level +
-            #                       ninth_level if spell is not None]
+            spell_descriptions = [str(spell) for spell in cantrips + first_level + second_level + third_level +
+                                  fourth_level + fifth_level + sixth_level + seventh_level + eighth_level +
+                                  ninth_level if spell is not None]
+
+            with open(filepath + ".spells", "w") as spell_file:
+                spell_file.write("\n\n".join(spell_descriptions))
 
         writer.write(filepath)
 

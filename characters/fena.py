@@ -89,28 +89,20 @@ def create(content: dict[str, dict[str, any]]) -> character.Character:
     fena.level_up(0, hit_roll=6)
     fena.level_up(0, hit_roll=6)
     fena.level_up(0, hit_roll=9)
-    # fena.level_up(0, feat=content["Feats"]["Ability Score Improvement"](
-    #     ability1=AbilityNames.CONSTITUTION,
-    #     ability2=AbilityNames.CONSTITUTION
-    # ))
-    # fena.level_up(0)
+    fena.level_up(0, hit_roll=1, feat=content["Feats"]["Ability Score Improvement"](
+        ability1=AbilityNames.STRENGTH,
+        ability2=AbilityNames.STRENGTH
+    ))
 
     fena.set_armor(content["Armors"]["Splint"]())
     fena.set_shield(content["Armors"]["Shield"]())
     fena.set_weapons([
         content["Weapons"]["Longsword"](
             name="Dragon Slayer Longsword", attack_bonus=1, damage_bonus=1, magical=True),
-        content["Weapons"]["Longsword"](
-            name="Hellfire Longsword", magical=True),
+
     ])
 
     fena.set_magic_items([  # TODO better magic items
-        magicitem.MagicItem(name="Hellfire Weapon",
-                            description="This weapon is fashioned from infernal iron and traced with veins of "
-                                        "hellfire that shed dim light in a 5-foot-radius.\n"
-                                        "Any humanoid killed by an attack made with this weapon has its soul "
-                                        "funneled into the River Styx, where it's reborn instantly as a lemure "
-                                        "devil."),
         magicitem.MagicItem(name="Dragon Slayer Sword",
                             description="You gain a +1 bonus to attack and damage rolls made with this magic weapon.\n"
                                         "When you hit a dragon with this weapon, the dragon takes an extra 3d6 damage. "

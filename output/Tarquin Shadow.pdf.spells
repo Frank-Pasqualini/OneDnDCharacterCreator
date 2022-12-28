@@ -1,0 +1,58 @@
+Dancing Lights
+0-Level Illusion Spell (Arcane)
+Casting Time: 1 action
+Range: 120 feet
+Component: V, S, M (a bit of phosphorus or wychwood, or a glowworm)
+Duration: Concentration, up to 1 minute
+You create up to four torch-sized lights within range, making them appear as torches, lanterns, or glowing orbs that hover in the air for the duration. You can also combine the four lights into one glowing vaguely humanoid form of Medium size. Whichever form you choose, each light sheds dim light in a 10-foot radius.
+As a bonus action on your turn, you can move the lights up to 60 feet to a new spot within range. A light must be within 20 feet of another light created by this spell, and a light winks out if it exceeds the spell's range.
+
+Detect Magic
+1st-Level Divination Spell (Arcane, Divine, Primal) (ritual)
+Casting Time: 1 action
+Range: Self
+Component: V, S
+Duration: Concentration, up to 10 minutes
+For the duration, you sense the presence of magic within 30 feet of you. If you sense magic in this way, you can use your action to see a faint aura around any visible creature or object in the area that bears magic, and you learn its school of magic, if any.
+The spell can penetrate most barriers, but it is blocked by 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt.
+
+Faerie Fire
+1st-Level Evocation Spell (Primal)
+Casting Time: 1 action
+Range: 60 feet
+Component: V
+Duration: Concentration, up to 1 minute
+Each object in a 20-foot cube within range is outlined in blue, green, or violet light (your choice).
+Any creature in the area when the spell is cast is also outlined in light if it fails a Dexterity saving throw.
+For the duration, objects and affected creatures shed dim light in a 10-foot radius.
+Any attack roll against an affected creature or object has advantage if the attacker can see it, and the affected creature or object can't benefit from being invisible.
+
+Darkness
+2nd-Level Evocation Spell (Arcane)
+Casting Time: 1 action
+Range: 60 feet
+Component: V, M (bat fur and a drop of pitch or piece of coal)
+Duration: Concentration, up to 10 minutes
+Magical darkness spreads from a point you choose within range to fill a 15-foot-radius sphere for the duration. The darkness spreads around corners. A creature with darkvision can't see through this darkness, and nonmagical light can't illuminate it.
+If the point you choose is on an object you are holding or one that isn't being worn or carried, the darkness emanates from the object and moves with it. Completely covering the source of the darkness with an opaque object, such as a bowl or a helm, blocks the darkness.
+If any of this spell's area overlaps with an area of light created by a spell of 2nd level or lower, the spell that created the light is dispelled.
+
+Levitate
+2nd-Level Transmutation Spell (Arcane)
+Casting Time: 1 action
+Range: 60 feet
+Component: V, S, M (either a small leather loop or a piece of golden wire bent into a cup shape with a long shank on one end)
+Duration: Concentration, up to 10 minutes
+One creature or object of your choice that you can see within range rises vertically, up to 20 feet, and remains suspended there for the duration. The spell can levitate a target that weighs up to 500 pounds.
+An unwilling creature that succeeds on a Constitution saving throw is unaffected.
+The target can move only by pushing or pulling against a fixed object or surface within reach (such as a wall or a ceiling), which allows it to move as if it were climbing. You can change the target's altitude by up to 20 feet in either direction on your turn. If you are the target, you can move up or down as part of your move. Otherwise, you can use your action to move the target, which must remain within the spell's range.
+When the spell ends, the target floats gently to the ground if it is still aloft.
+
+Dispel Magic
+3rd-Level Abjuration Spell (Arcane, Divine, Primal)
+Casting Time: 1 action
+Range: 120 feet
+Component: V, S
+Duration: Instantaneous
+Choose one creature, object, or magical effect within range. Any spell of 3rd level or lower on the target ends. For each spell of 4th level or higher on the target, make an ability check using your spellcasting ability. The DC equals 10 the spell's level. On a successful check, the spell ends.
+At Higher Levels. When you cast this spell using a spell slot of 4th level or higher, you automatically end the effects of a spell on the target if the spell's level is equal to or less than the level of the spell slot you used.
