@@ -787,8 +787,9 @@ class Character:
                                   fourth_level + fifth_level + sixth_level + seventh_level + eighth_level +
                                   ninth_level if spell is not None]
 
-            with open(filepath + ".spells", "w") as spell_file:
-                spell_file.write("\n\n".join(spell_descriptions))
+            with open(filepath + ".spells", "wb") as spell_file:
+                spell_file.write("\n\n".join(
+                    spell_descriptions).encode("utf-8"))
 
         writer.write(filepath)
 

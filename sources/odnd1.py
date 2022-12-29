@@ -1046,7 +1046,8 @@ class WoodElf(Elf):
                                           content["Spells"]["Pass Without Trace"]()],
                              spellcasting_ability=ability
                          ),
-                         ability=ability)
+                         ability=ability,
+                         speed=35)
 
 
 class Gnome(species.Species):

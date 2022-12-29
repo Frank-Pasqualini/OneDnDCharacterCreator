@@ -18,18 +18,21 @@ class Armor(ABC):
     _armor_class: int
     _stealth_disadvantage: bool
     _strength_requirement: int
+    _ac_bonus: int
 
     def __init__(self,
                  name: str,
                  training_needed: ArmorTraining,
                  armor_class: int,
                  stealth_disadvantage: bool = False,
-                 strength_requirement: int = 0):
+                 strength_requirement: int = 0,
+                 ac_bonus: int = 0):
         self._name = validate_string(name)
         self._training_needed = training_needed
         self._armor_class = armor_class
         self._stealth_disadvantage = stealth_disadvantage
         self._strength_requirement = strength_requirement
+        self._ac_bonus = ac_bonus
 
     def get_armor_class(self, dex_mod: int = 0) -> int:
         """
@@ -45,7 +48,7 @@ class Armor(ABC):
         if self._training_needed == ArmorTraining.MEDIUM:
             return self._armor_class + min(2, dex_mod)
 
-        return self._armor_class
+        return self._armor_class + self._ac_bonus
 
     def get_name(self) -> str:
         return self._name

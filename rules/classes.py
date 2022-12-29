@@ -628,6 +628,451 @@ class Cleric(CharacterClass, ABC):
         return self._level
 
 
+class Druid(CharacterClass, ABC):
+    """
+    The Druid class.
+    """
+
+    def __init__(self,
+                 name: str,
+                 skill1: Skills,
+                 skill2: Skills):
+        allowable_skills = [Skills.ARCANA, Skills.ANIMAL_HANDLING, Skills.INSIGHT, Skills.MEDICINE, Skills.NATURE,
+                            Skills.PERCEPTION, Skills.RELIGION, Skills.SURVIVAL]
+
+        if (skill1 not in allowable_skills) or (skill2 not in allowable_skills):
+            raise Exception(
+                "All skills must be in the approved skill list")
+
+        if skill1 == skill2:
+            raise Exception("All skills must be unique")
+
+        super().__init__(name=name,
+                         class_group=ClassGroups.PRIEST,
+                         primary_abilities=[AbilityNames.WISDOM],
+                         features=[
+                             feats.Feat(name="Druidic",
+                                        description="You know Druidic, the secret language of druids. You can speak "
+                                                    "the language and use it to leave hidden messages. You and others "
+                                                    "who know this language automatically spot such a message. Others "
+                                                    "spot the message's presence with a successful DC 15 Wisdom ("
+                                                    "Perception) check but can't decipher it without magic.",
+                                        feat_bonuses=bonuses.Bonuses(languages=[Languages.DRUIDIC])),
+                             feats.Feat(name="Spellcasting",
+                                        description="Spell Preparation. You prepare the list of druid spells that "
+                                                    "are available for you to cast, choosing from the druid spell "
+                                                    "list. When you do so, choose a number of druid spells equal "
+                                                    "to your Wisdom modifier +  your druid level, (minimum of one "
+                                                    "spell). You can change your list of prepared spells when you "
+                                                    "finish a long rest. Preparing a new list of druid spells requires "
+                                                    "time spent in prayer and meditation: at least 1 minute per spell "
+                                                    "level for each spell on your list.\n"
+                                                    "Spellcasting Ability. Wisdom is your Spellcasting Ability for "
+                                                    "your druid Spells.\n"
+                                                    "Spellcasting Focus. You can use a druidic focus as a "
+                                                    "Spellcasting Focus for your druid spells.")
+
+                         ],
+                         hit_die=8,
+                         class_bonuses=bonuses.Bonuses(
+                             saving_throws={
+                                 AbilityNames.INTELLIGENCE: ProficiencyLevels.PROFICIENT,
+                                 AbilityNames.WISDOM: ProficiencyLevels.PROFICIENT,
+                             },
+                             skills={
+                                 skill1: ProficiencyLevels.PROFICIENT,
+                                 skill2: ProficiencyLevels.PROFICIENT,
+                             },
+                             tools={
+                                 Tools.HERBALISM_KIT: ProficiencyLevels.PROFICIENT,
+                             },
+                             armor_training=[
+                                 ArmorTraining.LIGHT, ArmorTraining.MEDIUM, ArmorTraining.SHIELD],
+                             weapon_types=[WeaponTypes.SIMPLE,
+                                           WeaponTypes.MARTIAL_FINESSE],
+                         ),
+                         spellcasting_ability=AbilityNames.WISDOM)
+
+    def _level_up_2(self, content: dict[str, dict[str, any]]):
+        del content
+        self._features.append(feats.Feat(name="Wild Shape",
+                                         description="You can use your action to magically assume the shape of a beast "
+                                                     "that you have seen before. You can use this feature twice. You "
+                                                     "regain expended uses when you finish a short or long rest.\n"
+                                                     "Your druid level determines the beasts you can transform into. "
+                                                     "At 2nd level, you can transform into any beast that has a "
+                                                     "challenge rating of 1/4 or lower that doesn't have a flying or "
+                                                     "swimming speed. At 4th level, you can transform into any beast "
+                                                     "that has a challenge rating of 1/2 or lower that doesn't have a "
+                                                     "flying speed. At 8th level, you can transform into any beast "
+                                                     "that has a challenge rating of 1 or lower."))
+        # "You can stay in a beast shape for a number of hours equal to "
+        # "half your druid level (rounded down). You then revert to your "
+        # "normal form unless you expend another use of this feature. You "
+        # "can revert to your normal form earlier by using a bonus action "
+        # "on your turn. You automatically revert if you fall unconscious, "
+        # "drop to 0 hit points, or die.\n"
+        # "While you are transformed, the following rules apply:\n"
+        # "• Your game statistics are replaced by the statistics of the "
+        # "beast, but you retain your alignment, personality, "
+        # "and Intelligence, Wisdom, and Charisma scores. You also retain "
+        # "all of your skill and saving throw proficiencies, in addition "
+        # "to gaining those of the creature. If the creature has the same "
+        # "proficiency as you and the bonus in its stat block is higher "
+        # "than yours, use the creature's bonus instead of yours. If the "
+        # "creature has any legendary or lair actions, you can't use "
+        # "them.\n"
+        # "• When you transform, you assume the beast's hit points and Hit "
+        # "Dice. When you revert to your normal form, you return to the "
+        # "number of hit points you had before you transformed. However, "
+        # "if you revert as a result of dropping to 0 hit points, "
+        # "any excess damage carries over to your normal form, "
+        # "For example, if you take 10 damage in animal form and have only "
+        # "1 hit point left, you revert and take 9 damage. As long as the "
+        # "excess damage doesn't reduce your normal form to 0 hit points, "
+        # "you aren't knocked unconscious.\n"
+        # "• You can't cast spells, and your ability to speak or take any "
+        # "action that requires hands is limited to the capabilities of "
+        # "your beast form. Transforming doesn't break your concentration "
+        # "on a spell you've already cast, however, or prevent you from "
+        # "taking actions that are part of a spell, such as Call "
+        # "Lightning, that you've already cast.\n"
+        # "• You retain the benefit of any features from your class, race, "
+        # "or other source and can use them if the new form is physically "
+        # "capable of doing so. However, you can't use any of your special "
+        # "senses, such as darkvision, unless your new form also has that "
+        # "sense.\n"
+        # "• You choose whether your equipment falls to the ground in your "
+        # "space, merges into your new form, or is worn by it. Worn "
+        # "equipment functions as normal, but the DM decides whether it is "
+        # "practical for the new form to wear a piece of equipment, "
+        # "based on the creature's shape and size. Your equipment doesn't "
+        # "change size or shape to match the new form, and any equipment "
+        # "that the new form can't wear must either fall to the ground or "
+        # "merge with it. Equipment that merges with the form has no "
+        # "effect until you leave the form."))
+
+    def _level_up_3(self):
+        pass
+
+    def _level_up_4(self, feat: feats.Feat):
+        if feat.get_level() > 4:
+            raise Exception("Invalid feat level. Must be 4 or lower")
+
+        self._features.append(feat)
+
+    def _level_up_5(self):
+        pass
+
+    def _level_up_7(self):
+        pass
+
+    def _level_up_8(self, feat: feats.Feat):
+        if feat.get_level() > 8:
+            raise Exception("Invalid feat level. Must be 8 or lower")
+
+        self._features.append(feat)
+
+    def _level_up_9(self):
+        pass
+
+    def _level_up_11(self):
+        pass
+
+    def _level_up_12(self, feat: feats.Feat):
+        if feat.get_level() > 12:
+            raise Exception("Invalid feat level. Must be 12 or lower")
+
+        self._features.append(feat)
+
+    def _level_up_13(self):
+        pass
+
+    def _level_up_15(self):
+        pass
+
+    def _level_up_16(self, feat: feats.Feat):
+        if feat.get_level() > 16:
+            raise Exception("Invalid feat level. Must be 16 or lower")
+
+        self._features.append(feat)
+
+    def _level_up_17(self):
+        pass
+
+    def _level_up_18(self):
+        self._features.append(feats.Feat(name="Timeless Body",
+                                         description="The primal magic that you wield causes you to age more slowly. "
+                                                     "For every 10 years that pass, your body ages only 1 year."))
+        self._features.append(feats.Feat(name="Beast Spells",
+                                         description="You can cast many of your druid spells in any shape you assume "
+                                                     "using Wild Shape. You can perform the somatic and verbal "
+                                                     "components of a druid spell while in a beast shape, "
+                                                     "but you aren't able to provide material components."))
+
+    def _level_up_19(self, feat: feats.Feat):
+        if feat.get_level() > 19:
+            raise Exception("Invalid feat level. Must be 19 or lower")
+
+        self._features.append(feat)
+
+    def _level_up_20(self):
+        self._features.append(feats.Feat(name="Archdruid",
+                                         description="You can use your Wild Shape an unlimited number of times.\n"
+                                                     "Additionally, you can ignore the verbal and somatic components "
+                                                     "of your druid spells, as well as any material components that "
+                                                     "lack a cost and aren't consumed by a spell. You gain this "
+                                                     "benefit in both your normal shape and your beast shape from "
+                                                     "Wild Shape."))
+
+    def get_known_spells(self, content: dict[str, dict[str, any]]) -> list[spells.Spell]:
+        known_spells = [
+            content["Spells"]["Control Flames"](),
+            content["Spells"]["Create Bonfire"](),
+            content["Spells"]["Druidcraft"](),
+            content["Spells"]["Frostbite"](),
+            content["Spells"]["Guidance"](),
+            content["Spells"]["Gust"](),
+            content["Spells"].get(
+                "Infestation", content["Spells"]["Control Flames"])(),
+            content["Spells"]["Magic Stone"](),
+            content["Spells"]["Mending"](),
+            content["Spells"]["Mold Earth"](),
+            content["Spells"]["Poison Spray"](),
+            content["Spells"].get(
+                "Primal Savagery", content["Spells"]["Control Flames"])(),
+            content["Spells"]["Produce Flame"](),
+            content["Spells"]["Resistance"](),
+            content["Spells"]["Shape Water"](),
+            content["Spells"]["Shillelagh"](),
+            content["Spells"].get(
+                "Thorn Whip", content["Spells"]["Control Flames"])(),
+            content["Spells"]["Thunderclap"](),
+            content["Spells"]["Absorb Elements"](),
+            content["Spells"]["Animal Friendship"](),
+            content["Spells"]["Beast Bond"](),
+            content["Spells"]["Charm Person"](),
+            content["Spells"]["Create or Destroy Water"](),
+            content["Spells"]["Cure Wounds"](),
+            content["Spells"]["Detect Magic"](),
+            content["Spells"]["Detect Poison and Disease"](),
+            content["Spells"]["Earth Tremor"](),
+            content["Spells"]["Entangle"](),
+            content["Spells"]["Faerie Fire"](),
+            content["Spells"]["Fog Cloud"](),
+            content["Spells"]["Goodberry"](),
+            content["Spells"]["Healing Word"](),
+            content["Spells"]["Ice Knife"](),
+            content["Spells"]["Jump"](),
+            content["Spells"]["Longstrider"](),
+            content["Spells"].get(
+                "Protection from Evil and Good", content["Spells"]["Control Flames"])(),
+            content["Spells"]["Purify Food and Drink"](),
+            content["Spells"].get(
+                "Snare", content["Spells"]["Control Flames"])(),
+            content["Spells"]["Speak with Animals"](),
+            content["Spells"]["Thunderwave"](),
+        ]
+
+        if self._level >= 3:
+            known_spells += [
+                content["Spells"].get(
+                    "Air Bubble", content["Spells"]["Control Flames"])(),
+                content["Spells"].get(
+                    "Augury", content["Spells"]["Control Flames"])(),
+                content["Spells"]["Animal Messenger"](),
+                content["Spells"]["Barkskin"](),
+                content["Spells"].get(
+                    "Beast Sense", content["Spells"]["Control Flames"])(),
+                content["Spells"].get(
+                    "Continual Flame", content["Spells"]["Control Flames"])(),
+                content["Spells"]["Darkvision"](),
+                content["Spells"]["Dust Devil"](),
+                content["Spells"]["Earthbind"](),
+                content["Spells"]["Enhance Ability"](),
+                content["Spells"].get(
+                    "Enlarge/Reduce", content["Spells"]["Control Flames"])(),
+                content["Spells"]["Find Traps"](),
+                content["Spells"]["Flame Blade"](),
+                content["Spells"]["Flaming Sphere"](),
+                content["Spells"]["Gust of Wind"](),
+                content["Spells"].get(
+                    "Healing Spirit", content["Spells"]["Control Flames"])(),
+                content["Spells"]["Heat Metal"](),
+                content["Spells"]["Hold Person"](),
+                content["Spells"]["Lesser Restoration"](),
+                content["Spells"]["Locate Animals or Plants"](),
+                content["Spells"]["Locate Object"](),
+                content["Spells"]["Moonbeam"](),
+                content["Spells"]["Pass Without Trace"](),
+                content["Spells"]["Protection from Poison"](),
+                content["Spells"]["Skywrite"](),
+                content["Spells"]["Spike Growth"](),
+                content["Spells"].get(
+                    "Summon Beast", content["Spells"]["Control Flames"])(),
+                content["Spells"]["Warding Wind"](),
+                content["Spells"].get(
+                    "Wither and Bloom", content["Spells"]["Control Flames"])(),
+            ]
+
+        if self._level >= 5:
+            known_spells += [
+                content["Spells"].get(
+                    "Aura of Vitality", content["Spells"]["Control Flames"])(),
+                content["Spells"]["Call Lightning"](),
+                content["Spells"]["Conjure Animals"](),
+                content["Spells"]["Daylight"](),
+                content["Spells"]["Dispel Magic"](),
+                content["Spells"].get(
+                    "Elemental Weapon", content["Spells"]["Control Flames"])(),
+                content["Spells"]["Erupting Earth"](),
+                content["Spells"].get(
+                    "Feign Death", content["Spells"]["Control Flames"])(),
+                content["Spells"]["Flame Arrows"](),
+                content["Spells"]["Meld into Stone"](),
+                content["Spells"]["Plant Growth"](),
+                content["Spells"]["Protection from Energy"](),
+                content["Spells"].get(
+                    "Revivify", content["Spells"]["Control Flames"])(),
+                content["Spells"]["Sleet Storm"](),
+                content["Spells"]["Speak with Plants"](),
+                content["Spells"].get(
+                    "Summon Fey", content["Spells"]["Control Flames"])(),
+                content["Spells"]["Tidal Wave"](),
+                content["Spells"]["Wall of Water"](),
+                content["Spells"]["Water Breathing"](),
+                content["Spells"]["Water Walk"](),
+                content["Spells"]["Wind Wall"](),
+            ]
+
+        if self._level >= 7:
+            known_spells += [
+                content["Spells"]["Blight"](),
+                content["Spells"].get(
+                    "Charm Monster", content["Spells"]["Control Flames"])(),
+                content["Spells"]["Confusion"](),
+                content["Spells"]["Conjure Minor Elemental"](),
+                content["Spells"]["Conjure Woodland Beings"](),
+                content["Spells"]["Control Water"](),
+                content["Spells"].get(
+                    "Divination", content["Spells"]["Control Flames"])(),
+                content["Spells"]["Dominate Beast"](),
+                content["Spells"]["Elemental Bane"](),
+                content["Spells"].get(
+                    "Fire Shield", content["Spells"]["Control Flames"])(),
+                content["Spells"]["Freedom of Movement"](),
+                content["Spells"]["Giant Insect"](),
+                content["Spells"].get(
+                    "Grasping Vine", content["Spells"]["Control Flames"])(),
+                content["Spells"].get(
+                    "Guardian of Nature", content["Spells"]["Control Flames"])(),
+                content["Spells"]["Hallucinatory Terrain"](),
+                content["Spells"]["Ice Storm"](),
+                content["Spells"]["Locate Creature"](),
+                content["Spells"]["Polymorph"](),
+                content["Spells"]["Stone Shape"](),
+                content["Spells"]["Stoneskin"](),
+                content["Spells"].get(
+                    "Summon Elemental", content["Spells"]["Control Flames"])(),
+                content["Spells"]["Wall of Fire"](),
+                content["Spells"]["Watery Sphere"](),
+            ]
+
+        if self._level >= 9:
+            known_spells += [
+                content["Spells"]["Antilife Shell"](),
+                content["Spells"]["Awaken"](),
+                content["Spells"]["Commune with Nature"](),
+                content["Spells"].get(
+                    "Cone of Cold", content["Spells"]["Control Flames"])(),
+                content["Spells"]["Conjure Elemental"](),
+                content["Spells"]["Contagion"](),
+                content["Spells"]["Control Winds"](),
+                content["Spells"]["Geas"](),
+                content["Spells"]["Greater Restoration"](),
+                content["Spells"]["Insect Plague"](),
+                content["Spells"]["Maelstrom"](),
+                content["Spells"]["Mass Cure Wounds"](),
+                content["Spells"]["Planar Binding"](),
+                content["Spells"]["Reincarnate"](),
+                content["Spells"]["Scrying"](),
+                content["Spells"].get(
+                    "Summon Draconic Spirit", content["Spells"]["Control Flames"])(),
+                content["Spells"]["Transmute Rock"](),
+                content["Spells"]["Tree Stride"](),
+                content["Spells"]["Wall of Stone"](),
+                content["Spells"].get(
+                    "Wrath of Nature", content["Spells"]["Control Flames"])(),
+            ]
+
+        if self._level >= 11:
+            known_spells += [
+                content["Spells"]["Bones of the Earth"](),
+                content["Spells"]["Conjure Fey"](),
+                content["Spells"].get(
+                    "Druid Grove", content["Spells"]["Control Flames"])(),
+                content["Spells"]["Find the Path"](),
+                content["Spells"].get(
+                    "Flesh to Stone", content["Spells"]["Control Flames"])(),
+                content["Spells"]["Heal"](),
+                content["Spells"]["Heroes' Feast"](),
+                content["Spells"]["Investiture of Flame"](),
+                content["Spells"]["Investiture of Ice"](),
+                content["Spells"]["Investiture of Stone"](),
+                content["Spells"]["Investiture of Wind"](),
+                content["Spells"]["Move Earth"](),
+                content["Spells"]["Primordial Ward"](),
+                content["Spells"]["Sunbeam"](),
+                content["Spells"]["Transport Via Plants"](),
+                content["Spells"]["Wall of Thorns"](),
+                content["Spells"]["Wind Walk"](),
+            ]
+
+        if self._level >= 13:
+            known_spells += [
+                content["Spells"].get(
+                    "Draconic Transformation", content["Spells"]["Control Flames"])(),
+                content["Spells"]["Fire Storm"](),
+                content["Spells"]["Mirage Arcane"](),
+                content["Spells"]["Plane Shift"](),
+                content["Spells"]["Regenerate"](),
+                content["Spells"]["Reverse Gravity"](),
+                content["Spells"].get(
+                    "Symbol", content["Spells"]["Control Flames"])(),
+                content["Spells"]["Whirlwind"](),
+            ]
+
+        if self._level >= 15:
+            known_spells += [
+                content["Spells"]["Animal Shapes"](),
+                content["Spells"]["Antipathy/Sympathy"](),
+                content["Spells"]["Control Weather"](),
+                content["Spells"].get(
+                    "Incendiary Cloud", content["Spells"]["Control Flames"])(),
+                content["Spells"]["Earthquake"](),
+                content["Spells"]["Feeblemind"](),
+                content["Spells"]["Sunburst"](),
+                content["Spells"].get(
+                    "Tsunami", content["Spells"]["Control Flames"])(),
+            ]
+
+        if self._level >= 15:
+            known_spells += [
+                content["Spells"]["Foresight"](),
+                content["Spells"]["Shapechange"](),
+                content["Spells"]["Storm of Vengeance"](),
+                content["Spells"]["True Resurrection"](),
+            ]
+
+        return known_spells
+
+    def get_spellcasting_class(self) -> str | None:
+        return "Druid"
+
+    def get_spellcasting_level(self) -> float:
+        return self._level
+
+
 class Fighter(CharacterClass, ABC):
     """
     The Fighter class.

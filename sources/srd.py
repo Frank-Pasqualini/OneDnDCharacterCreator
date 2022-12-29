@@ -13,11 +13,12 @@ class Padded(armors.Armor):
     SRD p. 63
     """
 
-    def __init__(self):
-        super().__init__(name="Padded",
+    def __init__(self, name: str = "Padded", ac_bonus: int = 0):
+        super().__init__(name=name,
                          training_needed=ArmorTraining.LIGHT,
                          armor_class=11,
-                         stealth_disadvantage=True)
+                         stealth_disadvantage=True,
+                         ac_bonus=ac_bonus)
 
 
 class Leather(armors.Armor):
@@ -26,10 +27,11 @@ class Leather(armors.Armor):
     SRD p. 64
     """
 
-    def __init__(self):
-        super().__init__(name="Leather",
+    def __init__(self, name: str = "Leather", ac_bonus: int = 0):
+        super().__init__(name=name,
                          training_needed=ArmorTraining.LIGHT,
-                         armor_class=11)
+                         armor_class=11,
+                         ac_bonus=ac_bonus)
 
 
 class StuddedLeather(armors.Armor):
@@ -38,10 +40,11 @@ class StuddedLeather(armors.Armor):
     SRD p. 64
     """
 
-    def __init__(self):
-        super().__init__(name="Studded Leather",
+    def __init__(self, name: str = "Studded Leather", ac_bonus: int = 0):
+        super().__init__(name=name,
                          training_needed=ArmorTraining.LIGHT,
-                         armor_class=12)
+                         armor_class=12,
+                         ac_bonus=ac_bonus)
 
 
 class Hide(armors.Armor):
@@ -50,10 +53,11 @@ class Hide(armors.Armor):
     SRD p. 64
     """
 
-    def __init__(self):
-        super().__init__(name="Hide",
+    def __init__(self, name: str = "Hide", ac_bonus: int = 0):
+        super().__init__(name=name,
                          training_needed=ArmorTraining.MEDIUM,
-                         armor_class=12)
+                         armor_class=12,
+                         ac_bonus=ac_bonus)
 
 
 class ChainShirt(armors.Armor):
@@ -62,10 +66,11 @@ class ChainShirt(armors.Armor):
     SRD p. 64
     """
 
-    def __init__(self):
-        super().__init__(name="Chain Shirt",
+    def __init__(self, name: str = "Chain Shirt", ac_bonus: int = 0):
+        super().__init__(name=name,
                          training_needed=ArmorTraining.MEDIUM,
-                         armor_class=13)
+                         armor_class=13,
+                         ac_bonus=ac_bonus)
 
 
 class ScaleMail(armors.Armor):
@@ -74,11 +79,12 @@ class ScaleMail(armors.Armor):
     SRD p. 64
     """
 
-    def __init__(self):
-        super().__init__(name="Scale Mail",
+    def __init__(self, name: str = "Scale Mail", ac_bonus: int = 0):
+        super().__init__(name=name,
                          training_needed=ArmorTraining.MEDIUM,
                          armor_class=14,
-                         stealth_disadvantage=True)
+                         stealth_disadvantage=True,
+                         ac_bonus=ac_bonus)
 
 
 class Breastplate(armors.Armor):
@@ -87,10 +93,11 @@ class Breastplate(armors.Armor):
     SRD p. 64
     """
 
-    def __init__(self):
-        super().__init__(name="Breastplate",
+    def __init__(self, name: str = "Breastplate", ac_bonus: int = 0):
+        super().__init__(name=name,
                          training_needed=ArmorTraining.MEDIUM,
-                         armor_class=14)
+                         armor_class=14,
+                         ac_bonus=ac_bonus)
 
 
 class HalfPlate(armors.Armor):
@@ -99,11 +106,12 @@ class HalfPlate(armors.Armor):
     SRD p. 64
     """
 
-    def __init__(self):
-        super().__init__(name="Half Plate",
+    def __init__(self, name: str = "Half Plate", ac_bonus: int = 0):
+        super().__init__(name=name,
                          training_needed=ArmorTraining.MEDIUM,
                          armor_class=15,
-                         stealth_disadvantage=True)
+                         stealth_disadvantage=True,
+                         ac_bonus=ac_bonus)
 
 
 class RingMail(armors.Armor):
@@ -112,11 +120,12 @@ class RingMail(armors.Armor):
     SRD p. 64
     """
 
-    def __init__(self):
-        super().__init__(name="Ring Mail",
+    def __init__(self, name: str = "Ring Mail", ac_bonus: int = 0):
+        super().__init__(name=name,
                          training_needed=ArmorTraining.HEAVY,
                          armor_class=14,
-                         stealth_disadvantage=True)
+                         stealth_disadvantage=True,
+                         ac_bonus=ac_bonus)
 
 
 class ChainMail(armors.Armor):
@@ -125,11 +134,12 @@ class ChainMail(armors.Armor):
     SRD p. 64
     """
 
-    def __init__(self):
-        super().__init__(name="Chain Mail",
+    def __init__(self, name: str = "Chain Mail", ac_bonus: int = 0):
+        super().__init__(name=name,
                          training_needed=ArmorTraining.HEAVY,
                          armor_class=16,
-                         stealth_disadvantage=True)
+                         stealth_disadvantage=True,
+                         ac_bonus=ac_bonus)
 
 
 class Splint(armors.Armor):
@@ -138,11 +148,12 @@ class Splint(armors.Armor):
     SRD p. 64
     """
 
-    def __init__(self):
-        super().__init__(name="Splint",
+    def __init__(self, name: str = "Splint", ac_bonus: int = 0):
+        super().__init__(name=name,
                          training_needed=ArmorTraining.HEAVY,
                          armor_class=17,
-                         stealth_disadvantage=True)
+                         stealth_disadvantage=True,
+                         ac_bonus=ac_bonus)
 
 
 class Plate(armors.Armor):
@@ -151,11 +162,12 @@ class Plate(armors.Armor):
     SRD p. 64
     """
 
-    def __init__(self):
-        super().__init__(name="Plate",
+    def __init__(self, name: str = "Plate", ac_bonus: int = 0):
+        super().__init__(name=name,
                          training_needed=ArmorTraining.HEAVY,
                          armor_class=18,
-                         stealth_disadvantage=True)
+                         stealth_disadvantage=True,
+                         ac_bonus=ac_bonus)
 
 
 class Shield(armors.Armor):
@@ -164,10 +176,11 @@ class Shield(armors.Armor):
     SRD p. 64
     """
 
-    def __init__(self):
-        super().__init__(name="Shield",
+    def __init__(self, name: str = "Shield", ac_bonus: int = 0):
+        super().__init__(name=name,
                          training_needed=ArmorTraining.SHIELD,
-                         armor_class=2)
+                         armor_class=2,
+                         ac_bonus=ac_bonus)
 
 
 class ChampionFighter(classes.Fighter):

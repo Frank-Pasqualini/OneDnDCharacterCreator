@@ -93,7 +93,8 @@ def create(content: dict[str, dict[str, any]]) -> character.Character:
     nightshade.level_up(
         0, hit_roll=5, feat=content["Feats"]["Defensive Duelist"]())
     nightshade.level_up(0, hit_roll=1)
-    nightshade.level_up(0, hit_roll=5, feat=content["Feats"]["Dual Wielder"](ability=AbilityNames.STRENGTH))
+    nightshade.level_up(0, hit_roll=5, feat=content["Feats"]["Dual Wielder"](
+        ability=AbilityNames.STRENGTH))
     nightshade.level_up(0, hit_roll=3)
 
     nightshade.set_armor(content["Armors"]["Studded Leather"]())

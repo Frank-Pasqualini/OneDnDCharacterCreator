@@ -101,7 +101,8 @@ def create(content: dict[str, dict[str, any]]) -> character.Character:
         0, hit_roll=6, blood_curse=content["Blood Curses"]["Blood Curse of the Fallen Puppet"]())
     tarquin.level_up(
         0, hit_roll=10, mutagen=content["Mutagens"]["Mutagen: Reconstruction"]())
-    tarquin.level_up(0, hit_roll=4, feat=content["Feats"]["Drow High Magic"](content=content))
+    tarquin.level_up(
+        0, hit_roll=4, feat=content["Feats"]["Drow High Magic"](content=content))
     tarquin.level_up(0, hit_roll=3)
 
     tarquin.set_armor(content["Armors"]["Studded Leather"]())

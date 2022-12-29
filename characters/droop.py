@@ -35,7 +35,7 @@ def create(content: dict[str, dict[str, any]]) -> character.Character:
         feat=content["Feats"]["Healer"](),
         description="You devoted yourself to service in a temple, either nestled in a town or secluded in a sacred "
                     "grove. There you performed hallowed rites in honor of a god or pantheon. You served under a "
-                    "priest and studied religion. Thanks to your priest’s instruction and your own devotion, "
+                    "priest and studied religion. Thanks to your priest's instruction and your own devotion, "
                     "you also learned how to channel divine power in service to your place of worship and the people "
                     "who prayed there.",
         personality_traits="Nothing can shake my optimistic attitude.\n"
@@ -86,7 +86,8 @@ def create(content: dict[str, dict[str, any]]) -> character.Character:
         0, holy_order=content["Holy Orders"]["Holy Order: Thaumaturge"]())
     droop.level_up(0)
     droop.level_up(0)
-    droop.level_up(0, feat=content["Feats"]["Inspiring Leader"](ability=AbilityNames.CHARISMA))
+    droop.level_up(0, feat=content["Feats"]["Inspiring Leader"](
+        ability=AbilityNames.CHARISMA))
     droop.level_up(0)
 
     droop.set_armor(content["Armors"]["Scale Mail"]())

@@ -83,9 +83,10 @@ def create(content: dict[str, dict[str, any]]) -> character.Character:
     syd.level_up(0, hit_roll=5, feat=content["Feats"]["Ability Score Improvement"](ability1=AbilityNames.WISDOM,
                                                                                    ability2=AbilityNames.WISDOM))
     syd.level_up(0, hit_roll=5)
+    syd.level_up(0, hit_roll=8)
 
     syd.set_armor(content["Armors"]["Breastplate"]())
-    syd.set_shield(content["Armors"]["Shield"]())
+    syd.set_shield(content["Armors"]["Shield"](name="*Shield", ac_bonus=-2))
     syd.set_weapons([
         content["Weapons"]["Longbow"](),
         content["Weapons"]["Shortsword"](silvered=True),

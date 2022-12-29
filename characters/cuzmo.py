@@ -101,7 +101,8 @@ def create(content: dict[str, dict[str, any]]) -> character.Character:
 
     cuzmo.set_armor(content["Armors"]["Splint"]())
     cuzmo.set_weapons([
-        content["Weapons"]["Maul"](attack_bonus=1, damage_bonus=1, magical=True),
+        content["Weapons"]["Maul"](
+            attack_bonus=1, damage_bonus=1, magical=True),
         content["Weapons"]["Boomerang"](silvered=True),
         content["Weapons"]["Handaxe"](silvered=True),
     ])

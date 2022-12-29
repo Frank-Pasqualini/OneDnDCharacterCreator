@@ -29,9 +29,9 @@ class HunterRanger(classes.Ranger):
         self._features.append(feats.Feat(name="Hunter's Lore",
                                          description="You can call on the forces of nature to reveal certain "
                                                      "strengths and weaknesses of your prey. While a creature is "
-                                                     "marked by your Hunter's Mark,you know whether that creature has "
-                                                     "any Immunities,Resistances, and Vulnerabilities, and if the "
-                                                     "creature has any,you know what they are."))
+                                                     "marked by your Hunter's Mark, you know whether that creature has "
+                                                     "any Immunities, Resistances, and Vulnerabilities, and if the "
+                                                     "creature has any, you know what they are."))
 
     def _level_up_10(self, content: dict[str, dict[str, any]]):
         self._features.append(feats.Feat(name="Multiattack",
@@ -425,7 +425,7 @@ class InspiringLeader(feats.FightingStyle):
     """
 
     def __init__(self, ability: AbilityNames):
-        if ability not in [AbilityNames.WISDOM, AbilityNames.CHARISMA,]:
+        if ability not in [AbilityNames.WISDOM, AbilityNames.CHARISMA, ]:
             raise Exception("Ability must be Wisdom or Charisma")
 
         super().__init__(name="Inspiring Leader",

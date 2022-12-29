@@ -97,6 +97,8 @@ def create(content: dict[str, dict[str, any]]) -> character.Character:
     zylith.level_up(0, hit_roll=5, feat=content["Feats"]["Telepathic"](
         content, ability=AbilityNames.CHARISMA))
     zylith.level_up(0, hit_roll=5)
+    zylith.level_up(0, hit_roll=1, expertise1=Skills.INVESTIGATION,
+                    expertise2=Skills.PERSUASION)
 
     zylith.set_armor(content["Armors"]["Studded Leather"]())
     zylith.set_weapons([
