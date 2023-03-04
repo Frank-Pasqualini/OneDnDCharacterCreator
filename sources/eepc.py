@@ -1207,7 +1207,7 @@ class Whirlwind(spells.Spell):
 
 CONTENT = {
     "Feats": {
-        # TODO
+        # TODO The rest of the feats
         # "Svirfneblin Magic": SvirfneblinMagic,
     },
     "Species": {

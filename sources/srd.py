@@ -3,7 +3,7 @@ Content from the Dungeons and Dragons System Reference Document v5.1.
 https://media.wizards.com/2016/downloads/DND/SRD-OGL_V5.1.pdf
 """
 from rules import armors, bonuses, classes, feats, spells, weapons
-from rules.enums import AbilityNames, ArmorTraining, DamageTypes, ProficiencyLevels, Skills, SpellLists, SpellSchools
+from rules.enums import ArmorTraining, DamageTypes, ProficiencyLevels, Skills, SpellLists, SpellSchools
 from rules.enums import WeaponTypes
 
 
@@ -232,91 +232,6 @@ class ChampionFighter(classes.Fighter):
                                                      "points."))
 
 
-class DevotionPaladin(classes.Paladin):
-    """
-    Devotion subclass for Paladin
-    SRD p. 25
-    """
-
-    def __init__(self, **kwargs):
-        super().__init__(name="Devotion Paladin", **kwargs)
-
-    def _level_up_3(self, content: dict[str, dict[str, any]]):
-        super()._level_up_3(content)
-        self._features.append(feats.Feat(name="Channel Divinity",
-                                         description="When you use your Channel Divinity, you choose which option to "
-                                                     "use. You must then finish a short or long rest to use your "
-                                                     "Channel Divinity again.\n"
-                                                     "Sacred Weapon. As an action, you can imbue one weapon that you "
-                                                     "are holding with positive energy, using your Channel Divinity. "
-                                                     "For 1 minute, you add your Charisma modifier to attack rolls "
-                                                     "made with that weapon (with a minimum bonus of1). The weapon "
-                                                     "also emits bright light in a 20-foot radius and dim light 20 "
-                                                     "feet beyond that. If the weapon is not already magical, "
-                                                     "it becomes magical for the duration.\n"
-                                                     "You can end this effect on your turn as part of any other "
-                                                     "action. If you are no longer holding or carrying this weapon, "
-                                                     "or if you fall unconscious, this effect ends.\n"
-                                                     "Turn the Unholy. As an action, you present your holy symbol and "
-                                                     "speak a prayer censuring fiends and undead, using your Channel "
-                                                     "Divinity. Each fiend or undead that can see or hear you within "
-                                                     "30 feet of you must make a Wisdom saving throw. If the creature "
-                                                     "fails its saving throw, it is turned for 1 minute or until it "
-                                                     "takes damage.\n"
-                                                     "A turned creature must spend its turns trying to move as far "
-                                                     "away from you as it can, and it can't willingly move to a space "
-                                                     "within 30 feet of you. It also can't take reactions. For its "
-                                                     "action, it can use only the Dash action or try to escape from "
-                                                     "an effect that prevents it from moving. If there's nowhere to "
-                                                     "move, the creature can use the Dodge action."))
-        self._features.append(feats.Feat(name="Oath Spells",
-                                         description="You gain access to these spells at the levels specified in the "
-                                                     "oath description. Once you gain access to an oath spell, you "
-                                                     "always have it prepared. Oath spells don't count against the "
-                                                     "number of spells you can prepare each day.",
-                                         feat_spells=[
-                                             content["Spells"]["Protection from Evil and Good"](
-                                             ),
-                                             content["Spells"]["Sanctuary"](),
-                                             content["Spells"]["Lesser Restoration"](
-                                             ),
-                                             content["Spells"]["Zone of Truth"](),
-                                             content["Spells"]["Beacon of Hope"](),
-                                             content["Spells"]["Dispel Magic"](),
-                                             content["Spells"]["Freedom of Movement"](
-                                             ),
-                                             content["Spells"]["Guardian of Faith"](
-                                             ),
-                                             content["Spells"]["Commune"](),
-                                             content["Spells"]["Flame Strike"](),
-                                         ],
-                                         spellcasting_ability=AbilityNames.CHARISMA,
-                                         visible=False))
-
-    def _level_up_7(self):
-        self._features.append(feats.Feat(name="Aura of Devotion",
-                                         description="You and friendly creatures within 10 feet of you can't be "
-                                                     "charmed while you are conscious.\n"
-                                                     "At 18th level, the range of this aura increases to 30 feet."))
-
-    def _level_up_15(self):
-        self._features.append(feats.Feat(name="Purity of Spirit",
-                                         description="You are always under the effects of a protection from evil and "
-                                                     "good spell."))
-
-    def _level_up_20(self):
-        self._features.append(feats.Feat(name="Holy Nimbus",
-                                         description="As an action, you can emanate an aura of sunlight. For 1 minute, "
-                                                     "bright light shines from you in a 30-foot radius, and dim light "
-                                                     "shines 30 feet beyond that.\n"
-                                                     "Whenever an enemy creature starts its turn in the bright light, "
-                                                     "the creature takes 10 radiant damage.\n"
-                                                     "In addition, for the duration, you have advantage on saving "
-                                                     "throws against spells cast by fiends or undead.\n"
-                                                     "Once you use this feature, you can't use it again until you "
-                                                     "finish a long rest."))
-
-
 class AcidArrow(spells.Spell):
     """
     Acid Arrow Spell
@@ -498,9 +413,9 @@ class AnimalMessenger(spells.Spell):
                                      "message. Choose a Tiny beast you can see within range, such as "
                                      "a squirrel, a blue jay, or a bat. You specify a location, "
                                      "which you must have visited, and a recipient who matches a "
-                                     "general description, such as “a man or woman dressed in the "
-                                     "uniform of the town guard” or “a red-haired dwarf wearing a "
-                                     "pointed hat.” You also speak a message of up to twenty-five "
+                                     "general description, such as 'a man or woman dressed in the "
+                                     "uniform of the town guard' or 'a red-haired dwarf wearing a "
+                                     "pointed hat.' You also speak a message of up to twenty-five "
                                      "words. The target beast travels for the duration of the spell "
                                      "toward the specified location, covering about 50 miles per 24 "
                                      "hours for a flying messenger, or 25 miles for other animals.\n"
@@ -1461,33 +1376,6 @@ class Blur(spells.Spell):
                                      "with truesight.")
 
 
-class BrandingSmite(spells.Spell):
-    """
-    Branding Smite Spell
-    SRD p. 124
-    Generated
-    """
-
-    def __init__(self):
-        super().__init__(name="Branding Smite",
-                         spell_lists=[SpellLists.DIVINE],
-                         concentration=True,
-                         level=2,
-                         school=SpellSchools.EVOCATION,
-                         spell_range="Self",
-                         verbal_components=True,
-                         duration="1 minute",
-                         description="The next time you hit a creature with a weapon attack before "
-                                     "this spell ends, the weapon gleams with astral radiance as you "
-                                     "strike. The attack deals an extra 2d6 radiant damage to the "
-                                     "target, which becomes visible if it's invisible, and the "
-                                     "target sheds dim light in a 5-foot radius and can't become "
-                                     "invisible until the spell ends.",
-                         at_higher_levels="When you cast this spell using a spell slot of 3rd level or "
-                                          "higher, the extra damage increases by 1d6 for each slot level "
-                                          "above 2nd.")
-
-
 class BurningHands(spells.Spell):
     """
     Burning Hands Spell
@@ -1919,7 +1807,7 @@ class Commune(spells.Spell):
                                      "your questions before the spell ends. You receive a correct "
                                      "answer for each question.\n"
                                      "Divine beings aren't necessarily omniscient, so you might "
-                                     "receive “unclear” as an answer if a question pertains to "
+                                     "receive 'unclear' as an answer if a question pertains to "
                                      "information that lies beyond the deity's knowledge. In a case "
                                      "where a one-word answer could be misleading or contrary to the "
                                      "deity's interests, the GM might offer a short phrase as an "
@@ -2359,7 +2247,7 @@ class ContactOtherPlane(spells.Spell):
                                      "gibberish. A greater restoration spell cast on you ends this effect.\n"
                                      "On a successful save, you can ask the entity up to five questions. You must ask "
                                      "your questions before the spell ends. The GM answers each question with one "
-                                     "word, such as “yes,” “no,” “maybe,” “never,” “irrelevant,” or “unclear” (if the "
+                                     "word, such as 'yes,' 'no,' 'maybe,' 'never,' 'irrelevant,' or 'unclear' (if the "
                                      "entity doesn't know the answer to the question). If a one-word answer would be "
                                      "misleading, the GM might instead offer a short phrase as an answer.")
 
@@ -3152,9 +3040,9 @@ class DimensionDoor(spells.Spell):
                          description="You teleport yourself from your current location to any other "
                                      "spot within range. You arrive at exactly the spot desired. It "
                                      "can be a place you can see, one you can visualize, or one you "
-                                     "can describe by stating distance and direction, such as “200 "
-                                     "feet straight downward” or “upward to the northwest at a 45- "
-                                     "degree angle, 300 feet.” You can bring along objects as long "
+                                     "can describe by stating distance and direction, such as '200 "
+                                     "feet straight downward' or 'upward to the northwest at a 45- "
+                                     "degree angle, 300 feet.' You can bring along objects as long "
                                      "as their weight doesn't exceed what you can carry. You can "
                                      "also bring one willing creature of your size or smaller who is "
                                      "carrying gear up to its carrying capacity. The creature must "
@@ -3340,7 +3228,6 @@ class DivineFavor(spells.Spell):
     """
     Divine Favor Spell
     SRD p. 137-138
-    Generated
     """
 
     def __init__(self):
@@ -3348,7 +3235,7 @@ class DivineFavor(spells.Spell):
                          spell_lists=[SpellLists.DIVINE],
                          concentration=True,
                          level=1,
-                         school=SpellSchools.EVOCATION,
+                         school=SpellSchools.TRANSMUTATION,
                          spell_range="Self",
                          verbal_components=True,
                          somatic_components=True,
@@ -3415,8 +3302,8 @@ class DominateBeast(spells.Spell):
                                      "You can use this telepathic link to issue commands to the "
                                      "creature while you are conscious (no action required), which "
                                      "it does its best to obey. You can specify a simple and general "
-                                     "course of action, such as “Attack that creature,” “Run over "
-                                     "there,” or “Fetch that object.” If the creature completes the "
+                                     "course of action, such as 'Attack that creature,' 'Run over "
+                                     "there,' or 'Fetch that object.' If the creature completes the "
                                      "order and doesn't receive further direction from you, it "
                                      "defends and preserves itself to the best of its ability.\n"
                                      "You can use your action to take total and precise control of "
@@ -3462,8 +3349,8 @@ class DominateMonster(spells.Spell):
                                      "existence. You can use this telepathic link to issue commands "
                                      "to the creature while you are conscious (no action required), "
                                      "which it does its best to obey. You can specify a simple and "
-                                     "general course of action, such as “Attack that creature,” “Run "
-                                     "over there,” or “Fetch that object.” If the creature completes "
+                                     "general course of action, such as 'Attack that creature,' 'Run "
+                                     "over there,' or 'Fetch that object.' If the creature completes "
                                      "the order and doesn't receive further direction from you, it "
                                      "defends and preserves itself to the best of its ability.\n"
                                      "You can use your action to take total and precise control of "
@@ -3506,8 +3393,8 @@ class DominatePerson(spells.Spell):
                                      "existence. You can use this telepathic link to issue commands "
                                      "to the creature while you are conscious (no action required), "
                                      "which it does its best to obey. You can specify a simple and "
-                                     "general course of action, such as “Attack that creature,” “Run "
-                                     "over there,” or “Fetch that object.” If the creature completes "
+                                     "general course of action, such as 'Attack that creature,' 'Run "
+                                     "over there,' or 'Fetch that object.' If the creature completes "
                                      "the order and doesn't receive further direction from you, it "
                                      "defends and preserves itself to the best of its ability.\n"
                                      "You can use your action to take total and precise control of "
@@ -4165,105 +4052,6 @@ class Feeblemind(spells.Spell):
                                      "wish.")
 
 
-class FindFamiliar(spells.Spell):
-    """
-    Find Familiar Spell
-    SRD p. 144
-    Generated
-    """
-
-    def __init__(self):
-        super().__init__(name="Find Familiar",
-                         spell_lists=[SpellLists.ARCANE],
-                         ritual=True,
-                         level=1,
-                         school=SpellSchools.CONJURATION,
-                         spell_range="10 feet",
-                         verbal_components=True,
-                         somatic_components=True,
-                         material_components_list="10 gp worth of charcoal, incense, and "
-                                                  "herbs that must be consumed by fire in a "
-                                                  "brass brazier",
-                         description="You gain the service of a familiar, a spirit that takes an "
-                                     "animal form you choose: bat, cat, crab, frog (toad), hawk, "
-                                     "lizard, octopus, owl, poisonous snake, fish (quipper), rat, "
-                                     "raven, sea horse, spider, or weasel.\n"
-                                     "Appearing in an unoccupied space within range, the familiar "
-                                     "has the statistics of the chosen form, though it is a "
-                                     "celestial, fey, or fiend (your choice) instead of a beast.\n"
-                                     "Your familiar acts independently of you, but it always obeys "
-                                     "your commands. In combat, it rolls its own initiative and acts "
-                                     "on its own turn. A familiar can't attack, but it can take "
-                                     "other actions as normal.\n"
-                                     "When the familiar drops to 0 hit points, it disappears, "
-                                     "leaving behind no physical form. It reappears after you cast "
-                                     "this spell again While your familiar is within 100 feet of "
-                                     "you, you can communicate with it telepathically. Additionally, "
-                                     "as an action, you can see through your familiar's eyes and "
-                                     "hear what it hears until the start of your next turn, gaining "
-                                     "the benefits of any special senses that the familiar has. "
-                                     "During this time, you are deaf and blind with regard to your "
-                                     "own senses.\n"
-                                     "As an action, you can temporarily dismiss your familiar. It "
-                                     "disappears into a pocket dimension where it awaits your "
-                                     "summons. Alternatively, you can dismiss it forever. As an "
-                                     "action while it is temporarily dismissed, you can cause it to "
-                                     "reappear in any unoccupied space within 30 feet of you.\n"
-                                     "You can't have more than one familiar at a time. If you cast "
-                                     "this spell while you already have a familiar, you instead "
-                                     "cause it to adopt a new form. Choose one of the forms from the "
-                                     "above list. Your familiar transforms into the chosen creature. "
-                                     "\nFinally, when you cast a spell with a range of touch, your "
-                                     "familiar can deliver the spell as if it had cast the spell. "
-                                     "Your familiar must be within 100 feet of you, and it must use "
-                                     "its reaction to deliver the spell when you cast it. If the "
-                                     "spell requires an attack roll, you use your attack modifier "
-                                     "for the roll.")
-
-
-class FindSteed(spells.Spell):
-    """
-    Find Steed Spell
-    SRD p. 144
-    Generated
-    """
-
-    def __init__(self):
-        super().__init__(name="Find Steed",
-                         spell_lists=[SpellLists.DIVINE],
-                         level=2,
-                         school=SpellSchools.CONJURATION,
-                         spell_range="30 feet",
-                         verbal_components=True,
-                         somatic_components=True,
-                         description="You summon a spirit that assumes the form of an unusually "
-                                     "intelligent, strong, and loyal steed, creating a long-lasting "
-                                     "bond with it. Appearing in an unoccupied space within range, "
-                                     "the steed takes on a form that you choose: a warhorse, a pony, "
-                                     "a camel, an elk, or a mastiff. (Your GM might allow other "
-                                     "animals to be summoned as steeds.) The steed has the "
-                                     "statistics of the chosen form, though it is a celestial, fey, "
-                                     "or fiend (your choice) instead of its normal type. "
-                                     "Additionally, if your steed has an Intelligence of 5 or less, "
-                                     "its Intelligence becomes 6, and it gains the ability to "
-                                     "understand one language of your choice that you speak.\n"
-                                     "Your steed serves you as a mount, both in combat and out, and "
-                                     "you have an instinctive bond with it that allows you to fight "
-                                     "as a seamless unit. While mounted on your steed, you can make "
-                                     "any spell you cast that targets only you also target your "
-                                     "steed.\n"
-                                     "When the steed drops to 0 hit points, it disappears, leaving "
-                                     "behind no physical form. You can also dismiss your steed at "
-                                     "any time as an action, causing it to disappear. In either "
-                                     "case, casting this spell again summons the same steed, "
-                                     "restored to its hit point maximum.\n"
-                                     "While your steed is within 1 mile of you, you can communicate "
-                                     "with it telepathically.\n"
-                                     "You can't have more than one steed bonded by this spell at a "
-                                     "time. As an action, you can release the steed from its bond at "
-                                     "any time, causing it to disappear.")
-
-
 class FindTraps(spells.Spell):
     """
     Find Traps Spell
@@ -4319,7 +4107,7 @@ class FindThePath(spells.Spell):
                                      "familiar with on the same plane of existence. If you name a "
                                      "destination on another plane of existence, a destination that "
                                      "moves (such as a mobile fortress), or a destination that isn't "
-                                     "specific (such as “a green dragon's lair”), the spell fails.\n"
+                                     "specific (such as 'a green dragon's lair'), the spell fails.\n"
                                      "For the duration, as long as you are on the same plane of "
                                      "existence as the destination, you know how far it is and in "
                                      "what direction it lies. While you are traveling there, "
@@ -5592,14 +5380,13 @@ class Heal(spells.Spell):
     """
     Heal Spell
     SRD p. 154
-    Generated
     """
 
     def __init__(self):
         super().__init__(name="Heal",
                          spell_lists=[SpellLists.DIVINE, SpellLists.PRIMAL],
                          level=6,
-                         school=SpellSchools.EVOCATION,
+                         school=SpellSchools.ABJURATION,
                          spell_range="60 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -6367,11 +6154,11 @@ class LegendLore(spells.Spell):
                                      "The information you learn is accurate but might be couched in "
                                      "figurative language. For example, if you have a mysterious "
                                      "magic axe on hand, the spell might yield this information: "
-                                     "“Woe to the evildoer whose hand touches the axe, for even the "
+                                     "'Woe to the evildoer whose hand touches the axe, for even the "
                                      "haft slices the hand of the evil ones. Only a true Child of "
                                      "Stone, lover and beloved of Moradin, may awaken the true "
                                      "powers of the axe, and only with the sacred word Rudnogg on "
-                                     "the lips.”")
+                                     "the lips.'")
 
 
 class LesserRestoration(spells.Spell):
@@ -9022,8 +8809,8 @@ class Sequester(spells.Spell):
                                      "You can set a condition for the spell to end early.\n"
                                      "The condition can be anything you choose, but it must occur or "
                                      "be visible within 1 mile of the target.\n"
-                                     "Examples include “after 1,000 years” or “when the tarrasque "
-                                     "awakens.” This spell also ends if the target takes any damage. ")
+                                     "Examples include 'after 1,000 years' or 'when the tarrasque "
+                                     "awakens.' This spell also ends if the target takes any damage. ")
 
 
 class Shapechange(spells.Spell):
@@ -9434,26 +9221,6 @@ class Slow(spells.Spell):
                                      "A creature affected by this spell makes another Wisdom saving "
                                      "throw at the end of its turn. On a successful save, the effect "
                                      "ends for it.")
-
-
-class SpareTheDying(spells.Spell):
-    """
-    Spare the Dying Spell
-    SRD p. 182
-    Generated
-    """
-
-    def __init__(self):
-        super().__init__(name="Spare the Dying",
-                         spell_lists=[SpellLists.DIVINE, SpellLists.PRIMAL],
-                         level=0,
-                         school=SpellSchools.NECROMANCY,
-                         spell_range="Touch",
-                         verbal_components=True,
-                         somatic_components=True,
-                         description="You touch a living creature that has 0 hit points. The "
-                                     "creature becomes stable. This spell has no effect on undead or "
-                                     "constructs.")
 
 
 class SpeakWithAnimals(spells.Spell):
@@ -10081,21 +9848,21 @@ class Teleport(spells.Spell):
                                      "familiar 01–05 06–13 14–24 25–100 Seen casually 01–33 34–43 "
                                      "44–53 54–100 Viewed once 01–43 44–53 54–73 74–100 Description "
                                      "01–43 44–53 54–73 74–100 False destination 01–50 51–100 - - "
-                                     "Familiarity. “Permanent circle” means a permanent "
+                                     "Familiarity. 'Permanent circle' means a permanent "
                                      "teleportation circle whose sigil sequence you know. "
-                                     "“Associated object” means that you possess an object taken "
+                                     "'Associated object' means that you possess an object taken "
                                      "from the desired destination within the last six months, such "
                                      "as a book from a wizard's library, bed linen from a royal "
                                      "suite, or a chunk of marble from a lich's secret tomb.\n"
-                                     "“Very familiar” is a place you have been very often, a place "
+                                     "'Very familiar' is a place you have been very often, a place "
                                      "you have carefully studied, or a place you can see when you "
-                                     "cast the spell. “Seen casually” is someplace you have seen "
+                                     "cast the spell. 'Seen casually' is someplace you have seen "
                                      "more than once but with which you aren't very familiar. "
-                                     "“Viewed once” is a place you have seen once, possibly using "
+                                     "'Viewed once' is a place you have seen once, possibly using "
                                      "magic.\n"
-                                     "“Description” is a place whose location and appearance you "
+                                     "'Description' is a place whose location and appearance you "
                                      "know through someone else's description, perhaps from a map.\n"
-                                     "“False destination” is a place that doesn't exist.\n"
+                                     "'False destination' is a place that doesn't exist.\n"
                                      "Perhaps you tried to scry an enemy's sanctum but instead "
                                      "viewed an illusion, or you are attempting to teleport to a "
                                      "familiar location that no longer exists.\n"
@@ -12099,7 +11866,7 @@ CONTENT = {
         # "Land Druid": LandDruid,
         "Champion Fighter": ChampionFighter,
         # "Open Hand Monk": OpenHandMonk,
-        "Devotion Paladin": DevotionPaladin,
+        "Devotion Paladin": "OBSOLETE",
         "Hunter Ranger": "OBSOLETE",
         "Thief Rogue": "OBSOLETE",
         # "Draconic Sorcerer": DraconicSorcerer,
@@ -12164,7 +11931,7 @@ CONTENT = {
         "Blindness/Deafness": BlindnessDeafness,
         "Blink": Blink,
         "Blur": Blur,
-        "Branding Smite": BrandingSmite,
+        "Glimmering Smite": "OBSOLETE",
         "Burning Hands": BurningHands,
         "Call Lightning": CallLightning,
         "Calm Emotions": CalmEmotions,
@@ -12241,8 +12008,8 @@ CONTENT = {
         "Fear": Fear,
         "Feather Fall": FeatherFall,
         "Feeblemind": Feeblemind,
-        "Find Familiar": FindFamiliar,
-        "Find Steed": FindSteed,
+        "Find Familiar": "OBSOLETE",
+        "Find Steed": "OBSOLETE",
         "Find the Path": FindThePath,
         "Find Traps": FindTraps,
         "Finger of Death": FingerOfDeath,
@@ -12401,7 +12168,7 @@ CONTENT = {
         "Sleep": Sleep,
         "Sleet Storm": SleetStorm,
         "Slow": Slow,
-        "Spare the Dying": SpareTheDying,
+        "Spare the Dying": "OBSOLETE",
         "Speak with Animals": SpeakWithAnimals,
         "Speak with Dead": SpeakWithDead,
         "Speak with Plants": SpeakWithPlants,

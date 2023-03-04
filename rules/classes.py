@@ -651,27 +651,57 @@ class Druid(CharacterClass, ABC):
                          class_group=ClassGroups.PRIEST,
                          primary_abilities=[AbilityNames.WISDOM],
                          features=[
+                             feats.Feat(name="Channel Nature",
+                                        description="The magic of nature infuses you. Tapping into that power, "
+                                                    "you can create various magical effects. You start with one such "
+                                                    "effect: Wild Shape, which is described below. Other Druid "
+                                                    "features give additional Channel Nature effect options. Each "
+                                                    "time you use this Channel Nature, you choose which effect to "
+                                                    "create from among those you have from this class.\n"
+                                                    "You can use Channel Nature twice. You regain one expended use "
+                                                    "when you finish a Short Rest, and you regain all expended uses "
+                                                    "when you finish a Long Rest. You gain additional uses when you "
+                                                    "reach certain Druid levels, as shown in the Channel Nature "
+                                                    "column of the Druid table.\n"
+                                                    "If a Channel Nature effect requires a saving throw, the DC "
+                                                    "equals the Spell Save DC from this class's Spellcasting feature.\n"
+                                                    "Wild Shape. As a Magic action, you transform into a form that "
+                                                    "you have learned for this feature. You start knowing one form, "
+                                                    "Animal of the Land, which is detailed in the 'Wild Shapes' "
+                                                    "section later in this class's description. You stay in that form "
+                                                    "for a number of hours equal to half your Druid level or until "
+                                                    "you use Wild Shape again, have the Incapacitated condition, "
+                                                    "or die. You can also end Wild Shape early as a Bonus Action.\n"
+                                                    "While in a form, its game statistics replace yours, and your "
+                                                    "ability to handle objects is determined by the form's limbs, "
+                                                    "rather than your own. You retain your personality, memories, "
+                                                    "ability to speak, and Wild Shape. You lose access to all your "
+                                                    "other features, such as the ability to cast spells (you can "
+                                                    "continue to concentrate on  one).\n"
+                                                    "When you transform, you choose whether  your equipment falls to "
+                                                    "the ground in your space  or merges into your new form. "
+                                                    "Equipment that  merges with the form has no effect until you  "
+                                                    "leave the form."),
                              feats.Feat(name="Druidic",
-                                        description="You know Druidic, the secret language of druids. You can speak "
-                                                    "the language and use it to leave hidden messages. You and others "
-                                                    "who know this language automatically spot such a message. Others "
-                                                    "spot the message's presence with a successful DC 15 Wisdom ("
-                                                    "Perception) check but can't decipher it without magic.",
+                                        description="You know Druidic, the secret language of Druids. You can speak "
+                                                    "the language and use it to leave hidden messages.\n"
+                                                    "You and others who know this language automatically spot such a "
+                                                    "message. Others spot the message's presence with a successful DC "
+                                                    "15 Intelligence (Investigation) check but can't decipher it "
+                                                    "without magic.",
                                         feat_bonuses=bonuses.Bonuses(languages=[Languages.DRUIDIC])),
                              feats.Feat(name="Spellcasting",
-                                        description="Spell Preparation. You prepare the list of druid spells that "
-                                                    "are available for you to cast, choosing from the druid spell "
-                                                    "list. When you do so, choose a number of druid spells equal "
-                                                    "to your Wisdom modifier +  your druid level, (minimum of one "
-                                                    "spell). You can change your list of prepared spells when you "
-                                                    "finish a long rest. Preparing a new list of druid spells requires "
-                                                    "time spent in prayer and meditation: at least 1 minute per spell "
-                                                    "level for each spell on your list.\n"
+                                        description="Spell Preparation. Any Spell you prepare for this Class must be "
+                                                    "a Primal Spell.\n"
+                                                    "Whenever you finish a Long Rest, you can meditate and replace any "
+                                                    "Spell you have prepared for this Class with another Primal Spell "
+                                                    "of the same level.\n"
+                                                    "Your spell slots determine the number of different Spells you "
+                                                    "can prepare of each level.\n"
                                                     "Spellcasting Ability. Wisdom is your Spellcasting Ability for "
-                                                    "your druid Spells.\n"
-                                                    "Spellcasting Focus. You can use a druidic focus as a "
-                                                    "Spellcasting Focus for your druid spells.")
-
+                                                    "your Druid Spells.\n"
+                                                    "Spellcasting Focus. You can use a Druidic Focus as a "
+                                                    "Spellcasting Focus for the Spells you prepare for this Class.")
                          ],
                          hit_die=8,
                          class_bonuses=bonuses.Bonuses(
@@ -687,73 +717,33 @@ class Druid(CharacterClass, ABC):
                                  Tools.HERBALISM_KIT: ProficiencyLevels.PROFICIENT,
                              },
                              armor_training=[
-                                 ArmorTraining.LIGHT, ArmorTraining.MEDIUM, ArmorTraining.SHIELD],
-                             weapon_types=[WeaponTypes.SIMPLE,
-                                           WeaponTypes.MARTIAL_FINESSE],
+                                 ArmorTraining.LIGHT, ArmorTraining.SHIELD],
+                             weapon_types=[WeaponTypes.SIMPLE],
                          ),
                          spellcasting_ability=AbilityNames.WISDOM)
 
     def _level_up_2(self, content: dict[str, dict[str, any]]):
-        del content
-        self._features.append(feats.Feat(name="Wild Shape",
-                                         description="You can use your action to magically assume the shape of a beast "
-                                                     "that you have seen before. You can use this feature twice. You "
-                                                     "regain expended uses when you finish a short or long rest.\n"
-                                                     "Your druid level determines the beasts you can transform into. "
-                                                     "At 2nd level, you can transform into any beast that has a "
-                                                     "challenge rating of 1/4 or lower that doesn't have a flying or "
-                                                     "swimming speed. At 4th level, you can transform into any beast "
-                                                     "that has a challenge rating of 1/2 or lower that doesn't have a "
-                                                     "flying speed. At 8th level, you can transform into any beast "
-                                                     "that has a challenge rating of 1 or lower."))
-        # "You can stay in a beast shape for a number of hours equal to "
-        # "half your druid level (rounded down). You then revert to your "
-        # "normal form unless you expend another use of this feature. You "
-        # "can revert to your normal form earlier by using a bonus action "
-        # "on your turn. You automatically revert if you fall unconscious, "
-        # "drop to 0 hit points, or die.\n"
-        # "While you are transformed, the following rules apply:\n"
-        # "• Your game statistics are replaced by the statistics of the "
-        # "beast, but you retain your alignment, personality, "
-        # "and Intelligence, Wisdom, and Charisma scores. You also retain "
-        # "all of your skill and saving throw proficiencies, in addition "
-        # "to gaining those of the creature. If the creature has the same "
-        # "proficiency as you and the bonus in its stat block is higher "
-        # "than yours, use the creature's bonus instead of yours. If the "
-        # "creature has any legendary or lair actions, you can't use "
-        # "them.\n"
-        # "• When you transform, you assume the beast's hit points and Hit "
-        # "Dice. When you revert to your normal form, you return to the "
-        # "number of hit points you had before you transformed. However, "
-        # "if you revert as a result of dropping to 0 hit points, "
-        # "any excess damage carries over to your normal form, "
-        # "For example, if you take 10 damage in animal form and have only "
-        # "1 hit point left, you revert and take 9 damage. As long as the "
-        # "excess damage doesn't reduce your normal form to 0 hit points, "
-        # "you aren't knocked unconscious.\n"
-        # "• You can't cast spells, and your ability to speak or take any "
-        # "action that requires hands is limited to the capabilities of "
-        # "your beast form. Transforming doesn't break your concentration "
-        # "on a spell you've already cast, however, or prevent you from "
-        # "taking actions that are part of a spell, such as Call "
-        # "Lightning, that you've already cast.\n"
-        # "• You retain the benefit of any features from your class, race, "
-        # "or other source and can use them if the new form is physically "
-        # "capable of doing so. However, you can't use any of your special "
-        # "senses, such as darkvision, unless your new form also has that "
-        # "sense.\n"
-        # "• You choose whether your equipment falls to the ground in your "
-        # "space, merges into your new form, or is worn by it. Worn "
-        # "equipment functions as normal, but the DM decides whether it is "
-        # "practical for the new form to wear a piece of equipment, "
-        # "based on the creature's shape and size. Your equipment doesn't "
-        # "change size or shape to match the new form, and any equipment "
-        # "that the new form can't wear must either fall to the ground or "
-        # "merge with it. Equipment that merges with the form has no "
-        # "effect until you leave the form."))
-
-    def _level_up_3(self):
-        pass
+        self._features.append(feats.Feat(name="Nature's Aid",
+                                         description="You learn two more ways to use your Channel Nature - Healing "
+                                                     "Blossoms and Wild Companion - each of which is described below.\n"
+                                                     "Healing Blossoms. As a Magic action, you channel healing energy "
+                                                     "that appears as blooming flowers. Choose a point within 30 feet "
+                                                     "of yourself, and spectral flowers appear for a moment in a "
+                                                     "10-foot-radius sphere centered on that point. Then roll a "
+                                                     "number of d4s equal to your Wisdom modifier (minimum of one "
+                                                     "die), and add the dice together. The total is the number of Hit "
+                                                     "Points you can distribute to creatures in that sphere. You "
+                                                     "decide the number of Hit Points that are restored to each of "
+                                                     "those creatures, deducting the healing from the total.\n"
+                                                     "Wild Companion. You can summon a nature spirit that assumes an "
+                                                     "animal form to aid you. As a Magic action, you can expend a use "
+                                                     "of your Channel Nature and cast the Find Familiar spell without "
+                                                     "material components.\n"
+                                                     "When you cast the spell in this way, the familiar is a Fey, "
+                                                     "and it disappears when you finish a Long Rest.",
+                                         feat_spells=[
+                                             content["Spells"]["Find Familiar"]()],
+                                         spellcasting_ability=AbilityNames.WISDOM))
 
     def _level_up_4(self, feat: feats.Feat):
         if feat.get_level() > 4:
@@ -762,10 +752,14 @@ class Druid(CharacterClass, ABC):
         self._features.append(feat)
 
     def _level_up_5(self):
-        pass
+        self._features.append(feats.Feat(name="Might of the Land",
+                                         description="Your connection to the land deepens, empowering the Animal of "
+                                                     "the Land form of your Wild Shape; you unlock that form's Climb "
+                                                     "Speed and Multiattack."))
 
     def _level_up_7(self):
-        pass
+        self._features.append(feats.Feat(name="Aquatic Form",
+                                         description="You learn a new form for your Wild Shape: Animal of the Sea."))
 
     def _level_up_8(self, feat: feats.Feat):
         if feat.get_level() > 8:
@@ -774,10 +768,15 @@ class Druid(CharacterClass, ABC):
         self._features.append(feat)
 
     def _level_up_9(self):
-        pass
+        self._features.append(feats.Feat(name="Aerial Form",
+                                         description="You learn a new form for your Wild Shape: Animal of the Sky."))
 
     def _level_up_11(self):
-        pass
+        self._features.append(feats.Feat(name="Aerial Form",
+                                         description="You gain the ability to become a Tiny creature. When you "
+                                                     "transform into a Wild Shape form, you can make it Tiny. If you "
+                                                     "do so, you can stay in that form no longer than 10 minutes, and "
+                                                     "the damage you deal in that form is halved."))
 
     def _level_up_12(self, feat: feats.Feat):
         if feat.get_level() > 12:
@@ -786,10 +785,18 @@ class Druid(CharacterClass, ABC):
         self._features.append(feat)
 
     def _level_up_13(self):
-        pass
+        self._features.append(feats.Feat(name="Alternating Forms",
+                                         description="You can now rapidly shift between a Wild Shape form and your "
+                                                     "normal form. If you're in a Wild Shape form, you can switch to "
+                                                     "your normal form as a Bonus Action, and you can then switch back "
+                                                     "into that Wild Shape form within the next minute as a Bonus "
+                                                     "Action. Neither switch expends a use of Wild Shape."))
 
     def _level_up_15(self):
-        pass
+        self._features.append(feats.Feat(name="Wild Resurgence",
+                                         description="When you use your Wild Shape, primal magic radiates from you, "
+                                                     "allowing you to use Healing Blossoms as part of the same use of"
+                                                     "Channel Nature."))
 
     def _level_up_16(self, feat: feats.Feat):
         if feat.get_level() > 16:
@@ -798,17 +805,20 @@ class Druid(CharacterClass, ABC):
         self._features.append(feat)
 
     def _level_up_17(self):
-        pass
+        self._features.append(feats.Feat(name="Beast Spells",
+                                         description="You can cast spells in any Wild Shape form. While in such a "
+                                                     "form, you can perform Somatic and Verbal Components, "
+                                                     "and you don't need to provide free Material Components. If a "
+                                                     "spell consumes its Material Component, you can't cast that "
+                                                     "spell while in a Wild Shape form."))
 
     def _level_up_18(self):
-        self._features.append(feats.Feat(name="Timeless Body",
-                                         description="The primal magic that you wield causes you to age more slowly. "
-                                                     "For every 10 years that pass, your body ages only 1 year."))
-        self._features.append(feats.Feat(name="Beast Spells",
-                                         description="You can cast many of your druid spells in any shape you assume "
-                                                     "using Wild Shape. You can perform the somatic and verbal "
-                                                     "components of a druid spell while in a beast shape, "
-                                                     "but you aren't able to provide material components."))
+        self._features.append(feats.Feat(name="Archdruid",
+                                         description="Whenever you roll Initiative, you regain one use of your Channel "
+                                                     "Nature.\n"
+                                                     "In addition, the primal magic that you wield causes you to age "
+                                                     "more slowly. For every 10 years that pass, your body ages only 1 "
+                                                     "year."))
 
     def _level_up_19(self, feat: feats.Feat):
         if feat.get_level() > 19:
@@ -816,255 +826,16 @@ class Druid(CharacterClass, ABC):
 
         self._features.append(feat)
 
-    def _level_up_20(self):
-        self._features.append(feats.Feat(name="Archdruid",
-                                         description="You can use your Wild Shape an unlimited number of times.\n"
-                                                     "Additionally, you can ignore the verbal and somatic components "
-                                                     "of your druid spells, as well as any material components that "
-                                                     "lack a cost and aren't consumed by a spell. You gain this "
-                                                     "benefit in both your normal shape and your beast shape from "
-                                                     "Wild Shape."))
+    def _level_up_20(self, feat: feats.Feat):
+        if feat.get_level() > 20:
+            raise Exception("Invalid feat level. Must be 20 or lower")
+
+        self._features.append(feat)
 
     def get_known_spells(self, content: dict[str, dict[str, any]]) -> list[spells.Spell]:
-        known_spells = [
-            content["Spells"]["Control Flames"](),
-            content["Spells"]["Create Bonfire"](),
-            content["Spells"]["Druidcraft"](),
-            content["Spells"]["Frostbite"](),
-            content["Spells"]["Guidance"](),
-            content["Spells"]["Gust"](),
-            content["Spells"].get(
-                "Infestation", content["Spells"]["Control Flames"])(),
-            content["Spells"]["Magic Stone"](),
-            content["Spells"]["Mending"](),
-            content["Spells"]["Mold Earth"](),
-            content["Spells"]["Poison Spray"](),
-            content["Spells"].get(
-                "Primal Savagery", content["Spells"]["Control Flames"])(),
-            content["Spells"]["Produce Flame"](),
-            content["Spells"]["Resistance"](),
-            content["Spells"]["Shape Water"](),
-            content["Spells"]["Shillelagh"](),
-            content["Spells"].get(
-                "Thorn Whip", content["Spells"]["Control Flames"])(),
-            content["Spells"]["Thunderclap"](),
-            content["Spells"]["Absorb Elements"](),
-            content["Spells"]["Animal Friendship"](),
-            content["Spells"]["Beast Bond"](),
-            content["Spells"]["Charm Person"](),
-            content["Spells"]["Create or Destroy Water"](),
-            content["Spells"]["Cure Wounds"](),
-            content["Spells"]["Detect Magic"](),
-            content["Spells"]["Detect Poison and Disease"](),
-            content["Spells"]["Earth Tremor"](),
-            content["Spells"]["Entangle"](),
-            content["Spells"]["Faerie Fire"](),
-            content["Spells"]["Fog Cloud"](),
-            content["Spells"]["Goodberry"](),
-            content["Spells"]["Healing Word"](),
-            content["Spells"]["Ice Knife"](),
-            content["Spells"]["Jump"](),
-            content["Spells"]["Longstrider"](),
-            content["Spells"].get(
-                "Protection from Evil and Good", content["Spells"]["Control Flames"])(),
-            content["Spells"]["Purify Food and Drink"](),
-            content["Spells"].get(
-                "Snare", content["Spells"]["Control Flames"])(),
-            content["Spells"]["Speak with Animals"](),
-            content["Spells"]["Thunderwave"](),
-        ]
-
-        if self._level >= 3:
-            known_spells += [
-                content["Spells"].get(
-                    "Air Bubble", content["Spells"]["Control Flames"])(),
-                content["Spells"].get(
-                    "Augury", content["Spells"]["Control Flames"])(),
-                content["Spells"]["Animal Messenger"](),
-                content["Spells"]["Barkskin"](),
-                content["Spells"].get(
-                    "Beast Sense", content["Spells"]["Control Flames"])(),
-                content["Spells"].get(
-                    "Continual Flame", content["Spells"]["Control Flames"])(),
-                content["Spells"]["Darkvision"](),
-                content["Spells"]["Dust Devil"](),
-                content["Spells"]["Earthbind"](),
-                content["Spells"]["Enhance Ability"](),
-                content["Spells"].get(
-                    "Enlarge/Reduce", content["Spells"]["Control Flames"])(),
-                content["Spells"]["Find Traps"](),
-                content["Spells"]["Flame Blade"](),
-                content["Spells"]["Flaming Sphere"](),
-                content["Spells"]["Gust of Wind"](),
-                content["Spells"].get(
-                    "Healing Spirit", content["Spells"]["Control Flames"])(),
-                content["Spells"]["Heat Metal"](),
-                content["Spells"]["Hold Person"](),
-                content["Spells"]["Lesser Restoration"](),
-                content["Spells"]["Locate Animals or Plants"](),
-                content["Spells"]["Locate Object"](),
-                content["Spells"]["Moonbeam"](),
-                content["Spells"]["Pass Without Trace"](),
-                content["Spells"]["Protection from Poison"](),
-                content["Spells"]["Skywrite"](),
-                content["Spells"]["Spike Growth"](),
-                content["Spells"].get(
-                    "Summon Beast", content["Spells"]["Control Flames"])(),
-                content["Spells"]["Warding Wind"](),
-                content["Spells"].get(
-                    "Wither and Bloom", content["Spells"]["Control Flames"])(),
-            ]
-
-        if self._level >= 5:
-            known_spells += [
-                content["Spells"].get(
-                    "Aura of Vitality", content["Spells"]["Control Flames"])(),
-                content["Spells"]["Call Lightning"](),
-                content["Spells"]["Conjure Animals"](),
-                content["Spells"]["Daylight"](),
-                content["Spells"]["Dispel Magic"](),
-                content["Spells"].get(
-                    "Elemental Weapon", content["Spells"]["Control Flames"])(),
-                content["Spells"]["Erupting Earth"](),
-                content["Spells"].get(
-                    "Feign Death", content["Spells"]["Control Flames"])(),
-                content["Spells"]["Flame Arrows"](),
-                content["Spells"]["Meld into Stone"](),
-                content["Spells"]["Plant Growth"](),
-                content["Spells"]["Protection from Energy"](),
-                content["Spells"].get(
-                    "Revivify", content["Spells"]["Control Flames"])(),
-                content["Spells"]["Sleet Storm"](),
-                content["Spells"]["Speak with Plants"](),
-                content["Spells"].get(
-                    "Summon Fey", content["Spells"]["Control Flames"])(),
-                content["Spells"]["Tidal Wave"](),
-                content["Spells"]["Wall of Water"](),
-                content["Spells"]["Water Breathing"](),
-                content["Spells"]["Water Walk"](),
-                content["Spells"]["Wind Wall"](),
-            ]
-
-        if self._level >= 7:
-            known_spells += [
-                content["Spells"]["Blight"](),
-                content["Spells"].get(
-                    "Charm Monster", content["Spells"]["Control Flames"])(),
-                content["Spells"]["Confusion"](),
-                content["Spells"]["Conjure Minor Elemental"](),
-                content["Spells"]["Conjure Woodland Beings"](),
-                content["Spells"]["Control Water"](),
-                content["Spells"].get(
-                    "Divination", content["Spells"]["Control Flames"])(),
-                content["Spells"]["Dominate Beast"](),
-                content["Spells"]["Elemental Bane"](),
-                content["Spells"].get(
-                    "Fire Shield", content["Spells"]["Control Flames"])(),
-                content["Spells"]["Freedom of Movement"](),
-                content["Spells"]["Giant Insect"](),
-                content["Spells"].get(
-                    "Grasping Vine", content["Spells"]["Control Flames"])(),
-                content["Spells"].get(
-                    "Guardian of Nature", content["Spells"]["Control Flames"])(),
-                content["Spells"]["Hallucinatory Terrain"](),
-                content["Spells"]["Ice Storm"](),
-                content["Spells"]["Locate Creature"](),
-                content["Spells"]["Polymorph"](),
-                content["Spells"]["Stone Shape"](),
-                content["Spells"]["Stoneskin"](),
-                content["Spells"].get(
-                    "Summon Elemental", content["Spells"]["Control Flames"])(),
-                content["Spells"]["Wall of Fire"](),
-                content["Spells"]["Watery Sphere"](),
-            ]
-
-        if self._level >= 9:
-            known_spells += [
-                content["Spells"]["Antilife Shell"](),
-                content["Spells"]["Awaken"](),
-                content["Spells"]["Commune with Nature"](),
-                content["Spells"].get(
-                    "Cone of Cold", content["Spells"]["Control Flames"])(),
-                content["Spells"]["Conjure Elemental"](),
-                content["Spells"]["Contagion"](),
-                content["Spells"]["Control Winds"](),
-                content["Spells"]["Geas"](),
-                content["Spells"]["Greater Restoration"](),
-                content["Spells"]["Insect Plague"](),
-                content["Spells"]["Maelstrom"](),
-                content["Spells"]["Mass Cure Wounds"](),
-                content["Spells"]["Planar Binding"](),
-                content["Spells"]["Reincarnate"](),
-                content["Spells"]["Scrying"](),
-                content["Spells"].get(
-                    "Summon Draconic Spirit", content["Spells"]["Control Flames"])(),
-                content["Spells"]["Transmute Rock"](),
-                content["Spells"]["Tree Stride"](),
-                content["Spells"]["Wall of Stone"](),
-                content["Spells"].get(
-                    "Wrath of Nature", content["Spells"]["Control Flames"])(),
-            ]
-
-        if self._level >= 11:
-            known_spells += [
-                content["Spells"]["Bones of the Earth"](),
-                content["Spells"]["Conjure Fey"](),
-                content["Spells"].get(
-                    "Druid Grove", content["Spells"]["Control Flames"])(),
-                content["Spells"]["Find the Path"](),
-                content["Spells"].get(
-                    "Flesh to Stone", content["Spells"]["Control Flames"])(),
-                content["Spells"]["Heal"](),
-                content["Spells"]["Heroes' Feast"](),
-                content["Spells"]["Investiture of Flame"](),
-                content["Spells"]["Investiture of Ice"](),
-                content["Spells"]["Investiture of Stone"](),
-                content["Spells"]["Investiture of Wind"](),
-                content["Spells"]["Move Earth"](),
-                content["Spells"]["Primordial Ward"](),
-                content["Spells"]["Sunbeam"](),
-                content["Spells"]["Transport Via Plants"](),
-                content["Spells"]["Wall of Thorns"](),
-                content["Spells"]["Wind Walk"](),
-            ]
-
-        if self._level >= 13:
-            known_spells += [
-                content["Spells"].get(
-                    "Draconic Transformation", content["Spells"]["Control Flames"])(),
-                content["Spells"]["Fire Storm"](),
-                content["Spells"]["Mirage Arcane"](),
-                content["Spells"]["Plane Shift"](),
-                content["Spells"]["Regenerate"](),
-                content["Spells"]["Reverse Gravity"](),
-                content["Spells"].get(
-                    "Symbol", content["Spells"]["Control Flames"])(),
-                content["Spells"]["Whirlwind"](),
-            ]
-
-        if self._level >= 15:
-            known_spells += [
-                content["Spells"]["Animal Shapes"](),
-                content["Spells"]["Antipathy/Sympathy"](),
-                content["Spells"]["Control Weather"](),
-                content["Spells"].get(
-                    "Incendiary Cloud", content["Spells"]["Control Flames"])(),
-                content["Spells"]["Earthquake"](),
-                content["Spells"]["Feeblemind"](),
-                content["Spells"]["Sunburst"](),
-                content["Spells"].get(
-                    "Tsunami", content["Spells"]["Control Flames"])(),
-            ]
-
-        if self._level >= 15:
-            known_spells += [
-                content["Spells"]["Foresight"](),
-                content["Spells"]["Shapechange"](),
-                content["Spells"]["Storm of Vengeance"](),
-                content["Spells"]["True Resurrection"](),
-            ]
-
-        return known_spells
+        return [spell() for spell in content["Spells"].values() if
+                spell().get_level() in range(0, math.ceil(self._level / 2) + 1) and
+                SpellLists.PRIMAL in spell().get_spell_lists()]
 
     def get_spellcasting_class(self) -> str | None:
         return "Druid"
@@ -1236,35 +1007,30 @@ class Paladin(CharacterClass, ABC):
                          primary_abilities=[
                              AbilityNames.STRENGTH, AbilityNames.CHARISMA],
                          features=[
-                             feats.Feat(name="Divine Sense",
-                                        description="The presence of strong evil registers on your senses like a "
-                                                    "noxious odor, and powerful good rings like heavenly music in "
-                                                    "your ears. As an action, you can open your awareness to detect "
-                                                    "such forces. Until the end of your next turn, you know the "
-                                                    "location of any celestial, fiend, or undead within 60 feet of "
-                                                    "you that is not behind total cover. You know the type ("
-                                                    "celestial, fiend, or undead) of any being whose presence you "
-                                                    "sense, but not its identity (the vampire Count Strahd von "
-                                                    "Zarovich, for instance). Within the same radius, you also detect "
-                                                    "the presence of any place or object that has been consecrated or "
-                                                    "desecrated, as with the hallow spell.\n"
-                                                    "You can use this feature a number of times equal to 1 + your "
-                                                    "Charisma modifier. When you finish a long rest, you regain all "
-                                                    "expended uses."),
-                             feats.Feat(name="Lay On Hands",
+                             feats.Feat(name="Lay on Hands",
                                         description="Your blessed touch can heal wounds. You have a pool of healing "
-                                                    "power that replenishes when you take a long rest. With that "
-                                                    "pool, you can restore a total number of hit points equal to your "
-                                                    "paladin level × 5.\n"
-                                                    "As an action, you can touch a creature and draw power from the "
-                                                    "pool to restore a number of hit points to that creature, "
-                                                    "up to the maximum amount remaining in your pool.\n"
-                                                    "Alternatively, you can expend 5 hit points from your pool of "
-                                                    "healing to cure the target of one disease or neutralize one "
-                                                    "poison affecting it. You can cure multiple diseases and "
-                                                    "neutralize multiple poisons with a single use of Lay on Hands, "
-                                                    "expending hit points separately for each one.\n"
-                                                    "This feature has no effect on undead and constructs.")
+                                                    "power that replenishes when you take a Long Rest. With that pool, "
+                                                    "you can restore a total number of Hit Points equal to five times "
+                                                    "your Paladin level.\n"
+                                                    "As a Magic action, you can touch a creature (which could be "
+                                                    "yourself) and draw power from the pool of healing to restore a "
+                                                    "number of Hit Points to that creature, up to the maximum amount "
+                                                    "remaining in the pool.\n"
+                                                    "In addition, you can expend 5 Hit Points from the pool of healing "
+                                                    "to remove the Poisoned condition from the creature, rather than "
+                                                    "using those points to restore Hit Points."),
+                             feats.Feat(name="Spellcasting",
+                                        description="Spell Preparation. Any Spell you prepare for this Class must be "
+                                                    "a Divine Spell.\n"
+                                                    "Whenever you finish a Long Rest, you can meditate and replace any "
+                                                    "Spell you have prepared for this Class with another Divine Spell "
+                                                    "of the same level.\n"
+                                                    "Your spell slots determine the number of different Spells you "
+                                                    "can prepare of each level.\n"
+                                                    "Spellcasting Ability. Charisma is your Spellcasting Ability for "
+                                                    "your Paladin Spells.\n"
+                                                    "Spellcasting Focus. You can use a Holy Symbol as a Spellcasting "
+                                                    "Focus for the Spells you prepare for this Class.")
                          ],
                          hit_die=10,
                          class_bonuses=bonuses.Bonuses(
@@ -1287,36 +1053,42 @@ class Paladin(CharacterClass, ABC):
         if fighting_style.get_level() > 2:
             raise Exception("Invalid fighting style level. Must be 2 or lower")
 
-        self._features.append(fighting_style)
-        self._features.append(feats.Feat(name="Spellcasting",
-                                         description="Spell Preparation. You prepare the list of paladin spells that "
-                                                     "are available for you to cast, choosing from the paladin spell "
-                                                     "list. When you do so, choose a number of paladin spells equal "
-                                                     "to your Charisma modifier + half your paladin level, "
-                                                     "rounded down (minimum of one spell). You can change your list "
-                                                     "of prepared spells when you finish a long rest. Preparing a new "
-                                                     "list of paladin spells requires time spent in prayer and "
-                                                     "meditation: at least 1 minute per spell level for each spell on "
-                                                     "your list.\n"
-                                                     "Your spell slots determine the number of different Spells you "
-                                                     "can prepare of each level.\n"
-                                                     "Spellcasting Ability. Charisma is your Spellcasting Ability for "
-                                                     "your Paladin Spells.\n"
-                                                     "Spellcasting Focus. You can use a holy symbol as a "
-                                                     "Spellcasting Focus for your paladin spells."))
         self._features.append(feats.Feat(name="Divine Smite",
-                                         description="When you hit a creature with a melee weapon attack, you can "
-                                                     "expend one spell slot to deal radiant damage to the target, "
-                                                     "in addition to the weapon's damage. The extra damage is 2d8 for "
-                                                     "a 1st-level spell slot, plus 1d8 for each spell level higher "
-                                                     "than 1st, to a maximum of 5d8. The damage increases by 1d8 if "
-                                                     "the target is an undead or a fiend."))
+                                         description="When you strike a target, you can channel divine energy to smite "
+                                                     "it. Immediately after you hit a target with an attack roll using "
+                                                     "a weapon or an Unarmed Strike, you can expend one Spell Slot to "
+                                                     "deal Radiant damage to the target. The damage is 2d8 for a "
+                                                     "1st-level Spell Slot, plus 1d8 for each slot level higher than "
+                                                     "1st.\n"
+                                                     "You can use Divine Smite no more than once during a turn, and "
+                                                     "you can't use it on the same turn that you cast a spell."))
+        self._features.append(fighting_style)
 
     def _level_up_3(self, content: dict[str, dict[str, any]]):
         del content
-        self._features.append(feats.Feat(name="Divine Health",
-                                         description="The divine magic flowing through you makes you immune to "
-                                                     "disease."))
+        self._features.append(feats.Feat(name="Channel Divinity",
+                                         description="You can channel divine energy directly from the Outer Planes, "
+                                                     "using that energy to fuel magical effects. You start with one "
+                                                     "such effect: Divine Sense, which is described below. Other "
+                                                     "Paladin features give additional Channel Divinity effect "
+                                                     "options. Each time you use this Channel Divinity, you choose "
+                                                     "which effect to create from among those you have from this "
+                                                     "class.\n"
+                                                     "You can use Channel Divinity twice. You regain one expended use "
+                                                     "when you finish a Short Rest, and you regain all expended uses "
+                                                     "when you finish a Long Rest. You gain additional uses when you "
+                                                     "reach certain Paladin levels, as shown in the Channel Divinity "
+                                                     "column of the Paladin table.\n"
+                                                     "If a Channel Divinity effect requires a saving throw, the DC "
+                                                     "equals the Spell Save DC from this class's Spellcasting "
+                                                     "feature.\n"
+                                                     "Divine Sense. As a Bonus Action, you can open your awareness to "
+                                                     "detect Celestials, Fiends, and Undead. For the next 10 minutes "
+                                                     "or until you have the Incapacitated condition, you know the "
+                                                     "location of any creature of those types within 60 feet of "
+                                                     "yourself, and you know its creature type. Within the same "
+                                                     "radius, you also detect the presence of any place or object that "
+                                                     "has been consecrated or desecrated, as with the Hallow spell."))
 
     def _level_up_4(self, feat: feats.Feat):
         if feat.get_level() > 4:
@@ -1324,18 +1096,29 @@ class Paladin(CharacterClass, ABC):
 
         self._features.append(feat)
 
-    def _level_up_5(self):
+    def _level_up_5(self, content: dict[str, dict[str, any]]):
         self._features.append(feats.Feat(name="Extra Attack",
                                          description="You can attack twice, instead of once, whenever you take the "
                                                      "Attack Action on your turn."))
+        self._features.append(feats.Feat(name="Faithful Steed",
+                                         description="You can easily call on the aid of an otherworldly steed. You "
+                                                     "always have the Find Steed spell prepared, and it doesn't count "
+                                                     "against the number of spells you can prepare.\n"
+                                                     "When you cast this spell, its casting time is an action. You can "
+                                                     "also cast the spell once without expending a Spell Slot, and "
+                                                     "you regain the ability to do so when you finish a Long Rest.",
+                                         feat_spells=content["Spells"]["Find Steed"]()))
 
-    def _level_up_6(self):
+    def _level_up_7(self):
         self._features.append(feats.Feat(name="Aura of Protection",
-                                         description="Whenever you or a friendly creature within 10 feet of you must "
-                                                     "make a saving throw, the creature gains a bonus to the saving "
-                                                     "throw equal to your Charisma modifier (with a minimum bonus of "
-                                                     "+1). You must be conscious to grant this bonus.\n"
-                                                     "At 18th level, the range of this aura increases to 30 feet."))
+                                         description="You radiate a protective, invisible aura that extends 10 feet "
+                                                     "from you in every direction, but it doesn't extend through "
+                                                     "Total Cover.\n"
+                                                     "You and your allies in the aura gain a bonus to saving throws "
+                                                     "equal to your Charisma modifier (minimum bonus of +1).\n"
+                                                     "If another Paladin is present, a creature can benefit from only "
+                                                     "one Aura of Protection at a time; the creature chooses which "
+                                                     "one when entering the auras."))
         # TODO Implement Saving throw increase on self
 
     def _level_up_8(self, feat: feats.Feat):
@@ -1345,22 +1128,24 @@ class Paladin(CharacterClass, ABC):
         self._features.append(feat)
 
     def _level_up_9(self):
-        pass
-
-    def _level_up_10(self):
-        self._features.append(feats.Feat(name="Aura of Courage",
-                                         description="You and friendly creatures within 10 feet of you can't be"
-                                                     "frightened while you are conscious.\n"
-                                                     "At 18th level, the range of this aura increases to 30 feet."))
+        self._features.append(feats.Feat(name="Abjure Foes",
+                                         description="As a Magic action, you can expend one use of your Channel "
+                                                     "Divinity to overwhelm foes with divine awe. As you present your "
+                                                     "Holy Symbol or weapon, you can target a number of creatures "
+                                                     "equal to your Charisma modifier (minimum of one creature) that "
+                                                     "you can see within 60 feet of yourself.\n"
+                                                     "Each target must make a Wisdom saving throw. On a failed save, "
+                                                     "the target has the Dazed and Frightened conditions for 1 minute "
+                                                     "or until it takes any damage. On a successful save, the target "
+                                                     "has the Dazed condition for 1 minute or until it takes any "
+                                                     "damage."))
 
     def _level_up_11(self):
-        self._features.append(feats.Feat(name="Improved Divine Smite",
-                                         description="You are so suffused with righteous might that all your melee "
-                                                     "weapon strikes carry divine power with them. Whenever you hit a "
-                                                     "creature with a melee weapon, the creature takes an extra 1d8 "
-                                                     "radiant damage. If you also use your Divine Smite with an "
-                                                     "attack, you add this damage to the extra damage of your Divine "
-                                                     "Smite."))
+        self._features.append(feats.Feat(name="Radiant Strikes",
+                                         description="You are so suffused with divine might that your weapon strikes "
+                                                     "carry supernatural power with them. When you hit a target with "
+                                                     "an attack roll using a Simple or Martial weapon, the target "
+                                                     "takes an extra 1d8 Radiant damage."))
 
     def _level_up_12(self, feat: feats.Feat):
         if feat.get_level() > 12:
@@ -1369,15 +1154,19 @@ class Paladin(CharacterClass, ABC):
         self._features.append(feat)
 
     def _level_up_13(self):
-        pass
+        self._features.append(feats.Feat(name="Aura of Courage",
+                                         description="You and your allies are immune to the Frightened condition while "
+                                                     "in your Aura of Protection. If a Frightened ally enters the "
+                                                     "aura, that condition is suppressed while the ally is there."))
 
-    def _level_up_14(self):
-        self._features.append(feats.Feat(name="Cleansing Touch",
-                                         description="You can use your action to end one spell on yourself or on one "
-                                                     "willing creature that you touch.\n"
-                                                     "You can use this feature a number of times equal to your "
-                                                     "Charisma modifier (a minimum of once). You regain expended uses "
-                                                     "when you finish a long rest."))
+    def _level_up_15(self):
+        self._features.append(feats.Feat(name="Restoring Touch",
+                                         description="When you use Lay on Hands on a creature, you can also remove one "
+                                                     "or more of the following conditions from the creature: Blinded, "
+                                                     "Charmed, Dazed, Deafened, Frightened, Paralyzed, or Stunned. You "
+                                                     "must expend 5 Hit Points from the healing pool of Lay on Hands "
+                                                     "for each of these conditions you remove; those points don't also "
+                                                     "restore Hit Points to the creature."))
 
     def _level_up_16(self, feat: feats.Feat):
         if feat.get_level() > 16:
@@ -1386,10 +1175,14 @@ class Paladin(CharacterClass, ABC):
         self._features.append(feat)
 
     def _level_up_17(self):
-        pass
+        self._features.append(feats.Feat(name="Aura Expansion",
+                                         description="Your Aura of Protection now extends 30 feet from you rather than "
+                                                     "10 feet."))
 
     def _level_up_18(self):
-        pass
+        self._features.append(feats.Feat(name="Divine Conduit",
+                                         description="Whenever you roll Initiative, you regain one use of this class's "
+                                                     "Channel Divinity."))
 
     def _level_up_19(self, feat: feats.Feat):
         if feat.get_level() > 19:
@@ -1397,105 +1190,16 @@ class Paladin(CharacterClass, ABC):
 
         self._features.append(feat)
 
+    def _level_up_20(self, feat: feats.Feat):
+        if feat.get_level() > 20:
+            raise Exception("Invalid feat level. Must be 20 or lower")
+
+        self._features.append(feat)
+
     def get_known_spells(self, content: dict[str, dict[str, any]]) -> list[spells.Spell]:
-        known_spells = []
-
-        if self._level >= 2:
-            known_spells += [
-                content["Spells"]["Bless"](),
-                content["Spells"].get(
-                    "Ceremony", content["Spells"]["Bless"])(),
-                content["Spells"]["Command"](),
-                content["Spells"].get(
-                    "Compelled Duel", content["Spells"]["Bless"])(),
-                content["Spells"]["Cure Wounds"](),
-                content["Spells"]["Detect Evil and Good"](),
-                content["Spells"]["Detect Magic"](),
-                content["Spells"]["Detect Poison and Disease"](),
-                content["Spells"]["Divine Favor"](),
-                content["Spells"]["Heroism"](),
-                content["Spells"]["Protection from Evil and Good"](),
-                content["Spells"]["Purify Food and Drink"](),
-                content["Spells"].get(
-                    "Searing Smite", content["Spells"]["Bless"])(),
-                content["Spells"]["Shield of Faith"](),
-                content["Spells"].get("Thunderous Smite",
-                                      content["Spells"]["Bless"])(),
-                content["Spells"].get(
-                    "Wrathful Smite", content["Spells"]["Bless"])(),
-            ]
-
-        if self._level >= 5:
-            known_spells += [
-                content["Spells"]["Aid"](),
-                content["Spells"]["Branding Smite"](),
-                content["Spells"]["Find Steed"](),
-                content["Spells"].get(
-                    "Gentle Repose", content["Spells"]["Bless"])(),
-                content["Spells"]["Lesser Restoration"](),
-                content["Spells"]["Locate Object"](),
-                content["Spells"]["Magic Weapon"](),
-                content["Spells"].get(
-                    "Prayer of Healing", content["Spells"]["Bless"])(),
-                content["Spells"]["Protection from Poison"](),
-                content["Spells"].get(
-                    "Warding Bond", content["Spells"]["Bless"])(),
-                content["Spells"]["Zone of Truth"](),
-            ]
-
-        if self._level >= 9:
-            known_spells += [
-                content["Spells"].get("Aura of Vitality",
-                                      content["Spells"]["Bless"])(),
-                content["Spells"].get(
-                    "Blinding Smite", content["Spells"]["Bless"])(),
-                content["Spells"]["Create Food and Water"](),
-                content["Spells"].get(
-                    "Crusader's Mantle", content["Spells"]["Bless"])(),
-                content["Spells"]["Daylight"](),
-                content["Spells"]["Dispel Magic"](),
-                content["Spells"].get("Elemental Weapon",
-                                      content["Spells"]["Bless"])(),
-                content["Spells"]["Magic Circle"](),
-                content["Spells"]["Remove Curse"](),
-                content["Spells"]["Revivify"](),
-                content["Spells"].get(
-                    "Spirit Shroud", content["Spells"]["Bless"])(),
-            ]
-
-        if self._level >= 13:
-            known_spells += [
-                content["Spells"].get(
-                    "Aura of Life", content["Spells"]["Bless"])(),
-                content["Spells"].get(
-                    "Aura of Purity", content["Spells"]["Bless"])(),
-                content["Spells"]["Banishment"](),
-                content["Spells"]["Death Ward"](),
-                content["Spells"].get(
-                    "Find Greater Steed", content["Spells"]["Bless"])(),
-                content["Spells"]["Locate Creature"](),
-                content["Spells"].get("Staggering Smite",
-                                      content["Spells"]["Bless"])(),
-            ]
-
-        if self._level >= 17:
-            known_spells += [
-                content["Spells"].get(
-                    "Banishing Smite", content["Spells"]["Bless"])(),
-                content["Spells"].get(
-                    "Circle of Power", content["Spells"]["Bless"])(),
-                content["Spells"].get("Destructive Wave",
-                                      content["Spells"]["Bless"])(),
-                content["Spells"]["Dispel Evil and Good"](),
-                content["Spells"]["Geas"](),
-                content["Spells"].get(
-                    "Holy Weapon", content["Spells"]["Bless"])(),
-                content["Spells"]["Raise Dead"](),
-                content["Spells"].get("Summon Celestial",
-                                      content["Spells"]["Bless"])(),
-            ]
-
-        return known_spells
+        return [spell() for spell in content["Spells"].values() if
+                spell().get_level() in range(0, math.ceil(self._level / 4) + 1) and
+                SpellLists.DIVINE in spell().get_spell_lists()]
 
     def get_spellcasting_class(self) -> str | None:
         return "Paladin"

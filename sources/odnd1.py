@@ -115,7 +115,7 @@ class Charlatan(backgrounds.Background):
                                      "stool in every tavern within ten miles of where you were born. As you traveled "
                                      "the circuit from public house to watering hole, you learned to prey on the "
                                      "unfortunates who were in the market for a comforting lie or two-perhaps a sham "
-                                     "potion or a forged “treasure map.” You are fluent in Infernal,the ancient "
+                                     "potion or a forged 'treasure map.' You are fluent in Infernal,the ancient "
                                      "language of deception.")
 
 
@@ -1011,9 +1011,8 @@ class HighElf(Elf):
                                          "you have of the appropriate level.\n"
                                          f"{ability.value} is your spellcasting ability for the Spells you cast with "
                                          "this trait.",
-                             feat_spells=[content["Spells"]["Prestidigitation"](),
-                                          content["Spells"]["Detect Magic"](),
-                                          content["Spells"]["Misty Step"]()],
+                             feat_spells=[content["Spells"]["Poison Spray"](),
+                                          content["Spells"]["Animal Friendship"]()],
                              spellcasting_ability=ability
                          ),
                          ability=ability)

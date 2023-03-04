@@ -67,7 +67,7 @@ def create(content: dict[str, dict[str, any]]) -> character.Character:
     )
 
     althaea.level_up(0, hit_roll=5, content=content)
-    althaea.level_up(0, hit_roll=5)
+    althaea.level_up(0, hit_roll=5, content=content)
     althaea.level_up(0, hit_roll=5, feat=content["Feats"]["Tough"]())
     althaea.level_up(0, hit_roll=5)
     althaea.level_up(0, hit_roll=2)

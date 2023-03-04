@@ -146,11 +146,11 @@ class HolyOrderScholar(feats.HolyOrder):
         if skill1 == skill2:
             raise Exception("Both skills must be unique")
 
-        super().__init__(name="Holy Order: Scholar",
+        super().__init__(name="*** Holy Order: Scholar",
                          description="Studying and teaching about lore of the gods and the multiverse, you gain "
                                      f"Proficiency in {skill1.value} and {skill2.value}. Whenever you make an Ability "
                                      "Check using either Skill, you gain a bonus to the check equal to your Wisdom "
-                                     "Modifier.",  # TODO
+                                     "Modifier.",  # TODO add modifier
                          feat_bonuses=bonuses.Bonuses(skills={skill1: ProficiencyLevels.PROFICIENT,
                                                               skill2: ProficiencyLevels.PROFICIENT}))
 
@@ -542,7 +542,7 @@ class Banishment(spells.Spell):
         super().__init__(name="Banishment",
                          spell_lists=[SpellLists.ARCANE, SpellLists.DIVINE],
                          level=4,
-                         school=SpellSchools.ABJURATION,
+                         school=SpellSchools.CONJURATION,
                          spell_range="30 feet",
                          verbal_components=True,
                          somatic_components=True,
@@ -616,7 +616,7 @@ class Resistance(spells.Spell):
     """
 
     def __init__(self):
-        super().__init__(name="Guidance",
+        super().__init__(name="Resistance",
                          spell_lists=[SpellLists.DIVINE, SpellLists.PRIMAL],
                          level=0,
                          school=SpellSchools.ABJURATION,
@@ -663,11 +663,10 @@ CONTENT = {
         "Life Cleric": LifeCleric,
     },
     "Feats": {
-        # TODO The rest of the feats
         "Ability Score Improvement": AbilityScoreImprovement,
-        # "Epic Boon of Fate": EpicBoonFate,
-        # "Epic Boon of Spell Recall": EpicBoonSpellRecall,
-        # "Epic Boon of Truesight": EpicBoonTruesight,
+        "Epic Boon of Fate": "OBSOLETE",
+        "Epic Boon of Spell Recall": "OBSOLETE",
+        "Epic Boon of Truesight": "OBSOLETE",
     },
     "Holy Orders": {
         "Holy Order: Protector": HolyOrderProtector,

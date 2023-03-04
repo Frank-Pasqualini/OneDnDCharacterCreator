@@ -1,0 +1,1 @@
+This folder was used to autogenerate spells, and it not currently used anywhere.

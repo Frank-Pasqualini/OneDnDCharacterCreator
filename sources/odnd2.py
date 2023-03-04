@@ -58,6 +58,9 @@ class LoreBard(classes.Bard):
     UA p. 7
     """
 
+    def __init__(self, **kwargs):
+        super().__init__(name="Lore Bard", **kwargs)
+
     def _level_up_3(self):
         self._features.append(feats.Feat(name="Bonus Proficiencies",
                                          description="You gain three Skill Proficiencies: Arcana, History, "
@@ -366,7 +369,7 @@ class FightingStyleArchery(feats.FightingStyle):
     """
 
     def __init__(self):
-        super().__init__(name="Fighting Style: Archery",
+        super().__init__(name="*** Fighting Style: Archery",
                          level=1,
                          prerequisite="Warrior Group",
                          description="You gain a +2 bonus to Attack Rolls you make with Ranged Weapons.",
@@ -380,7 +383,7 @@ class FightingStyleDefense(feats.FightingStyle):
     """
 
     def __init__(self):
-        super().__init__(name="Fighting Style: Defense",
+        super().__init__(name="*** Fighting Style: Defense",
                          level=1,
                          prerequisite="Warrior Group",
                          description="While you are wearing armor, you gain a +1 bonus to Armor Class.",
@@ -394,7 +397,7 @@ class FightingStyleDueling(feats.FightingStyle):
     """
 
     def __init__(self):
-        super().__init__(name="Fighting Style: Dueling",
+        super().__init__(name="*** Fighting Style: Dueling",
                          level=1,
                          prerequisite="Warrior Group",
                          description="When you are wielding a Melee Weapon in one hand and no other Weapons,you gain "
